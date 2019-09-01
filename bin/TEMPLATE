@@ -1,0 +1,40 @@
+/// The {name}.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct {ident};
+
+impl crate::License for {ident} {{
+    #[inline]
+    fn name(&self) -> &str {{
+        {name:?}
+    }}
+
+    #[inline]
+    fn id(&self) -> &str {{
+        {id:?}
+    }}
+
+    #[inline]
+    fn text(&self) -> &str {{
+        {text:?}
+    }}
+
+    #[inline]
+    fn header(&self) -> Option<&str> {{
+        {header:?}
+    }}
+
+    #[inline]
+    fn is_osi_approved(&self) -> bool {{
+        {osi:?}
+    }}
+
+    #[inline]
+    fn is_fsf_free(&self) -> bool {{
+        {fsf:?}
+    }}
+
+    #[inline]
+    fn is_deprecated(&self) -> bool {{
+        {deprecated:?}
+    }}
+}}

@@ -1,0 +1,10 @@
+[package]
+name = "bin"
+version = "0.1.0"
+authors = ["evenorog <evenorog@gmail.com>"]
+edition = "2018"
+publish = false
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
