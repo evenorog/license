@@ -7,10 +7,9 @@ use std::path::Path;
 #[serde(rename_all = "camelCase")]
 #[derive(Debug, Serialize, Deserialize)]
 struct License {
-    is_deprecated_license_id: bool,
-    license_text: String,
     name: String,
     license_id: String,
+    license_text: String,
     standard_license_header: Option<String>,
     #[serde(default)]
     see_also: Vec<String>,
@@ -18,6 +17,7 @@ struct License {
     is_osi_approved: bool,
     #[serde(default)]
     is_fsf_libre: bool,
+    is_deprecated_license_id: bool,
 }
 
 impl License {
@@ -70,6 +70,7 @@ fn main() -> Result<(), Box<dyn Error>> {
             osi = license.is_osi_approved,
             fsf = license.is_fsf_libre,
             deprecated = license.is_deprecated_license_id,
+            see_also = license.see_also,
         )?;
     }
     Ok(())

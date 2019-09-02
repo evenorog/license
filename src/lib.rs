@@ -1,6 +1,6 @@
 //! Provides license information from [spdx.org](https://spdx.org).
 
-#![doc(html_root_url = "https://docs.rs/license/0.7.2")]
+#![doc(html_root_url = "https://docs.rs/license/0.8.0")]
 #![deny(
     bad_style,
     bare_trait_objects,
@@ -47,4 +47,7 @@ pub trait License {
 
     /// Says if the license is deprecated.
     fn is_deprecated(&self) -> bool;
+
+    /// Relevant sources.
+    fn see_also(&self) -> &[&str];
 }

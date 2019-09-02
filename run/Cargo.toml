@@ -1,5 +1,5 @@
 [package]
-name = "bin"
+name = "run"
 version = "0.1.0"
 authors = ["evenorog <evenorog@gmail.com>"]
 edition = "2018"
