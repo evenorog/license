@@ -1,5 +1,3 @@
-![license](license.svg)
+# LICENSE
 
-Provides license information from [spdx.org].
-
-[spdx.org]: https://spdx.org
+Provides license information from [spdx.org](https://spdx.org).
