@@ -1,4 +1,7 @@
 //! Provides license information from [spdx.org](https://spdx.org).
+//!
+//! The license also extends certain licenses with information about their limitations, conditions, and permission.
+//! Additionally, it provides the ability to identify these extended licenses from their license text.
 
 #![doc(html_root_url = "https://docs.rs/license/0.8.0")]
 #![no_std]
@@ -449,9 +452,25 @@ impl Display for Limitations {
     }
 }
 
-/// Returns a license based on the license text.
+/// Returns an extension license based on the provided id.
 #[inline]
-pub fn text(text: &str) -> Option<&'static dyn LicenseExt> {
+pub fn from_id_ext(id: &str) -> Option<&'static dyn LicenseExt> {
+    match id {
+        "AGPL-3.0-only" => Some(&AGPL_3_0_only),
+        "Apache-2.0" => Some(&Apache_2_0),
+        "CC0-1.0" => Some(&CC0_1_0),
+        "GPL-3.0-only" => Some(&GPL_3_0_only),
+        "LGPL-3.0-only" => Some(&LGPL_3_0_only),
+        "MIT" => Some(&MIT),
+        "MPL-2.0" => Some(&MPL_2_0),
+        "Unlicense" => Some(&Unlicense),
+        _ => None,
+    }
+}
+
+/// Returns an extension license based on the provided text.
+#[inline]
+pub fn from_text_ext(text: &str) -> Option<&'static dyn LicenseExt> {
     let v2 = text.contains("Version 2.0");
     let v3 = text.contains("Version 3");
     if text.contains("MIT License") {
@@ -482,50 +501,50 @@ mod tests {
     use crate::*;
 
     #[test]
-    fn text_agpl3() {
-        let agpl3 = text(AGPL_3_0_only.text()).unwrap();
+    fn from_text_ext_agpl3() {
+        let agpl3 = from_text_ext(AGPL_3_0_only.text()).unwrap();
         assert_eq!(agpl3.text(), AGPL_3_0_only.text());
     }
 
     #[test]
-    fn text_apache2() {
-        let apache2 = text(Apache_2_0.text()).unwrap();
+    fn from_text_ext_apache2() {
+        let apache2 = from_text_ext(Apache_2_0.text()).unwrap();
         assert_eq!(apache2.text(), Apache_2_0.text());
     }
 
     #[test]
-    fn text_cc01() {
-        let cc01 = text(CC0_1_0.text()).unwrap();
+    fn from_text_ext_cc01() {
+        let cc01 = from_text_ext(CC0_1_0.text()).unwrap();
         assert_eq!(cc01.text(), CC0_1_0.text());
     }
 
     #[test]
-    fn text_gpl3() {
-        let gpl3 = text(GPL_3_0_only.text()).unwrap();
+    fn from_text_ext_gpl3() {
+        let gpl3 = from_text_ext(GPL_3_0_only.text()).unwrap();
         assert_eq!(gpl3.text(), GPL_3_0_only.text());
     }
 
     #[test]
-    fn text_lgpl3() {
-        let lgpl3 = text(LGPL_3_0_only.text()).unwrap();
+    fn from_text_ext_lgpl3() {
+        let lgpl3 = from_text_ext(LGPL_3_0_only.text()).unwrap();
         assert_eq!(lgpl3.text(), LGPL_3_0_only.text());
     }
 
     #[test]
-    fn text_mit() {
-        let mit = text(MIT.text()).unwrap();
+    fn from_text_ext_mit() {
+        let mit = from_text_ext(MIT.text()).unwrap();
         assert_eq!(mit.text(), MIT.text());
     }
 
     #[test]
-    fn text_mpl2() {
-        let mpl2 = text(MPL_2_0.text()).unwrap();
+    fn from_text_ext_mpl2() {
+        let mpl2 = from_text_ext(MPL_2_0.text()).unwrap();
         assert_eq!(mpl2.text(), MPL_2_0.text());
     }
 
     #[test]
-    fn text_unlicense() {
-        let unlicense = text(Unlicense.text()).unwrap();
+    fn from_text_ext_unlicense() {
+        let unlicense = from_text_ext(Unlicense.text()).unwrap();
         assert_eq!(unlicense.text(), Unlicense.text());
     }
 }

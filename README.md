@@ -1,6 +1,13 @@
-![license](license.svg)
+![license](https://raw.githubusercontent.com/evenorog/license/master/license.svg?sanitize=true)
+
+[![Travis](https://travis-ci.com/evenorog/license.svg?branch=master)](https://travis-ci.com/evenorog/license)
+[![Crates.io](https://img.shields.io/crates/v/license.svg)](https://crates.io/crates/license)
+[![Docs](https://docs.rs/license/badge.svg)](https://docs.rs/license)
 
 Provides license information from [spdx.org](https://spdx.org).
+
+The license also extends certain licenses with information about their limitations, conditions, and permission.
+Additionally, it provides the ability to identify these extended licenses from their license text.
 
 ### License
 
