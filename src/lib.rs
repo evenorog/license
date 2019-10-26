@@ -1,6 +1,6 @@
 //! Provides license information from [spdx.org](https://spdx.org).
 //!
-//! The license also extends certain licenses with information about their limitations, conditions, and permission.
+//! The library also extends certain licenses with information about their limitations, conditions, and permission.
 //! Additionally, it provides the ability to identify these extended licenses from their license text.
 
 #![doc(html_root_url = "https://docs.rs/license/0.8.0")]

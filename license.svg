@@ -2,11 +2,11 @@
     <defs>
         <linearGradient id="fill" x1="0%" y1="100%" x2="0%" y2="0%">
             <stop offset="0%" style="stop-color:#3fc6a7;" />
-            <stop offset="100%" style="stop-color:#3cbea0;" />
+            <stop offset="100%" style="stop-color:#36b195;" />
         </linearGradient>
         <linearGradient id="stroke" x1="0%" y1="100%" x2="0%" y2="0%">
             <stop offset="0%" style="stop-color:#39b599;" />
-            <stop offset="100%" style="stop-color:#34a88e;" />
+            <stop offset="100%" style="stop-color:#36b195;" />
         </linearGradient>
     </defs>
     <text fill="url(#fill)" dominant-baseline="text-before-edge" font-size="90" font-family="Noto Sans" style="stroke: url(#stroke);">
