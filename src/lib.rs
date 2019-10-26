@@ -43,7 +43,7 @@ pub trait License {
     /// Says if the license is FSF Free.
     ///
     /// Corresponds to the *FSF Free/Libre?* column from [spdx.org/licenses](https://spdx.org/licenses/).
-    fn is_fsf_free(&self) -> bool;
+    fn is_fsf_libre(&self) -> bool;
 
     /// Says if the license is deprecated.
     fn is_deprecated(&self) -> bool;

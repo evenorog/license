@@ -29,7 +29,7 @@ impl crate::License for {ident} {{
     }}
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {{
+    fn is_fsf_libre(&self) -> bool {{
         {fsf:?}
     }}
 

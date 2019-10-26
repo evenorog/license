@@ -243,6 +243,7 @@ pub fn id(id: &str) -> Option<Box<dyn crate::License>> {
         "MakeIndex" => Some(Box::new(MakeIndex)),
         "MirOS" => Some(Box::new(MirOS)),
         "Motosoto" => Some(Box::new(Motosoto)),
+        "MulanPSL-1.0" => Some(Box::new(MulanPSL_1_0)),
         "Multics" => Some(Box::new(Multics)),
         "Mup" => Some(Box::new(Mup)),
         "NASA-1.3" => Some(Box::new(NASA_1_3)),
@@ -270,6 +271,7 @@ pub fn id(id: &str) -> Option<Box<dyn crate::License>> {
         "ODbL-1.0" => Some(Box::new(ODbL_1_0)),
         "OFL-1.0" => Some(Box::new(OFL_1_0)),
         "OFL-1.1" => Some(Box::new(OFL_1_1)),
+        "OGL-Canada-2.0" => Some(Box::new(OGL_Canada_2_0)),
         "OGL-UK-1.0" => Some(Box::new(OGL_UK_1_0)),
         "OGL-UK-2.0" => Some(Box::new(OGL_UK_2_0)),
         "OGL-UK-3.0" => Some(Box::new(OGL_UK_3_0)),
@@ -329,6 +331,8 @@ pub fn id(id: &str) -> Option<Box<dyn crate::License>> {
         "SMPPL" => Some(Box::new(SMPPL)),
         "SNIA" => Some(Box::new(SNIA)),
         "SPL-1.0" => Some(Box::new(SPL_1_0)),
+        "SSH-OpenSSH" => Some(Box::new(SSH_OpenSSH)),
+        "SSH-short" => Some(Box::new(SSH_short)),
         "SSPL-1.0" => Some(Box::new(SSPL_1_0)),
         "SWL" => Some(Box::new(SWL)),
         "Saxpath" => Some(Box::new(Saxpath)),
@@ -349,6 +353,7 @@ pub fn id(id: &str) -> Option<Box<dyn crate::License>> {
         "TOSL" => Some(Box::new(TOSL)),
         "TU-Berlin-1.0" => Some(Box::new(TU_Berlin_1_0)),
         "TU-Berlin-2.0" => Some(Box::new(TU_Berlin_2_0)),
+        "UCL-1.0" => Some(Box::new(UCL_1_0)),
         "UPL-1.0" => Some(Box::new(UPL_1_0)),
         "Unicode-DFS-2015" => Some(Box::new(Unicode_DFS_2015)),
         "Unicode-DFS-2016" => Some(Box::new(Unicode_DFS_2016)),
@@ -388,6 +393,7 @@ pub fn id(id: &str) -> Option<Box<dyn crate::License>> {
         "dvipdfm" => Some(Box::new(dvipdfm)),
         "eCos-2.0" => Some(Box::new(eCos_2_0)),
         "eGenix" => Some(Box::new(eGenix)),
+        "etalab-2.0" => Some(Box::new(etalab_2_0)),
         "gSOAP-1.3b" => Some(Box::new(gSOAP_1_3b)),
         "gnuplot" => Some(Box::new(gnuplot)),
         "iMatix" => Some(Box::new(iMatix)),
@@ -403,6 +409,7 @@ pub fn id(id: &str) -> Option<Box<dyn crate::License>> {
         _ => None,
     }
 }
+
 /// The BSD Zero Clause License.
 #[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
 pub struct BSD_0;
@@ -434,7 +441,7 @@ impl crate::License for BSD_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -480,7 +487,7 @@ impl crate::License for AAL {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -512,7 +519,7 @@ impl crate::License for ADSL {
 
     #[inline]
     fn text(&self) -> &'static str {
-        "This software code is made available \"AS IS\" without warranties of any kind. You may copy, display, modify and redistribute the software code either by itself or as incorporated into your code; provided that > you do not remove any proprietary notices. Your use of this software code is at your own risk and you waive any claim against Amazon Digital Services, Inc. or its affiliates with respect to your use of this software code. (c) 2006 Amazon Digital Services, Inc. or its affiliates."
+        "This software code is made available \"AS IS\" without warranties of any kind. You may copy, display, modify and redistribute the software code either by itself or as incorporated into your code; provided that you do not remove any proprietary notices. Your use of this software code is at your own risk and you waive any claim against Amazon Digital Services, Inc. or its affiliates with respect to your use of this software code. (c) 2006 Amazon Digital Services, Inc. or its affiliates."
     }
 
     #[inline]
@@ -526,7 +533,7 @@ impl crate::License for ADSL {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -572,7 +579,7 @@ impl crate::License for AFL_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -618,7 +625,7 @@ impl crate::License for AFL_1_2 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -664,7 +671,7 @@ impl crate::License for AFL_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -710,7 +717,7 @@ impl crate::License for AFL_2_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -756,7 +763,7 @@ impl crate::License for AFL_3_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -802,7 +809,7 @@ impl crate::License for AGPL_1_0_only {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -848,7 +855,7 @@ impl crate::License for AGPL_1_0_or_later {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -894,7 +901,7 @@ impl crate::License for AGPL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -940,7 +947,7 @@ impl crate::License for AGPL_3_0_only {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -986,7 +993,7 @@ impl crate::License for AGPL_3_0_or_later {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -1032,7 +1039,7 @@ impl crate::License for AGPL_3_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -1078,7 +1085,7 @@ impl crate::License for AMDPLPA {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -1124,7 +1131,7 @@ impl crate::License for AML {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -1170,7 +1177,7 @@ impl crate::License for AMPAS {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -1216,7 +1223,7 @@ impl crate::License for ANTLR_PD {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -1262,7 +1269,7 @@ impl crate::License for APAFML {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -1308,7 +1315,7 @@ impl crate::License for APL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -1354,7 +1361,7 @@ impl crate::License for APSL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -1400,7 +1407,7 @@ impl crate::License for APSL_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -1446,7 +1453,7 @@ impl crate::License for APSL_1_2 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -1492,7 +1499,7 @@ impl crate::License for APSL_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -1538,7 +1545,7 @@ impl crate::License for Abstyles {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -1584,7 +1591,7 @@ impl crate::License for Adobe_2006 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -1630,7 +1637,7 @@ impl crate::License for Adobe_Glyph {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -1676,7 +1683,7 @@ impl crate::License for Afmparse {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -1722,7 +1729,7 @@ impl crate::License for Aladdin {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -1768,7 +1775,7 @@ impl crate::License for Apache_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -1814,7 +1821,7 @@ impl crate::License for Apache_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -1860,7 +1867,7 @@ impl crate::License for Apache_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -1906,7 +1913,7 @@ impl crate::License for Artistic_1_0_Perl {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -1952,7 +1959,7 @@ impl crate::License for Artistic_1_0_cl8 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -1998,7 +2005,7 @@ impl crate::License for Artistic_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -2044,7 +2051,7 @@ impl crate::License for Artistic_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -2090,7 +2097,7 @@ impl crate::License for BSD_1_Clause {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -2136,7 +2143,7 @@ impl crate::License for BSD_2_Clause_FreeBSD {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -2182,7 +2189,7 @@ impl crate::License for BSD_2_Clause_NetBSD {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -2228,7 +2235,7 @@ impl crate::License for BSD_2_Clause_Patent {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -2274,7 +2281,7 @@ impl crate::License for BSD_2_Clause {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -2320,7 +2327,7 @@ impl crate::License for BSD_3_Clause_Attribution {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -2366,7 +2373,7 @@ impl crate::License for BSD_3_Clause_Clear {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -2412,7 +2419,7 @@ impl crate::License for BSD_3_Clause_LBNL {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -2458,7 +2465,7 @@ impl crate::License for BSD_3_Clause_No_Nuclear_License_2014 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -2504,7 +2511,7 @@ impl crate::License for BSD_3_Clause_No_Nuclear_License {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -2550,7 +2557,7 @@ impl crate::License for BSD_3_Clause_No_Nuclear_Warranty {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -2596,7 +2603,7 @@ impl crate::License for BSD_3_Clause_Open_MPI {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -2642,7 +2649,7 @@ impl crate::License for BSD_3_Clause {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -2688,7 +2695,7 @@ impl crate::License for BSD_4_Clause_UC {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -2734,7 +2741,7 @@ impl crate::License for BSD_4_Clause {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -2780,7 +2787,7 @@ impl crate::License for BSD_Protection {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -2826,7 +2833,7 @@ impl crate::License for BSD_Source_Code {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -2872,7 +2879,7 @@ impl crate::License for BSL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -2918,7 +2925,7 @@ impl crate::License for Bahyph {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -2964,7 +2971,7 @@ impl crate::License for Barr {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -3010,7 +3017,7 @@ impl crate::License for Beerware {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -3056,7 +3063,7 @@ impl crate::License for BitTorrent_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -3102,7 +3109,7 @@ impl crate::License for BitTorrent_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -3148,7 +3155,7 @@ impl crate::License for BlueOak_1_0_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -3194,7 +3201,7 @@ impl crate::License for Borceux {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -3240,7 +3247,7 @@ impl crate::License for CATOSL_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -3286,7 +3293,7 @@ impl crate::License for CC_BY_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -3332,7 +3339,7 @@ impl crate::License for CC_BY_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -3378,7 +3385,7 @@ impl crate::License for CC_BY_2_5 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -3424,7 +3431,7 @@ impl crate::License for CC_BY_3_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -3470,7 +3477,7 @@ impl crate::License for CC_BY_4_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -3516,7 +3523,7 @@ impl crate::License for CC_BY_NC_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -3562,7 +3569,7 @@ impl crate::License for CC_BY_NC_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -3608,7 +3615,7 @@ impl crate::License for CC_BY_NC_2_5 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -3654,7 +3661,7 @@ impl crate::License for CC_BY_NC_3_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -3700,7 +3707,7 @@ impl crate::License for CC_BY_NC_4_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -3746,7 +3753,7 @@ impl crate::License for CC_BY_NC_ND_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -3792,7 +3799,7 @@ impl crate::License for CC_BY_NC_ND_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -3838,7 +3845,7 @@ impl crate::License for CC_BY_NC_ND_2_5 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -3884,7 +3891,7 @@ impl crate::License for CC_BY_NC_ND_3_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -3930,7 +3937,7 @@ impl crate::License for CC_BY_NC_ND_4_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -3976,7 +3983,7 @@ impl crate::License for CC_BY_NC_SA_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -4022,7 +4029,7 @@ impl crate::License for CC_BY_NC_SA_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -4068,7 +4075,7 @@ impl crate::License for CC_BY_NC_SA_2_5 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -4114,7 +4121,7 @@ impl crate::License for CC_BY_NC_SA_3_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -4160,7 +4167,7 @@ impl crate::License for CC_BY_NC_SA_4_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -4206,7 +4213,7 @@ impl crate::License for CC_BY_ND_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -4252,7 +4259,7 @@ impl crate::License for CC_BY_ND_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -4298,7 +4305,7 @@ impl crate::License for CC_BY_ND_2_5 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -4344,7 +4351,7 @@ impl crate::License for CC_BY_ND_3_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -4390,7 +4397,7 @@ impl crate::License for CC_BY_ND_4_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -4436,7 +4443,7 @@ impl crate::License for CC_BY_SA_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -4482,7 +4489,7 @@ impl crate::License for CC_BY_SA_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -4528,7 +4535,7 @@ impl crate::License for CC_BY_SA_2_5 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -4574,7 +4581,7 @@ impl crate::License for CC_BY_SA_3_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -4620,7 +4627,7 @@ impl crate::License for CC_BY_SA_4_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -4666,7 +4673,7 @@ impl crate::License for CC_PDDC {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -4712,7 +4719,7 @@ impl crate::License for CC0_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -4758,7 +4765,7 @@ impl crate::License for CDDL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -4804,7 +4811,7 @@ impl crate::License for CDDL_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -4850,7 +4857,7 @@ impl crate::License for CDLA_Permissive_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -4896,7 +4903,7 @@ impl crate::License for CDLA_Sharing_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -4942,7 +4949,7 @@ impl crate::License for CECILL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -4988,7 +4995,7 @@ impl crate::License for CECILL_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -5034,7 +5041,7 @@ impl crate::License for CECILL_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -5080,7 +5087,7 @@ impl crate::License for CECILL_2_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -5126,7 +5133,7 @@ impl crate::License for CECILL_B {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -5172,7 +5179,7 @@ impl crate::License for CECILL_C {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -5187,14 +5194,14 @@ impl crate::License for CECILL_C {
     }
 }
 
-/// The CERN Open Hardware License v1.1.
+/// The CERN Open Hardware Licence v1.1.
 #[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
 pub struct CERN_OHL_1_1;
 
 impl crate::License for CERN_OHL_1_1 {
     #[inline]
     fn name(&self) -> &'static str {
-        "CERN Open Hardware License v1.1"
+        "CERN Open Hardware Licence v1.1"
     }
 
     #[inline]
@@ -5218,7 +5225,7 @@ impl crate::License for CERN_OHL_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -5264,7 +5271,7 @@ impl crate::License for CERN_OHL_1_2 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -5310,7 +5317,7 @@ impl crate::License for CNRI_Jython {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -5356,7 +5363,7 @@ impl crate::License for CNRI_Python_GPL_Compatible {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -5402,7 +5409,7 @@ impl crate::License for CNRI_Python {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -5448,7 +5455,7 @@ impl crate::License for CPAL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -5494,7 +5501,7 @@ impl crate::License for CPL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -5540,7 +5547,7 @@ impl crate::License for CPOL_1_02 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -5586,7 +5593,7 @@ impl crate::License for CUA_OPL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -5632,7 +5639,7 @@ impl crate::License for Caldera {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -5678,7 +5685,7 @@ impl crate::License for ClArtistic {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -5724,7 +5731,7 @@ impl crate::License for Condor_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -5770,7 +5777,7 @@ impl crate::License for Crossword {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -5816,7 +5823,7 @@ impl crate::License for CrystalStacker {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -5862,7 +5869,7 @@ impl crate::License for Cube {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -5908,7 +5915,7 @@ impl crate::License for D_FSL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -5954,7 +5961,7 @@ impl crate::License for DOC {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -6000,7 +6007,7 @@ impl crate::License for DSDP {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -6046,7 +6053,7 @@ impl crate::License for Dotseqn {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -6092,7 +6099,7 @@ impl crate::License for ECL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -6138,7 +6145,7 @@ impl crate::License for ECL_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -6184,7 +6191,7 @@ impl crate::License for EFL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -6230,7 +6237,7 @@ impl crate::License for EFL_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -6276,7 +6283,7 @@ impl crate::License for EPL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -6322,7 +6329,7 @@ impl crate::License for EPL_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -6368,7 +6375,7 @@ impl crate::License for EUDatagrid {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -6414,7 +6421,7 @@ impl crate::License for EUPL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -6460,7 +6467,7 @@ impl crate::License for EUPL_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -6506,7 +6513,7 @@ impl crate::License for EUPL_1_2 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -6552,7 +6559,7 @@ impl crate::License for Entessa {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -6598,7 +6605,7 @@ impl crate::License for ErlPL_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -6644,7 +6651,7 @@ impl crate::License for Eurosym {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -6690,7 +6697,7 @@ impl crate::License for FSFAP {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -6736,7 +6743,7 @@ impl crate::License for FSFUL {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -6782,7 +6789,7 @@ impl crate::License for FSFULLR {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -6828,7 +6835,7 @@ impl crate::License for FTL {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -6874,7 +6881,7 @@ impl crate::License for Fair {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -6920,7 +6927,7 @@ impl crate::License for Frameworx_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -6966,7 +6973,7 @@ impl crate::License for FreeImage {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -7012,7 +7019,7 @@ impl crate::License for GFDL_1_1_only {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -7058,7 +7065,7 @@ impl crate::License for GFDL_1_1_or_later {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -7104,7 +7111,7 @@ impl crate::License for GFDL_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -7150,7 +7157,7 @@ impl crate::License for GFDL_1_2_only {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -7196,7 +7203,7 @@ impl crate::License for GFDL_1_2_or_later {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -7242,7 +7249,7 @@ impl crate::License for GFDL_1_2 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -7288,7 +7295,7 @@ impl crate::License for GFDL_1_3_only {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -7334,7 +7341,7 @@ impl crate::License for GFDL_1_3_or_later {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -7380,7 +7387,7 @@ impl crate::License for GFDL_1_3 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -7426,7 +7433,7 @@ impl crate::License for GL2PS {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -7472,7 +7479,7 @@ impl crate::License for GPL_1_0_plus {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -7518,7 +7525,7 @@ impl crate::License for GPL_1_0_only {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -7564,7 +7571,7 @@ impl crate::License for GPL_1_0_or_later {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -7610,7 +7617,7 @@ impl crate::License for GPL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -7656,7 +7663,7 @@ impl crate::License for GPL_2_0_plus {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -7702,7 +7709,7 @@ impl crate::License for GPL_2_0_only {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -7748,7 +7755,7 @@ impl crate::License for GPL_2_0_or_later {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -7794,7 +7801,7 @@ impl crate::License for GPL_2_0_with_GCC_exception {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -7840,7 +7847,7 @@ impl crate::License for GPL_2_0_with_autoconf_exception {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -7886,7 +7893,7 @@ impl crate::License for GPL_2_0_with_bison_exception {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -7932,7 +7939,7 @@ impl crate::License for GPL_2_0_with_classpath_exception {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -7978,7 +7985,7 @@ impl crate::License for GPL_2_0_with_font_exception {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -8024,7 +8031,7 @@ impl crate::License for GPL_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -8070,7 +8077,7 @@ impl crate::License for GPL_3_0_plus {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -8116,7 +8123,7 @@ impl crate::License for GPL_3_0_only {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -8162,7 +8169,7 @@ impl crate::License for GPL_3_0_or_later {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -8208,7 +8215,7 @@ impl crate::License for GPL_3_0_with_GCC_exception {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -8254,7 +8261,7 @@ impl crate::License for GPL_3_0_with_autoconf_exception {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -8300,7 +8307,7 @@ impl crate::License for GPL_3_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -8346,7 +8353,7 @@ impl crate::License for Giftware {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -8392,7 +8399,7 @@ impl crate::License for Glide {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -8438,7 +8445,7 @@ impl crate::License for Glulxe {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -8484,7 +8491,7 @@ impl crate::License for HPND_sell_variant {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -8530,7 +8537,7 @@ impl crate::License for HPND {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -8576,7 +8583,7 @@ impl crate::License for HaskellReport {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -8622,7 +8629,7 @@ impl crate::License for IBM_pibs {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -8668,7 +8675,7 @@ impl crate::License for ICU {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -8714,7 +8721,7 @@ impl crate::License for IJG {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -8760,7 +8767,7 @@ impl crate::License for IPA {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -8806,7 +8813,7 @@ impl crate::License for IPL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -8852,7 +8859,7 @@ impl crate::License for ISC {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -8898,7 +8905,7 @@ impl crate::License for ImageMagick {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -8944,7 +8951,7 @@ impl crate::License for Imlib2 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -8990,7 +8997,7 @@ impl crate::License for Info_ZIP {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -9036,7 +9043,7 @@ impl crate::License for Intel_ACPI {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -9082,7 +9089,7 @@ impl crate::License for Intel {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -9128,7 +9135,7 @@ impl crate::License for Interbase_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -9174,7 +9181,7 @@ impl crate::License for JPNIC {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -9220,7 +9227,7 @@ impl crate::License for JSON {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -9266,7 +9273,7 @@ impl crate::License for JasPer_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -9312,7 +9319,7 @@ impl crate::License for LAL_1_2 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -9344,7 +9351,7 @@ impl crate::License for LAL_1_3 {
 
     #[inline]
     fn text(&self) -> &'static str {
-        "Licence Art Libre 1.3 (LAL 1.3)\n\nPréambule :\n\nAvec la Licence Art Libre, l\'autorisation est donnée de copier, de diffuser et de transformer librement les œuvres dans le respect des droits de l\'auteur.\n\nLoin d\'ignorer ces droits, la Licence Art Libre les reconnaît et les protège. Elle en reformule l\'exercice en permettant à tout un chacun de faire un usage créatif des productions de l\'esprit quels que soient leur genre et leur forme d\'expression.\n\nSi, en règle générale, l\'application du droit d\'auteur conduit à restreindre l\'accès aux œuvres de l\'esprit, la Licence Art Libre, au contraire, le favorise. L\'intention est d\'autoriser l\'utilisation des ressources d\'une œuvre ; créer de nouvelles conditions de création pour amplifier les possibilités de création. La Licence Art Libre permet d\'avoir jouissance des œuvres tout en reconnaissant les droits et les responsabilités de chacun.\n\nAvec le développement du numérique, l\'invention d\'internet et des logiciels libres, les modalités de création ont évolué : les productions de l\'esprit s\'offrent naturellement à la circulation, à l\'échange et aux transformations. Elles se prêtent favorablement à la réalisation d\'œuvres communes que chacun peut augmenter pour l\'avantage de tous.\n\nC\'est la raison essentielle de la Licence Art Libre : promouvoir et protéger ces productions de l\'esprit selon les principes du copyleft : liberté d\'usage, de copie, de diffusion, de transformation et interdiction d\'appropriation exclusive.\n\nDéfinitions :\n\nNous désignons par « œuvre », autant l\'œuvre initiale, les œuvres conséquentes, que l\'œuvre commune telles que définies ci-après :\n\nL\'œuvre commune : Il s\'agit d\'une œuvre qui comprend l\'œuvre initiale ainsi que toutes les contributions postérieures (les originaux conséquents et les copies). Elle est créée à l\'initiative de l\'auteur initial qui par cette licence définit les conditions selon lesquelles les contributions sont faites.\n\nL\'œuvre initiale : C\'est-à-dire l\'œuvre créée par l\'initiateur de l\'œuvre commune dont les copies vont être modifiées par qui le souhaite.\n\nLes œuvres conséquentes : C\'est-à-dire les contributions des auteurs qui participent à la formation de l\'œuvre commune en faisant usage des droits de reproduction, de diffusion et de modification que leur confère la licence.\n\nOriginaux (sources ou ressources de l\'œuvre) : Chaque exemplaire daté de l\'œuvre initiale ou conséquente que leurs auteurs présentent comme référence pour toutes actualisations, interprétations, copies ou reproductions ultérieures.\n\nCopie : Toute reproduction d\'un original au sens de cette licence.\n\n   1- OBJET.\n\n   Cette licence a pour objet de définir les conditions selon lesquelles vous pouvez jouir librement de l\'œuvre.\n\n   2. L\'ÉTENDUE DE LA JOUISSANCE.\n\n   Cette œuvre est soumise au droit d\'auteur, et l\'auteur par cette licence vous indique quelles sont vos libertés pour la copier, la diffuser et la modifier.\n\n      2.1 LA LIBERTÉ DE COPIER (OU DE REPRODUCTION).\n\n      Vous avez la liberté de copier cette œuvre pour vous, vos amis ou toute autre personne, quelle que soit la technique employée.\n\n      2.2 LA LIBERTÉ DE DIFFUSER (INTERPRÉTER, REPRÉSENTER, DISTRIBUER).\n\n      Vous pouvez diffuser librement les copies de ces œuvres, modifiées ou non, quel que soit le support, quel que soit le lieu, à titre onéreux ou gratuit, si vous respectez toutes les conditions suivantes :\n\n         1. joindre aux copies cette licence à l\'identique ou indiquer précisément où se trouve la licence ;\n\n         2. indiquer au destinataire le nom de chaque auteur des originaux, y compris le vôtre si vous avez modifié l\'œuvre ;\n\n         3. indiquer au destinataire où il pourrait avoir accès aux originaux (initiaux et/ou conséquents).\n\n      Les auteurs des originaux pourront, s\'ils le souhaitent, vous autoriser à diffuser l\'original dans les mêmes conditions que les copies.\n\n      2.3 LA LIBERTÉ DE MODIFIER.\n\n      Vous avez la liberté de modifier les copies des originaux (initiaux et conséquents) dans le respect des conditions suivantes :\n\n         1. celles prévues à l\'article 2.2 en cas de diffusion de la copie modifiée ;\n\n         2. indiquer qu\'il s\'agit d\'une œuvre modifiée et, si possible, la nature de la modification ;\n\n         3. diffuser cette œuvre conséquente avec la même licence ou avec toute licence compatible ;\n\n         4. Les auteurs des originaux pourront, s\'ils le souhaitent, vous autoriser à modifier l\'original dans les mêmes conditions que les copies.\n\n   3. DROITS CONNEXES.\n\n   Les actes donnant lieu à des droits d\'auteur ou des droits voisins ne doivent pas constituer un obstacle aux libertés conférées par cette licence. C\'est pourquoi, par exemple, les interprétations doivent être soumises à la même licence ou une licence compatible. De même, l\'intégration de l\'œuvre à une base de données, une compilation ou une anthologie ne doit pas faire obstacle à la jouissance de l\'œuvre telle que définie par cette licence.\n\n   4. L\' INTÉGRATION DE L\'ŒUVRE.\n\n   Toute intégration de cette œuvre à un ensemble non soumis à la LAL doit assurer l\'exercice des libertés conférées par cette licence.\n\n   Si l\'œuvre n\'est plus accessible indépendamment de l\'ensemble, alors l\'intégration n\'est possible qu\'à condition que l\'ensemble soit soumis à la LAL ou une licence compatible.\n\n   5. CRITÈRES DE COMPATIBILITÉ.\n\n   Une licence est compatible avec la LAL si et seulement si :\n\n      1. elle accorde l\'autorisation de copier, diffuser et modifier des copies de l\'œuvre, y compris à des fins lucratives, et sans autres restrictions que celles qu\'impose le respect des autres critères de compatibilité ;\n\n      2. elle garantit la paternité de l\'œuvre et l\'accès aux versions antérieures de l\'œuvre quand cet accès est possible ;\n\n      3. elle reconnaît la LAL également compatible (réciprocité) ;\n\n      4. elle impose que les modifications faites sur l\'œuvre soient soumises à la même licence ou encore à une licence répondant aux critères de compatibilité posés par la LAL.\n\n   6. VOS DROITS INTELLECTUELS.\n\n   La LAL n\'a pas pour objet de nier vos droits d\'auteur sur votre contribution ni vos droits connexes. En choisissant de contribuer à l\'évolution de cette œuvre commune, vous acceptez seulement d\'offrir aux autres les mêmes autorisations sur votre contribution que celles qui vous ont été accordées par cette licence. Ces autorisations n\'entraînent pas un dessaisissement de vos droits intellectuels.\n\n   7. VOS RESPONSABILITÉS.\n\n   La liberté de jouir de l\'œuvre tel que permis par la LAL (liberté de copier, diffuser, modifier) implique pour chacun la responsabilité de ses propres faits.\n\n   8. LA DURÉE DE LA LICENCE.\n\n   Cette licence prend effet dès votre acceptation de ses dispositions. Le fait de copier, de diffuser, ou de modifier l\'œuvre constitue une acceptation tacite.\n\n   Cette licence a pour durée la durée des droits d\'auteur attachés à l\'œuvre. Si vous ne respectez pas les termes de cette licence, vous perdez automatiquement les droits qu\'elle vous confère.\n\n   Si le régime juridique auquel vous êtes soumis ne vous permet pas de respecter les termes de cette licence, vous ne pouvez pas vous prévaloir des libertés qu\'elle confère.\n\n   9. LES DIFFÉRENTES VERSIONS DE LA LICENCE.\n\n   Cette licence pourra être modifiée régulièrement, en vue de son amélioration, par ses auteurs (les acteurs du mouvement Copyleft Attitude) sous la forme de nouvelles versions numérotées.\n\n   Vous avez toujours le choix entre vous contenter des dispositions contenues dans la version de la LAL sous laquelle la copie vous a été communiquée ou alors, vous prévaloir des dispositions d\'une des versions ultérieures.\n\n   10. LES SOUS-LICENCES.\n\n   Les sous-licences ne sont pas autorisées par la présente. Toute personne qui souhaite bénéficier des libertés qu\'elle confère sera liée directement aux auteurs de l\'œuvre commune.\n\n   11. LE CONTEXTE JURIDIQUE.\n\n   Cette licence est rédigée en référence au droit français et à la Convention de Berne relative au droit d\'auteur."
+        "Licence Art Libre 1.3 (LAL 1.3)\n\nPréambule\u{a0}:\n\nAvec la Licence Art Libre, l\'autorisation est donnée de copier, de diffuser et de transformer librement les œuvres dans le respect des droits de l\'auteur.\n\nLoin d\'ignorer ces droits, la Licence Art Libre les reconnaît et les protège. Elle en reformule l\'exercice en permettant à tout un chacun de faire un usage créatif des productions de l\'esprit quels que soient leur genre et leur forme d\'expression.\n\nSi, en règle générale, l\'application du droit d\'auteur conduit à restreindre l\'accès aux œuvres de l\'esprit, la Licence Art Libre, au contraire, le favorise. L\'intention est d\'autoriser l\'utilisation des ressources d\'une œuvre\u{a0}; créer de nouvelles conditions de création pour amplifier les possibilités de création. La Licence Art Libre permet d\'avoir jouissance des œuvres tout en reconnaissant les droits et les responsabilités de chacun.\n\nAvec le développement du numérique, l\'invention d\'internet et des logiciels libres, les modalités de création ont évolué\u{a0}: les productions de l\'esprit s\'offrent naturellement à la circulation, à l\'échange et aux transformations. Elles se prêtent favorablement à la réalisation d\'œuvres communes que chacun peut augmenter pour l\'avantage de tous.\n\nC\'est la raison essentielle de la Licence Art Libre\u{a0}: promouvoir et protéger ces productions de l\'esprit selon les principes du copyleft\u{a0}: liberté d\'usage, de copie, de diffusion, de transformation et interdiction d\'appropriation exclusive.\n\nDéfinitions\u{a0}:\n\nNous désignons par «\u{a0}œuvre\u{a0}», autant l\'œuvre initiale, les œuvres conséquentes, que l\'œuvre commune telles que définies ci-après\u{a0}:\n\nL\'œuvre commune\u{a0}: Il s\'agit d\'une œuvre qui comprend l\'œuvre initiale ainsi que toutes les contributions postérieures (les originaux conséquents et les copies). Elle est créée à l\'initiative de l\'auteur initial qui par cette licence définit les conditions selon lesquelles les contributions sont faites.\n\nL\'œuvre initiale\u{a0}: C\'est-à-dire l\'œuvre créée par l\'initiateur de l\'œuvre commune dont les copies vont être modifiées par qui le souhaite.\n\nLes œuvres conséquentes\u{a0}: C\'est-à-dire les contributions des auteurs qui participent à la formation de l\'œuvre commune en faisant usage des droits de reproduction, de diffusion et de modification que leur confère la licence.\n\nOriginaux (sources ou ressources de l\'œuvre)\u{a0}: Chaque exemplaire daté de l\'œuvre initiale ou conséquente que leurs auteurs présentent comme référence pour toutes actualisations, interprétations, copies ou reproductions ultérieures.\n\nCopie\u{a0}: Toute reproduction d\'un original au sens de cette licence.\n\n   1- OBJET.\n\n   Cette licence a pour objet de définir les conditions selon lesquelles vous pouvez jouir librement de l\'œuvre.\n\n   2. L\'ÉTENDUE DE LA JOUISSANCE.\n\n   Cette œuvre est soumise au droit d\'auteur, et l\'auteur par cette licence vous indique quelles sont vos libertés pour la copier, la diffuser et la modifier.\n\n      2.1 LA LIBERTÉ DE COPIER (OU DE REPRODUCTION).\n\n      Vous avez la liberté de copier cette œuvre pour vous, vos amis ou toute autre personne, quelle que soit la technique employée.\n\n      2.2 LA LIBERTÉ DE DIFFUSER (INTERPRÉTER, REPRÉSENTER, DISTRIBUER).\n\n      Vous pouvez diffuser librement les copies de ces œuvres, modifiées ou non, quel que soit le support, quel que soit le lieu, à titre onéreux ou gratuit, si vous respectez toutes les conditions suivantes\u{a0}:\n\n         1. joindre aux copies cette licence à l\'identique ou indiquer précisément où se trouve la licence\u{a0};\n\n         2. indiquer au destinataire le nom de chaque auteur des originaux, y compris le vôtre si vous avez modifié l\'œuvre\u{a0};\n\n         3. indiquer au destinataire où il pourrait avoir accès aux originaux (initiaux et/ou conséquents). Les auteurs des originaux pourront, s\'ils le souhaitent, vous autoriser à diffuser l\'original dans les mêmes conditions que les copies.\n\n      2.3 LA LIBERTÉ DE MODIFIER.\n\n      Vous avez la liberté de modifier les copies des originaux (initiaux et conséquents) dans le respect des conditions suivantes\u{a0}:\n\n         1. celles prévues à l\'article 2.2 en cas de diffusion de la copie modifiée\u{a0};\n\n         2. indiquer qu\'il s\'agit d\'une œuvre modifiée et, si possible, la nature de la modification\u{a0};\n\n         3. diffuser cette œuvre conséquente avec la même licence ou avec toute licence compatible\u{a0};\n\n         4. Les auteurs des originaux pourront, s\'ils le souhaitent, vous autoriser à modifier l\'original dans les mêmes conditions que les copies.\n\n   3. DROITS CONNEXES.\n\n   Les actes donnant lieu à des droits d\'auteur ou des droits voisins ne doivent pas constituer un obstacle aux libertés conférées par cette licence.\n\n   C\'est pourquoi, par exemple, les interprétations doivent être soumises à la même licence ou une licence compatible. De même, l\'intégration de l\'œuvre à une base de données, une compilation ou une anthologie ne doit pas faire obstacle à la jouissance de l\'œuvre telle que définie par cette licence.\n\n   4. L\' INTÉGRATION DE L\'ŒUVRE.\n\n   Toute intégration de cette œuvre à un ensemble non soumis à la LAL doit assurer l\'exercice des libertés conférées par cette licence.\n\n   Si l\'œuvre n\'est plus accessible indépendamment de l\'ensemble, alors l\'intégration n\'est possible qu\'à condition que l\'ensemble soit soumis à la LAL ou une licence compatible.\n\n   5. CRITÈRES DE COMPATIBILITÉ.\n\n   Une licence est compatible avec la LAL si et seulement si\u{a0}:\n\n      1. elle accorde l\'autorisation de copier, diffuser et modifier des copies de l\'œuvre, y compris à des fins lucratives, et sans autres restrictions que celles qu\'impose le respect des autres critères de compatibilité\u{a0};\n\n      2. elle garantit la paternité de l\'œuvre et l\'accès aux versions antérieures de l\'œuvre quand cet accès est possible\u{a0};\n\n      3. elle reconnaît la LAL également compatible (réciprocité)\u{a0};\n\n      4. elle impose que les modifications faites sur l\'œuvre soient soumises à la même licence ou encore à une licence répondant aux critères de compatibilité posés par la LAL.\n\n   6. VOS DROITS INTELLECTUELS.\n\n   La LAL n\'a pas pour objet de nier vos droits d\'auteur sur votre contribution ni vos droits connexes. En choisissant de contribuer à l\'évolution de cette œuvre commune, vous acceptez seulement d\'offrir aux autres les mêmes autorisations sur votre contribution que celles qui vous ont été accordées par cette licence. Ces autorisations n\'entraînent pas un dessaisissement de vos droits intellectuels.\n\n   7. VOS RESPONSABILITÉS.\n\n   La liberté de jouir de l\'œuvre tel que permis par la LAL (liberté de copier, diffuser, modifier) implique pour chacun la responsabilité de ses propres faits.\n\n   8. LA DURÉE DE LA LICENCE.\n\n   Cette licence prend effet dès votre acceptation de ses dispositions. Le fait de copier, de diffuser, ou de modifier l\'œuvre constitue une acceptation tacite.\n\n   Cette licence a pour durée la durée des droits d\'auteur attachés à l\'œuvre. Si vous ne respectez pas les termes de cette licence, vous perdez automatiquement les droits qu\'elle vous confère.\n\n   Si le régime juridique auquel vous êtes soumis ne vous permet pas de respecter les termes de cette licence, vous ne pouvez pas vous prévaloir des libertés qu\'elle confère.\n\n   9. LES DIFFÉRENTES VERSIONS DE LA LICENCE.\n\n   Cette licence pourra être modifiée régulièrement, en vue de son amélioration, par ses auteurs (les acteurs du mouvement Copyleft Attitude) sous la forme de nouvelles versions numérotées.\n\n   Vous avez toujours le choix entre vous contenter des dispositions contenues dans la version de la LAL sous laquelle la copie vous a été communiquée ou alors, vous prévaloir des dispositions d\'une des versions ultérieures.\n\n   10. LES SOUS-LICENCES.\n\n   Les sous-licences ne sont pas autorisées par la présente. Toute personne qui souhaite bénéficier des libertés qu\'elle confère sera liée directement aux auteurs de l\'œuvre commune.\n\n   11. LE CONTEXTE JURIDIQUE.\n\n   Cette licence est rédigée en référence au droit français et à la Convention de Berne relative au droit d\'auteur."
     }
 
     #[inline]
@@ -9358,7 +9365,7 @@ impl crate::License for LAL_1_3 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -9369,7 +9376,7 @@ impl crate::License for LAL_1_3 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://artlibre.org/"]
+        &["https://artlibre.org/"]
     }
 }
 
@@ -9404,7 +9411,7 @@ impl crate::License for LGPL_2_0_plus {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -9450,7 +9457,7 @@ impl crate::License for LGPL_2_0_only {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -9496,7 +9503,7 @@ impl crate::License for LGPL_2_0_or_later {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -9542,7 +9549,7 @@ impl crate::License for LGPL_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -9588,7 +9595,7 @@ impl crate::License for LGPL_2_1_plus {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -9634,7 +9641,7 @@ impl crate::License for LGPL_2_1_only {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -9680,7 +9687,7 @@ impl crate::License for LGPL_2_1_or_later {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -9726,7 +9733,7 @@ impl crate::License for LGPL_2_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -9772,7 +9779,7 @@ impl crate::License for LGPL_3_0_plus {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -9818,7 +9825,7 @@ impl crate::License for LGPL_3_0_only {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -9864,7 +9871,7 @@ impl crate::License for LGPL_3_0_or_later {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -9910,7 +9917,7 @@ impl crate::License for LGPL_3_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -9956,7 +9963,7 @@ impl crate::License for LGPLLR {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -10002,7 +10009,7 @@ impl crate::License for LPL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -10048,7 +10055,7 @@ impl crate::License for LPL_1_02 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -10094,7 +10101,7 @@ impl crate::License for LPPL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -10140,7 +10147,7 @@ impl crate::License for LPPL_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -10186,7 +10193,7 @@ impl crate::License for LPPL_1_2 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -10232,7 +10239,7 @@ impl crate::License for LPPL_1_3a {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -10278,7 +10285,7 @@ impl crate::License for LPPL_1_3c {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -10324,7 +10331,7 @@ impl crate::License for Latex2e {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -10370,7 +10377,7 @@ impl crate::License for Leptonica {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -10416,7 +10423,7 @@ impl crate::License for LiLiQ_P_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -10462,7 +10469,7 @@ impl crate::License for LiLiQ_R_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -10508,7 +10515,7 @@ impl crate::License for LiLiQ_Rplus_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -10554,7 +10561,7 @@ impl crate::License for Libpng {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -10600,7 +10607,7 @@ impl crate::License for Linux_OpenIB {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -10646,7 +10653,7 @@ impl crate::License for MIT_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -10692,7 +10699,7 @@ impl crate::License for MIT_CMU {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -10738,7 +10745,7 @@ impl crate::License for MIT_advertising {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -10784,7 +10791,7 @@ impl crate::License for MIT_enna {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -10830,7 +10837,7 @@ impl crate::License for MIT_feh {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -10876,7 +10883,7 @@ impl crate::License for MIT {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -10922,7 +10929,7 @@ impl crate::License for MITNFA {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -10968,7 +10975,7 @@ impl crate::License for MPL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -11014,7 +11021,7 @@ impl crate::License for MPL_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -11060,7 +11067,7 @@ impl crate::License for MPL_2_0_no_copyleft_exception {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -11106,7 +11113,7 @@ impl crate::License for MPL_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -11152,7 +11159,7 @@ impl crate::License for MS_PL {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -11198,7 +11205,7 @@ impl crate::License for MS_RL {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -11244,7 +11251,7 @@ impl crate::License for MTLL {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -11290,7 +11297,7 @@ impl crate::License for MakeIndex {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -11305,14 +11312,14 @@ impl crate::License for MakeIndex {
     }
 }
 
-/// The MirOS License.
+/// The The MirOS Licence.
 #[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
 pub struct MirOS;
 
 impl crate::License for MirOS {
     #[inline]
     fn name(&self) -> &'static str {
-        "MirOS License"
+        "The MirOS Licence"
     }
 
     #[inline]
@@ -11322,7 +11329,7 @@ impl crate::License for MirOS {
 
     #[inline]
     fn text(&self) -> &'static str {
-        "MirOS License Copyright [YEAR]\n\n[NAME] [EMAIL]\n\nProvided that these terms and disclaimer and all copyright notices are retained or reproduced in an accompanying document, permission is granted to deal in this work without restriction, including unlimited rights to use, publicly perform, distribute, sell, modify, merge, give away, or sublicence.\n\nThis work is provided \"AS IS\" and WITHOUT WARRANTY of any kind, to the utmost extent permitted by applicable law, neither express nor implied; without malicious intent or gross negligence. In no event may a licensor, author or contributor be held liable for indirect, direct, other damage, loss, or other issues arising in any way out of dealing in the work, even if advised of the possibility of such damage or existence of a defect, except proven that it results out of said person\'s immediate fault when using the work as intended. I_N_S_T_R_U_C_T_I_O_N_S_:_\n\nTo apply the template(1) specify the years of copyright (separated by comma, not as a range), the legal names of the copyright holders, and the real names of the authors if different. Avoid adding text.\n\nR_A_T_I_O_N_A_L_E_:_\n\nThis licence is apt for any kind of work (such as source code, fonts, documentation, graphics, sound etc.) and the preferred terms for work added to MirBSD. It has been drafted as universally usable equivalent of the \"historic permission notice\"(2) adapted to Europen law because in some (droit d\'auteur) countries authors cannot disclaim all liabi‐ lities. Compliance to DFSG(3) 1.1 is ensured, and GPLv2 compatibility is asserted unless advertising clauses are used. The MirOS Licence is certified to conform to OKD(4) 1.0 and OSD(5) 1.9, and qualifies as a Free Software(6) and also Free Documentation(7) licence and is included in some relevant lists(8)(9)(10).\n\nWe believe you are not liable for work inserted which is intellectual property of third parties, if you were not aware of the fact, act appropriately as soon as you become aware of that problem, seek an amicable solution for all parties, and never knowingly distribute a work without being authorised to do so by its licensors.\n\nR_E_F_E_R_E_N_C_E_S_:_\n\n\n\n   (1) also at http://mirbsd.de/MirOS-Licence\n\n   (2) http://www.opensource.org/licenses/historical.php\n\n   (3) http://www.debian.org/social_contract#guidelines\n\n   (4) http://www.opendefinition.org/1.0\n\n   (5) http://www.opensource.org/docs/osd\n\n   (6) http://www.gnu.org/philosophy/free-sw.html\n\n   (7) http://www.gnu.org/philosophy/free-doc.html\n\n   (8) http://www.ifross.de/ifross_html/lizenzcenter.html\n\n   (9) http://www.opendefinition.org/licenses\n\n   (10) http://opensource.org/licenses/miros.html"
+        "The MirOS Licence Copyright [YEAR] [NAME] [EMAIL]\n\nProvided that these terms and disclaimer and all copyright notices are retained or reproduced in an accompanying document, permission is granted to deal in this work without restriction, including unlimited rights to use, publicly perform, distribute, sell, modify, merge, give away, or sublicence.\n\nThis work is provided \"AS IS\" and WITHOUT WARRANTY of any kind, to the utmost extent permitted by applicable law, neither express nor implied; without malicious intent or gross negligence. In no event may a licensor, author or contributor be held liable for indirect, direct, other damage, loss, or other issues arising in any way out of dealing in the work, even if advised of the possibility of such damage or existence of a defect, except proven that it results out of said person\'s immediate fault when using the work as intended."
     }
 
     #[inline]
@@ -11336,7 +11343,7 @@ impl crate::License for MirOS {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -11382,7 +11389,7 @@ impl crate::License for Motosoto {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -11394,6 +11401,52 @@ impl crate::License for Motosoto {
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
         &["https://opensource.org/licenses/Motosoto"]
+    }
+}
+
+/// The Mulan Permissive Software License, Version 1.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct MulanPSL_1_0;
+
+impl crate::License for MulanPSL_1_0 {
+    #[inline]
+    fn name(&self) -> &'static str {
+        "Mulan Permissive Software License, Version 1"
+    }
+
+    #[inline]
+    fn id(&self) -> &'static str {
+        "MulanPSL-1.0"
+    }
+
+    #[inline]
+    fn text(&self) -> &'static str {
+        "木兰宽松许可证, 第1版 木兰宽松许可证， 第1版\n\n2019年8月 http://license.coscl.org.cn/MulanPSL\n\n您对\"软件\"的复制、使用、修改及分发受木兰宽松许可证，第1版（\"本许可证\"）的如下条款的约束：\n\n   0. 定义\n\n   \"软件\"是指由\"贡献\"构成的许可在\"本许可证\"下的程序和相关文档的集合。\n\n   \"贡献者\"是指将受版权法保护的作品许可在\"本许可证\"下的自然人或\"法人实体\"。\n\n   \"法人实体\"是指提交贡献的机构及其\"关联实体\"。\n\n   \"关联实体\"是指，对\"本许可证\"下的一方而言，控制、受控制或与其共同受控制的机构，此处的控制是指有受控方或共同受控方至少50%直接或间接的投票权、资金或其他有价证券。\n\n   \"贡献\"是指由任一\"贡献者\"许可在\"本许可证\"下的受版权法保护的作品。\n\n   1. 授予版权许可\n\n   每个\"贡献者\"根据\"本许可证\"授予您永久性的、全球性的、免费的、非独占的、不可撤销的版权许可，您可以复制、使用、修改、分发其\"贡献\"，不论修改与否。\n\n   2. 授予专利许可\n\n   每个\"贡献者\"根据\"本许可证\"授予您永久性的、全球性的、免费的、非独占的、不可撤销的（根据本条规定撤销除外）专利许可，供您制造、委托制造、使用、许诺销售、销售、进口其\"贡献\"或以其他方式转移其\"贡献\"。前述专利许可仅限于\"贡献者\"现在或将来拥有或控制的其\"贡献\"本身或其\"贡献\"与许可\"贡献\"时的\"软件\"结合而将必然会侵犯的专利权利要求，不包括仅因您或他人修改\"贡献\"或其他结合而将必然会侵犯到的专利权利要求。如您或您的\"关联实体\"直接或间接地（包括通过代理、专利被许可人或受让人），就\"软件\"或其中的\"贡献\"对任何人发起专利侵权诉讼（包括反诉或交叉诉讼）或其他专利维权行动，指控其侵犯专利权，则\"本许可证\"授予您对\"软件\"的专利许可自您提起诉讼或发起维权行动之日终止。\n\n   3. 无商标许可\n\n   \"本许可证\"不提供对\"贡献者\"的商品名称、商标、服务标志或产品名称的商标许可，但您为满足第4条规定的声明义务而必须使用除外。\n\n   4. 分发限制\n\n   您可以在任何媒介中将\"软件\"以源程序形式或可执行形式重新分发，不论修改与否，但您必须向接收者提供\"本许可证\"的副本，并保留\"软件\"中的版权、商标、专利及免责声明。\n\n   5. 免责声明与责任限制\n\n   \"软件\"及其中的\"贡献\"在提供时不带任何明示或默示的担保。在任何情况下，\"贡献者\"或版权所有者不对任何人因使用\"软件\"或其中的\"贡献\"而引发的任何直接或间接损失承担责任，不论因何种原因导致或者基于何种法律理论,即使其曾被建议有此种损失的可能性。\n\n条款结束\n\n如何将木兰宽松许可证，第1版，应用到您的软件\n\n如果您希望将木兰宽松许可证，第1版，应用到您的新软件，为了方便接收者查阅，建议您完成如下三步：\n\n   1， 请您补充如下声明中的空白，包括软件名、软件的首次发表年份以及您作为版权人的名字；\n\n   2， 请您在软件包的一级目录下创建以\"LICENSE\"为名的文件，将整个许可证文本放入该文件中；\n\n   3， 请将如下声明文本放入每个源文件的头部注释中。\n\nCopyright (c) [2019] [name of copyright holder]\n\n[Software Name] is licensed under the Mulan PSL v1.\n\nYou can use this software according to the terms and conditions of the Mulan PSL v1.\n\nYou may obtain a copy of Mulan PSL v1 at:\n\nhttp://license.coscl.org.cn/MulanPSL\n\nTHIS SOFTWARE IS PROVIDED ON AN \"AS IS\" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT, MERCHANTABILITY OR FIT FOR A PARTICULAR PURPOSE.\n\nSee the Mulan PSL v1 for more details. Mulan Permissive Software License，Version 1 Mulan Permissive Software License，Version 1 (Mulan PSL v1)\n\nAugust 2019 http://license.coscl.org.cn/MulanPSL\n\nYour reproduction, use, modification and distribution of the Software shall be subject to Mulan PSL v1 (this License) with following terms and conditions:\n\n   0. Definition\n\n   Software means the program and related documents which are comprised of those Contribution and licensed under this License.\n\n   Contributor means the Individual or Legal Entity who licenses its copyrightable work under this License.\n\n   Legal Entity means the entity making a Contribution and all its Affiliates.\n\n   Affiliates means entities that control, or are controlled by, or are under common control with a party to this License, \'control\' means direct or indirect ownership of at least fifty percent (50%) of the voting power, capital or other securities of controlled or commonly controlled entity.\n\n   Contribution means the copyrightable work licensed by a particular Contributor under this License.\n\n   1. Grant of Copyright License\n\n   Subject to the terms and conditions of this License, each Contributor hereby grants to you a perpetual, worldwide, royalty-free, non-exclusive, irrevocable copyright license to reproduce, use, modify, or distribute its Contribution, with modification or not.\n\n   2. Grant of Patent License\n\n   Subject to the terms and conditions of this License, each Contributor hereby grants to you a perpetual, worldwide, royalty-free, non-exclusive, irrevocable (except for revocation under this Section) patent license to make, have made, use, offer for sale, sell, import or otherwise transfer its Contribution where such patent license is only limited to the patent claims owned or controlled by such Contributor now or in future which will be necessarily infringed by its Contribution alone, or by combination of the Contribution with the Software to which the Contribution was contributed, excluding of any patent claims solely be infringed by your or others\' modification or other combinations. If you or your Affiliates directly or indirectly (including through an agent, patent licensee or assignee）, institute patent litigation (including a cross claim or counterclaim in a litigation) or other patent enforcement activities against any individual or entity by alleging that the Software or any Contribution in it infringes patents, then any patent license granted to you under this License for the Software shall terminate as of the date such litigation or activity is filed or taken.\n\n   3. No Trademark License\n\n   No trademark license is granted to use the trade names, trademarks, service marks, or product names of Contributor, except as required to fulfill notice requirements in section 4.\n\n   4. Distribution Restriction\n\n   You may distribute the Software in any medium with or without modification, whether in source or executable forms, provided that you provide recipients with a copy of this License and retain copyright, patent, trademark and disclaimer statements in the Software.\n\n   5. Disclaimer of Warranty and Limitation of Liability\n\n   The Software and Contribution in it are provided without warranties of any kind, either express or implied. In no event shall any Contributor or copyright holder be liable to you for any damages,including, but not limited to any direct, or indirect, special or consequential damages arising from your use or inability to use the Software or the Contribution in it, no matter how it\'s caused or based on which legal theory, even if advised of the possibility of such damages.\n\nEnd of the Terms and Conditions\n\nHow to apply the Mulan Permissive Software License，Version 1 (Mulan PSL v1) to your software\n\nTo apply the Mulan PSL v1 to your work, for easy identification by recipients, you are suggested to complete following three steps:\n\n   i. Fill in the blanks in following statement, including insert your software name, the year of the first publication of your software, and your name identified as the copyright owner;\n\n   ii. Create a file named \"LICENSE\" which contains the whole context of this License in the first directory of your software package;\n\n   iii. Attach the statement to the appropriate annotated syntax at the beginning of each source file.\n\nCopyright (c) [2019] [name of copyright holder]\n\n[Software Name] is licensed under the Mulan PSL v1.\n\nYou can use this software according to the terms and conditions of the Mulan PSL v1.\n\nYou may obtain a copy of Mulan PSL v1 at:\n\nhttp://license.coscl.org.cn/MulanPSL\n\nTHIS SOFTWARE IS PROVIDED ON AN \"AS IS\" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT, MERCHANTABILITY OR FIT FOR A PARTICULAR PURPOSE.\n\nSee the Mulan PSL v1 for more details."
+    }
+
+    #[inline]
+    fn header(&self) -> Option<&'static str> {
+        Some("Copyright (c) [2019] [name of copyright holder]\n\n[Software Name] is licensed under the Mulan PSL v1.\n\nYou can use this software according to the terms and conditions of the Mulan PSL v1.\n\nYou may obtain a copy of Mulan PSL v1 at:\n\nhttp://license.coscl.org.cn/MulanPSL\n\nTHIS SOFTWARE IS PROVIDED ON AN \"AS IS\" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT, MERCHANTABILITY OR FIT FOR A PARTICULAR PURPOSE.\n\nSee the Mulan PSL v1 for more details.")
+    }
+
+    #[inline]
+    fn is_osi_approved(&self) -> bool {
+        false
+    }
+
+    #[inline]
+    fn is_fsf_libre(&self) -> bool {
+        false
+    }
+
+    #[inline]
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    #[inline]
+    fn see_also(&self) -> &'static [&'static str] {
+        &["https://license.coscl.org.cn/MulanPSL/", "https://github.com/yuwenlong/longphp/blob/25dfb70cc2a466dc4bb55ba30901cbce08d164b5/LICENSE"]
     }
 }
 
@@ -11428,7 +11481,7 @@ impl crate::License for Multics {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -11474,7 +11527,7 @@ impl crate::License for Mup {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -11520,7 +11573,7 @@ impl crate::License for NASA_1_3 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -11566,7 +11619,7 @@ impl crate::License for NBPL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -11612,7 +11665,7 @@ impl crate::License for NCSA {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -11658,7 +11711,7 @@ impl crate::License for NGPL {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -11704,7 +11757,7 @@ impl crate::License for NLOD_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -11750,7 +11803,7 @@ impl crate::License for NLPL {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -11796,7 +11849,7 @@ impl crate::License for NOSL {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -11842,7 +11895,7 @@ impl crate::License for NPL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -11888,7 +11941,7 @@ impl crate::License for NPL_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -11934,7 +11987,7 @@ impl crate::License for NPOSL_3_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -11980,7 +12033,7 @@ impl crate::License for NRL {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -12026,7 +12079,7 @@ impl crate::License for NTP {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -12072,7 +12125,7 @@ impl crate::License for Naumen {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -12118,7 +12171,7 @@ impl crate::License for Net_SNMP {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -12164,7 +12217,7 @@ impl crate::License for NetCDF {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -12210,7 +12263,7 @@ impl crate::License for Newsletr {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -12256,7 +12309,7 @@ impl crate::License for Nokia {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -12302,7 +12355,7 @@ impl crate::License for Noweb {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -12348,7 +12401,7 @@ impl crate::License for Nunit {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -12394,7 +12447,7 @@ impl crate::License for OCCT_PL {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -12440,7 +12493,7 @@ impl crate::License for OCLC_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -12486,7 +12539,7 @@ impl crate::License for ODC_By_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -12532,7 +12585,7 @@ impl crate::License for ODbL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -12578,7 +12631,7 @@ impl crate::License for OFL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -12624,7 +12677,7 @@ impl crate::License for OFL_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -12636,6 +12689,52 @@ impl crate::License for OFL_1_1 {
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
         &["http://scripts.sil.org/cms/scripts/page.php?item_id=OFL_web", "https://opensource.org/licenses/OFL-1.1"]
+    }
+}
+
+/// The Open Government Licence - Canada.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct OGL_Canada_2_0;
+
+impl crate::License for OGL_Canada_2_0 {
+    #[inline]
+    fn name(&self) -> &'static str {
+        "Open Government Licence - Canada"
+    }
+
+    #[inline]
+    fn id(&self) -> &'static str {
+        "OGL-Canada-2.0"
+    }
+
+    #[inline]
+    fn text(&self) -> &'static str {
+        "Open Government Licence - Canada\n\nYou are encouraged to use the Information that is available under this licence with only a few conditions.\n\nUsing Information under this licence\n\n   * Use of any Information indicates your acceptance of the terms below.\n\n   * The Information Provider grants you a worldwide, royalty-free, perpetual, non-exclusive licence to use the Information, including for commercial purposes, subject to the terms below.\n\nYou are free to:\n\n   * Copy, modify, publish, translate, adapt, distribute or otherwise use the Information in any medium, mode or format for any lawful purpose.\n\nYou must, where you do any of the above:\n\n   * Acknowledge the source of the Information by including any attribution statement specified by the Information Provider(s) and, where possible, provide a link to this licence.\n\n   * If the Information Provider does not provide a specific attribution statement, or if you are using Information from several information providers and multiple attributions are not practical for your product or application, you must use the following attribution statement:\n\n   Contains information licensed under the Open Government Licence – Canada.\n\nThe terms of this licence are important, and if you fail to comply with any of them, the rights granted to you under this licence, or any similar licence granted by the Information Provider, will end automatically.\n\nExemptions\n\nThis licence does not grant you any right to use:\n\n   * Personal Information;\n\n   * third party rights the Information Provider is not authorized to license;\n\n   * the names, crests, logos, or other official symbols of the Information Provider; and\n\n   * Information subject to other intellectual property rights, including patents, trade-marks and official marks.\n\nNon-endorsement\n\nThis licence does not grant you any right to use the Information in a way that suggests any official status or that the Information Provider endorses you or your use of the Information.\n\nNo Warranty\n\nThe Information is licensed \"as is\", and the Information Provider excludes all representations, warranties, obligations, and liabilities, whether express or implied, to the maximum extent permitted by law.\n\nThe Information Provider is not liable for any errors or omissions in the Information, and will not under any circumstances be liable for any direct, indirect, special, incidental, consequential, or other loss, injury or damage caused by its use or otherwise arising in connection with this licence or the Information, even if specifically advised of the possibility of such loss, injury or damage.\n\nGoverning Law\n\nThis licence is governed by the laws of the province of Ontario and the applicable laws of Canada.\n\nLegal proceedings related to this licence may only be brought in the courts of Ontario or the Federal Court of Canada.\n\nDefinitions\n\nIn this licence, the terms below have the following meanings:\n\n\"Information\"\n\nmeans information resources protected by copyright or other information that is offered for use under the terms of this licence.\n\n\"Information Provider\"\n\nmeans Her Majesty the Queen in right of Canada.\n\n\"Personal Information\"\n\nmeans \"personal information\" as defined in section 3 of the Privacy Act, R.S.C. 1985, c. P-21.\n\n\"You\"\n\nmeans the natural or legal person, or body of persons corporate or incorporate, acquiring rights under this licence.\n\nVersioning\n\nThis is version 2.0 of the Open Government Licence – Canada. The Information Provider may make changes to the terms of this licence from time to time and issue a new version of the licence. Your use of the Information will be governed by the terms of the licence in force as of the date you accessed the information."
+    }
+
+    #[inline]
+    fn header(&self) -> Option<&'static str> {
+        Some("")
+    }
+
+    #[inline]
+    fn is_osi_approved(&self) -> bool {
+        false
+    }
+
+    #[inline]
+    fn is_fsf_libre(&self) -> bool {
+        false
+    }
+
+    #[inline]
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    #[inline]
+    fn see_also(&self) -> &'static [&'static str] {
+        &["https://open.canada.ca/en/open-government-licence-canada"]
     }
 }
 
@@ -12670,7 +12769,7 @@ impl crate::License for OGL_UK_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -12716,7 +12815,7 @@ impl crate::License for OGL_UK_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -12762,7 +12861,7 @@ impl crate::License for OGL_UK_3_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -12808,7 +12907,7 @@ impl crate::License for OGTSL {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -12854,7 +12953,7 @@ impl crate::License for OLDAP_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -12900,7 +12999,7 @@ impl crate::License for OLDAP_1_2 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -12946,7 +13045,7 @@ impl crate::License for OLDAP_1_3 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -12992,7 +13091,7 @@ impl crate::License for OLDAP_1_4 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -13038,7 +13137,7 @@ impl crate::License for OLDAP_2_0_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -13084,7 +13183,7 @@ impl crate::License for OLDAP_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -13130,7 +13229,7 @@ impl crate::License for OLDAP_2_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -13176,7 +13275,7 @@ impl crate::License for OLDAP_2_2_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -13222,7 +13321,7 @@ impl crate::License for OLDAP_2_2_2 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -13268,7 +13367,7 @@ impl crate::License for OLDAP_2_2 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -13314,7 +13413,7 @@ impl crate::License for OLDAP_2_3 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -13360,7 +13459,7 @@ impl crate::License for OLDAP_2_4 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -13406,7 +13505,7 @@ impl crate::License for OLDAP_2_5 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -13452,7 +13551,7 @@ impl crate::License for OLDAP_2_6 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -13498,7 +13597,7 @@ impl crate::License for OLDAP_2_7 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -13544,7 +13643,7 @@ impl crate::License for OLDAP_2_8 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -13590,7 +13689,7 @@ impl crate::License for OML {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -13636,7 +13735,7 @@ impl crate::License for OPL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -13682,7 +13781,7 @@ impl crate::License for OSET_PL_2_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -13728,7 +13827,7 @@ impl crate::License for OSL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -13774,7 +13873,7 @@ impl crate::License for OSL_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -13820,7 +13919,7 @@ impl crate::License for OSL_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -13866,7 +13965,7 @@ impl crate::License for OSL_2_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -13912,7 +14011,7 @@ impl crate::License for OSL_3_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -13958,7 +14057,7 @@ impl crate::License for OpenSSL {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -14004,7 +14103,7 @@ impl crate::License for PDDL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -14050,7 +14149,7 @@ impl crate::License for PHP_3_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -14096,7 +14195,7 @@ impl crate::License for PHP_3_01 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -14142,7 +14241,7 @@ impl crate::License for Parity_6_0_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -14188,7 +14287,7 @@ impl crate::License for Plexus {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -14234,7 +14333,7 @@ impl crate::License for PostgreSQL {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -14280,7 +14379,7 @@ impl crate::License for Python_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -14326,7 +14425,7 @@ impl crate::License for QPL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -14372,7 +14471,7 @@ impl crate::License for Qhull {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -14418,7 +14517,7 @@ impl crate::License for RHeCos_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -14464,7 +14563,7 @@ impl crate::License for RPL_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -14510,7 +14609,7 @@ impl crate::License for RPL_1_5 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -14556,7 +14655,7 @@ impl crate::License for RPSL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -14602,7 +14701,7 @@ impl crate::License for RSA_MD {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -14648,7 +14747,7 @@ impl crate::License for RSCPL {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -14694,7 +14793,7 @@ impl crate::License for Rdisc {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -14740,7 +14839,7 @@ impl crate::License for Ruby {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -14786,7 +14885,7 @@ impl crate::License for SAX_PD {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -14832,7 +14931,7 @@ impl crate::License for SCEA {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -14878,7 +14977,7 @@ impl crate::License for SGI_B_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -14924,7 +15023,7 @@ impl crate::License for SGI_B_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -14970,7 +15069,7 @@ impl crate::License for SGI_B_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -15016,7 +15115,7 @@ impl crate::License for SHL_0_5 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -15062,7 +15161,7 @@ impl crate::License for SHL_0_51 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -15108,7 +15207,7 @@ impl crate::License for SISSL_1_2 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -15154,7 +15253,7 @@ impl crate::License for SISSL {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -15200,7 +15299,7 @@ impl crate::License for SMLNJ {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -15246,7 +15345,7 @@ impl crate::License for SMPPL {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -15292,7 +15391,7 @@ impl crate::License for SNIA {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -15338,7 +15437,7 @@ impl crate::License for SPL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -15350,6 +15449,98 @@ impl crate::License for SPL_1_0 {
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
         &["https://opensource.org/licenses/SPL-1.0"]
+    }
+}
+
+/// The SSH OpenSSH license.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct SSH_OpenSSH;
+
+impl crate::License for SSH_OpenSSH {
+    #[inline]
+    fn name(&self) -> &'static str {
+        "SSH OpenSSH license"
+    }
+
+    #[inline]
+    fn id(&self) -> &'static str {
+        "SSH-OpenSSH"
+    }
+
+    #[inline]
+    fn text(&self) -> &'static str {
+        "Copyright (c) 1995 Tatu Ylonen <ylo@cs.hut.fi>, Espoo, Finland All rights reserved\n\nAs far as I am concerned, the code I have written for this software can be used freely for any purpose. Any derived versions of this software must be clearly marked as such, and if the derived work is incompatible with the protocol description in the RFC file, it must be called by a name other than \"ssh\" or \"Secure Shell\".\n\n[Tatu continues]\n\nHowever, I am not implying to give any licenses to any patents or copyrights held by third parties, and the software includes parts that are not under my direct control. As far as I know, all included source code is used in accordance with the relevant license agreements and can be used freely for any purpose (the GNU license being the most restrictive); see below for details.\n\n[However, none of that term is relevant at this point in time. All of these restrictively licenced software components which he talks about have been removed from OpenSSH, i.e.,\n\n   - RSA is no longer included, found in the OpenSSL library\n\n   - IDEA is no longer included, its use is deprecated\n\n   - DES is now external, in the OpenSSL library\n\n   - GMP is no longer used, and instead we call BN code from OpenSSL\n\n   - Zlib is now external, in a library\n\n   - The make-ssh-known-hosts script is no longer included\n\n   - TSS has been removed\n\n   - MD5 is now external, in the OpenSSL library\n\n   - RC4 support has been replaced with ARC4 support from OpenSSL\n\n   - Blowfish is now external, in the OpenSSL library\n\n[The licence continues]\n\nNote that any information and cryptographic algorithms used in this software are publicly available on the Internet and at any major bookstore, scientific library, and patent office worldwide. More information can be found e.g. at \"http://www.cs.hut.fi/crypto\".\n\nThe legal status of this program is some combination of all these permissions and restrictions. Use only at your own responsibility. You will be responsible for any legal consequences yourself; I am not making any claims whether possessing or using this is legal or not in your country, and I am not taking any responsibility on your behalf.\n\nNO WARRANTY\n\nBECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM \"AS IS\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.\n\nIN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR REDISTRIBUTE THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES."
+    }
+
+    #[inline]
+    fn header(&self) -> Option<&'static str> {
+        None
+    }
+
+    #[inline]
+    fn is_osi_approved(&self) -> bool {
+        false
+    }
+
+    #[inline]
+    fn is_fsf_libre(&self) -> bool {
+        false
+    }
+
+    #[inline]
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    #[inline]
+    fn see_also(&self) -> &'static [&'static str] {
+        &["https://github.com/openssh/openssh-portable/blob/1b11ea7c58cd5c59838b5fa574cd456d6047b2d4/LICENCE#L10"]
+    }
+}
+
+/// The SSH short notice.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct SSH_short;
+
+impl crate::License for SSH_short {
+    #[inline]
+    fn name(&self) -> &'static str {
+        "SSH short notice"
+    }
+
+    #[inline]
+    fn id(&self) -> &'static str {
+        "SSH-short"
+    }
+
+    #[inline]
+    fn text(&self) -> &'static str {
+        "As far as I am concerned, the code I have written for this software can be used freely for any purpose. Any derived versions of this software must be clearly marked as such, and if the derived work is incompatible with the protocol description in the RFC file, it must be called by a name other than \"ssh\" or \"Secure Shell\"."
+    }
+
+    #[inline]
+    fn header(&self) -> Option<&'static str> {
+        None
+    }
+
+    #[inline]
+    fn is_osi_approved(&self) -> bool {
+        false
+    }
+
+    #[inline]
+    fn is_fsf_libre(&self) -> bool {
+        false
+    }
+
+    #[inline]
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    #[inline]
+    fn see_also(&self) -> &'static [&'static str] {
+        &["https://github.com/openssh/openssh-portable/blob/1b11ea7c58cd5c59838b5fa574cd456d6047b2d4/pathnames.h", "http://web.mit.edu/kolya/.f/root/athena.mit.edu/sipb.mit.edu/project/openssh/OldFiles/src/openssh-2.9.9p2/ssh-add.1", "https://joinup.ec.europa.eu/svn/lesoll/trunk/italc/lib/src/dsa_key.cpp"]
     }
 }
 
@@ -15384,7 +15575,7 @@ impl crate::License for SSPL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -15430,7 +15621,7 @@ impl crate::License for SWL {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -15476,7 +15667,7 @@ impl crate::License for Saxpath {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -15522,7 +15713,7 @@ impl crate::License for Sendmail_8_23 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -15568,7 +15759,7 @@ impl crate::License for Sendmail {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -15614,7 +15805,7 @@ impl crate::License for SimPL_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -15660,7 +15851,7 @@ impl crate::License for Sleepycat {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -15706,7 +15897,7 @@ impl crate::License for Spencer_86 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -15752,7 +15943,7 @@ impl crate::License for Spencer_94 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -15798,7 +15989,7 @@ impl crate::License for Spencer_99 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -15844,7 +16035,7 @@ impl crate::License for StandardML_NJ {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -15890,7 +16081,7 @@ impl crate::License for SugarCRM_1_1_3 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -15936,7 +16127,7 @@ impl crate::License for TAPR_OHL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -15982,7 +16173,7 @@ impl crate::License for TCL {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -16028,7 +16219,7 @@ impl crate::License for TCP_wrappers {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -16074,7 +16265,7 @@ impl crate::License for TMate {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -16120,7 +16311,7 @@ impl crate::License for TORQUE_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -16166,7 +16357,7 @@ impl crate::License for TOSL {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -16212,7 +16403,7 @@ impl crate::License for TU_Berlin_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -16258,7 +16449,7 @@ impl crate::License for TU_Berlin_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -16270,6 +16461,52 @@ impl crate::License for TU_Berlin_2_0 {
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
         &["https://github.com/CorsixTH/deps/blob/fd339a9f526d1d9c9f01ccf39e438a015da50035/licences/libgsm.txt"]
+    }
+}
+
+/// The Upstream Compatibility License v1.0.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct UCL_1_0;
+
+impl crate::License for UCL_1_0 {
+    #[inline]
+    fn name(&self) -> &'static str {
+        "Upstream Compatibility License v1.0"
+    }
+
+    #[inline]
+    fn id(&self) -> &'static str {
+        "UCL-1.0"
+    }
+
+    #[inline]
+    fn text(&self) -> &'static str {
+        "Upstream Compatibility License v. 1.0 (UCL-1.0)\n\nThis Upstream Compatibility License (the \"License\") applies to any original work of authorship (the \"Original Work\") whose owner (the \"Licensor\") has placed the following licensing notice adjacent to the copyright notice for the Original Work:\n\nLicensed under the Upstream Compatibility License 1.0\n\n   1) Grant of Copyright License. Licensor grants You a worldwide, royalty-free, non-exclusive, sublicensable license, for the duration of the copyright, to do the following:\n\n      a) to reproduce the Original Work in copies, either alone or as part of a collective work;\n\n      b) to translate, adapt, alter, transform, modify, or arrange the Original Work, thereby creating derivative works (\"Derivative Works\") based upon the Original Work;\n\n      c) to distribute or communicate copies of the Original Work and Derivative Works to the public, with the proviso that copies of Original Work You distribute or communicate shall be licensed under this Upstream Compatibility License and all Derivative Work You distribute or communicate shall be licensed under both this Upstream Compatibility License and the Apache License 2.0 or later;\n\n      d) to perform the Original Work publicly; and\n\n      e) to display the Original Work publicly.\n\n   2) Grant of Patent License. Licensor grants You a worldwide, royalty-free, non-exclusive, sublicensable license, under patent claims owned or controlled by the Licensor that are embodied in the Original Work as furnished by the Licensor, for the duration of the patents, to make, use, sell, offer for sale, have made, and import the Original Work and Derivative Works.\n\n   3) Grant of Source Code License. The term \"Source Code\" means the preferred form of the Original Work for making modifications to it and all available documentation describing how to modify the Original Work. Licensor agrees to provide a machine-readable copy of the Source Code of the Original Work along with each copy of the Original Work that Licensor distributes. Licensor reserves the right to satisfy this obligation by placing a machine-readable copy of the Source Code in an information repository reasonably calculated to permit inexpensive and convenient access by You for as long as Licensor continues to distribute the Original Work.\n\n   4) Exclusions From License Grant. Neither the names of Licensor, nor the names of any contributors to the Original Work, nor any of their trademarks or service marks, may be used to endorse or promote products derived from this Original Work without express prior permission of the Licensor. Except as expressly stated herein, nothing in this License grants any license to Licensor\'s trademarks, copyrights, patents, trade secrets or any other intellectual property. No patent license is granted to make, use, sell, offer for sale, have made, or import embodiments of any patent claims other than the licensed claims defined in Section 2. No license is granted to the trademarks of Licensor even if such marks are included in the Original Work. Nothing in this License shall be interpreted to prohibit Licensor from licensing under terms different from this License any Original Work that Licensor otherwise would have a right to license.\n\n   5) External Deployment. The term \"External Deployment\" means the use, distribution, or communication of the Original Work or Derivative Works in any way such that the Original Work or Derivative Works may be used by anyone other than You, whether those works are distributed or communicated to those persons or made available as an application intended for use over a network. As an express condition for the grants of license hereunder, You must treat any External Deployment by You of the Original Work or a Derivative Work as a distribution under section 1(c).\n\n   6) Attribution Rights. You must retain, in the Source Code of any Derivative Works that You create, all copyright, patent, or trademark notices from the Source Code of the Original Work, as well as any notices of licensing and any descriptive text identified therein as an \"Attribution Notice.\" You must cause the Source Code for any Derivative Works that You create to carry a prominent Attribution Notice reasonably calculated to inform recipients that You have modified the Original Work.\n\n   7) Warranty of Provenance and Disclaimer of Warranty. Licensor warrants that the copyright in and to the Original Work and the patent rights granted herein by Licensor are owned by the Licensor or are sublicensed to You under the terms of this License with the permission of the contributor(s) of those copyrights and patent rights. Except as expressly stated in the immediately preceding sentence, the Original Work is provided under this License on an \"AS IS\" BASIS and WITHOUT WARRANTY, either express or implied, including, without limitation, the warranties of non-infringement, merchantability or fitness for a particular purpose. THE ENTIRE RISK AS TO THE QUALITY OF THE ORIGINAL WORK IS WITH YOU. This DISCLAIMER OF WARRANTY constitutes an essential part of this License. No license to the Original Work is granted by this License except under this disclaimer.\n\n   8) Limitation of Liability. Under no circumstances and under no legal theory, whether in tort (including negligence), contract, or otherwise, shall the Licensor be liable to anyone for any indirect, special, incidental, or consequential damages of any character arising as a result of this License or the use of the Original Work including, without limitation, damages for loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses. This limitation of liability shall not apply to the extent applicable law prohibits such limitation.\n\n   9) Acceptance and Termination. If, at any time, You expressly assented to this License, that assent indicates your clear and irrevocable acceptance of this License and all of its terms and conditions. If You distribute or communicate copies of the Original Work or a Derivative Work, You must make a reasonable effort under the circumstances to obtain the express assent of recipients to the terms of this License. This License conditions your rights to undertake the activities listed in Section 1, including your right to create Derivative Works based upon the Original Work, and doing so without honoring these terms and conditions is prohibited by copyright law and international treaty. Nothing in this License is intended to affect copyright exceptions and limitations (including \"fair use\" or \"fair dealing\"). This License shall terminate immediately and You may no longer exercise any of the rights granted to You by this License upon your failure to honor the conditions in Section 1(c).\n\n   10) Termination for Patent Action. This License shall terminate automatically and You may no longer exercise any of the rights granted to You by this License as of the date You commence an action, including a cross-claim or counterclaim, against Licensor or any licensee alleging that the Original Work infringes a patent. This termination provision shall not apply for an action alleging patent infringement by combinations of the Original Work with other software or hardware.\n\n   11) Jurisdiction, Venue and Governing Law. Any action or suit relating to this License may be brought only in the courts of a jurisdiction wherein the Licensor resides or in which Licensor conducts its primary business, and under the laws of that jurisdiction excluding its conflict-of-law provisions. The application of the United Nations Convention on Contracts for the International Sale of Goods is expressly excluded. Any use of the Original Work outside the scope of this License or after its termination shall be subject to the requirements and penalties of copyright or patent law in the appropriate jurisdiction. This section shall survive the termination of this License.\n\n   12) Attorneys\' Fees. In any action to enforce the terms of this License or seeking damages relating thereto, the prevailing party shall be entitled to recover its costs and expenses, including, without limitation, reasonable attorneys\' fees and costs incurred in connection with such action, including any appeal of such action. This section shall survive the termination of this License.\n\n   13) Miscellaneous. If any provision of this License is held to be unenforceable, such provision shall be reformed only to the extent necessary to make it enforceable.\n\n   14) Definition of \"You\" in This License. \"You\" throughout this License, whether in upper or lower case, means an individual or a legal entity exercising rights under, and complying with all of the terms of, this License. For legal entities, \"You\" includes any entity that controls, is controlled by, or is under common control with you. For purposes of this definition, \"control\" means (i) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (ii) ownership of fifty percent (50%) or more of the outstanding shares, or (iii) beneficial ownership of such entity.\n\n   15) Right to Use. You may use the Original Work in all ways not otherwise restricted or conditioned by this License or by law, and Licensor promises not to interfere with or be responsible for such uses by You.\n\n   16) Modification of This License. This License is Copyright (c) 2005 Lawrence Rosen and Copyright (c) 2017 Nigel Tzeng. Permission is granted to copy, distribute, or communicate this License without modification. Nothing in this License permits You to modify this License as applied to the Original Work or to Derivative Works. However, You may modify the text of this License and copy, distribute or communicate your modified version (the \"Modified License\") and apply it to other original works of authorship subject to the following conditions: (i) You may not indicate in any way that your Modified License is the \"Open Software License\" or \"OSL\" or the \"Upstream Compatibility License\" or \"UCL\" and you may not use those names in the name of your Modified License; (ii) You must replace the notice specified in the first paragraph above with the notice \"Licensed under <insert your license name here> \" or with a notice of your own that is not confusingly similar to the notice in this License; and (iii) You may not claim that your original works are open source software unless your Modified License has been approved by Open Source Initiative (OSI) and You comply with its license review and certification process."
+    }
+
+    #[inline]
+    fn header(&self) -> Option<&'static str> {
+        Some("Licensed under the Upstream Compatibility License 1.0")
+    }
+
+    #[inline]
+    fn is_osi_approved(&self) -> bool {
+        true
+    }
+
+    #[inline]
+    fn is_fsf_libre(&self) -> bool {
+        false
+    }
+
+    #[inline]
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    #[inline]
+    fn see_also(&self) -> &'static [&'static str] {
+        &["https://opensource.org/licenses/UCL-1.0"]
     }
 }
 
@@ -16304,7 +16541,7 @@ impl crate::License for UPL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -16350,7 +16587,7 @@ impl crate::License for Unicode_DFS_2015 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -16396,7 +16633,7 @@ impl crate::License for Unicode_DFS_2016 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -16442,7 +16679,7 @@ impl crate::License for Unicode_TOU {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -16474,7 +16711,7 @@ impl crate::License for Unlicense {
 
     #[inline]
     fn text(&self) -> &'static str {
-        "This is free and unencumbered software released into the public domain.\n\nAnyone is free to copy, modify, publish, use, compile, sell, or distribute this software, either in source code form or as a compiled binary, for any purpose, commercial or non-commercial, and by any means.\n\nIn jurisdictions that recognize copyright laws, the author or authors of this software dedicate any and all copyright interest in the software to the public domain. We make this dedication for the benefit of the public at large and to the detriment of our heirs and\n\nsuccessors. We intend this dedication to be an overt act of relinquishment in perpetuity of all present and future rights to this software under copyright law.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\nFor more information, please refer to <http://unlicense.org/>"
+        "This is free and unencumbered software released into the public domain.\n\nAnyone is free to copy, modify, publish, use, compile, sell, or distribute this software, either in source code form or as a compiled binary, for any purpose, commercial or non-commercial, and by any means.\n\nIn jurisdictions that recognize copyright laws, the author or authors of this software dedicate any and all copyright interest in the software to the public domain. We make this dedication for the benefit of the public at large and to the detriment of our heirs and\n\nsuccessors. We intend this dedication to be an overt act of relinquishment in perpetuity of all present and future rights to this software under copyright law.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. For more information, please refer to <https://unlicense.org/>"
     }
 
     #[inline]
@@ -16488,7 +16725,7 @@ impl crate::License for Unlicense {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -16499,7 +16736,7 @@ impl crate::License for Unlicense {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://unlicense.org/"]
+        &["https://unlicense.org/"]
     }
 }
 
@@ -16534,7 +16771,7 @@ impl crate::License for VOSTROM {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -16580,7 +16817,7 @@ impl crate::License for VSL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -16612,7 +16849,7 @@ impl crate::License for Vim {
 
     #[inline]
     fn text(&self) -> &'static str {
-        "VIM LICENSE\n\n   I) There are no restrictions on distributing unmodified copies of Vim except that they must include this license text. You can also distribute unmodified parts of Vim, likewise unrestricted except that they must include this license text. You are also allowed to include executables that you made from the unmodified Vim sources, plus your own usage examples and Vim scripts.\n\n   II) It is allowed to distribute a modified (or extended) version of Vim, including executables and/or source code, when the following four conditions are met:\n\n      1) This license text must be included unmodified.\n\n      2) The modified Vim must be distributed in one of the following five ways:\n\n         a) If you make changes to Vim yourself, you must clearly describe in the distribution how to contact you. When the maintainer asks you (in any way) for a copy of the modified Vim you distributed, you must make your changes, including source code, available to the maintainer without fee. The maintainer reserves the right to include your changes in the official version of Vim. What the maintainer will do with your changes and under what license they will be distributed is negotiable. If there has been no negotiation then this license, or a later version, also applies to your changes. The current maintainer is Bram Moolenaar <Bram@vim.org>. If this changes it will be announced in appropriate places (most likely vim.sf.net, www.vim.org and/or comp.editors). When it is completely impossible to contact the maintainer, the obligation to send him your changes ceases. Once the maintainer has confirmed that he has received your changes they will not have to be sent again.\n\n         b) If you have received a modified Vim that was distributed as mentioned under a) you are allowed to further distribute it unmodified, as mentioned at I). If you make additional changes the text under a) applies to those changes.\n\n         c) Provide all the changes, including source code, with every copy of the modified Vim you distribute. This may be done in the form of a context diff. You can choose what license to use for new code you add. The changes and their license must not restrict others from making their own changes to the official version of Vim.\n\n         d) When you have a modified Vim which includes changes as mentioned under c), you can distribute it without the source code for the changes if the following three conditions are met:\n\n            - The license that applies to the changes permits you to distribute the changes to the Vim maintainer without fee or restriction, and permits the Vim maintainer to include the changes in the official version of Vim without fee or restriction.\n\n            - You keep the changes for at least three years after last distributing the corresponding modified Vim. When the maintainer or someone who you distributed the modified Vim to asks you (in any way) for the changes within this period, you must make them available to him.\n\n            - You clearly describe in the distribution how to contact you. This contact information must remain valid for at least three years after last distributing the corresponding modified Vim, or as long as possible.\n\n         e) When the GNU General Public License (GPL) applies to the changes, you can distribute the modified Vim under the GNU GPL version 2 or any later version.\n\n      3) A message must be added, at least in the output of the \":version\" command and in the intro screen, such that the user of the modified Vim is able to see that it was modified. When distributing as mentioned under 2)e) adding the message is only required for as far as this does not conflict with the license used for the changes.\n\n      4) The contact information as required under 2)a) and 2)d) must not be removed or changed, except that the person himself can make corrections.\n\n   III) If you distribute a modified version of Vim, you are encouraged to use the Vim license for your changes and make them available to the maintainer, including the source code. The preferred way to do this is by e-mail or by uploading the files to a server and e-mailing the URL. If the number of changes is small (e.g., a modified Makefile) e-mailing a context diff will do. The e-mail address to be used is <maintainer@vim.org>\n\n   IV) It is not allowed to remove this license from the distribution of the Vim sources, parts of it or from a modified version. You may use this license for previous Vim releases instead of the license that they came with, at your option."
+        "VIM LICENSE\n\n   I) There are no restrictions on distributing unmodified copies of Vim except that they must include this license text. You can also distribute unmodified parts of Vim , likewise unrestricted except that they must include this license text. You are also allowed to include executables that you made from the unmodified Vim sources, plus your own usage examples and Vim scripts.\n\n   II) It is allowed to distribute a modified (or extended) version of Vim , including executables and/or source code, when the following four conditions are met:\n\n      1) This license text must be included unmodified.\n\n      2) The modified Vim must be distributed in one of the following five ways:\n\n         a) If you make changes to Vim yourself, you must clearly describe in the distribution how to contact you. When the maintainer asks you (in any way) for a copy of the modified Vim you distributed, you must make your changes, including source code, available to the maintainer without fee. The maintainer reserves the right to include your changes in the official version of Vim . What the maintainer will do with your changes and under what license they will be distributed is negotiable. If there has been no negotiation then this license, or a later version, also applies to your changes. The current maintainer is Bram Moolenaar <Bram@vim.org>. If this changes it will be announced in appropriate places (most likely vim.sf.net, www.vim.org and/or comp.editors). When it is completely impossible to contact the maintainer, the obligation to send him your changes ceases. Once the maintainer has confirmed that he has received your changes they will not have to be sent again.\n\n         b) If you have received a modified Vim that was distributed as mentioned under a) you are allowed to further distribute it unmodified, as mentioned at I). If you make additional changes the text under a) applies to those changes.\n\n         c) Provide all the changes, including source code, with every copy of the modified Vim you distribute. This may be done in the form of a context diff. You can choose what license to use for new code you add. The changes and their license must not restrict others from making their own changes to the official version of Vim .\n\n         d) When you have a modified Vim which includes changes as mentioned under c), you can distribute it without the source code for the changes if the following three conditions are met:\n\n            - The license that applies to the changes permits you to distribute the changes to the Vim maintainer without fee or restriction, and permits the Vim maintainer to include the changes in the official version of Vim without fee or restriction.\n\n            - You keep the changes for at least three years after last distributing the corresponding modified Vim . When the maintainer or someone who you distributed the modified Vim to asks you (in any way) for the changes within this period, you must make them available to him.\n\n            - You clearly describe in the distribution how to contact you. This contact information must remain valid for at least three years after last distributing the corresponding modified Vim , or as long as possible.\n\n         e) When the GNU General Public License (GPL) applies to the changes, you can distribute the modified Vim under the GNU GPL version 2 or any later version.\n\n      3) A message must be added, at least in the output of the \":version\" command and in the intro screen, such that the user of the modified Vim is able to see that it was modified. When distributing as mentioned under 2)e) adding the message is only required for as far as this does not conflict with the license used for the changes.\n\n      4) The contact information as required under 2)a) and 2)d) must not be removed or changed, except that the person himself can make corrections.\n\n   III) If you distribute a modified version of Vim , you are encouraged to use the Vim license for your changes and make them available to the maintainer, including the source code. The preferred way to do this is by e-mail or by uploading the files to a server and e-mailing the URL. If the number of changes is small (e.g., a modified Makefile) e-mailing a context diff will do. The e-mail address to be used is <maintainer@vim.org>\n\n   IV) It is not allowed to remove this license from the distribution of the Vim sources, parts of it or from a modified version. You may use this license for previous Vim releases instead of the license that they came with, at your option."
     }
 
     #[inline]
@@ -16626,7 +16863,7 @@ impl crate::License for Vim {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -16672,7 +16909,7 @@ impl crate::License for W3C_19980720 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -16718,7 +16955,7 @@ impl crate::License for W3C_20150513 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -16764,7 +17001,7 @@ impl crate::License for W3C {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -16810,7 +17047,7 @@ impl crate::License for WTFPL {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -16856,7 +17093,7 @@ impl crate::License for Watcom_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -16902,7 +17139,7 @@ impl crate::License for Wsuipa {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -16948,7 +17185,7 @@ impl crate::License for X11 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -16994,7 +17231,7 @@ impl crate::License for XFree86_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -17040,7 +17277,7 @@ impl crate::License for XSkat {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -17086,7 +17323,7 @@ impl crate::License for Xerox {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -17132,7 +17369,7 @@ impl crate::License for Xnet {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -17178,7 +17415,7 @@ impl crate::License for YPL_1_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -17224,7 +17461,7 @@ impl crate::License for YPL_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -17270,7 +17507,7 @@ impl crate::License for ZPL_1_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -17316,7 +17553,7 @@ impl crate::License for ZPL_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -17362,7 +17599,7 @@ impl crate::License for ZPL_2_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -17408,7 +17645,7 @@ impl crate::License for Zed {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -17454,7 +17691,7 @@ impl crate::License for Zend_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -17500,7 +17737,7 @@ impl crate::License for Zimbra_1_3 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -17546,7 +17783,7 @@ impl crate::License for Zimbra_1_4 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -17592,7 +17829,7 @@ impl crate::License for Zlib {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -17638,7 +17875,7 @@ impl crate::License for blessing {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -17684,7 +17921,7 @@ impl crate::License for bzip2_1_0_5 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -17730,7 +17967,7 @@ impl crate::License for bzip2_1_0_6 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -17776,7 +18013,7 @@ impl crate::License for copyleft_next_0_3_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -17822,7 +18059,7 @@ impl crate::License for copyleft_next_0_3_1 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -17868,7 +18105,7 @@ impl crate::License for curl {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -17914,7 +18151,7 @@ impl crate::License for diffmark {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -17960,7 +18197,7 @@ impl crate::License for dvipdfm {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -18006,7 +18243,7 @@ impl crate::License for eCos_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -18052,7 +18289,7 @@ impl crate::License for eGenix {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -18064,6 +18301,52 @@ impl crate::License for eGenix {
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
         &["http://www.egenix.com/products/eGenix.com-Public-License-1.1.0.pdf", "https://fedoraproject.org/wiki/Licensing/eGenix.com_Public_License_1.1.0"]
+    }
+}
+
+/// The Etalab Open License 2.0.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct etalab_2_0;
+
+impl crate::License for etalab_2_0 {
+    #[inline]
+    fn name(&self) -> &'static str {
+        "Etalab Open License 2.0"
+    }
+
+    #[inline]
+    fn id(&self) -> &'static str {
+        "etalab-2.0"
+    }
+
+    #[inline]
+    fn text(&self) -> &'static str {
+        "LICENCE OUVERTE / OPEN LICENCE ===================================================================\n\n- Version 2.0\n\n- Avril 2017\n\n« RÉUTILISATION » DE L\'« INFORMATION » SOUS CETTE LICENCE -------------------------------------------------------------------\n\nLe « Concédant » concède au « Réutilisateur » un droit non exclusif et gratuit de libre « Réutilisation » de l\'« Information » objet de la présente licence, à des fins commerciales ou non, dans le monde entier et pour une durée illimitée, dans les conditions exprimées ci-dessous.\n\nLe « Réutilisateur » est libre de réutiliser l\'« Information » :\n\n   - de la reproduire, la copier,\n\n   - de l\'adapter, la modifier, l\'extraire et la transformer, pour créer des « Informations dérivées », des produits ou des services,\n\n   - de la communiquer, la diffuser, la redistribuer, la publier et la transmettre,\n\n   - de l\'exploiter à titre commercial, par exemple en la combinant avec d\'autres informations, ou en l\'incluant dans son propre produit ou application.\n\nSous réserve de :\n\n   - mentionner la paternité de l\'« Information » : sa source (au moins le nom du « Concédant ») et la date de dernière mise à jour de l\'« Information » réutilisée.\n\nLe « Réutilisateur » peut notamment s\'acquitter de cette condition en renvoyant, par un lien hypertexte, vers la source de « l\'Information » et assurant une mention effective de sa paternité.\n\nPar exemple :\n\n« Ministère de xxx - Données originales téléchargées sur http://www.data.gouv.fr/fr/datasets/xxx/, mise à jour du 14 février 2017 ».\n\nCette mention de paternité ne confère aucun caractère officiel à la « Réutilisation » de l\'« Information », et ne doit pas suggérer une quelconque reconnaissance ou caution par le « Concédant », ou par toute autre entité publique, du « Réutilisateur » ou de sa « Réutilisation ».\n\n« DONNÉES À CARACTÈRE PERSONNEL » -------------------------------------------------------------------\n\nL\'« Information » mise à disposition peut contenir des « Données à caractère personnel » pouvant faire l\'objet d\'une « Réutilisation ». Si tel est le cas, le « Concédant » informe le « Réutilisateur » de leur présence.\n\nL\'« Information » peut être librement réutilisée, dans le cadre des droits accordés par la présente licence, à condition de respecter le cadre légal relatif à la protection des données à caractère personnel.\n\n« DROITS DE PROPRIÉTÉ INTELLECTUELLE » -------------------------------------------------------------------\n\nIl est garanti au « Réutilisateur » que les éventuels « Droits de propriété intellectuelle » détenus par des tiers ou par le « Concédant » sur l\'« Information » ne font pas obstacle aux droits accordés par la présente licence.\n\nLorsque le « Concédant » détient des « Droits de propriété intellectuelle » cessibles sur l\'« Information », il les cède au « Réutilisateur » de façon non exclusive, à titre gracieux, pour le monde entier, pour toute la durée des « Droits de propriété intellectuelle », et le « Réutilisateur » peut faire tout usage de l\'« Information » conformément aux libertés et aux conditions définies par la présente licence.\n\nRESPONSABILITÉ -------------------------------------------------------------------\n\nL\'« Information » est mise à disposition telle que produite ou reçue par le « Concédant », sans autre garantie expresse ou tacite que celles prévues par la présente licence. L\'absence de défauts ou d\'erreurs éventuellement contenues dans l\'« Information », comme la fourniture continue de l\'« Information » n\'est pas garantie par le « Concédant ». Il ne peut être tenu pour responsable de toute perte, préjudice ou dommage de quelque sorte causé à des tiers du fait de la « Réutilisation ».\n\nLe « Réutilisateur » est seul responsable de la « Réutilisation » de l\'« Information ».\n\nLa « Réutilisation » ne doit pas induire en erreur des tiers quant au contenu de l\'« Information », sa source et sa date de mise à jour.\n\nDROIT APPLICABLE -------------------------------------------------------------------\n\nLa présente licence est régie par le droit français.\n\nCOMPATIBILITÉ DE LA PRÉSENTE LICENCE -------------------------------------------------------------------\n\nLa présente licence a été conçue pour être compatible avec toute licence libre qui exige au moins la mention de paternité et notamment avec la version antérieure de la présente licence ainsi qu\'avec les licences :\n\n   - « Open Government Licence » (OGL) du Royaume-Uni,\n\n   - « Creative Commons Attribution » (CC-BY) de Creative Commons et\n\n   - « Open Data Commons Attribution » (ODC-BY) de l\'Open Knowledge Foundation.\n\nDÉFINITIONS -------------------------------------------------------------------\n\nSont considérés, au sens de la présente licence comme :\n\nLe « Concédant » : toute personne concédant un droit de « Réutilisation » sur l\'« Information » dans les libertés et les conditions prévues par la présente licence\n\nL\'« Information » :\n\n   - toute information publique figurant dans des documents communiqués ou publiés par une administration mentionnée au premier alinéa de l\'article L.300-2 du CRPA;\n\n   - toute information mise à disposition par toute personne selon les termes et conditions de la présente licence.\n\nLa « Réutilisation » : l\'utilisation de l\'« Information » à d\'autres fins que celles pour lesquelles elle a été produite ou reçue.\n\nLe « Réutilisateur »: toute personne qui réutilise les « Informations » conformément aux conditions de la présente licence.\n\nDes « Données à caractère personnel » : toute information se rapportant à une personne physique identifiée ou identifiable, pouvant être identifiée directement ou indirectement. Leur « Réutilisation » est subordonnée au respect du cadre juridique en vigueur.\n\nUne « Information dérivée » : toute nouvelle donnée ou information créées directement à partir de l\'« Information » ou à partir d\'une combinaison de l\'« Information » et d\'autres données ou informations non soumises à cette licence.\n\nLes « Droits de propriété intellectuelle » : tous droits identifiés comme tels par le Code de la propriété intellectuelle (notamment le droit d\'auteur, droits voisins au droit d\'auteur, droit sui generis des producteurs de bases de données…).\n\nÀ PROPOS DE CETTE LICENCE -------------------------------------------------------------------\n\nLa présente licence a vocation à être utilisée par les administrations pour la réutilisation de leurs informations publiques. Elle peut également être utilisée par toute personne souhaitant mettre à disposition de l\'« Information » dans les conditions définies par la présente licence.\n\nLa France est dotée d\'un cadre juridique global visant à une diffusion spontanée par les administrations de leurs informations publiques afin d\'en permettre la plus large réutilisation.\n\nLe droit de la « Réutilisation » de l\'« Information » des administrations est régi par le code des relations entre le public et l\'administration (CRPA).\n\nCette licence facilite la réutilisation libre et gratuite des informations publiques et figure parmi les licences qui peuvent être utilisées par l\'administration en vertu du décret pris en application de l\'article L.323-2 du CRPA.\n\nEtalab est la mission chargée, sous l\'autorité du Premier ministre, d\'ouvrir le plus grand nombre de données publiques des administrations de l\'Etat et de ses établissements publics. Elle a réalisé la Licence Ouverte pour faciliter la réutilisation libre et gratuite de ces informations publiques, telles que définies par l\'article L321-1 du CRPA.\n\nCette licence est la version 2.0 de la Licence Ouverte.\n\nEtalab se réserve la faculté de proposer de nouvelles versions de la Licence Ouverte. Cependant, les « Réutilisateurs » pourront continuer à réutiliser les informations qu\'ils ont obtenues sous cette licence s\'ils le souhaitent."
+    }
+
+    #[inline]
+    fn header(&self) -> Option<&'static str> {
+        None
+    }
+
+    #[inline]
+    fn is_osi_approved(&self) -> bool {
+        false
+    }
+
+    #[inline]
+    fn is_fsf_libre(&self) -> bool {
+        false
+    }
+
+    #[inline]
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    #[inline]
+    fn see_also(&self) -> &'static [&'static str] {
+        &["https://github.com/DISIC/politique-de-contribution-open-source/blob/master/LICENSE.pdf", "https://raw.githubusercontent.com/DISIC/politique-de-contribution-open-source/master/LICENSE"]
     }
 }
 
@@ -18098,7 +18381,7 @@ impl crate::License for gSOAP_1_3b {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -18144,7 +18427,7 @@ impl crate::License for gnuplot {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -18190,7 +18473,7 @@ impl crate::License for iMatix {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -18236,7 +18519,7 @@ impl crate::License for libpng_2_0 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -18282,7 +18565,7 @@ impl crate::License for libtiff {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -18328,7 +18611,7 @@ impl crate::License for mpich2 {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -18374,7 +18657,7 @@ impl crate::License for psfrag {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -18420,7 +18703,7 @@ impl crate::License for psutils {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -18466,7 +18749,7 @@ impl crate::License for wxWindows {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -18512,7 +18795,7 @@ impl crate::License for xinetd {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         true
     }
 
@@ -18558,7 +18841,7 @@ impl crate::License for xpp {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
@@ -18604,7 +18887,7 @@ impl crate::License for zlib_acknowledgement {
     }
 
     #[inline]
-    fn is_fsf_free(&self) -> bool {
+    fn is_fsf_libre(&self) -> bool {
         false
     }
 
