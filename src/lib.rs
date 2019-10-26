@@ -1,6 +1,7 @@
 //! Provides license information from [spdx.org](https://spdx.org).
 
 #![doc(html_root_url = "https://docs.rs/license/0.8.0")]
+#![no_std]
 #![deny(
     bad_style,
     bare_trait_objects,
@@ -22,25 +23,25 @@ pub trait License {
     /// The name of the license.
     ///
     /// Corresponds to the *Full name* column from [spdx.org/licenses](https://spdx.org/licenses/).
-    fn name(&self) -> &str;
+    fn name(&self) -> &'static str;
 
     /// The identifier of the license.
     ///
     /// Corresponds to the *Identifier* column from [spdx.org/licenses](https://spdx.org/licenses/).
-    fn id(&self) -> &str;
+    fn id(&self) -> &'static str;
 
     /// The license text.
-    fn text(&self) -> &str;
+    fn text(&self) -> &'static str;
 
     /// The standard license header.
-    fn header(&self) -> Option<&str>;
+    fn header(&self) -> Option<&'static str>;
 
     /// Says if the license is OSI approved.
     ///
     /// Corresponds to the *OSI Approved?* column from [spdx.org/licenses](https://spdx.org/licenses/).
     fn is_osi_approved(&self) -> bool;
 
-    /// Says if the license is FSF Free.
+    /// Says if the license is FSF Libre.
     ///
     /// Corresponds to the *FSF Free/Libre?* column from [spdx.org/licenses](https://spdx.org/licenses/).
     fn is_fsf_libre(&self) -> bool;
@@ -49,5 +50,5 @@ pub trait License {
     fn is_deprecated(&self) -> bool;
 
     /// Relevant sources.
-    fn see_also(&self) -> &[&str];
+    fn see_also(&self) -> &'static [&'static str];
 }

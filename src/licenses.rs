@@ -2,410 +2,410 @@
 
 /// Returns the license with the provided id.
 #[inline]
-pub fn id(id: &str) -> Option<Box<dyn crate::License>> {
+pub fn id(id: &str) -> Option<&'static dyn crate::License> {
     match id {
-        "0BSD" => Some(Box::new(BSD_0)),
-        "AAL" => Some(Box::new(AAL)),
-        "ADSL" => Some(Box::new(ADSL)),
-        "AFL-1.1" => Some(Box::new(AFL_1_1)),
-        "AFL-1.2" => Some(Box::new(AFL_1_2)),
-        "AFL-2.0" => Some(Box::new(AFL_2_0)),
-        "AFL-2.1" => Some(Box::new(AFL_2_1)),
-        "AFL-3.0" => Some(Box::new(AFL_3_0)),
-        "AGPL-1.0-only" => Some(Box::new(AGPL_1_0_only)),
-        "AGPL-1.0-or-later" => Some(Box::new(AGPL_1_0_or_later)),
-        "AGPL-1.0" => Some(Box::new(AGPL_1_0)),
-        "AGPL-3.0-only" => Some(Box::new(AGPL_3_0_only)),
-        "AGPL-3.0-or-later" => Some(Box::new(AGPL_3_0_or_later)),
-        "AGPL-3.0" => Some(Box::new(AGPL_3_0)),
-        "AMDPLPA" => Some(Box::new(AMDPLPA)),
-        "AML" => Some(Box::new(AML)),
-        "AMPAS" => Some(Box::new(AMPAS)),
-        "ANTLR-PD" => Some(Box::new(ANTLR_PD)),
-        "APAFML" => Some(Box::new(APAFML)),
-        "APL-1.0" => Some(Box::new(APL_1_0)),
-        "APSL-1.0" => Some(Box::new(APSL_1_0)),
-        "APSL-1.1" => Some(Box::new(APSL_1_1)),
-        "APSL-1.2" => Some(Box::new(APSL_1_2)),
-        "APSL-2.0" => Some(Box::new(APSL_2_0)),
-        "Abstyles" => Some(Box::new(Abstyles)),
-        "Adobe-2006" => Some(Box::new(Adobe_2006)),
-        "Adobe-Glyph" => Some(Box::new(Adobe_Glyph)),
-        "Afmparse" => Some(Box::new(Afmparse)),
-        "Aladdin" => Some(Box::new(Aladdin)),
-        "Apache-1.0" => Some(Box::new(Apache_1_0)),
-        "Apache-1.1" => Some(Box::new(Apache_1_1)),
-        "Apache-2.0" => Some(Box::new(Apache_2_0)),
-        "Artistic-1.0-Perl" => Some(Box::new(Artistic_1_0_Perl)),
-        "Artistic-1.0-cl8" => Some(Box::new(Artistic_1_0_cl8)),
-        "Artistic-1.0" => Some(Box::new(Artistic_1_0)),
-        "Artistic-2.0" => Some(Box::new(Artistic_2_0)),
-        "BSD-1-Clause" => Some(Box::new(BSD_1_Clause)),
-        "BSD-2-Clause-FreeBSD" => Some(Box::new(BSD_2_Clause_FreeBSD)),
-        "BSD-2-Clause-NetBSD" => Some(Box::new(BSD_2_Clause_NetBSD)),
-        "BSD-2-Clause-Patent" => Some(Box::new(BSD_2_Clause_Patent)),
-        "BSD-2-Clause" => Some(Box::new(BSD_2_Clause)),
-        "BSD-3-Clause-Attribution" => Some(Box::new(BSD_3_Clause_Attribution)),
-        "BSD-3-Clause-Clear" => Some(Box::new(BSD_3_Clause_Clear)),
-        "BSD-3-Clause-LBNL" => Some(Box::new(BSD_3_Clause_LBNL)),
-        "BSD-3-Clause-No-Nuclear-License-2014" => Some(Box::new(BSD_3_Clause_No_Nuclear_License_2014)),
-        "BSD-3-Clause-No-Nuclear-License" => Some(Box::new(BSD_3_Clause_No_Nuclear_License)),
-        "BSD-3-Clause-No-Nuclear-Warranty" => Some(Box::new(BSD_3_Clause_No_Nuclear_Warranty)),
-        "BSD-3-Clause-Open-MPI" => Some(Box::new(BSD_3_Clause_Open_MPI)),
-        "BSD-3-Clause" => Some(Box::new(BSD_3_Clause)),
-        "BSD-4-Clause-UC" => Some(Box::new(BSD_4_Clause_UC)),
-        "BSD-4-Clause" => Some(Box::new(BSD_4_Clause)),
-        "BSD-Protection" => Some(Box::new(BSD_Protection)),
-        "BSD-Source-Code" => Some(Box::new(BSD_Source_Code)),
-        "BSL-1.0" => Some(Box::new(BSL_1_0)),
-        "Bahyph" => Some(Box::new(Bahyph)),
-        "Barr" => Some(Box::new(Barr)),
-        "Beerware" => Some(Box::new(Beerware)),
-        "BitTorrent-1.0" => Some(Box::new(BitTorrent_1_0)),
-        "BitTorrent-1.1" => Some(Box::new(BitTorrent_1_1)),
-        "BlueOak-1.0.0" => Some(Box::new(BlueOak_1_0_0)),
-        "Borceux" => Some(Box::new(Borceux)),
-        "CATOSL-1.1" => Some(Box::new(CATOSL_1_1)),
-        "CC-BY-1.0" => Some(Box::new(CC_BY_1_0)),
-        "CC-BY-2.0" => Some(Box::new(CC_BY_2_0)),
-        "CC-BY-2.5" => Some(Box::new(CC_BY_2_5)),
-        "CC-BY-3.0" => Some(Box::new(CC_BY_3_0)),
-        "CC-BY-4.0" => Some(Box::new(CC_BY_4_0)),
-        "CC-BY-NC-1.0" => Some(Box::new(CC_BY_NC_1_0)),
-        "CC-BY-NC-2.0" => Some(Box::new(CC_BY_NC_2_0)),
-        "CC-BY-NC-2.5" => Some(Box::new(CC_BY_NC_2_5)),
-        "CC-BY-NC-3.0" => Some(Box::new(CC_BY_NC_3_0)),
-        "CC-BY-NC-4.0" => Some(Box::new(CC_BY_NC_4_0)),
-        "CC-BY-NC-ND-1.0" => Some(Box::new(CC_BY_NC_ND_1_0)),
-        "CC-BY-NC-ND-2.0" => Some(Box::new(CC_BY_NC_ND_2_0)),
-        "CC-BY-NC-ND-2.5" => Some(Box::new(CC_BY_NC_ND_2_5)),
-        "CC-BY-NC-ND-3.0" => Some(Box::new(CC_BY_NC_ND_3_0)),
-        "CC-BY-NC-ND-4.0" => Some(Box::new(CC_BY_NC_ND_4_0)),
-        "CC-BY-NC-SA-1.0" => Some(Box::new(CC_BY_NC_SA_1_0)),
-        "CC-BY-NC-SA-2.0" => Some(Box::new(CC_BY_NC_SA_2_0)),
-        "CC-BY-NC-SA-2.5" => Some(Box::new(CC_BY_NC_SA_2_5)),
-        "CC-BY-NC-SA-3.0" => Some(Box::new(CC_BY_NC_SA_3_0)),
-        "CC-BY-NC-SA-4.0" => Some(Box::new(CC_BY_NC_SA_4_0)),
-        "CC-BY-ND-1.0" => Some(Box::new(CC_BY_ND_1_0)),
-        "CC-BY-ND-2.0" => Some(Box::new(CC_BY_ND_2_0)),
-        "CC-BY-ND-2.5" => Some(Box::new(CC_BY_ND_2_5)),
-        "CC-BY-ND-3.0" => Some(Box::new(CC_BY_ND_3_0)),
-        "CC-BY-ND-4.0" => Some(Box::new(CC_BY_ND_4_0)),
-        "CC-BY-SA-1.0" => Some(Box::new(CC_BY_SA_1_0)),
-        "CC-BY-SA-2.0" => Some(Box::new(CC_BY_SA_2_0)),
-        "CC-BY-SA-2.5" => Some(Box::new(CC_BY_SA_2_5)),
-        "CC-BY-SA-3.0" => Some(Box::new(CC_BY_SA_3_0)),
-        "CC-BY-SA-4.0" => Some(Box::new(CC_BY_SA_4_0)),
-        "CC-PDDC" => Some(Box::new(CC_PDDC)),
-        "CC0-1.0" => Some(Box::new(CC0_1_0)),
-        "CDDL-1.0" => Some(Box::new(CDDL_1_0)),
-        "CDDL-1.1" => Some(Box::new(CDDL_1_1)),
-        "CDLA-Permissive-1.0" => Some(Box::new(CDLA_Permissive_1_0)),
-        "CDLA-Sharing-1.0" => Some(Box::new(CDLA_Sharing_1_0)),
-        "CECILL-1.0" => Some(Box::new(CECILL_1_0)),
-        "CECILL-1.1" => Some(Box::new(CECILL_1_1)),
-        "CECILL-2.0" => Some(Box::new(CECILL_2_0)),
-        "CECILL-2.1" => Some(Box::new(CECILL_2_1)),
-        "CECILL-B" => Some(Box::new(CECILL_B)),
-        "CECILL-C" => Some(Box::new(CECILL_C)),
-        "CERN-OHL-1.1" => Some(Box::new(CERN_OHL_1_1)),
-        "CERN-OHL-1.2" => Some(Box::new(CERN_OHL_1_2)),
-        "CNRI-Jython" => Some(Box::new(CNRI_Jython)),
-        "CNRI-Python-GPL-Compatible" => Some(Box::new(CNRI_Python_GPL_Compatible)),
-        "CNRI-Python" => Some(Box::new(CNRI_Python)),
-        "CPAL-1.0" => Some(Box::new(CPAL_1_0)),
-        "CPL-1.0" => Some(Box::new(CPL_1_0)),
-        "CPOL-1.02" => Some(Box::new(CPOL_1_02)),
-        "CUA-OPL-1.0" => Some(Box::new(CUA_OPL_1_0)),
-        "Caldera" => Some(Box::new(Caldera)),
-        "ClArtistic" => Some(Box::new(ClArtistic)),
-        "Condor-1.1" => Some(Box::new(Condor_1_1)),
-        "Crossword" => Some(Box::new(Crossword)),
-        "CrystalStacker" => Some(Box::new(CrystalStacker)),
-        "Cube" => Some(Box::new(Cube)),
-        "D-FSL-1.0" => Some(Box::new(D_FSL_1_0)),
-        "DOC" => Some(Box::new(DOC)),
-        "DSDP" => Some(Box::new(DSDP)),
-        "Dotseqn" => Some(Box::new(Dotseqn)),
-        "ECL-1.0" => Some(Box::new(ECL_1_0)),
-        "ECL-2.0" => Some(Box::new(ECL_2_0)),
-        "EFL-1.0" => Some(Box::new(EFL_1_0)),
-        "EFL-2.0" => Some(Box::new(EFL_2_0)),
-        "EPL-1.0" => Some(Box::new(EPL_1_0)),
-        "EPL-2.0" => Some(Box::new(EPL_2_0)),
-        "EUDatagrid" => Some(Box::new(EUDatagrid)),
-        "EUPL-1.0" => Some(Box::new(EUPL_1_0)),
-        "EUPL-1.1" => Some(Box::new(EUPL_1_1)),
-        "EUPL-1.2" => Some(Box::new(EUPL_1_2)),
-        "Entessa" => Some(Box::new(Entessa)),
-        "ErlPL-1.1" => Some(Box::new(ErlPL_1_1)),
-        "Eurosym" => Some(Box::new(Eurosym)),
-        "FSFAP" => Some(Box::new(FSFAP)),
-        "FSFUL" => Some(Box::new(FSFUL)),
-        "FSFULLR" => Some(Box::new(FSFULLR)),
-        "FTL" => Some(Box::new(FTL)),
-        "Fair" => Some(Box::new(Fair)),
-        "Frameworx-1.0" => Some(Box::new(Frameworx_1_0)),
-        "FreeImage" => Some(Box::new(FreeImage)),
-        "GFDL-1.1-only" => Some(Box::new(GFDL_1_1_only)),
-        "GFDL-1.1-or-later" => Some(Box::new(GFDL_1_1_or_later)),
-        "GFDL-1.1" => Some(Box::new(GFDL_1_1)),
-        "GFDL-1.2-only" => Some(Box::new(GFDL_1_2_only)),
-        "GFDL-1.2-or-later" => Some(Box::new(GFDL_1_2_or_later)),
-        "GFDL-1.2" => Some(Box::new(GFDL_1_2)),
-        "GFDL-1.3-only" => Some(Box::new(GFDL_1_3_only)),
-        "GFDL-1.3-or-later" => Some(Box::new(GFDL_1_3_or_later)),
-        "GFDL-1.3" => Some(Box::new(GFDL_1_3)),
-        "GL2PS" => Some(Box::new(GL2PS)),
-        "GPL-1.0+" => Some(Box::new(GPL_1_0_plus)),
-        "GPL-1.0-only" => Some(Box::new(GPL_1_0_only)),
-        "GPL-1.0-or-later" => Some(Box::new(GPL_1_0_or_later)),
-        "GPL-1.0" => Some(Box::new(GPL_1_0)),
-        "GPL-2.0+" => Some(Box::new(GPL_2_0_plus)),
-        "GPL-2.0-only" => Some(Box::new(GPL_2_0_only)),
-        "GPL-2.0-or-later" => Some(Box::new(GPL_2_0_or_later)),
-        "GPL-2.0-with-GCC-exception" => Some(Box::new(GPL_2_0_with_GCC_exception)),
-        "GPL-2.0-with-autoconf-exception" => Some(Box::new(GPL_2_0_with_autoconf_exception)),
-        "GPL-2.0-with-bison-exception" => Some(Box::new(GPL_2_0_with_bison_exception)),
-        "GPL-2.0-with-classpath-exception" => Some(Box::new(GPL_2_0_with_classpath_exception)),
-        "GPL-2.0-with-font-exception" => Some(Box::new(GPL_2_0_with_font_exception)),
-        "GPL-2.0" => Some(Box::new(GPL_2_0)),
-        "GPL-3.0+" => Some(Box::new(GPL_3_0_plus)),
-        "GPL-3.0-only" => Some(Box::new(GPL_3_0_only)),
-        "GPL-3.0-or-later" => Some(Box::new(GPL_3_0_or_later)),
-        "GPL-3.0-with-GCC-exception" => Some(Box::new(GPL_3_0_with_GCC_exception)),
-        "GPL-3.0-with-autoconf-exception" => Some(Box::new(GPL_3_0_with_autoconf_exception)),
-        "GPL-3.0" => Some(Box::new(GPL_3_0)),
-        "Giftware" => Some(Box::new(Giftware)),
-        "Glide" => Some(Box::new(Glide)),
-        "Glulxe" => Some(Box::new(Glulxe)),
-        "HPND-sell-variant" => Some(Box::new(HPND_sell_variant)),
-        "HPND" => Some(Box::new(HPND)),
-        "HaskellReport" => Some(Box::new(HaskellReport)),
-        "IBM-pibs" => Some(Box::new(IBM_pibs)),
-        "ICU" => Some(Box::new(ICU)),
-        "IJG" => Some(Box::new(IJG)),
-        "IPA" => Some(Box::new(IPA)),
-        "IPL-1.0" => Some(Box::new(IPL_1_0)),
-        "ISC" => Some(Box::new(ISC)),
-        "ImageMagick" => Some(Box::new(ImageMagick)),
-        "Imlib2" => Some(Box::new(Imlib2)),
-        "Info-ZIP" => Some(Box::new(Info_ZIP)),
-        "Intel-ACPI" => Some(Box::new(Intel_ACPI)),
-        "Intel" => Some(Box::new(Intel)),
-        "Interbase-1.0" => Some(Box::new(Interbase_1_0)),
-        "JPNIC" => Some(Box::new(JPNIC)),
-        "JSON" => Some(Box::new(JSON)),
-        "JasPer-2.0" => Some(Box::new(JasPer_2_0)),
-        "LAL-1.2" => Some(Box::new(LAL_1_2)),
-        "LAL-1.3" => Some(Box::new(LAL_1_3)),
-        "LGPL-2.0+" => Some(Box::new(LGPL_2_0_plus)),
-        "LGPL-2.0-only" => Some(Box::new(LGPL_2_0_only)),
-        "LGPL-2.0-or-later" => Some(Box::new(LGPL_2_0_or_later)),
-        "LGPL-2.0" => Some(Box::new(LGPL_2_0)),
-        "LGPL-2.1+" => Some(Box::new(LGPL_2_1_plus)),
-        "LGPL-2.1-only" => Some(Box::new(LGPL_2_1_only)),
-        "LGPL-2.1-or-later" => Some(Box::new(LGPL_2_1_or_later)),
-        "LGPL-2.1" => Some(Box::new(LGPL_2_1)),
-        "LGPL-3.0+" => Some(Box::new(LGPL_3_0_plus)),
-        "LGPL-3.0-only" => Some(Box::new(LGPL_3_0_only)),
-        "LGPL-3.0-or-later" => Some(Box::new(LGPL_3_0_or_later)),
-        "LGPL-3.0" => Some(Box::new(LGPL_3_0)),
-        "LGPLLR" => Some(Box::new(LGPLLR)),
-        "LPL-1.0" => Some(Box::new(LPL_1_0)),
-        "LPL-1.02" => Some(Box::new(LPL_1_02)),
-        "LPPL-1.0" => Some(Box::new(LPPL_1_0)),
-        "LPPL-1.1" => Some(Box::new(LPPL_1_1)),
-        "LPPL-1.2" => Some(Box::new(LPPL_1_2)),
-        "LPPL-1.3a" => Some(Box::new(LPPL_1_3a)),
-        "LPPL-1.3c" => Some(Box::new(LPPL_1_3c)),
-        "Latex2e" => Some(Box::new(Latex2e)),
-        "Leptonica" => Some(Box::new(Leptonica)),
-        "LiLiQ-P-1.1" => Some(Box::new(LiLiQ_P_1_1)),
-        "LiLiQ-R-1.1" => Some(Box::new(LiLiQ_R_1_1)),
-        "LiLiQ-Rplus-1.1" => Some(Box::new(LiLiQ_Rplus_1_1)),
-        "Libpng" => Some(Box::new(Libpng)),
-        "Linux-OpenIB" => Some(Box::new(Linux_OpenIB)),
-        "MIT-0" => Some(Box::new(MIT_0)),
-        "MIT-CMU" => Some(Box::new(MIT_CMU)),
-        "MIT-advertising" => Some(Box::new(MIT_advertising)),
-        "MIT-enna" => Some(Box::new(MIT_enna)),
-        "MIT-feh" => Some(Box::new(MIT_feh)),
-        "MIT" => Some(Box::new(MIT)),
-        "MITNFA" => Some(Box::new(MITNFA)),
-        "MPL-1.0" => Some(Box::new(MPL_1_0)),
-        "MPL-1.1" => Some(Box::new(MPL_1_1)),
-        "MPL-2.0-no-copyleft-exception" => Some(Box::new(MPL_2_0_no_copyleft_exception)),
-        "MPL-2.0" => Some(Box::new(MPL_2_0)),
-        "MS-PL" => Some(Box::new(MS_PL)),
-        "MS-RL" => Some(Box::new(MS_RL)),
-        "MTLL" => Some(Box::new(MTLL)),
-        "MakeIndex" => Some(Box::new(MakeIndex)),
-        "MirOS" => Some(Box::new(MirOS)),
-        "Motosoto" => Some(Box::new(Motosoto)),
-        "MulanPSL-1.0" => Some(Box::new(MulanPSL_1_0)),
-        "Multics" => Some(Box::new(Multics)),
-        "Mup" => Some(Box::new(Mup)),
-        "NASA-1.3" => Some(Box::new(NASA_1_3)),
-        "NBPL-1.0" => Some(Box::new(NBPL_1_0)),
-        "NCSA" => Some(Box::new(NCSA)),
-        "NGPL" => Some(Box::new(NGPL)),
-        "NLOD-1.0" => Some(Box::new(NLOD_1_0)),
-        "NLPL" => Some(Box::new(NLPL)),
-        "NOSL" => Some(Box::new(NOSL)),
-        "NPL-1.0" => Some(Box::new(NPL_1_0)),
-        "NPL-1.1" => Some(Box::new(NPL_1_1)),
-        "NPOSL-3.0" => Some(Box::new(NPOSL_3_0)),
-        "NRL" => Some(Box::new(NRL)),
-        "NTP" => Some(Box::new(NTP)),
-        "Naumen" => Some(Box::new(Naumen)),
-        "Net-SNMP" => Some(Box::new(Net_SNMP)),
-        "NetCDF" => Some(Box::new(NetCDF)),
-        "Newsletr" => Some(Box::new(Newsletr)),
-        "Nokia" => Some(Box::new(Nokia)),
-        "Noweb" => Some(Box::new(Noweb)),
-        "Nunit" => Some(Box::new(Nunit)),
-        "OCCT-PL" => Some(Box::new(OCCT_PL)),
-        "OCLC-2.0" => Some(Box::new(OCLC_2_0)),
-        "ODC-By-1.0" => Some(Box::new(ODC_By_1_0)),
-        "ODbL-1.0" => Some(Box::new(ODbL_1_0)),
-        "OFL-1.0" => Some(Box::new(OFL_1_0)),
-        "OFL-1.1" => Some(Box::new(OFL_1_1)),
-        "OGL-Canada-2.0" => Some(Box::new(OGL_Canada_2_0)),
-        "OGL-UK-1.0" => Some(Box::new(OGL_UK_1_0)),
-        "OGL-UK-2.0" => Some(Box::new(OGL_UK_2_0)),
-        "OGL-UK-3.0" => Some(Box::new(OGL_UK_3_0)),
-        "OGTSL" => Some(Box::new(OGTSL)),
-        "OLDAP-1.1" => Some(Box::new(OLDAP_1_1)),
-        "OLDAP-1.2" => Some(Box::new(OLDAP_1_2)),
-        "OLDAP-1.3" => Some(Box::new(OLDAP_1_3)),
-        "OLDAP-1.4" => Some(Box::new(OLDAP_1_4)),
-        "OLDAP-2.0.1" => Some(Box::new(OLDAP_2_0_1)),
-        "OLDAP-2.0" => Some(Box::new(OLDAP_2_0)),
-        "OLDAP-2.1" => Some(Box::new(OLDAP_2_1)),
-        "OLDAP-2.2.1" => Some(Box::new(OLDAP_2_2_1)),
-        "OLDAP-2.2.2" => Some(Box::new(OLDAP_2_2_2)),
-        "OLDAP-2.2" => Some(Box::new(OLDAP_2_2)),
-        "OLDAP-2.3" => Some(Box::new(OLDAP_2_3)),
-        "OLDAP-2.4" => Some(Box::new(OLDAP_2_4)),
-        "OLDAP-2.5" => Some(Box::new(OLDAP_2_5)),
-        "OLDAP-2.6" => Some(Box::new(OLDAP_2_6)),
-        "OLDAP-2.7" => Some(Box::new(OLDAP_2_7)),
-        "OLDAP-2.8" => Some(Box::new(OLDAP_2_8)),
-        "OML" => Some(Box::new(OML)),
-        "OPL-1.0" => Some(Box::new(OPL_1_0)),
-        "OSET-PL-2.1" => Some(Box::new(OSET_PL_2_1)),
-        "OSL-1.0" => Some(Box::new(OSL_1_0)),
-        "OSL-1.1" => Some(Box::new(OSL_1_1)),
-        "OSL-2.0" => Some(Box::new(OSL_2_0)),
-        "OSL-2.1" => Some(Box::new(OSL_2_1)),
-        "OSL-3.0" => Some(Box::new(OSL_3_0)),
-        "OpenSSL" => Some(Box::new(OpenSSL)),
-        "PDDL-1.0" => Some(Box::new(PDDL_1_0)),
-        "PHP-3.0" => Some(Box::new(PHP_3_0)),
-        "PHP-3.01" => Some(Box::new(PHP_3_01)),
-        "Parity-6.0.0" => Some(Box::new(Parity_6_0_0)),
-        "Plexus" => Some(Box::new(Plexus)),
-        "PostgreSQL" => Some(Box::new(PostgreSQL)),
-        "Python-2.0" => Some(Box::new(Python_2_0)),
-        "QPL-1.0" => Some(Box::new(QPL_1_0)),
-        "Qhull" => Some(Box::new(Qhull)),
-        "RHeCos-1.1" => Some(Box::new(RHeCos_1_1)),
-        "RPL-1.1" => Some(Box::new(RPL_1_1)),
-        "RPL-1.5" => Some(Box::new(RPL_1_5)),
-        "RPSL-1.0" => Some(Box::new(RPSL_1_0)),
-        "RSA-MD" => Some(Box::new(RSA_MD)),
-        "RSCPL" => Some(Box::new(RSCPL)),
-        "Rdisc" => Some(Box::new(Rdisc)),
-        "Ruby" => Some(Box::new(Ruby)),
-        "SAX-PD" => Some(Box::new(SAX_PD)),
-        "SCEA" => Some(Box::new(SCEA)),
-        "SGI-B-1.0" => Some(Box::new(SGI_B_1_0)),
-        "SGI-B-1.1" => Some(Box::new(SGI_B_1_1)),
-        "SGI-B-2.0" => Some(Box::new(SGI_B_2_0)),
-        "SHL-0.5" => Some(Box::new(SHL_0_5)),
-        "SHL-0.51" => Some(Box::new(SHL_0_51)),
-        "SISSL-1.2" => Some(Box::new(SISSL_1_2)),
-        "SISSL" => Some(Box::new(SISSL)),
-        "SMLNJ" => Some(Box::new(SMLNJ)),
-        "SMPPL" => Some(Box::new(SMPPL)),
-        "SNIA" => Some(Box::new(SNIA)),
-        "SPL-1.0" => Some(Box::new(SPL_1_0)),
-        "SSH-OpenSSH" => Some(Box::new(SSH_OpenSSH)),
-        "SSH-short" => Some(Box::new(SSH_short)),
-        "SSPL-1.0" => Some(Box::new(SSPL_1_0)),
-        "SWL" => Some(Box::new(SWL)),
-        "Saxpath" => Some(Box::new(Saxpath)),
-        "Sendmail-8.23" => Some(Box::new(Sendmail_8_23)),
-        "Sendmail" => Some(Box::new(Sendmail)),
-        "SimPL-2.0" => Some(Box::new(SimPL_2_0)),
-        "Sleepycat" => Some(Box::new(Sleepycat)),
-        "Spencer-86" => Some(Box::new(Spencer_86)),
-        "Spencer-94" => Some(Box::new(Spencer_94)),
-        "Spencer-99" => Some(Box::new(Spencer_99)),
-        "StandardML-NJ" => Some(Box::new(StandardML_NJ)),
-        "SugarCRM-1.1.3" => Some(Box::new(SugarCRM_1_1_3)),
-        "TAPR-OHL-1.0" => Some(Box::new(TAPR_OHL_1_0)),
-        "TCL" => Some(Box::new(TCL)),
-        "TCP-wrappers" => Some(Box::new(TCP_wrappers)),
-        "TMate" => Some(Box::new(TMate)),
-        "TORQUE-1.1" => Some(Box::new(TORQUE_1_1)),
-        "TOSL" => Some(Box::new(TOSL)),
-        "TU-Berlin-1.0" => Some(Box::new(TU_Berlin_1_0)),
-        "TU-Berlin-2.0" => Some(Box::new(TU_Berlin_2_0)),
-        "UCL-1.0" => Some(Box::new(UCL_1_0)),
-        "UPL-1.0" => Some(Box::new(UPL_1_0)),
-        "Unicode-DFS-2015" => Some(Box::new(Unicode_DFS_2015)),
-        "Unicode-DFS-2016" => Some(Box::new(Unicode_DFS_2016)),
-        "Unicode-TOU" => Some(Box::new(Unicode_TOU)),
-        "Unlicense" => Some(Box::new(Unlicense)),
-        "VOSTROM" => Some(Box::new(VOSTROM)),
-        "VSL-1.0" => Some(Box::new(VSL_1_0)),
-        "Vim" => Some(Box::new(Vim)),
-        "W3C-19980720" => Some(Box::new(W3C_19980720)),
-        "W3C-20150513" => Some(Box::new(W3C_20150513)),
-        "W3C" => Some(Box::new(W3C)),
-        "WTFPL" => Some(Box::new(WTFPL)),
-        "Watcom-1.0" => Some(Box::new(Watcom_1_0)),
-        "Wsuipa" => Some(Box::new(Wsuipa)),
-        "X11" => Some(Box::new(X11)),
-        "XFree86-1.1" => Some(Box::new(XFree86_1_1)),
-        "XSkat" => Some(Box::new(XSkat)),
-        "Xerox" => Some(Box::new(Xerox)),
-        "Xnet" => Some(Box::new(Xnet)),
-        "YPL-1.0" => Some(Box::new(YPL_1_0)),
-        "YPL-1.1" => Some(Box::new(YPL_1_1)),
-        "ZPL-1.1" => Some(Box::new(ZPL_1_1)),
-        "ZPL-2.0" => Some(Box::new(ZPL_2_0)),
-        "ZPL-2.1" => Some(Box::new(ZPL_2_1)),
-        "Zed" => Some(Box::new(Zed)),
-        "Zend-2.0" => Some(Box::new(Zend_2_0)),
-        "Zimbra-1.3" => Some(Box::new(Zimbra_1_3)),
-        "Zimbra-1.4" => Some(Box::new(Zimbra_1_4)),
-        "Zlib" => Some(Box::new(Zlib)),
-        "blessing" => Some(Box::new(blessing)),
-        "bzip2-1.0.5" => Some(Box::new(bzip2_1_0_5)),
-        "bzip2-1.0.6" => Some(Box::new(bzip2_1_0_6)),
-        "copyleft-next-0.3.0" => Some(Box::new(copyleft_next_0_3_0)),
-        "copyleft-next-0.3.1" => Some(Box::new(copyleft_next_0_3_1)),
-        "curl" => Some(Box::new(curl)),
-        "diffmark" => Some(Box::new(diffmark)),
-        "dvipdfm" => Some(Box::new(dvipdfm)),
-        "eCos-2.0" => Some(Box::new(eCos_2_0)),
-        "eGenix" => Some(Box::new(eGenix)),
-        "etalab-2.0" => Some(Box::new(etalab_2_0)),
-        "gSOAP-1.3b" => Some(Box::new(gSOAP_1_3b)),
-        "gnuplot" => Some(Box::new(gnuplot)),
-        "iMatix" => Some(Box::new(iMatix)),
-        "libpng-2.0" => Some(Box::new(libpng_2_0)),
-        "libtiff" => Some(Box::new(libtiff)),
-        "mpich2" => Some(Box::new(mpich2)),
-        "psfrag" => Some(Box::new(psfrag)),
-        "psutils" => Some(Box::new(psutils)),
-        "wxWindows" => Some(Box::new(wxWindows)),
-        "xinetd" => Some(Box::new(xinetd)),
-        "xpp" => Some(Box::new(xpp)),
-        "zlib-acknowledgement" => Some(Box::new(zlib_acknowledgement)),
+        "0BSD" => Some(&BSD_0),
+        "AAL" => Some(&AAL),
+        "ADSL" => Some(&ADSL),
+        "AFL-1.1" => Some(&AFL_1_1),
+        "AFL-1.2" => Some(&AFL_1_2),
+        "AFL-2.0" => Some(&AFL_2_0),
+        "AFL-2.1" => Some(&AFL_2_1),
+        "AFL-3.0" => Some(&AFL_3_0),
+        "AGPL-1.0-only" => Some(&AGPL_1_0_only),
+        "AGPL-1.0-or-later" => Some(&AGPL_1_0_or_later),
+        "AGPL-1.0" => Some(&AGPL_1_0),
+        "AGPL-3.0-only" => Some(&AGPL_3_0_only),
+        "AGPL-3.0-or-later" => Some(&AGPL_3_0_or_later),
+        "AGPL-3.0" => Some(&AGPL_3_0),
+        "AMDPLPA" => Some(&AMDPLPA),
+        "AML" => Some(&AML),
+        "AMPAS" => Some(&AMPAS),
+        "ANTLR-PD" => Some(&ANTLR_PD),
+        "APAFML" => Some(&APAFML),
+        "APL-1.0" => Some(&APL_1_0),
+        "APSL-1.0" => Some(&APSL_1_0),
+        "APSL-1.1" => Some(&APSL_1_1),
+        "APSL-1.2" => Some(&APSL_1_2),
+        "APSL-2.0" => Some(&APSL_2_0),
+        "Abstyles" => Some(&Abstyles),
+        "Adobe-2006" => Some(&Adobe_2006),
+        "Adobe-Glyph" => Some(&Adobe_Glyph),
+        "Afmparse" => Some(&Afmparse),
+        "Aladdin" => Some(&Aladdin),
+        "Apache-1.0" => Some(&Apache_1_0),
+        "Apache-1.1" => Some(&Apache_1_1),
+        "Apache-2.0" => Some(&Apache_2_0),
+        "Artistic-1.0-Perl" => Some(&Artistic_1_0_Perl),
+        "Artistic-1.0-cl8" => Some(&Artistic_1_0_cl8),
+        "Artistic-1.0" => Some(&Artistic_1_0),
+        "Artistic-2.0" => Some(&Artistic_2_0),
+        "BSD-1-Clause" => Some(&BSD_1_Clause),
+        "BSD-2-Clause-FreeBSD" => Some(&BSD_2_Clause_FreeBSD),
+        "BSD-2-Clause-NetBSD" => Some(&BSD_2_Clause_NetBSD),
+        "BSD-2-Clause-Patent" => Some(&BSD_2_Clause_Patent),
+        "BSD-2-Clause" => Some(&BSD_2_Clause),
+        "BSD-3-Clause-Attribution" => Some(&BSD_3_Clause_Attribution),
+        "BSD-3-Clause-Clear" => Some(&BSD_3_Clause_Clear),
+        "BSD-3-Clause-LBNL" => Some(&BSD_3_Clause_LBNL),
+        "BSD-3-Clause-No-Nuclear-License-2014" => Some(&BSD_3_Clause_No_Nuclear_License_2014),
+        "BSD-3-Clause-No-Nuclear-License" => Some(&BSD_3_Clause_No_Nuclear_License),
+        "BSD-3-Clause-No-Nuclear-Warranty" => Some(&BSD_3_Clause_No_Nuclear_Warranty),
+        "BSD-3-Clause-Open-MPI" => Some(&BSD_3_Clause_Open_MPI),
+        "BSD-3-Clause" => Some(&BSD_3_Clause),
+        "BSD-4-Clause-UC" => Some(&BSD_4_Clause_UC),
+        "BSD-4-Clause" => Some(&BSD_4_Clause),
+        "BSD-Protection" => Some(&BSD_Protection),
+        "BSD-Source-Code" => Some(&BSD_Source_Code),
+        "BSL-1.0" => Some(&BSL_1_0),
+        "Bahyph" => Some(&Bahyph),
+        "Barr" => Some(&Barr),
+        "Beerware" => Some(&Beerware),
+        "BitTorrent-1.0" => Some(&BitTorrent_1_0),
+        "BitTorrent-1.1" => Some(&BitTorrent_1_1),
+        "BlueOak-1.0.0" => Some(&BlueOak_1_0_0),
+        "Borceux" => Some(&Borceux),
+        "CATOSL-1.1" => Some(&CATOSL_1_1),
+        "CC-BY-1.0" => Some(&CC_BY_1_0),
+        "CC-BY-2.0" => Some(&CC_BY_2_0),
+        "CC-BY-2.5" => Some(&CC_BY_2_5),
+        "CC-BY-3.0" => Some(&CC_BY_3_0),
+        "CC-BY-4.0" => Some(&CC_BY_4_0),
+        "CC-BY-NC-1.0" => Some(&CC_BY_NC_1_0),
+        "CC-BY-NC-2.0" => Some(&CC_BY_NC_2_0),
+        "CC-BY-NC-2.5" => Some(&CC_BY_NC_2_5),
+        "CC-BY-NC-3.0" => Some(&CC_BY_NC_3_0),
+        "CC-BY-NC-4.0" => Some(&CC_BY_NC_4_0),
+        "CC-BY-NC-ND-1.0" => Some(&CC_BY_NC_ND_1_0),
+        "CC-BY-NC-ND-2.0" => Some(&CC_BY_NC_ND_2_0),
+        "CC-BY-NC-ND-2.5" => Some(&CC_BY_NC_ND_2_5),
+        "CC-BY-NC-ND-3.0" => Some(&CC_BY_NC_ND_3_0),
+        "CC-BY-NC-ND-4.0" => Some(&CC_BY_NC_ND_4_0),
+        "CC-BY-NC-SA-1.0" => Some(&CC_BY_NC_SA_1_0),
+        "CC-BY-NC-SA-2.0" => Some(&CC_BY_NC_SA_2_0),
+        "CC-BY-NC-SA-2.5" => Some(&CC_BY_NC_SA_2_5),
+        "CC-BY-NC-SA-3.0" => Some(&CC_BY_NC_SA_3_0),
+        "CC-BY-NC-SA-4.0" => Some(&CC_BY_NC_SA_4_0),
+        "CC-BY-ND-1.0" => Some(&CC_BY_ND_1_0),
+        "CC-BY-ND-2.0" => Some(&CC_BY_ND_2_0),
+        "CC-BY-ND-2.5" => Some(&CC_BY_ND_2_5),
+        "CC-BY-ND-3.0" => Some(&CC_BY_ND_3_0),
+        "CC-BY-ND-4.0" => Some(&CC_BY_ND_4_0),
+        "CC-BY-SA-1.0" => Some(&CC_BY_SA_1_0),
+        "CC-BY-SA-2.0" => Some(&CC_BY_SA_2_0),
+        "CC-BY-SA-2.5" => Some(&CC_BY_SA_2_5),
+        "CC-BY-SA-3.0" => Some(&CC_BY_SA_3_0),
+        "CC-BY-SA-4.0" => Some(&CC_BY_SA_4_0),
+        "CC-PDDC" => Some(&CC_PDDC),
+        "CC0-1.0" => Some(&CC0_1_0),
+        "CDDL-1.0" => Some(&CDDL_1_0),
+        "CDDL-1.1" => Some(&CDDL_1_1),
+        "CDLA-Permissive-1.0" => Some(&CDLA_Permissive_1_0),
+        "CDLA-Sharing-1.0" => Some(&CDLA_Sharing_1_0),
+        "CECILL-1.0" => Some(&CECILL_1_0),
+        "CECILL-1.1" => Some(&CECILL_1_1),
+        "CECILL-2.0" => Some(&CECILL_2_0),
+        "CECILL-2.1" => Some(&CECILL_2_1),
+        "CECILL-B" => Some(&CECILL_B),
+        "CECILL-C" => Some(&CECILL_C),
+        "CERN-OHL-1.1" => Some(&CERN_OHL_1_1),
+        "CERN-OHL-1.2" => Some(&CERN_OHL_1_2),
+        "CNRI-Jython" => Some(&CNRI_Jython),
+        "CNRI-Python-GPL-Compatible" => Some(&CNRI_Python_GPL_Compatible),
+        "CNRI-Python" => Some(&CNRI_Python),
+        "CPAL-1.0" => Some(&CPAL_1_0),
+        "CPL-1.0" => Some(&CPL_1_0),
+        "CPOL-1.02" => Some(&CPOL_1_02),
+        "CUA-OPL-1.0" => Some(&CUA_OPL_1_0),
+        "Caldera" => Some(&Caldera),
+        "ClArtistic" => Some(&ClArtistic),
+        "Condor-1.1" => Some(&Condor_1_1),
+        "Crossword" => Some(&Crossword),
+        "CrystalStacker" => Some(&CrystalStacker),
+        "Cube" => Some(&Cube),
+        "D-FSL-1.0" => Some(&D_FSL_1_0),
+        "DOC" => Some(&DOC),
+        "DSDP" => Some(&DSDP),
+        "Dotseqn" => Some(&Dotseqn),
+        "ECL-1.0" => Some(&ECL_1_0),
+        "ECL-2.0" => Some(&ECL_2_0),
+        "EFL-1.0" => Some(&EFL_1_0),
+        "EFL-2.0" => Some(&EFL_2_0),
+        "EPL-1.0" => Some(&EPL_1_0),
+        "EPL-2.0" => Some(&EPL_2_0),
+        "EUDatagrid" => Some(&EUDatagrid),
+        "EUPL-1.0" => Some(&EUPL_1_0),
+        "EUPL-1.1" => Some(&EUPL_1_1),
+        "EUPL-1.2" => Some(&EUPL_1_2),
+        "Entessa" => Some(&Entessa),
+        "ErlPL-1.1" => Some(&ErlPL_1_1),
+        "Eurosym" => Some(&Eurosym),
+        "FSFAP" => Some(&FSFAP),
+        "FSFUL" => Some(&FSFUL),
+        "FSFULLR" => Some(&FSFULLR),
+        "FTL" => Some(&FTL),
+        "Fair" => Some(&Fair),
+        "Frameworx-1.0" => Some(&Frameworx_1_0),
+        "FreeImage" => Some(&FreeImage),
+        "GFDL-1.1-only" => Some(&GFDL_1_1_only),
+        "GFDL-1.1-or-later" => Some(&GFDL_1_1_or_later),
+        "GFDL-1.1" => Some(&GFDL_1_1),
+        "GFDL-1.2-only" => Some(&GFDL_1_2_only),
+        "GFDL-1.2-or-later" => Some(&GFDL_1_2_or_later),
+        "GFDL-1.2" => Some(&GFDL_1_2),
+        "GFDL-1.3-only" => Some(&GFDL_1_3_only),
+        "GFDL-1.3-or-later" => Some(&GFDL_1_3_or_later),
+        "GFDL-1.3" => Some(&GFDL_1_3),
+        "GL2PS" => Some(&GL2PS),
+        "GPL-1.0+" => Some(&GPL_1_0_plus),
+        "GPL-1.0-only" => Some(&GPL_1_0_only),
+        "GPL-1.0-or-later" => Some(&GPL_1_0_or_later),
+        "GPL-1.0" => Some(&GPL_1_0),
+        "GPL-2.0+" => Some(&GPL_2_0_plus),
+        "GPL-2.0-only" => Some(&GPL_2_0_only),
+        "GPL-2.0-or-later" => Some(&GPL_2_0_or_later),
+        "GPL-2.0-with-GCC-exception" => Some(&GPL_2_0_with_GCC_exception),
+        "GPL-2.0-with-autoconf-exception" => Some(&GPL_2_0_with_autoconf_exception),
+        "GPL-2.0-with-bison-exception" => Some(&GPL_2_0_with_bison_exception),
+        "GPL-2.0-with-classpath-exception" => Some(&GPL_2_0_with_classpath_exception),
+        "GPL-2.0-with-font-exception" => Some(&GPL_2_0_with_font_exception),
+        "GPL-2.0" => Some(&GPL_2_0),
+        "GPL-3.0+" => Some(&GPL_3_0_plus),
+        "GPL-3.0-only" => Some(&GPL_3_0_only),
+        "GPL-3.0-or-later" => Some(&GPL_3_0_or_later),
+        "GPL-3.0-with-GCC-exception" => Some(&GPL_3_0_with_GCC_exception),
+        "GPL-3.0-with-autoconf-exception" => Some(&GPL_3_0_with_autoconf_exception),
+        "GPL-3.0" => Some(&GPL_3_0),
+        "Giftware" => Some(&Giftware),
+        "Glide" => Some(&Glide),
+        "Glulxe" => Some(&Glulxe),
+        "HPND-sell-variant" => Some(&HPND_sell_variant),
+        "HPND" => Some(&HPND),
+        "HaskellReport" => Some(&HaskellReport),
+        "IBM-pibs" => Some(&IBM_pibs),
+        "ICU" => Some(&ICU),
+        "IJG" => Some(&IJG),
+        "IPA" => Some(&IPA),
+        "IPL-1.0" => Some(&IPL_1_0),
+        "ISC" => Some(&ISC),
+        "ImageMagick" => Some(&ImageMagick),
+        "Imlib2" => Some(&Imlib2),
+        "Info-ZIP" => Some(&Info_ZIP),
+        "Intel-ACPI" => Some(&Intel_ACPI),
+        "Intel" => Some(&Intel),
+        "Interbase-1.0" => Some(&Interbase_1_0),
+        "JPNIC" => Some(&JPNIC),
+        "JSON" => Some(&JSON),
+        "JasPer-2.0" => Some(&JasPer_2_0),
+        "LAL-1.2" => Some(&LAL_1_2),
+        "LAL-1.3" => Some(&LAL_1_3),
+        "LGPL-2.0+" => Some(&LGPL_2_0_plus),
+        "LGPL-2.0-only" => Some(&LGPL_2_0_only),
+        "LGPL-2.0-or-later" => Some(&LGPL_2_0_or_later),
+        "LGPL-2.0" => Some(&LGPL_2_0),
+        "LGPL-2.1+" => Some(&LGPL_2_1_plus),
+        "LGPL-2.1-only" => Some(&LGPL_2_1_only),
+        "LGPL-2.1-or-later" => Some(&LGPL_2_1_or_later),
+        "LGPL-2.1" => Some(&LGPL_2_1),
+        "LGPL-3.0+" => Some(&LGPL_3_0_plus),
+        "LGPL-3.0-only" => Some(&LGPL_3_0_only),
+        "LGPL-3.0-or-later" => Some(&LGPL_3_0_or_later),
+        "LGPL-3.0" => Some(&LGPL_3_0),
+        "LGPLLR" => Some(&LGPLLR),
+        "LPL-1.0" => Some(&LPL_1_0),
+        "LPL-1.02" => Some(&LPL_1_02),
+        "LPPL-1.0" => Some(&LPPL_1_0),
+        "LPPL-1.1" => Some(&LPPL_1_1),
+        "LPPL-1.2" => Some(&LPPL_1_2),
+        "LPPL-1.3a" => Some(&LPPL_1_3a),
+        "LPPL-1.3c" => Some(&LPPL_1_3c),
+        "Latex2e" => Some(&Latex2e),
+        "Leptonica" => Some(&Leptonica),
+        "LiLiQ-P-1.1" => Some(&LiLiQ_P_1_1),
+        "LiLiQ-R-1.1" => Some(&LiLiQ_R_1_1),
+        "LiLiQ-Rplus-1.1" => Some(&LiLiQ_Rplus_1_1),
+        "Libpng" => Some(&Libpng),
+        "Linux-OpenIB" => Some(&Linux_OpenIB),
+        "MIT-0" => Some(&MIT_0),
+        "MIT-CMU" => Some(&MIT_CMU),
+        "MIT-advertising" => Some(&MIT_advertising),
+        "MIT-enna" => Some(&MIT_enna),
+        "MIT-feh" => Some(&MIT_feh),
+        "MIT" => Some(&MIT),
+        "MITNFA" => Some(&MITNFA),
+        "MPL-1.0" => Some(&MPL_1_0),
+        "MPL-1.1" => Some(&MPL_1_1),
+        "MPL-2.0-no-copyleft-exception" => Some(&MPL_2_0_no_copyleft_exception),
+        "MPL-2.0" => Some(&MPL_2_0),
+        "MS-PL" => Some(&MS_PL),
+        "MS-RL" => Some(&MS_RL),
+        "MTLL" => Some(&MTLL),
+        "MakeIndex" => Some(&MakeIndex),
+        "MirOS" => Some(&MirOS),
+        "Motosoto" => Some(&Motosoto),
+        "MulanPSL-1.0" => Some(&MulanPSL_1_0),
+        "Multics" => Some(&Multics),
+        "Mup" => Some(&Mup),
+        "NASA-1.3" => Some(&NASA_1_3),
+        "NBPL-1.0" => Some(&NBPL_1_0),
+        "NCSA" => Some(&NCSA),
+        "NGPL" => Some(&NGPL),
+        "NLOD-1.0" => Some(&NLOD_1_0),
+        "NLPL" => Some(&NLPL),
+        "NOSL" => Some(&NOSL),
+        "NPL-1.0" => Some(&NPL_1_0),
+        "NPL-1.1" => Some(&NPL_1_1),
+        "NPOSL-3.0" => Some(&NPOSL_3_0),
+        "NRL" => Some(&NRL),
+        "NTP" => Some(&NTP),
+        "Naumen" => Some(&Naumen),
+        "Net-SNMP" => Some(&Net_SNMP),
+        "NetCDF" => Some(&NetCDF),
+        "Newsletr" => Some(&Newsletr),
+        "Nokia" => Some(&Nokia),
+        "Noweb" => Some(&Noweb),
+        "Nunit" => Some(&Nunit),
+        "OCCT-PL" => Some(&OCCT_PL),
+        "OCLC-2.0" => Some(&OCLC_2_0),
+        "ODC-By-1.0" => Some(&ODC_By_1_0),
+        "ODbL-1.0" => Some(&ODbL_1_0),
+        "OFL-1.0" => Some(&OFL_1_0),
+        "OFL-1.1" => Some(&OFL_1_1),
+        "OGL-Canada-2.0" => Some(&OGL_Canada_2_0),
+        "OGL-UK-1.0" => Some(&OGL_UK_1_0),
+        "OGL-UK-2.0" => Some(&OGL_UK_2_0),
+        "OGL-UK-3.0" => Some(&OGL_UK_3_0),
+        "OGTSL" => Some(&OGTSL),
+        "OLDAP-1.1" => Some(&OLDAP_1_1),
+        "OLDAP-1.2" => Some(&OLDAP_1_2),
+        "OLDAP-1.3" => Some(&OLDAP_1_3),
+        "OLDAP-1.4" => Some(&OLDAP_1_4),
+        "OLDAP-2.0.1" => Some(&OLDAP_2_0_1),
+        "OLDAP-2.0" => Some(&OLDAP_2_0),
+        "OLDAP-2.1" => Some(&OLDAP_2_1),
+        "OLDAP-2.2.1" => Some(&OLDAP_2_2_1),
+        "OLDAP-2.2.2" => Some(&OLDAP_2_2_2),
+        "OLDAP-2.2" => Some(&OLDAP_2_2),
+        "OLDAP-2.3" => Some(&OLDAP_2_3),
+        "OLDAP-2.4" => Some(&OLDAP_2_4),
+        "OLDAP-2.5" => Some(&OLDAP_2_5),
+        "OLDAP-2.6" => Some(&OLDAP_2_6),
+        "OLDAP-2.7" => Some(&OLDAP_2_7),
+        "OLDAP-2.8" => Some(&OLDAP_2_8),
+        "OML" => Some(&OML),
+        "OPL-1.0" => Some(&OPL_1_0),
+        "OSET-PL-2.1" => Some(&OSET_PL_2_1),
+        "OSL-1.0" => Some(&OSL_1_0),
+        "OSL-1.1" => Some(&OSL_1_1),
+        "OSL-2.0" => Some(&OSL_2_0),
+        "OSL-2.1" => Some(&OSL_2_1),
+        "OSL-3.0" => Some(&OSL_3_0),
+        "OpenSSL" => Some(&OpenSSL),
+        "PDDL-1.0" => Some(&PDDL_1_0),
+        "PHP-3.0" => Some(&PHP_3_0),
+        "PHP-3.01" => Some(&PHP_3_01),
+        "Parity-6.0.0" => Some(&Parity_6_0_0),
+        "Plexus" => Some(&Plexus),
+        "PostgreSQL" => Some(&PostgreSQL),
+        "Python-2.0" => Some(&Python_2_0),
+        "QPL-1.0" => Some(&QPL_1_0),
+        "Qhull" => Some(&Qhull),
+        "RHeCos-1.1" => Some(&RHeCos_1_1),
+        "RPL-1.1" => Some(&RPL_1_1),
+        "RPL-1.5" => Some(&RPL_1_5),
+        "RPSL-1.0" => Some(&RPSL_1_0),
+        "RSA-MD" => Some(&RSA_MD),
+        "RSCPL" => Some(&RSCPL),
+        "Rdisc" => Some(&Rdisc),
+        "Ruby" => Some(&Ruby),
+        "SAX-PD" => Some(&SAX_PD),
+        "SCEA" => Some(&SCEA),
+        "SGI-B-1.0" => Some(&SGI_B_1_0),
+        "SGI-B-1.1" => Some(&SGI_B_1_1),
+        "SGI-B-2.0" => Some(&SGI_B_2_0),
+        "SHL-0.5" => Some(&SHL_0_5),
+        "SHL-0.51" => Some(&SHL_0_51),
+        "SISSL-1.2" => Some(&SISSL_1_2),
+        "SISSL" => Some(&SISSL),
+        "SMLNJ" => Some(&SMLNJ),
+        "SMPPL" => Some(&SMPPL),
+        "SNIA" => Some(&SNIA),
+        "SPL-1.0" => Some(&SPL_1_0),
+        "SSH-OpenSSH" => Some(&SSH_OpenSSH),
+        "SSH-short" => Some(&SSH_short),
+        "SSPL-1.0" => Some(&SSPL_1_0),
+        "SWL" => Some(&SWL),
+        "Saxpath" => Some(&Saxpath),
+        "Sendmail-8.23" => Some(&Sendmail_8_23),
+        "Sendmail" => Some(&Sendmail),
+        "SimPL-2.0" => Some(&SimPL_2_0),
+        "Sleepycat" => Some(&Sleepycat),
+        "Spencer-86" => Some(&Spencer_86),
+        "Spencer-94" => Some(&Spencer_94),
+        "Spencer-99" => Some(&Spencer_99),
+        "StandardML-NJ" => Some(&StandardML_NJ),
+        "SugarCRM-1.1.3" => Some(&SugarCRM_1_1_3),
+        "TAPR-OHL-1.0" => Some(&TAPR_OHL_1_0),
+        "TCL" => Some(&TCL),
+        "TCP-wrappers" => Some(&TCP_wrappers),
+        "TMate" => Some(&TMate),
+        "TORQUE-1.1" => Some(&TORQUE_1_1),
+        "TOSL" => Some(&TOSL),
+        "TU-Berlin-1.0" => Some(&TU_Berlin_1_0),
+        "TU-Berlin-2.0" => Some(&TU_Berlin_2_0),
+        "UCL-1.0" => Some(&UCL_1_0),
+        "UPL-1.0" => Some(&UPL_1_0),
+        "Unicode-DFS-2015" => Some(&Unicode_DFS_2015),
+        "Unicode-DFS-2016" => Some(&Unicode_DFS_2016),
+        "Unicode-TOU" => Some(&Unicode_TOU),
+        "Unlicense" => Some(&Unlicense),
+        "VOSTROM" => Some(&VOSTROM),
+        "VSL-1.0" => Some(&VSL_1_0),
+        "Vim" => Some(&Vim),
+        "W3C-19980720" => Some(&W3C_19980720),
+        "W3C-20150513" => Some(&W3C_20150513),
+        "W3C" => Some(&W3C),
+        "WTFPL" => Some(&WTFPL),
+        "Watcom-1.0" => Some(&Watcom_1_0),
+        "Wsuipa" => Some(&Wsuipa),
+        "X11" => Some(&X11),
+        "XFree86-1.1" => Some(&XFree86_1_1),
+        "XSkat" => Some(&XSkat),
+        "Xerox" => Some(&Xerox),
+        "Xnet" => Some(&Xnet),
+        "YPL-1.0" => Some(&YPL_1_0),
+        "YPL-1.1" => Some(&YPL_1_1),
+        "ZPL-1.1" => Some(&ZPL_1_1),
+        "ZPL-2.0" => Some(&ZPL_2_0),
+        "ZPL-2.1" => Some(&ZPL_2_1),
+        "Zed" => Some(&Zed),
+        "Zend-2.0" => Some(&Zend_2_0),
+        "Zimbra-1.3" => Some(&Zimbra_1_3),
+        "Zimbra-1.4" => Some(&Zimbra_1_4),
+        "Zlib" => Some(&Zlib),
+        "blessing" => Some(&blessing),
+        "bzip2-1.0.5" => Some(&bzip2_1_0_5),
+        "bzip2-1.0.6" => Some(&bzip2_1_0_6),
+        "copyleft-next-0.3.0" => Some(&copyleft_next_0_3_0),
+        "copyleft-next-0.3.1" => Some(&copyleft_next_0_3_1),
+        "curl" => Some(&curl),
+        "diffmark" => Some(&diffmark),
+        "dvipdfm" => Some(&dvipdfm),
+        "eCos-2.0" => Some(&eCos_2_0),
+        "eGenix" => Some(&eGenix),
+        "etalab-2.0" => Some(&etalab_2_0),
+        "gSOAP-1.3b" => Some(&gSOAP_1_3b),
+        "gnuplot" => Some(&gnuplot),
+        "iMatix" => Some(&iMatix),
+        "libpng-2.0" => Some(&libpng_2_0),
+        "libtiff" => Some(&libtiff),
+        "mpich2" => Some(&mpich2),
+        "psfrag" => Some(&psfrag),
+        "psutils" => Some(&psutils),
+        "wxWindows" => Some(&wxWindows),
+        "xinetd" => Some(&xinetd),
+        "xpp" => Some(&xpp),
+        "zlib-acknowledgement" => Some(&zlib_acknowledgement),
         _ => None,
     }
 }
@@ -774,7 +774,10 @@ impl crate::License for AFL_3_0 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.rosenlaw.com/AFL3.0.htm", "https://opensource.org/licenses/afl-3.0"]
+        &[
+            "http://www.rosenlaw.com/AFL3.0.htm",
+            "https://opensource.org/licenses/afl-3.0",
+        ]
     }
 }
 
@@ -958,7 +961,10 @@ impl crate::License for AGPL_3_0_only {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://www.gnu.org/licenses/agpl.txt", "https://opensource.org/licenses/AGPL-3.0"]
+        &[
+            "https://www.gnu.org/licenses/agpl.txt",
+            "https://opensource.org/licenses/AGPL-3.0",
+        ]
     }
 }
 
@@ -1004,7 +1010,10 @@ impl crate::License for AGPL_3_0_or_later {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://www.gnu.org/licenses/agpl.txt", "https://opensource.org/licenses/AGPL-3.0"]
+        &[
+            "https://www.gnu.org/licenses/agpl.txt",
+            "https://opensource.org/licenses/AGPL-3.0",
+        ]
     }
 }
 
@@ -1050,7 +1059,10 @@ impl crate::License for AGPL_3_0 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://www.gnu.org/licenses/agpl.txt", "https://opensource.org/licenses/AGPL-3.0"]
+        &[
+            "https://www.gnu.org/licenses/agpl.txt",
+            "https://opensource.org/licenses/AGPL-3.0",
+        ]
     }
 }
 
@@ -1832,7 +1844,10 @@ impl crate::License for Apache_1_1 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://apache.org/licenses/LICENSE-1.1", "https://opensource.org/licenses/Apache-1.1"]
+        &[
+            "http://apache.org/licenses/LICENSE-1.1",
+            "https://opensource.org/licenses/Apache-1.1",
+        ]
     }
 }
 
@@ -1878,7 +1893,10 @@ impl crate::License for Apache_2_0 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.apache.org/licenses/LICENSE-2.0", "https://opensource.org/licenses/Apache-2.0"]
+        &[
+            "http://www.apache.org/licenses/LICENSE-2.0",
+            "https://opensource.org/licenses/Apache-2.0",
+        ]
     }
 }
 
@@ -2062,7 +2080,10 @@ impl crate::License for Artistic_2_0 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.perlfoundation.org/artistic_license_2_0", "https://opensource.org/licenses/artistic-license-2.0"]
+        &[
+            "http://www.perlfoundation.org/artistic_license_2_0",
+            "https://opensource.org/licenses/artistic-license-2.0",
+        ]
     }
 }
 
@@ -2614,7 +2635,10 @@ impl crate::License for BSD_3_Clause_Open_MPI {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://www.open-mpi.org/community/license.php", "http://www.netlib.org/lapack/LICENSE.txt"]
+        &[
+            "https://www.open-mpi.org/community/license.php",
+            "http://www.netlib.org/lapack/LICENSE.txt",
+        ]
     }
 }
 
@@ -2890,7 +2914,10 @@ impl crate::License for BSL_1_0 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.boost.org/LICENSE_1_0.txt", "https://opensource.org/licenses/BSL-1.0"]
+        &[
+            "http://www.boost.org/LICENSE_1_0.txt",
+            "https://opensource.org/licenses/BSL-1.0",
+        ]
     }
 }
 
@@ -3028,7 +3055,10 @@ impl crate::License for Beerware {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://fedoraproject.org/wiki/Licensing/Beerware", "https://people.freebsd.org/~phk/"]
+        &[
+            "https://fedoraproject.org/wiki/Licensing/Beerware",
+            "https://people.freebsd.org/~phk/",
+        ]
     }
 }
 
@@ -4822,7 +4852,10 @@ impl crate::License for CDDL_1_1 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://glassfish.java.net/public/CDDL+GPL_1_1.html", "https://javaee.github.io/glassfish/LICENSE"]
+        &[
+            "http://glassfish.java.net/public/CDDL+GPL_1_1.html",
+            "https://javaee.github.io/glassfish/LICENSE",
+        ]
     }
 }
 
@@ -5696,7 +5729,10 @@ impl crate::License for ClArtistic {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://gianluca.dellavedova.org/2011/01/03/clarified-artistic-license/", "http://www.ncftp.com/ncftp/doc/LICENSE.txt"]
+        &[
+            "http://gianluca.dellavedova.org/2011/01/03/clarified-artistic-license/",
+            "http://www.ncftp.com/ncftp/doc/LICENSE.txt",
+        ]
     }
 }
 
@@ -6202,7 +6238,10 @@ impl crate::License for EFL_1_0 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.eiffel-nice.org/license/forum.txt", "https://opensource.org/licenses/EFL-1.0"]
+        &[
+            "http://www.eiffel-nice.org/license/forum.txt",
+            "https://opensource.org/licenses/EFL-1.0",
+        ]
     }
 }
 
@@ -6248,7 +6287,10 @@ impl crate::License for EFL_2_0 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.eiffel-nice.org/license/eiffel-forum-license-2.html", "https://opensource.org/licenses/EFL-2.0"]
+        &[
+            "http://www.eiffel-nice.org/license/eiffel-forum-license-2.html",
+            "https://opensource.org/licenses/EFL-2.0",
+        ]
     }
 }
 
@@ -6294,7 +6336,10 @@ impl crate::License for EPL_1_0 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.eclipse.org/legal/epl-v10.html", "https://opensource.org/licenses/EPL-1.0"]
+        &[
+            "http://www.eclipse.org/legal/epl-v10.html",
+            "https://opensource.org/licenses/EPL-1.0",
+        ]
     }
 }
 
@@ -6340,7 +6385,10 @@ impl crate::License for EPL_2_0 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://www.eclipse.org/legal/epl-2.0", "https://www.opensource.org/licenses/EPL-2.0"]
+        &[
+            "https://www.eclipse.org/legal/epl-2.0",
+            "https://www.opensource.org/licenses/EPL-2.0",
+        ]
     }
 }
 
@@ -6386,7 +6434,10 @@ impl crate::License for EUDatagrid {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://eu-datagrid.web.cern.ch/eu-datagrid/license.html", "https://opensource.org/licenses/EUDatagrid"]
+        &[
+            "http://eu-datagrid.web.cern.ch/eu-datagrid/license.html",
+            "https://opensource.org/licenses/EUDatagrid",
+        ]
     }
 }
 
@@ -6432,7 +6483,10 @@ impl crate::License for EUPL_1_0 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://ec.europa.eu/idabc/en/document/7330.html", "http://ec.europa.eu/idabc/servlets/Doc027f.pdf?id=31096"]
+        &[
+            "http://ec.europa.eu/idabc/en/document/7330.html",
+            "http://ec.europa.eu/idabc/servlets/Doc027f.pdf?id=31096",
+        ]
     }
 }
 
@@ -6846,7 +6900,10 @@ impl crate::License for FTL {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://freetype.fis.uniroma2.it/FTL.TXT", "http://git.savannah.gnu.org/cgit/freetype/freetype2.git/tree/docs/FTL.TXT"]
+        &[
+            "http://freetype.fis.uniroma2.it/FTL.TXT",
+            "http://git.savannah.gnu.org/cgit/freetype/freetype2.git/tree/docs/FTL.TXT",
+        ]
     }
 }
 
@@ -6892,7 +6949,10 @@ impl crate::License for Fair {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://fairlicense.org/", "https://opensource.org/licenses/Fair"]
+        &[
+            "http://fairlicense.org/",
+            "https://opensource.org/licenses/Fair",
+        ]
     }
 }
 
@@ -7674,7 +7734,10 @@ impl crate::License for GPL_2_0_plus {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html", "https://opensource.org/licenses/GPL-2.0"]
+        &[
+            "https://www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html",
+            "https://opensource.org/licenses/GPL-2.0",
+        ]
     }
 }
 
@@ -7720,7 +7783,10 @@ impl crate::License for GPL_2_0_only {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html", "https://opensource.org/licenses/GPL-2.0"]
+        &[
+            "https://www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html",
+            "https://opensource.org/licenses/GPL-2.0",
+        ]
     }
 }
 
@@ -7766,7 +7832,10 @@ impl crate::License for GPL_2_0_or_later {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html", "https://opensource.org/licenses/GPL-2.0"]
+        &[
+            "https://www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html",
+            "https://opensource.org/licenses/GPL-2.0",
+        ]
     }
 }
 
@@ -8042,7 +8111,10 @@ impl crate::License for GPL_2_0 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html", "https://opensource.org/licenses/GPL-2.0"]
+        &[
+            "https://www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html",
+            "https://opensource.org/licenses/GPL-2.0",
+        ]
     }
 }
 
@@ -8088,7 +8160,10 @@ impl crate::License for GPL_3_0_plus {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://www.gnu.org/licenses/gpl-3.0-standalone.html", "https://opensource.org/licenses/GPL-3.0"]
+        &[
+            "https://www.gnu.org/licenses/gpl-3.0-standalone.html",
+            "https://opensource.org/licenses/GPL-3.0",
+        ]
     }
 }
 
@@ -8134,7 +8209,10 @@ impl crate::License for GPL_3_0_only {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://www.gnu.org/licenses/gpl-3.0-standalone.html", "https://opensource.org/licenses/GPL-3.0"]
+        &[
+            "https://www.gnu.org/licenses/gpl-3.0-standalone.html",
+            "https://opensource.org/licenses/GPL-3.0",
+        ]
     }
 }
 
@@ -8180,7 +8258,10 @@ impl crate::License for GPL_3_0_or_later {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://www.gnu.org/licenses/gpl-3.0-standalone.html", "https://opensource.org/licenses/GPL-3.0"]
+        &[
+            "https://www.gnu.org/licenses/gpl-3.0-standalone.html",
+            "https://opensource.org/licenses/GPL-3.0",
+        ]
     }
 }
 
@@ -8318,7 +8399,10 @@ impl crate::License for GPL_3_0 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://www.gnu.org/licenses/gpl-3.0-standalone.html", "https://opensource.org/licenses/GPL-3.0"]
+        &[
+            "https://www.gnu.org/licenses/gpl-3.0-standalone.html",
+            "https://opensource.org/licenses/GPL-3.0",
+        ]
     }
 }
 
@@ -8870,7 +8954,10 @@ impl crate::License for ISC {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://www.isc.org/downloads/software-support-policy/isc-license/", "https://opensource.org/licenses/ISC"]
+        &[
+            "https://www.isc.org/downloads/software-support-policy/isc-license/",
+            "https://opensource.org/licenses/ISC",
+        ]
     }
 }
 
@@ -8962,7 +9049,10 @@ impl crate::License for Imlib2 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://trac.enlightenment.org/e/browser/trunk/imlib2/COPYING", "https://git.enlightenment.org/legacy/imlib2.git/tree/COPYING"]
+        &[
+            "http://trac.enlightenment.org/e/browser/trunk/imlib2/COPYING",
+            "https://git.enlightenment.org/legacy/imlib2.git/tree/COPYING",
+        ]
     }
 }
 
@@ -9606,7 +9696,10 @@ impl crate::License for LGPL_2_1_plus {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://www.gnu.org/licenses/old-licenses/lgpl-2.1-standalone.html", "https://opensource.org/licenses/LGPL-2.1"]
+        &[
+            "https://www.gnu.org/licenses/old-licenses/lgpl-2.1-standalone.html",
+            "https://opensource.org/licenses/LGPL-2.1",
+        ]
     }
 }
 
@@ -9652,7 +9745,10 @@ impl crate::License for LGPL_2_1_only {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://www.gnu.org/licenses/old-licenses/lgpl-2.1-standalone.html", "https://opensource.org/licenses/LGPL-2.1"]
+        &[
+            "https://www.gnu.org/licenses/old-licenses/lgpl-2.1-standalone.html",
+            "https://opensource.org/licenses/LGPL-2.1",
+        ]
     }
 }
 
@@ -9698,7 +9794,10 @@ impl crate::License for LGPL_2_1_or_later {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://www.gnu.org/licenses/old-licenses/lgpl-2.1-standalone.html", "https://opensource.org/licenses/LGPL-2.1"]
+        &[
+            "https://www.gnu.org/licenses/old-licenses/lgpl-2.1-standalone.html",
+            "https://opensource.org/licenses/LGPL-2.1",
+        ]
     }
 }
 
@@ -9744,7 +9843,10 @@ impl crate::License for LGPL_2_1 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://www.gnu.org/licenses/old-licenses/lgpl-2.1-standalone.html", "https://opensource.org/licenses/LGPL-2.1"]
+        &[
+            "https://www.gnu.org/licenses/old-licenses/lgpl-2.1-standalone.html",
+            "https://opensource.org/licenses/LGPL-2.1",
+        ]
     }
 }
 
@@ -9790,7 +9892,10 @@ impl crate::License for LGPL_3_0_plus {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://www.gnu.org/licenses/lgpl-3.0-standalone.html", "https://opensource.org/licenses/LGPL-3.0"]
+        &[
+            "https://www.gnu.org/licenses/lgpl-3.0-standalone.html",
+            "https://opensource.org/licenses/LGPL-3.0",
+        ]
     }
 }
 
@@ -9836,7 +9941,10 @@ impl crate::License for LGPL_3_0_only {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://www.gnu.org/licenses/lgpl-3.0-standalone.html", "https://opensource.org/licenses/LGPL-3.0"]
+        &[
+            "https://www.gnu.org/licenses/lgpl-3.0-standalone.html",
+            "https://opensource.org/licenses/LGPL-3.0",
+        ]
     }
 }
 
@@ -9882,7 +9990,10 @@ impl crate::License for LGPL_3_0_or_later {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://www.gnu.org/licenses/lgpl-3.0-standalone.html", "https://opensource.org/licenses/LGPL-3.0"]
+        &[
+            "https://www.gnu.org/licenses/lgpl-3.0-standalone.html",
+            "https://opensource.org/licenses/LGPL-3.0",
+        ]
     }
 }
 
@@ -9928,7 +10039,10 @@ impl crate::License for LGPL_3_0 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://www.gnu.org/licenses/lgpl-3.0-standalone.html", "https://opensource.org/licenses/LGPL-3.0"]
+        &[
+            "https://www.gnu.org/licenses/lgpl-3.0-standalone.html",
+            "https://opensource.org/licenses/LGPL-3.0",
+        ]
     }
 }
 
@@ -10066,7 +10180,10 @@ impl crate::License for LPL_1_02 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://plan9.bell-labs.com/plan9/license.html", "https://opensource.org/licenses/LPL-1.02"]
+        &[
+            "http://plan9.bell-labs.com/plan9/license.html",
+            "https://opensource.org/licenses/LPL-1.02",
+        ]
     }
 }
 
@@ -10296,7 +10413,10 @@ impl crate::License for LPPL_1_3c {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.latex-project.org/lppl/lppl-1-3c.txt", "https://opensource.org/licenses/LPPL-1.3c"]
+        &[
+            "http://www.latex-project.org/lppl/lppl-1-3c.txt",
+            "https://opensource.org/licenses/LPPL-1.3c",
+        ]
     }
 }
 
@@ -10434,7 +10554,10 @@ impl crate::License for LiLiQ_P_1_1 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://forge.gouv.qc.ca/licence/fr/liliq-v1-1/", "http://opensource.org/licenses/LiLiQ-P-1.1"]
+        &[
+            "https://forge.gouv.qc.ca/licence/fr/liliq-v1-1/",
+            "http://opensource.org/licenses/LiLiQ-P-1.1",
+        ]
     }
 }
 
@@ -10664,7 +10787,11 @@ impl crate::License for MIT_0 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://github.com/aws/mit-0", "https://romanrm.net/mit-zero", "https://github.com/awsdocs/aws-cloud9-user-guide/blob/master/LICENSE-SAMPLECODE"]
+        &[
+            "https://github.com/aws/mit-0",
+            "https://romanrm.net/mit-zero",
+            "https://github.com/awsdocs/aws-cloud9-user-guide/blob/master/LICENSE-SAMPLECODE",
+        ]
     }
 }
 
@@ -10986,7 +11113,10 @@ impl crate::License for MPL_1_0 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.mozilla.org/MPL/MPL-1.0.html", "https://opensource.org/licenses/MPL-1.0"]
+        &[
+            "http://www.mozilla.org/MPL/MPL-1.0.html",
+            "https://opensource.org/licenses/MPL-1.0",
+        ]
     }
 }
 
@@ -11032,7 +11162,10 @@ impl crate::License for MPL_1_1 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.mozilla.org/MPL/MPL-1.1.html", "https://opensource.org/licenses/MPL-1.1"]
+        &[
+            "http://www.mozilla.org/MPL/MPL-1.1.html",
+            "https://opensource.org/licenses/MPL-1.1",
+        ]
     }
 }
 
@@ -11078,7 +11211,10 @@ impl crate::License for MPL_2_0_no_copyleft_exception {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.mozilla.org/MPL/2.0/", "https://opensource.org/licenses/MPL-2.0"]
+        &[
+            "http://www.mozilla.org/MPL/2.0/",
+            "https://opensource.org/licenses/MPL-2.0",
+        ]
     }
 }
 
@@ -11124,7 +11260,10 @@ impl crate::License for MPL_2_0 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.mozilla.org/MPL/2.0/", "https://opensource.org/licenses/MPL-2.0"]
+        &[
+            "http://www.mozilla.org/MPL/2.0/",
+            "https://opensource.org/licenses/MPL-2.0",
+        ]
     }
 }
 
@@ -11170,7 +11309,10 @@ impl crate::License for MS_PL {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.microsoft.com/opensource/licenses.mspx", "https://opensource.org/licenses/MS-PL"]
+        &[
+            "http://www.microsoft.com/opensource/licenses.mspx",
+            "https://opensource.org/licenses/MS-PL",
+        ]
     }
 }
 
@@ -11216,7 +11358,10 @@ impl crate::License for MS_RL {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.microsoft.com/opensource/licenses.mspx", "https://opensource.org/licenses/MS-RL"]
+        &[
+            "http://www.microsoft.com/opensource/licenses.mspx",
+            "https://opensource.org/licenses/MS-RL",
+        ]
     }
 }
 
@@ -11584,7 +11729,10 @@ impl crate::License for NASA_1_3 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://ti.arc.nasa.gov/opensource/nosa/", "https://opensource.org/licenses/NASA-1.3"]
+        &[
+            "http://ti.arc.nasa.gov/opensource/nosa/",
+            "https://opensource.org/licenses/NASA-1.3",
+        ]
     }
 }
 
@@ -11676,7 +11824,10 @@ impl crate::License for NCSA {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://otm.illinois.edu/uiuc_openSource", "https://opensource.org/licenses/NCSA"]
+        &[
+            "http://otm.illinois.edu/uiuc_openSource",
+            "https://opensource.org/licenses/NCSA",
+        ]
     }
 }
 
@@ -12504,7 +12655,10 @@ impl crate::License for OCLC_2_0 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.oclc.org/research/activities/software/license/v2final.htm", "https://opensource.org/licenses/OCLC-2.0"]
+        &[
+            "http://www.oclc.org/research/activities/software/license/v2final.htm",
+            "https://opensource.org/licenses/OCLC-2.0",
+        ]
     }
 }
 
@@ -12688,7 +12842,10 @@ impl crate::License for OFL_1_1 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://scripts.sil.org/cms/scripts/page.php?item_id=OFL_web", "https://opensource.org/licenses/OFL-1.1"]
+        &[
+            "http://scripts.sil.org/cms/scripts/page.php?item_id=OFL_web",
+            "https://opensource.org/licenses/OFL-1.1",
+        ]
     }
 }
 
@@ -12918,7 +13075,10 @@ impl crate::License for OGTSL {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.opengroup.org/testing/downloads/The_Open_Group_TSL.txt", "https://opensource.org/licenses/OGTSL"]
+        &[
+            "http://www.opengroup.org/testing/downloads/The_Open_Group_TSL.txt",
+            "https://opensource.org/licenses/OGTSL",
+        ]
     }
 }
 
@@ -13746,7 +13906,10 @@ impl crate::License for OPL_1_0 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://old.koalateam.com/jackaroo/OPL_1_0.TXT", "https://fedoraproject.org/wiki/Licensing/Open_Public_License"]
+        &[
+            "http://old.koalateam.com/jackaroo/OPL_1_0.TXT",
+            "https://fedoraproject.org/wiki/Licensing/Open_Public_License",
+        ]
     }
 }
 
@@ -13792,7 +13955,10 @@ impl crate::License for OSET_PL_2_1 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.osetfoundation.org/public-license", "https://opensource.org/licenses/OPL-2.1"]
+        &[
+            "http://www.osetfoundation.org/public-license",
+            "https://opensource.org/licenses/OPL-2.1",
+        ]
     }
 }
 
@@ -13976,7 +14142,10 @@ impl crate::License for OSL_2_1 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://web.archive.org/web/20050212003940/http://www.rosenlaw.com/osl21.htm", "https://opensource.org/licenses/OSL-2.1"]
+        &[
+            "http://web.archive.org/web/20050212003940/http://www.rosenlaw.com/osl21.htm",
+            "https://opensource.org/licenses/OSL-2.1",
+        ]
     }
 }
 
@@ -14022,7 +14191,10 @@ impl crate::License for OSL_3_0 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://web.archive.org/web/20120101081418/http://rosenlaw.com:80/OSL3.0.htm", "https://opensource.org/licenses/OSL-3.0"]
+        &[
+            "https://web.archive.org/web/20120101081418/http://rosenlaw.com:80/OSL3.0.htm",
+            "https://opensource.org/licenses/OSL-3.0",
+        ]
     }
 }
 
@@ -14160,7 +14332,10 @@ impl crate::License for PHP_3_0 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.php.net/license/3_0.txt", "https://opensource.org/licenses/PHP-3.0"]
+        &[
+            "http://www.php.net/license/3_0.txt",
+            "https://opensource.org/licenses/PHP-3.0",
+        ]
     }
 }
 
@@ -14344,7 +14519,10 @@ impl crate::License for PostgreSQL {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.postgresql.org/about/licence", "https://opensource.org/licenses/PostgreSQL"]
+        &[
+            "http://www.postgresql.org/about/licence",
+            "https://opensource.org/licenses/PostgreSQL",
+        ]
     }
 }
 
@@ -14436,7 +14614,10 @@ impl crate::License for QPL_1_0 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://doc.qt.nokia.com/3.3/license.html", "https://opensource.org/licenses/QPL-1.0"]
+        &[
+            "http://doc.qt.nokia.com/3.3/license.html",
+            "https://opensource.org/licenses/QPL-1.0",
+        ]
     }
 }
 
@@ -14666,7 +14847,10 @@ impl crate::License for RPSL_1_0 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://helixcommunity.org/content/rpsl", "https://opensource.org/licenses/RPSL-1.0"]
+        &[
+            "https://helixcommunity.org/content/rpsl",
+            "https://opensource.org/licenses/RPSL-1.0",
+        ]
     }
 }
 
@@ -15264,7 +15448,10 @@ impl crate::License for SISSL {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.openoffice.org/licenses/sissl_license.html", "https://opensource.org/licenses/SISSL"]
+        &[
+            "http://www.openoffice.org/licenses/sissl_license.html",
+            "https://opensource.org/licenses/SISSL",
+        ]
     }
 }
 
@@ -16184,7 +16371,10 @@ impl crate::License for TCL {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.tcl.tk/software/tcltk/license.html", "https://fedoraproject.org/wiki/Licensing/TCL"]
+        &[
+            "http://www.tcl.tk/software/tcltk/license.html",
+            "https://fedoraproject.org/wiki/Licensing/TCL",
+        ]
     }
 }
 
@@ -17012,7 +17202,10 @@ impl crate::License for W3C {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231.html", "https://opensource.org/licenses/W3C"]
+        &[
+            "http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231.html",
+            "https://opensource.org/licenses/W3C",
+        ]
     }
 }
 
@@ -17564,7 +17757,10 @@ impl crate::License for ZPL_2_0 {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://old.zope.org/Resources/License/ZPL-2.0", "https://opensource.org/licenses/ZPL-2.0"]
+        &[
+            "http://old.zope.org/Resources/License/ZPL-2.0",
+            "https://opensource.org/licenses/ZPL-2.0",
+        ]
     }
 }
 
@@ -17840,7 +18036,10 @@ impl crate::License for Zlib {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.zlib.net/zlib_license.html", "https://opensource.org/licenses/Zlib"]
+        &[
+            "http://www.zlib.net/zlib_license.html",
+            "https://opensource.org/licenses/Zlib",
+        ]
     }
 }
 
@@ -17886,7 +18085,10 @@ impl crate::License for blessing {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://www.sqlite.org/src/artifact/e33a4df7e32d742a?ln=4-9", "https://sqlite.org/src/artifact/df5091916dbb40e6"]
+        &[
+            "https://www.sqlite.org/src/artifact/e33a4df7e32d742a?ln=4-9",
+            "https://sqlite.org/src/artifact/df5091916dbb40e6",
+        ]
     }
 }
 
@@ -18300,7 +18502,10 @@ impl crate::License for eGenix {
 
     #[inline]
     fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.egenix.com/products/eGenix.com-Public-License-1.1.0.pdf", "https://fedoraproject.org/wiki/Licensing/eGenix.com_Public_License_1.1.0"]
+        &[
+            "http://www.egenix.com/products/eGenix.com-Public-License-1.1.0.pdf",
+            "https://fedoraproject.org/wiki/Licensing/eGenix.com_Public_License_1.1.0",
+        ]
     }
 }
 
@@ -18901,4 +19106,3 @@ impl crate::License for zlib_acknowledgement {
         &["https://fedoraproject.org/wiki/Licensing/ZlibWithAcknowledgement"]
     }
 }
-
