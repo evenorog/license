@@ -52,3 +52,103 @@ pub trait License {
     /// Relevant sources.
     fn see_also(&self) -> &'static [&'static str];
 }
+
+/// Extension trait for licenses.
+pub trait LicenseExt: License {}
+
+impl LicenseExt for AGPL_3_0_only {}
+
+impl LicenseExt for Apache_2_0 {}
+
+impl LicenseExt for CC0_1_0 {}
+
+impl LicenseExt for GPL_3_0_only {}
+
+impl LicenseExt for LGPL_3_0_only {}
+
+impl LicenseExt for MIT {}
+
+impl LicenseExt for MPL_2_0 {}
+
+impl LicenseExt for Unlicense {}
+
+/// Returns a license based on the license text.
+#[inline]
+pub fn text(text: &str) -> Option<&'static dyn LicenseExt> {
+    let v2 = text.contains("Version 2.0");
+    let v3 = text.contains("Version 3");
+    if text.contains("MIT License") {
+        Some(&MIT)
+    } else if v2 && text.contains("Apache License") {
+        Some(&Apache_2_0)
+    } else if v3 && text.contains("GNU GENERAL PUBLIC LICENSE") {
+        Some(&GPL_3_0_only)
+    } else if v2 && text.contains("Mozilla Public License") {
+        Some(&MPL_2_0)
+    } else if text
+        .contains("This is free and unencumbered software released into the public domain.")
+    {
+        Some(&Unlicense)
+    } else if v3 && text.contains("GNU LESSER GENERAL PUBLIC LICENSE") {
+        Some(&LGPL_3_0_only)
+    } else if v3 && text.contains("GNU AFFERO GENERAL PUBLIC LICENSE") {
+        Some(&AGPL_3_0_only)
+    } else if text.contains("CC0 1.0 Universal") {
+        Some(&CC0_1_0)
+    } else {
+        None
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::*;
+
+    #[test]
+    fn text_agpl3() {
+        let agpl3 = text(AGPL_3_0_only.text()).unwrap();
+        assert_eq!(agpl3.text(), AGPL_3_0_only.text());
+    }
+
+    #[test]
+    fn text_apache2() {
+        let apache2 = text(Apache_2_0.text()).unwrap();
+        assert_eq!(apache2.text(), Apache_2_0.text());
+    }
+
+    #[test]
+    fn text_cc01() {
+        let cc01 = text(CC0_1_0.text()).unwrap();
+        assert_eq!(cc01.text(), CC0_1_0.text());
+    }
+
+    #[test]
+    fn text_gpl3() {
+        let gpl3 = text(GPL_3_0_only.text()).unwrap();
+        assert_eq!(gpl3.text(), GPL_3_0_only.text());
+    }
+
+    #[test]
+    fn text_lgpl3() {
+        let lgpl3 = text(LGPL_3_0_only.text()).unwrap();
+        assert_eq!(lgpl3.text(), LGPL_3_0_only.text());
+    }
+
+    #[test]
+    fn text_mit() {
+        let mit = text(MIT.text()).unwrap();
+        assert_eq!(mit.text(), MIT.text());
+    }
+
+    #[test]
+    fn text_mpl2() {
+        let mpl2 = text(MPL_2_0.text()).unwrap();
+        assert_eq!(mpl2.text(), MPL_2_0.text());
+    }
+
+    #[test]
+    fn text_unlicense() {
+        let unlicense = text(Unlicense.text()).unwrap();
+        assert_eq!(unlicense.text(), Unlicense.text());
+    }
+}
