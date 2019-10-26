@@ -11,4 +11,6 @@ keywords = ["license", "spdx"]
 exclude = ["/.travis.yml", "/license.svg", "/run", "/license-list-data"]
 edition = "2018"
 
-[dependencies]
+[badges]
+travis-ci = { repository = "evenorog/license" }
+maintenance = { status = "actively-developed" }
