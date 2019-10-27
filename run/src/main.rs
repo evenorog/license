@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 use std::error::Error;
 use std::fs::{self, File};
-use std::io::{BufWriter, Write};
+use std::io::{BufReader, BufWriter, Write};
 
 #[serde(rename_all = "camelCase")]
 #[derive(Debug, Serialize, Deserialize)]
@@ -45,7 +45,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     for entry in fs::read_dir("../license-list-data/json/details")? {
         let entry = entry?;
         let rdr = File::open(entry.path())?;
-        let license: License = serde_json::from_reader(rdr)?;
+        let license: License = serde_json::from_reader(BufReader::new(rdr))?;
         writeln!(
             f,
             "        {:?} => Some(&{}),",
