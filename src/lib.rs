@@ -3,7 +3,7 @@
 //! The library also extends certain licenses with information about their limitations, conditions, and permission.
 //! Additionally, it provides the ability to identify these extended licenses from their license text.
 
-#![doc(html_root_url = "https://docs.rs/license/0.8.0")]
+#![doc(html_root_url = "https://docs.rs/license/0.8.1")]
 #![no_std]
 #![deny(
     bad_style,
