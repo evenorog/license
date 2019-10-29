@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg">
     <defs>
         <linearGradient id="fill" x1="0%" y1="100%" x2="0%" y2="0%">
-            <stop offset="0%" style="stop-color:#f7c91c;" />
-            <stop offset="100%" style="stop-color:#f1a81b;" />
+            <stop offset="0%" style="stop-color:#ffc700;" />
+            <stop offset="100%" style="stop-color:#f1bc00;" />
         </linearGradient>
         <linearGradient id="stroke" x1="0%" y1="100%" x2="0%" y2="0%">
-            <stop offset="0%" style="stop-color:#deb20e;" />
-            <stop offset="100%" style="stop-color:#db960f;" />
+            <stop offset="0%" style="stop-color:#e7b400;" />
+            <stop offset="100%" style="stop-color:#f1bc00;" />
         </linearGradient>
     </defs>
     <text fill="url(#fill)" dominant-baseline="text-before-edge" font-size="90" font-family="Noto Sans" style="stroke: url(#stroke);">
