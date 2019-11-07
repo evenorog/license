@@ -2,14 +2,14 @@
     <defs>
         <linearGradient id="fill" x1="0%" y1="100%" x2="0%" y2="0%">
             <stop offset="0%" style="stop-color:#ffc700;" />
-            <stop offset="100%" style="stop-color:#f1bc00;" />
+            <stop offset="100%" style="stop-color:#e7b400;" />
         </linearGradient>
         <linearGradient id="stroke" x1="0%" y1="100%" x2="0%" y2="0%">
             <stop offset="0%" style="stop-color:#e7b400;" />
-            <stop offset="100%" style="stop-color:#f1bc00;" />
+            <stop offset="100%" style="stop-color:#e7b400;" />
         </linearGradient>
     </defs>
-    <text fill="url(#fill)" dominant-baseline="text-before-edge" font-size="90" font-family="Noto Sans" style="stroke: url(#stroke);">
+    <text fill="url(#fill)" dominant-baseline="text-before-edge" font-size="90" font-family="Noto Sans" style="stroke: url(#stroke); stroke-width: 2;">
         license
     </text>
 </svg>
