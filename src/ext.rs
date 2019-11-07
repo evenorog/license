@@ -6,14 +6,15 @@ use core::fmt::{self, Display, Formatter};
 /// # Examples
 /// ```
 /// # use license::{MIT, License};
-/// let mit = license::from_id_ext(MIT.id()).unwrap();
-/// assert_eq!(mit.id(), MIT.id());
+/// let mit = license::from_id_ext("MIT").unwrap();
+/// assert_eq!(mit.id(), "MIT");
 /// ```
 #[inline]
 pub fn from_id_ext(id: &str) -> Option<&'static dyn LicenseExt> {
     match id {
         "AGPL-3.0-only" => Some(&AGPL_3_0_only),
         "Apache-2.0" => Some(&Apache_2_0),
+        "BSD-3-Clause" => Some(&BSD_3_Clause),
         "CC0-1.0" => Some(&CC0_1_0),
         "GPL-3.0-only" => Some(&GPL_3_0_only),
         "LGPL-3.0-only" => Some(&LGPL_3_0_only),
@@ -209,6 +210,40 @@ impl LicenseExt for Apache_2_0 {
         Limitations {
             no_liability: true,
             no_trademark_rights: true,
+            no_warranty: true,
+            no_patent_rights: false,
+        }
+    }
+}
+
+impl LicenseExt for BSD_3_Clause {
+    #[inline]
+    fn permissions(&self) -> Permissions {
+        Permissions {
+            commercial_use: true,
+            distribution: true,
+            modification: true,
+            patent_rights: false,
+            private_use: true,
+        }
+    }
+
+    #[inline]
+    fn conditions(&self) -> Conditions {
+        Conditions {
+            disclose_sources: false,
+            document_changes: false,
+            license_and_copyright_notice: true,
+            network_use_is_distribution: false,
+            same_license: false,
+        }
+    }
+
+    #[inline]
+    fn limitations(&self) -> Limitations {
+        Limitations {
+            no_liability: true,
+            no_trademark_rights: false,
             no_warranty: true,
             no_patent_rights: false,
         }

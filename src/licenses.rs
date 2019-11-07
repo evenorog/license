@@ -5,8 +5,8 @@
 /// # Examples
 /// ```
 /// # use license::{MIT, License};
-/// let mit = license::from_id(MIT.id()).unwrap();
-/// assert_eq!(mit.id(), MIT.id());
+/// let mit = license::from_id("MIT").unwrap();
+/// assert_eq!(mit.id(), "MIT");
 /// ```
 #[inline]
 pub fn from_id(id: &str) -> Option<&'static dyn crate::License> {
