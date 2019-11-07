@@ -2,8 +2,8 @@
 //!
 //! The library also extends certain licenses with information about their limitations, conditions, and permission.
 
-#![doc(html_root_url = "https://docs.rs/license/0.8.1")]
 #![no_std]
+#![doc(html_root_url = "https://docs.rs/license/0.9.0")]
 #![deny(
     bad_style,
     bare_trait_objects,
