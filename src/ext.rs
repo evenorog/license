@@ -24,41 +24,6 @@ pub fn from_id_ext(id: &str) -> Option<&'static dyn LicenseExt> {
     }
 }
 
-/// Returns an extension license based on the provided text.
-///
-/// # Examples
-/// ```
-/// # use license::{MIT, License};
-/// let mit = license::from_text_ext(MIT.text()).unwrap();
-/// assert_eq!(mit.id(), MIT.id());
-/// ```
-#[inline]
-pub fn from_text_ext(text: &str) -> Option<&'static dyn LicenseExt> {
-    let v2 = text.contains("Version 2.0");
-    let v3 = text.contains("Version 3");
-    if text.contains("MIT License") {
-        Some(&MIT)
-    } else if v2 && text.contains("Apache License") {
-        Some(&Apache_2_0)
-    } else if v3 && text.contains("GNU GENERAL PUBLIC LICENSE") {
-        Some(&GPL_3_0_only)
-    } else if v2 && text.contains("Mozilla Public License") {
-        Some(&MPL_2_0)
-    } else if text
-        .contains("This is free and unencumbered software released into the public domain.")
-    {
-        Some(&Unlicense)
-    } else if v3 && text.contains("GNU LESSER GENERAL PUBLIC LICENSE") {
-        Some(&LGPL_3_0_only)
-    } else if v3 && text.contains("GNU AFFERO GENERAL PUBLIC LICENSE") {
-        Some(&AGPL_3_0_only)
-    } else if text.contains("CC0 1.0 Universal") {
-        Some(&CC0_1_0)
-    } else {
-        None
-    }
-}
-
 /// The permissions of the license.
 #[derive(Copy, Clone, Debug, Hash, Ord, PartialOrd, Eq, PartialEq)]
 pub struct Permissions {
@@ -451,58 +416,5 @@ impl LicenseExt for Unlicense {
             no_warranty: true,
             no_patent_rights: false,
         }
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use crate::*;
-
-    #[test]
-    fn from_text_ext_agpl3() {
-        let agpl3 = from_text_ext(AGPL_3_0_only.text()).unwrap();
-        assert_eq!(agpl3.id(), AGPL_3_0_only.id());
-    }
-
-    #[test]
-    fn from_text_ext_apache2() {
-        let apache2 = from_text_ext(Apache_2_0.text()).unwrap();
-        assert_eq!(apache2.id(), Apache_2_0.id());
-    }
-
-    #[test]
-    fn from_text_ext_cc01() {
-        let cc01 = from_text_ext(CC0_1_0.text()).unwrap();
-        assert_eq!(cc01.id(), CC0_1_0.id());
-    }
-
-    #[test]
-    fn from_text_ext_gpl3() {
-        let gpl3 = from_text_ext(GPL_3_0_only.text()).unwrap();
-        assert_eq!(gpl3.id(), GPL_3_0_only.id());
-    }
-
-    #[test]
-    fn from_text_ext_lgpl3() {
-        let lgpl3 = from_text_ext(LGPL_3_0_only.text()).unwrap();
-        assert_eq!(lgpl3.id(), LGPL_3_0_only.id());
-    }
-
-    #[test]
-    fn from_text_ext_mit() {
-        let mit = from_text_ext(MIT.text()).unwrap();
-        assert_eq!(mit.id(), MIT.id());
-    }
-
-    #[test]
-    fn from_text_ext_mpl2() {
-        let mpl2 = from_text_ext(MPL_2_0.text()).unwrap();
-        assert_eq!(mpl2.id(), MPL_2_0.id());
-    }
-
-    #[test]
-    fn from_text_ext_unlicense() {
-        let unlicense = from_text_ext(Unlicense.text()).unwrap();
-        assert_eq!(unlicense.id(), Unlicense.id());
     }
 }
