@@ -2,6 +2,7 @@ use serde::{Deserialize, Serialize};
 use std::error::Error;
 use std::fs::{self, File};
 use std::io::{BufReader, BufWriter, Write};
+use std::process::Command;
 
 #[serde(rename_all = "camelCase")]
 #[derive(Debug, Serialize, Deserialize)]
@@ -42,9 +43,9 @@ fn main() -> Result<(), Box<dyn Error>> {
     f.write_all(b"///\n")?;
     f.write_all(b"/// # Examples\n")?;
     f.write_all(b"/// ```\n")?;
-    f.write_all(b"/// # use license::{MIT, License};\n")?;
-    f.write_all(b"/// let mit = license::from_id(MIT.id()).unwrap();\n")?;
-    f.write_all(b"/// assert_eq!(mit.id(), MIT.id());\n")?;
+    f.write_all(b"/// # use license::License;\n")?;
+    f.write_all(b"/// let mit = license::from_id(\"MIT\").unwrap();\n")?;
+    f.write_all(b"/// assert_eq!(mit.id(), \"MIT\");\n")?;
     f.write_all(b"/// ```\n")?;
     f.write_all(b"#[inline]\n")?;
     f.write_all(b"pub fn from_id(id: &str) -> Option<&'static dyn crate::License> {\n")?;
@@ -79,5 +80,11 @@ fn main() -> Result<(), Box<dyn Error>> {
             see_also = license.see_also,
         )?;
     }
+    drop(f);
+    Command::new("cargo")
+        .arg("fmt")
+        .arg("--")
+        .arg("../src/licenses.rs")
+        .output()?;
     Ok(())
 }

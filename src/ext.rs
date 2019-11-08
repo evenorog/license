@@ -5,7 +5,7 @@ use core::fmt::{self, Display, Formatter};
 ///
 /// # Examples
 /// ```
-/// # use license::{MIT, License};
+/// # use license::License;
 /// let mit = license::from_id_ext("MIT").unwrap();
 /// assert_eq!(mit.id(), "MIT");
 /// ```
@@ -14,6 +14,7 @@ pub fn from_id_ext(id: &str) -> Option<&'static dyn LicenseExt> {
     match id {
         "AGPL-3.0-only" => Some(&AGPL_3_0_only),
         "Apache-2.0" => Some(&Apache_2_0),
+        "0BSD" => Some(&BSD_0),
         "BSD-3-Clause" => Some(&BSD_3_Clause),
         "CC0-1.0" => Some(&CC0_1_0),
         "GPL-3.0-only" => Some(&GPL_3_0_only),
@@ -26,7 +27,7 @@ pub fn from_id_ext(id: &str) -> Option<&'static dyn LicenseExt> {
 }
 
 /// The permissions of the license.
-#[derive(Copy, Clone, Debug, Hash, Ord, PartialOrd, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, Default, Hash, Ord, PartialOrd, Eq, PartialEq)]
 pub struct Permissions {
     /// May be used for commercial purposes.
     pub commercial_use: bool,
@@ -63,7 +64,7 @@ impl Display for Permissions {
 }
 
 /// The conditions of the license.
-#[derive(Copy, Clone, Debug, Hash, Ord, PartialOrd, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, Default, Hash, Ord, PartialOrd, Eq, PartialEq)]
 pub struct Conditions {
     /// Source code must be made available when the software is distributed.
     pub disclose_sources: bool,
@@ -105,7 +106,7 @@ impl Display for Conditions {
 }
 
 /// The limitations of the license.
-#[derive(Copy, Clone, Debug, Hash, Ord, PartialOrd, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, Default, Hash, Ord, PartialOrd, Eq, PartialEq)]
 pub struct Limitations {
     /// Includes a limitation of liability.
     pub no_liability: bool,
@@ -148,308 +149,92 @@ pub trait LicenseExt: License {
     fn limitations(&self) -> Limitations;
 }
 
-impl LicenseExt for AGPL_3_0_only {
-    #[inline]
-    fn permissions(&self) -> Permissions {
-        Permissions {
-            commercial_use: true,
-            distribution: true,
-            modification: true,
-            patent_rights: true,
-            private_use: true,
-        }
-    }
+macro_rules! impl_ext {
+    (
+        $($struct:ident {
+            permissions: $($permissions:ident)|*;
+            conditions: $($conditions:ident)|*;
+            limitations: $($limitations:ident)|*;
+        })*
+    ) => {
+        $(impl LicenseExt for $struct {
+            #[inline]
+            fn permissions(&self) -> Permissions {
+                Permissions {
+                    $($permissions: true,)*
+                    ..Default::default()
+                }
+            }
 
-    #[inline]
-    fn conditions(&self) -> Conditions {
-        Conditions {
-            disclose_sources: true,
-            document_changes: true,
-            license_and_copyright_notice: true,
-            network_use_is_distribution: true,
-            same_license: true,
-        }
-    }
+            #[inline]
+            fn conditions(&self) -> Conditions {
+                Conditions {
+                    $($conditions: true,)*
+                    ..Default::default()
+                }
+            }
 
-    #[inline]
-    fn limitations(&self) -> Limitations {
-        Limitations {
-            no_liability: true,
-            no_trademark_rights: false,
-            no_warranty: true,
-            no_patent_rights: false,
-        }
-    }
+            #[inline]
+            fn limitations(&self) -> Limitations {
+                Limitations {
+                    $($limitations: true,)*
+                    ..Default::default()
+                }
+            }
+        })*
+    };
 }
 
-impl LicenseExt for Apache_2_0 {
-    #[inline]
-    fn permissions(&self) -> Permissions {
-        Permissions {
-            commercial_use: true,
-            distribution: true,
-            modification: true,
-            patent_rights: true,
-            private_use: true,
-        }
+impl_ext! {
+    AGPL_3_0_only {
+        permissions: commercial_use | distribution | modification | patent_rights | private_use;
+        conditions: disclose_sources | document_changes | license_and_copyright_notice
+                    | network_use_is_distribution | same_license;
+        limitations: no_liability | no_warranty;
     }
-
-    #[inline]
-    fn conditions(&self) -> Conditions {
-        Conditions {
-            disclose_sources: false,
-            document_changes: true,
-            license_and_copyright_notice: true,
-            network_use_is_distribution: false,
-            same_license: false,
-        }
+    Apache_2_0 {
+        permissions: commercial_use | distribution | modification | patent_rights | private_use;
+        conditions: document_changes | license_and_copyright_notice;
+        limitations: no_liability | no_trademark_rights | no_warranty;
     }
-
-    #[inline]
-    fn limitations(&self) -> Limitations {
-        Limitations {
-            no_liability: true,
-            no_trademark_rights: true,
-            no_warranty: true,
-            no_patent_rights: false,
-        }
+    BSD_0 {
+        permissions: commercial_use | distribution | modification | private_use;
+        conditions: ;
+        limitations: no_liability | no_warranty;
     }
-}
-
-impl LicenseExt for BSD_3_Clause {
-    #[inline]
-    fn permissions(&self) -> Permissions {
-        Permissions {
-            commercial_use: true,
-            distribution: true,
-            modification: true,
-            patent_rights: false,
-            private_use: true,
-        }
+    BSD_3_Clause {
+        permissions: commercial_use | distribution | modification | private_use;
+        conditions: license_and_copyright_notice;
+        limitations: no_liability | no_warranty;
     }
-
-    #[inline]
-    fn conditions(&self) -> Conditions {
-        Conditions {
-            disclose_sources: false,
-            document_changes: false,
-            license_and_copyright_notice: true,
-            network_use_is_distribution: false,
-            same_license: false,
-        }
+    CC0_1_0 {
+        permissions: commercial_use | distribution | modification | private_use;
+        conditions: ;
+        limitations: no_liability | no_trademark_rights | no_warranty | no_patent_rights;
     }
-
-    #[inline]
-    fn limitations(&self) -> Limitations {
-        Limitations {
-            no_liability: true,
-            no_trademark_rights: false,
-            no_warranty: true,
-            no_patent_rights: false,
-        }
+    GPL_3_0_only {
+        permissions: commercial_use | distribution | modification | patent_rights | private_use;
+        conditions: disclose_sources | document_changes | license_and_copyright_notice | same_license;
+        limitations: no_liability | no_warranty;
     }
-}
-
-impl LicenseExt for CC0_1_0 {
-    #[inline]
-    fn permissions(&self) -> Permissions {
-        Permissions {
-            commercial_use: true,
-            distribution: true,
-            modification: true,
-            patent_rights: false,
-            private_use: true,
-        }
+    LGPL_3_0_only {
+        permissions: commercial_use | distribution | modification | patent_rights | private_use;
+        conditions: disclose_sources | document_changes | license_and_copyright_notice | same_license;
+        limitations: no_liability | no_warranty;
     }
-
-    #[inline]
-    fn conditions(&self) -> Conditions {
-        Conditions {
-            disclose_sources: false,
-            document_changes: false,
-            license_and_copyright_notice: false,
-            network_use_is_distribution: false,
-            same_license: false,
-        }
+    MIT {
+        permissions: commercial_use | distribution | modification | private_use;
+        conditions: license_and_copyright_notice;
+        limitations: no_liability | no_warranty;
     }
-
-    #[inline]
-    fn limitations(&self) -> Limitations {
-        Limitations {
-            no_liability: true,
-            no_trademark_rights: true,
-            no_warranty: true,
-            no_patent_rights: true,
-        }
+    MPL_2_0 {
+        permissions: commercial_use | distribution | modification | patent_rights | private_use;
+        conditions: disclose_sources | license_and_copyright_notice | same_license;
+        limitations: no_liability | no_trademark_rights | no_warranty;
     }
-}
-
-impl LicenseExt for GPL_3_0_only {
-    #[inline]
-    fn permissions(&self) -> Permissions {
-        Permissions {
-            commercial_use: true,
-            distribution: true,
-            modification: true,
-            patent_rights: true,
-            private_use: true,
-        }
-    }
-
-    #[inline]
-    fn conditions(&self) -> Conditions {
-        Conditions {
-            disclose_sources: true,
-            document_changes: true,
-            license_and_copyright_notice: true,
-            network_use_is_distribution: false,
-            same_license: true,
-        }
-    }
-
-    #[inline]
-    fn limitations(&self) -> Limitations {
-        Limitations {
-            no_liability: true,
-            no_trademark_rights: false,
-            no_warranty: true,
-            no_patent_rights: false,
-        }
-    }
-}
-
-impl LicenseExt for LGPL_3_0_only {
-    #[inline]
-    fn permissions(&self) -> Permissions {
-        Permissions {
-            commercial_use: true,
-            distribution: true,
-            modification: true,
-            patent_rights: true,
-            private_use: true,
-        }
-    }
-
-    #[inline]
-    fn conditions(&self) -> Conditions {
-        Conditions {
-            disclose_sources: true,
-            document_changes: true,
-            license_and_copyright_notice: true,
-            network_use_is_distribution: false,
-            same_license: true,
-        }
-    }
-
-    #[inline]
-    fn limitations(&self) -> Limitations {
-        Limitations {
-            no_liability: true,
-            no_trademark_rights: false,
-            no_warranty: true,
-            no_patent_rights: false,
-        }
-    }
-}
-
-impl LicenseExt for MIT {
-    #[inline]
-    fn permissions(&self) -> Permissions {
-        Permissions {
-            commercial_use: true,
-            distribution: true,
-            modification: true,
-            patent_rights: false,
-            private_use: true,
-        }
-    }
-
-    #[inline]
-    fn conditions(&self) -> Conditions {
-        Conditions {
-            disclose_sources: false,
-            document_changes: false,
-            license_and_copyright_notice: true,
-            network_use_is_distribution: false,
-            same_license: false,
-        }
-    }
-
-    #[inline]
-    fn limitations(&self) -> Limitations {
-        Limitations {
-            no_liability: true,
-            no_trademark_rights: false,
-            no_warranty: true,
-            no_patent_rights: false,
-        }
-    }
-}
-
-impl LicenseExt for MPL_2_0 {
-    #[inline]
-    fn permissions(&self) -> Permissions {
-        Permissions {
-            commercial_use: true,
-            distribution: true,
-            modification: true,
-            patent_rights: true,
-            private_use: true,
-        }
-    }
-
-    #[inline]
-    fn conditions(&self) -> Conditions {
-        Conditions {
-            disclose_sources: true,
-            document_changes: false,
-            license_and_copyright_notice: true,
-            network_use_is_distribution: false,
-            same_license: true,
-        }
-    }
-
-    #[inline]
-    fn limitations(&self) -> Limitations {
-        Limitations {
-            no_liability: true,
-            no_trademark_rights: true,
-            no_warranty: true,
-            no_patent_rights: false,
-        }
-    }
-}
-
-impl LicenseExt for Unlicense {
-    #[inline]
-    fn permissions(&self) -> Permissions {
-        Permissions {
-            commercial_use: true,
-            distribution: true,
-            modification: true,
-            patent_rights: false,
-            private_use: true,
-        }
-    }
-
-    #[inline]
-    fn conditions(&self) -> Conditions {
-        Conditions {
-            disclose_sources: false,
-            document_changes: false,
-            license_and_copyright_notice: false,
-            network_use_is_distribution: false,
-            same_license: false,
-        }
-    }
-
-    #[inline]
-    fn limitations(&self) -> Limitations {
-        Limitations {
-            no_liability: true,
-            no_trademark_rights: false,
-            no_warranty: true,
-            no_patent_rights: false,
-        }
+    Unlicense {
+        permissions: commercial_use | distribution | modification | private_use;
+        conditions: ;
+        limitations: no_liability | no_warranty;
     }
 }

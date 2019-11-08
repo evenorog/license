@@ -4,7 +4,7 @@
 ///
 /// # Examples
 /// ```
-/// # use license::{MIT, License};
+/// # use license::License;
 /// let mit = license::from_id("MIT").unwrap();
 /// assert_eq!(mit.id(), "MIT");
 /// ```
