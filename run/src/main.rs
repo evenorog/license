@@ -43,7 +43,6 @@ fn main() -> Result<(), Box<dyn Error>> {
     f.write_all(b"///\n")?;
     f.write_all(b"/// # Examples\n")?;
     f.write_all(b"/// ```\n")?;
-    f.write_all(b"/// # use license::License;\n")?;
     f.write_all(b"/// let mit = license::from_id(\"MIT\").unwrap();\n")?;
     f.write_all(b"/// assert_eq!(mit.name(), \"MIT License\");\n")?;
     f.write_all(b"/// ```\n")?;

@@ -5,9 +5,9 @@ use core::fmt::{self, Display, Formatter};
 ///
 /// # Examples
 /// ```
-/// # use license::License;
 /// let mit = license::from_id_ext("MIT").unwrap();
-/// assert_eq!(mit.name(), "MIT License");
+/// let perm = mit.permissions();
+/// assert!(perm.private_use && perm.commercial_use);
 /// ```
 #[inline]
 pub fn from_id_ext(id: &str) -> Option<&'static dyn LicenseExt> {
