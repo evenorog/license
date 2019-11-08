@@ -1,6 +1,13 @@
 //! Provides license information from [spdx.org](https://spdx.org).
 //!
 //! The library also extends certain licenses with information about their limitations, conditions, and permission.
+//!
+//! # Examples
+//! ```
+//! # use license::License;
+//! let apache2 = license::from_id("Apache-2.0").unwrap();
+//! assert_eq!(apache2.name(), "Apache License 2.0");
+//! ```
 
 #![no_std]
 #![doc(html_root_url = "https://docs.rs/license/0.9.0")]

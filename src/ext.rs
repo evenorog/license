@@ -7,7 +7,7 @@ use core::fmt::{self, Display, Formatter};
 /// ```
 /// # use license::License;
 /// let mit = license::from_id_ext("MIT").unwrap();
-/// assert_eq!(mit.id(), "MIT");
+/// assert_eq!(mit.name(), "MIT License");
 /// ```
 #[inline]
 pub fn from_id_ext(id: &str) -> Option<&'static dyn LicenseExt> {

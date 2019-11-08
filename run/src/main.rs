@@ -45,7 +45,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     f.write_all(b"/// ```\n")?;
     f.write_all(b"/// # use license::License;\n")?;
     f.write_all(b"/// let mit = license::from_id(\"MIT\").unwrap();\n")?;
-    f.write_all(b"/// assert_eq!(mit.id(), \"MIT\");\n")?;
+    f.write_all(b"/// assert_eq!(mit.name(), \"MIT License\");\n")?;
     f.write_all(b"/// ```\n")?;
     f.write_all(b"#[inline]\n")?;
     f.write_all(b"pub fn from_id(id: &str) -> Option<&'static dyn crate::License> {\n")?;
@@ -85,6 +85,6 @@ fn main() -> Result<(), Box<dyn Error>> {
         .arg("fmt")
         .arg("--")
         .arg("../src/licenses.rs")
-        .output()?;
+        .status()?;
     Ok(())
 }
