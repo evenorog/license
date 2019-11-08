@@ -12,10 +12,13 @@ use core::fmt::{self, Display, Formatter};
 #[inline]
 pub fn from_id_ext(id: &str) -> Option<&'static dyn LicenseExt> {
     match id {
+        "AFL-3.0" => Some(&AFL_3_0),
         "AGPL-3.0-only" => Some(&AGPL_3_0_only),
         "Apache-2.0" => Some(&Apache_2_0),
         "0BSD" => Some(&BSD_0),
+        "BSD-2-Clause" => Some(&BSD_2_Clause),
         "BSD-3-Clause" => Some(&BSD_3_Clause),
+        "BSD-3-Clause-Clear" => Some(&BSD_3_Clause_Clear),
         "BSL-1.0" => Some(&BSL_1_0),
         "CC0-1.0" => Some(&CC0_1_0),
         "GPL-3.0-only" => Some(&GPL_3_0_only),
@@ -189,6 +192,11 @@ macro_rules! impl_ext {
 }
 
 impl_ext! {
+    AFL_3_0 {
+        permissions: commercial_use | distribution | modification | patent_rights | private_use;
+        conditions:  document_changes | license_and_copyright_notice;
+        limitations: no_liability | no_trademark_rights | no_warranty;
+    }
     AGPL_3_0_only {
         permissions: commercial_use | distribution | modification | patent_rights | private_use;
         conditions: disclose_sources | document_changes | license_and_copyright_notice | network_use_is_distribution | same_license;
@@ -204,10 +212,20 @@ impl_ext! {
         conditions: ;
         limitations: no_liability | no_warranty;
     }
+    BSD_2_Clause {
+        permissions: commercial_use | distribution | modification | private_use;
+        conditions: license_and_copyright_notice;
+        limitations: no_liability | no_warranty;
+    }
     BSD_3_Clause {
         permissions: commercial_use | distribution | modification | private_use;
         conditions: license_and_copyright_notice;
         limitations: no_liability | no_warranty;
+    }
+    BSD_3_Clause_Clear {
+        permissions: commercial_use | distribution | modification | private_use;
+        conditions: license_and_copyright_notice;
+        limitations: no_liability | no_warranty | no_patent_rights;
     }
     BSL_1_0 {
         permissions: commercial_use | distribution | modification | private_use;
