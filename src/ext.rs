@@ -16,12 +16,15 @@ pub fn from_id_ext(id: &str) -> Option<&'static dyn LicenseExt> {
         "Apache-2.0" => Some(&Apache_2_0),
         "0BSD" => Some(&BSD_0),
         "BSD-3-Clause" => Some(&BSD_3_Clause),
+        "BSL-1.0" => Some(&BSL_1_0),
         "CC0-1.0" => Some(&CC0_1_0),
         "GPL-3.0-only" => Some(&GPL_3_0_only),
         "LGPL-3.0-only" => Some(&LGPL_3_0_only),
         "MIT" => Some(&MIT),
         "MPL-2.0" => Some(&MPL_2_0),
+        "OSL-3.0" => Some(&OSL_3_0),
         "Unlicense" => Some(&Unlicense),
+        "WTFPL" => Some(&WTFPL),
         _ => None,
     }
 }
@@ -188,8 +191,7 @@ macro_rules! impl_ext {
 impl_ext! {
     AGPL_3_0_only {
         permissions: commercial_use | distribution | modification | patent_rights | private_use;
-        conditions: disclose_sources | document_changes | license_and_copyright_notice
-                    | network_use_is_distribution | same_license;
+        conditions: disclose_sources | document_changes | license_and_copyright_notice | network_use_is_distribution | same_license;
         limitations: no_liability | no_warranty;
     }
     Apache_2_0 {
@@ -203,6 +205,11 @@ impl_ext! {
         limitations: no_liability | no_warranty;
     }
     BSD_3_Clause {
+        permissions: commercial_use | distribution | modification | private_use;
+        conditions: license_and_copyright_notice;
+        limitations: no_liability | no_warranty;
+    }
+    BSL_1_0 {
         permissions: commercial_use | distribution | modification | private_use;
         conditions: license_and_copyright_notice;
         limitations: no_liability | no_warranty;
@@ -232,9 +239,19 @@ impl_ext! {
         conditions: disclose_sources | license_and_copyright_notice | same_license;
         limitations: no_liability | no_trademark_rights | no_warranty;
     }
+    OSL_3_0 {
+        permissions: commercial_use | distribution | modification | patent_rights | private_use;
+        conditions: disclose_sources | document_changes | license_and_copyright_notice | network_use_is_distribution | same_license;
+        limitations: no_liability | no_trademark_rights | no_warranty;
+    }
     Unlicense {
         permissions: commercial_use | distribution | modification | private_use;
         conditions: ;
         limitations: no_liability | no_warranty;
+    }
+    WTFPL {
+        permissions: commercial_use | distribution | modification | private_use;
+        conditions: ;
+        limitations: ;
     }
 }
