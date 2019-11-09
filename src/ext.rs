@@ -23,6 +23,7 @@ pub fn from_id_ext(id: &str) -> Option<&'static dyn LicenseExt> {
         "BSD-3-Clause-Clear" => Some(&BSD_3_Clause_Clear),
         "BSL-1.0" => Some(&BSL_1_0),
         "CC0-1.0" => Some(&CC0_1_0),
+        "ECL-2.0" => Some(&ECL_2_0),
         "GPL-3.0-only" => Some(&GPL_3_0_only),
         "LGPL-3.0-only" => Some(&LGPL_3_0_only),
         "MIT" => Some(&MIT),
@@ -314,6 +315,11 @@ impl_ext! {
         permissions: commercial_use | distribution | modification | private_use;
         conditions: ;
         limitations: no_liability | no_trademark_rights | no_warranty | no_patent_rights;
+    }
+    ECL_2_0 {
+        permissions: commercial_use | distribution | modification | patent_rights | private_use;
+        conditions: document_changes | license_and_copyright_notice;
+        limitations: no_liability | no_trademark_rights | no_warranty;
     }
     GPL_3_0_only {
         permissions: commercial_use | distribution | modification | patent_rights | private_use;
