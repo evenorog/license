@@ -16,7 +16,7 @@ The library also extends certain licenses with information about their limitatio
 ```rust
 let mit = license::from_id_ext("MIT").unwrap();
 let perm = mit.permissions();
-assert!(perm.private_use && perm.commercial_use);
+assert!(perm.private_use() && perm.commercial_use());
 ```
 
 ### License

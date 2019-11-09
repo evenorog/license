@@ -10,7 +10,7 @@
 //! ```
 //! let mit = license::from_id_ext("MIT").unwrap();
 //! let perm = mit.permissions();
-//! assert!(perm.private_use && perm.commercial_use);
+//! assert!(perm.private_use() && perm.commercial_use());
 //! ```
 
 #![no_std]

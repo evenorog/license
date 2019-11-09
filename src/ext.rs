@@ -1,3 +1,5 @@
+#![allow(clippy::needless_update)]
+
 use crate::*;
 use core::fmt::{self, Display, Formatter};
 
@@ -7,7 +9,7 @@ use core::fmt::{self, Display, Formatter};
 /// ```
 /// let mit = license::from_id_ext("MIT").unwrap();
 /// let perm = mit.permissions();
-/// assert!(perm.private_use && perm.commercial_use);
+/// assert!(perm.private_use() && perm.commercial_use());
 /// ```
 #[inline]
 pub fn from_id_ext(id: &str) -> Option<&'static dyn LicenseExt> {
@@ -35,16 +37,43 @@ pub fn from_id_ext(id: &str) -> Option<&'static dyn LicenseExt> {
 /// The permissions of the license.
 #[derive(Copy, Clone, Debug, Default, Hash, Ord, PartialOrd, Eq, PartialEq)]
 pub struct Permissions {
+    commercial_use: bool,
+    distribution: bool,
+    modification: bool,
+    patent_rights: bool,
+    private_use: bool,
+}
+
+impl Permissions {
     /// May be used for commercial purposes.
-    pub commercial_use: bool,
+    #[inline]
+    pub const fn commercial_use(self) -> bool {
+        self.commercial_use
+    }
+
     /// May be distributed.
-    pub distribution: bool,
+    #[inline]
+    pub const fn distribution(self) -> bool {
+        self.distribution
+    }
+
     /// May be modified.
-    pub modification: bool,
+    #[inline]
+    pub const fn modification(self) -> bool {
+        self.modification
+    }
+
     /// Provides an express grant of patent rights from contributors.
-    pub patent_rights: bool,
+    #[inline]
+    pub const fn patent_rights(self) -> bool {
+        self.patent_rights
+    }
+
     /// May be used for private purposes.
-    pub private_use: bool,
+    #[inline]
+    pub const fn private_use(self) -> bool {
+        self.private_use
+    }
 }
 
 impl Display for Permissions {
@@ -72,17 +101,44 @@ impl Display for Permissions {
 /// The conditions of the license.
 #[derive(Copy, Clone, Debug, Default, Hash, Ord, PartialOrd, Eq, PartialEq)]
 pub struct Conditions {
+    disclose_sources: bool,
+    document_changes: bool,
+    license_and_copyright_notice: bool,
+    network_use_is_distribution: bool,
+    same_license: bool,
+}
+
+impl Conditions {
     /// Source code must be made available when the software is distributed.
-    pub disclose_sources: bool,
+    #[inline]
+    pub const fn disclose_sources(self) -> bool {
+        self.disclose_sources
+    }
+
     /// Changes made to the code must be documented.
-    pub document_changes: bool,
+    #[inline]
+    pub const fn document_changes(self) -> bool {
+        self.document_changes
+    }
+
     /// The license and copyright notice must be included with the software.
-    pub license_and_copyright_notice: bool,
+    #[inline]
+    pub const fn license_and_copyright_notice(self) -> bool {
+        self.license_and_copyright_notice
+    }
+
     /// Users who interact with the software via network are
     /// given the right to receive a copy of the source code.
-    pub network_use_is_distribution: bool,
+    #[inline]
+    pub const fn network_use_is_distribution(self) -> bool {
+        self.network_use_is_distribution
+    }
+
     /// Modifications must be released under the same license.
-    pub same_license: bool,
+    #[inline]
+    pub const fn same_license(self) -> bool {
+        self.same_license
+    }
 }
 
 impl Display for Conditions {
@@ -114,14 +170,36 @@ impl Display for Conditions {
 /// The limitations of the license.
 #[derive(Copy, Clone, Debug, Default, Hash, Ord, PartialOrd, Eq, PartialEq)]
 pub struct Limitations {
+    no_liability: bool,
+    no_trademark_rights: bool,
+    no_warranty: bool,
+    no_patent_rights: bool,
+}
+
+impl Limitations {
     /// Includes a limitation of liability.
-    pub no_liability: bool,
+    #[inline]
+    pub const fn no_liability(self) -> bool {
+        self.no_liability
+    }
+
     /// Does not grant trademark rights.
-    pub no_trademark_rights: bool,
+    #[inline]
+    pub const fn no_trademark_rights(self) -> bool {
+        self.no_trademark_rights
+    }
+
     /// Does not provide any warranty.
-    pub no_warranty: bool,
+    #[inline]
+    pub const fn no_warranty(self) -> bool {
+        self.no_warranty
+    }
+
     /// Does not provide any rights in the patents of contributors.
-    pub no_patent_rights: bool,
+    #[inline]
+    pub const fn no_patent_rights(self) -> bool {
+        self.no_patent_rights
+    }
 }
 
 impl Display for Limitations {
