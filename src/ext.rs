@@ -28,9 +28,11 @@ pub fn from_id_ext(id: &str) -> Option<&'static dyn LicenseExt> {
         "LGPL-3.0-only" => Some(&LGPL_3_0_only),
         "MIT" => Some(&MIT),
         "MPL-2.0" => Some(&MPL_2_0),
+        "MS-PL" => Some(&MS_PL),
         "OSL-3.0" => Some(&OSL_3_0),
         "Unlicense" => Some(&Unlicense),
         "WTFPL" => Some(&WTFPL),
+        "Zlib" => Some(&Zlib),
         _ => None,
     }
 }
@@ -341,6 +343,11 @@ impl_ext! {
         conditions: disclose_sources | license_and_copyright_notice | same_license;
         limitations: no_liability | no_trademark_rights | no_warranty;
     }
+    MS_PL {
+        permissions: commercial_use | distribution | modification | patent_rights | private_use;
+        conditions: license_and_copyright_notice;
+        limitations: no_trademark_rights | no_warranty;
+    }
     OSL_3_0 {
         permissions: commercial_use | distribution | modification | patent_rights | private_use;
         conditions: disclose_sources | document_changes | license_and_copyright_notice | network_use_is_distribution | same_license;
@@ -355,5 +362,10 @@ impl_ext! {
         permissions: commercial_use | distribution | modification | private_use;
         conditions: ;
         limitations: ;
+    }
+    Zlib {
+        permissions: commercial_use | distribution | modification | private_use;
+        conditions: document_changes | license_and_copyright_notice;
+        limitations: no_liability | no_warranty;
     }
 }
