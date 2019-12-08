@@ -4,7 +4,7 @@
 [![Crates.io](https://img.shields.io/crates/v/license.svg)](https://crates.io/crates/license)
 [![Docs](https://docs.rs/license/badge.svg)](https://docs.rs/license)
 
-Provides license information from [spdx.org](https://spdx.org).
+Provides license information from [SPDX](https://spdx.org).
 
 ```rust
 let apache2 = license::from_id("Apache-2.0").unwrap();

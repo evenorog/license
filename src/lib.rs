@@ -1,4 +1,4 @@
-//! Provides license information from [spdx.org](https://spdx.org).
+//! Provides license information from [SPDX](https://spdx.org).
 //!
 //! ```
 //! let apache2 = license::from_id("Apache-2.0").unwrap();

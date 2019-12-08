@@ -238,7 +238,7 @@ pub trait LicenseExt: License {
 
 macro_rules! impl_ext {
     (
-        $($struct:ident {
+        $(impl $struct:ident {
             permissions: $($permissions:ident)|*;
             conditions: $($conditions:ident)|*;
             limitations: $($limitations:ident)|*;
@@ -273,97 +273,97 @@ macro_rules! impl_ext {
 }
 
 impl_ext! {
-    AFL_3_0 {
+    impl AFL_3_0 {
         permissions: commercial_use | distribution | modification | patent_rights | private_use;
         conditions:  document_changes | license_and_copyright_notice;
         limitations: no_liability | no_trademark_rights | no_warranty;
     }
-    AGPL_3_0_only {
+    impl AGPL_3_0_only {
         permissions: commercial_use | distribution | modification | patent_rights | private_use;
         conditions: disclose_sources | document_changes | license_and_copyright_notice | network_use_is_distribution | same_license;
         limitations: no_liability | no_warranty;
     }
-    Apache_2_0 {
+    impl Apache_2_0 {
         permissions: commercial_use | distribution | modification | patent_rights | private_use;
         conditions: document_changes | license_and_copyright_notice;
         limitations: no_liability | no_trademark_rights | no_warranty;
     }
-    BSD_0 {
+    impl BSD_0 {
         permissions: commercial_use | distribution | modification | private_use;
         conditions: ;
         limitations: no_liability | no_warranty;
     }
-    BSD_2_Clause {
+    impl BSD_2_Clause {
         permissions: commercial_use | distribution | modification | private_use;
         conditions: license_and_copyright_notice;
         limitations: no_liability | no_warranty;
     }
-    BSD_3_Clause {
+    impl BSD_3_Clause {
         permissions: commercial_use | distribution | modification | private_use;
         conditions: license_and_copyright_notice;
         limitations: no_liability | no_warranty;
     }
-    BSD_3_Clause_Clear {
+    impl BSD_3_Clause_Clear {
         permissions: commercial_use | distribution | modification | private_use;
         conditions: license_and_copyright_notice;
         limitations: no_liability | no_warranty | no_patent_rights;
     }
-    BSL_1_0 {
+    impl BSL_1_0 {
         permissions: commercial_use | distribution | modification | private_use;
         conditions: license_and_copyright_notice;
         limitations: no_liability | no_warranty;
     }
-    CC0_1_0 {
+    impl CC0_1_0 {
         permissions: commercial_use | distribution | modification | private_use;
         conditions: ;
         limitations: no_liability | no_trademark_rights | no_warranty | no_patent_rights;
     }
-    ECL_2_0 {
+    impl ECL_2_0 {
         permissions: commercial_use | distribution | modification | patent_rights | private_use;
         conditions: document_changes | license_and_copyright_notice;
         limitations: no_liability | no_trademark_rights | no_warranty;
     }
-    GPL_3_0_only {
+    impl GPL_3_0_only {
         permissions: commercial_use | distribution | modification | patent_rights | private_use;
         conditions: disclose_sources | document_changes | license_and_copyright_notice | same_license;
         limitations: no_liability | no_warranty;
     }
-    LGPL_3_0_only {
+    impl LGPL_3_0_only {
         permissions: commercial_use | distribution | modification | patent_rights | private_use;
         conditions: disclose_sources | document_changes | license_and_copyright_notice | same_license;
         limitations: no_liability | no_warranty;
     }
-    MIT {
+    impl MIT {
         permissions: commercial_use | distribution | modification | private_use;
         conditions: license_and_copyright_notice;
         limitations: no_liability | no_warranty;
     }
-    MPL_2_0 {
+    impl MPL_2_0 {
         permissions: commercial_use | distribution | modification | patent_rights | private_use;
         conditions: disclose_sources | license_and_copyright_notice | same_license;
         limitations: no_liability | no_trademark_rights | no_warranty;
     }
-    MS_PL {
+    impl MS_PL {
         permissions: commercial_use | distribution | modification | patent_rights | private_use;
         conditions: license_and_copyright_notice;
         limitations: no_trademark_rights | no_warranty;
     }
-    OSL_3_0 {
+    impl OSL_3_0 {
         permissions: commercial_use | distribution | modification | patent_rights | private_use;
         conditions: disclose_sources | document_changes | license_and_copyright_notice | network_use_is_distribution | same_license;
         limitations: no_liability | no_trademark_rights | no_warranty;
     }
-    Unlicense {
+    impl Unlicense {
         permissions: commercial_use | distribution | modification | private_use;
         conditions: ;
         limitations: no_liability | no_warranty;
     }
-    WTFPL {
+    impl WTFPL {
         permissions: commercial_use | distribution | modification | private_use;
         conditions: ;
         limitations: ;
     }
-    Zlib {
+    impl Zlib {
         permissions: commercial_use | distribution | modification | private_use;
         conditions: document_changes | license_and_copyright_notice;
         limitations: no_liability | no_warranty;
