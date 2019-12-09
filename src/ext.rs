@@ -38,6 +38,13 @@ pub fn from_id_ext(id: &str) -> Option<&'static dyn LicenseExt> {
 }
 
 /// The permissions of the license.
+///
+/// # Examples
+/// ```
+/// let mit = license::from_id_ext("MIT").unwrap();
+/// let perm = mit.permissions();
+/// assert!(perm.private_use() && perm.commercial_use());
+/// ```
 #[derive(Copy, Clone, Debug, Default, Hash, Ord, PartialOrd, Eq, PartialEq)]
 pub struct Permissions {
     commercial_use: bool,
@@ -102,6 +109,13 @@ impl Display for Permissions {
 }
 
 /// The conditions of the license.
+///
+/// # Examples
+/// ```
+/// let mit = license::from_id_ext("MIT").unwrap();
+/// let cond = mit.conditions();
+/// assert!(cond.license_and_copyright_notice());
+/// ```
 #[derive(Copy, Clone, Debug, Default, Hash, Ord, PartialOrd, Eq, PartialEq)]
 pub struct Conditions {
     disclose_sources: bool,
@@ -171,6 +185,13 @@ impl Display for Conditions {
 }
 
 /// The limitations of the license.
+///
+/// # Examples
+/// ```
+/// let mit = license::from_id_ext("MIT").unwrap();
+/// let lim = mit.limitations();
+/// assert!(lim.no_liability() && lim.no_warranty());
+/// ```
 #[derive(Copy, Clone, Debug, Default, Hash, Ord, PartialOrd, Eq, PartialEq)]
 pub struct Limitations {
     no_liability: bool,
