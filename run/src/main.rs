@@ -46,7 +46,6 @@ fn main() -> Result<(), Box<dyn Error>> {
     f.write_all(b"/// let mit = license::from_id(\"MIT\").unwrap();\n")?;
     f.write_all(b"/// assert_eq!(mit.name(), \"MIT License\");\n")?;
     f.write_all(b"/// ```\n")?;
-    f.write_all(b"#[inline]\n")?;
     f.write_all(b"pub fn from_id(id: &str) -> Option<&'static dyn crate::License> {\n")?;
     f.write_all(b"    match id {\n")?;
     for entry in fs::read_dir("../license-list-data/json/details")? {

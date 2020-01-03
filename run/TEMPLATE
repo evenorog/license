@@ -3,42 +3,34 @@
 pub struct {ident};
 
 impl crate::License for {ident} {{
-    #[inline]
     fn name(&self) -> &'static str {{
         {name:?}
     }}
 
-    #[inline]
     fn id(&self) -> &'static str {{
         {id:?}
     }}
 
-    #[inline]
     fn text(&self) -> &'static str {{
         {text:?}
     }}
 
-    #[inline]
     fn header(&self) -> Option<&'static str> {{
         {header:?}
     }}
 
-    #[inline]
     fn is_osi_approved(&self) -> bool {{
         {osi:?}
     }}
 
-    #[inline]
     fn is_fsf_libre(&self) -> bool {{
         {fsf:?}
     }}
 
-    #[inline]
     fn is_deprecated(&self) -> bool {{
         {deprecated:?}
     }}
 
-    #[inline]
     fn see_also(&self) -> &'static [&'static str] {{
         &{see_also:?}
     }}

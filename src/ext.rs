@@ -11,7 +11,6 @@ use core::fmt::{self, Display, Formatter};
 /// let perm = mit.permissions();
 /// assert!(perm.private_use() && perm.commercial_use());
 /// ```
-#[inline]
 pub fn from_id_ext(id: &str) -> Option<&'static dyn LicenseExt> {
     match id {
         "AFL-3.0" => Some(&AFL_3_0),
@@ -56,38 +55,32 @@ pub struct Permissions {
 
 impl Permissions {
     /// May be used for commercial purposes.
-    #[inline]
     pub const fn commercial_use(self) -> bool {
         self.commercial_use
     }
 
     /// May be distributed.
-    #[inline]
     pub const fn distribution(self) -> bool {
         self.distribution
     }
 
     /// May be modified.
-    #[inline]
     pub const fn modification(self) -> bool {
         self.modification
     }
 
     /// Provides an express grant of patent rights from contributors.
-    #[inline]
     pub const fn patent_rights(self) -> bool {
         self.patent_rights
     }
 
     /// May be used for private purposes.
-    #[inline]
     pub const fn private_use(self) -> bool {
         self.private_use
     }
 }
 
 impl Display for Permissions {
-    #[inline]
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         if self.commercial_use {
             f.write_str("- May be used for commercial purposes.\n")?;
@@ -127,39 +120,33 @@ pub struct Conditions {
 
 impl Conditions {
     /// Source code must be made available when the software is distributed.
-    #[inline]
     pub const fn disclose_sources(self) -> bool {
         self.disclose_sources
     }
 
     /// Changes made to the code must be documented.
-    #[inline]
     pub const fn document_changes(self) -> bool {
         self.document_changes
     }
 
     /// The license and copyright notice must be included with the software.
-    #[inline]
     pub const fn license_and_copyright_notice(self) -> bool {
         self.license_and_copyright_notice
     }
 
     /// Users who interact with the software via network are
     /// given the right to receive a copy of the source code.
-    #[inline]
     pub const fn network_use_is_distribution(self) -> bool {
         self.network_use_is_distribution
     }
 
     /// Modifications must be released under the same license.
-    #[inline]
     pub const fn same_license(self) -> bool {
         self.same_license
     }
 }
 
 impl Display for Conditions {
-    #[inline]
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         if self.disclose_sources {
             f.write_str(
@@ -202,32 +189,27 @@ pub struct Limitations {
 
 impl Limitations {
     /// Includes a limitation of liability.
-    #[inline]
     pub const fn no_liability(self) -> bool {
         self.no_liability
     }
 
     /// Does not grant trademark rights.
-    #[inline]
     pub const fn no_trademark_rights(self) -> bool {
         self.no_trademark_rights
     }
 
     /// Does not provide any warranty.
-    #[inline]
     pub const fn no_warranty(self) -> bool {
         self.no_warranty
     }
 
     /// Does not provide any rights in the patents of contributors.
-    #[inline]
     pub const fn no_patent_rights(self) -> bool {
         self.no_patent_rights
     }
 }
 
 impl Display for Limitations {
-    #[inline]
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         if self.no_liability {
             f.write_str("- Includes a limitation of liability.\n")?;
@@ -266,7 +248,6 @@ macro_rules! impl_ext {
         })*
     ) => {
         $(impl LicenseExt for $struct {
-            #[inline]
             fn permissions(&self) -> Permissions {
                 Permissions {
                     $($permissions: true,)*
@@ -274,7 +255,6 @@ macro_rules! impl_ext {
                 }
             }
 
-            #[inline]
             fn conditions(&self) -> Conditions {
                 Conditions {
                     $($conditions: true,)*
@@ -282,7 +262,6 @@ macro_rules! impl_ext {
                 }
             }
 
-            #[inline]
             fn limitations(&self) -> Limitations {
                 Limitations {
                     $($limitations: true,)*
