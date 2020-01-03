@@ -14,17 +14,8 @@
 //! ```
 
 #![no_std]
-#![doc(html_root_url = "https://docs.rs/license/1.0.0")]
-#![deny(
-    bad_style,
-    bare_trait_objects,
-    missing_debug_implementations,
-    missing_docs,
-    unused_import_braces,
-    unused_qualifications,
-    unsafe_code,
-    unstable_features
-)]
+#![doc(html_root_url = "https://docs.rs/license")]
+#![deny(missing_docs)]
 
 mod ext;
 #[allow(bad_style)]

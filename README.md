@@ -1,4 +1,4 @@
-![license](https://raw.githubusercontent.com/evenorog/license/master/license.svg?sanitize=true)
+# license
 
 [![Travis](https://travis-ci.com/evenorog/license.svg?branch=master)](https://travis-ci.com/evenorog/license)
 [![Crates.io](https://img.shields.io/crates/v/license.svg)](https://crates.io/crates/license)
