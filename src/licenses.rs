@@ -8996,7 +8996,7 @@ impl crate::License for MIT_0 {
     }
 
     fn is_osi_approved(&self) -> bool {
-        true
+        false
     }
 
     fn is_fsf_libre(&self) -> bool {
