@@ -9,7 +9,7 @@ readme = "README.md"
 license = "MIT/Apache-2.0"
 keywords = ["license", "spdx"]
 categories = ["no-std"]
-exclude = ["/.travis.yml", "/license.svg", "/run", "/license-list-data"]
+exclude = ["/.travis.yml", "/run", "/license-list-data"]
 edition = "2018"
 
 [badges]
