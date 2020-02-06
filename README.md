@@ -4,7 +4,7 @@
 [![Crates.io](https://img.shields.io/crates/v/license.svg)](https://crates.io/crates/license)
 [![Docs](https://docs.rs/license/badge.svg)](https://docs.rs/license)
 
-Provides license information from [SPDX](https://spdx.org).
+Provides embedded license information from [SPDX](https://spdx.org).
 
 ```rust
 let apache2 = license::from_id("Apache-2.0").unwrap();
@@ -17,6 +17,13 @@ The library also extends certain licenses with information about their limitatio
 let mit = license::from_id_ext("MIT").unwrap();
 let perm = mit.permissions();
 assert!(perm.private_use() && perm.commercial_use());
+```
+
+License exceptions are also supported.
+
+```rust
+let gcc = license::from_id_exception("GCC-exception-3.1").unwrap();
+assert_eq!(gcc.name(), "GCC Runtime Library exception 3.1");
 ```
 
 ### License

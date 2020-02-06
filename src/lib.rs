@@ -1,4 +1,4 @@
-//! Provides license information from [SPDX](https://spdx.org).
+//! Provides embedded license information from [SPDX](https://spdx.org).
 //!
 //! ```
 //! let apache2 = license::from_id("Apache-2.0").unwrap();
@@ -12,15 +12,25 @@
 //! let perm = mit.permissions();
 //! assert!(perm.private_use() && perm.commercial_use());
 //! ```
+//!
+//! License exceptions are also supported.
+//!
+//! ```
+//! let gcc = license::from_id_exception("GCC-exception-3.1").unwrap();
+//! assert_eq!(gcc.name(), "GCC Runtime Library exception 3.1");
+//! ```
 
 #![no_std]
 #![doc(html_root_url = "https://docs.rs/license")]
 #![deny(missing_docs)]
 
+#[allow(bad_style)]
+mod exceptions;
 mod ext;
 #[allow(bad_style)]
 mod licenses;
 
+pub use exceptions::*;
 pub use ext::*;
 pub use licenses::*;
 
@@ -54,6 +64,39 @@ pub trait License {
 
     /// Says if the license is deprecated.
     fn is_deprecated(&self) -> bool;
+
+    /// Relevant sources.
+    fn see_also(&self) -> &'static [&'static str];
+}
+
+/// Extension trait for supported licenses.
+pub trait LicenseExt: License {
+    /// The permissions of the license.
+    fn permissions(&self) -> Permissions;
+
+    /// The conditions of the license.
+    fn conditions(&self) -> Conditions;
+
+    /// The limitations of the license.
+    fn limitations(&self) -> Limitations;
+}
+
+/// Base functionality for all license exceptions.
+pub trait LicenseException {
+    /// The name of the exception.
+    fn name(&self) -> &'static str;
+
+    /// The identifier of the exceptions.
+    fn id(&self) -> &'static str;
+
+    /// The exception text.
+    fn text(&self) -> &'static str;
+
+    /// Says if the exception is deprecated.
+    fn is_deprecated(&self) -> bool;
+
+    /// The exception comments.
+    fn comments(&self) -> Option<&'static str>;
 
     /// Relevant sources.
     fn see_also(&self) -> &'static [&'static str];

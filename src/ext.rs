@@ -227,18 +227,6 @@ impl Display for Limitations {
     }
 }
 
-/// Extension trait for supported licenses.
-pub trait LicenseExt: License {
-    /// The permissions of the license.
-    fn permissions(&self) -> Permissions;
-
-    /// The conditions of the license.
-    fn conditions(&self) -> Conditions;
-
-    /// The limitations of the license.
-    fn limitations(&self) -> Limitations;
-}
-
 macro_rules! impl_ext {
     (
         $(impl $struct:ident {

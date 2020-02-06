@@ -1,0 +1,29 @@
+/// The {name}.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct {ident};
+
+impl crate::LicenseException for {ident} {{
+    fn name(&self) -> &'static str {{
+        {name:?}
+    }}
+
+    fn id(&self) -> &'static str {{
+        {id:?}
+    }}
+
+    fn text(&self) -> &'static str {{
+        {text:?}
+    }}
+
+    fn is_deprecated(&self) -> bool {{
+        {deprecated:?}
+    }}
+
+    fn comments(&self) -> Option<&'static str> {{
+        {comments:?}
+    }}
+
+    fn see_also(&self) -> &'static [&'static str] {{
+        &{see_also:?}
+    }}
+}}
