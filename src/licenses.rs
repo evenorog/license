@@ -417,6 +417,7 @@ pub fn from_id(id: &str) -> Option<&'static dyn crate::License> {
         "OFL-1.1-RFN" => Some(&OFL_1_1_RFN),
         "OFL-1.1-no-RFN" => Some(&OFL_1_1_no_RFN),
         "PSF-2.0" => Some(&PSF_2_0),
+        "libselinux-1.0" => Some(&libselinux_1_0),
         _ => None,
     }
 }
@@ -16133,5 +16134,43 @@ impl crate::License for PSF_2_0 {
 
     fn see_also(&self) -> &'static [&'static str] {
         &["https://opensource.org/licenses/Python-2.0"]
+    }
+}
+
+/// The libselinux public domain notice.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct libselinux_1_0;
+
+impl crate::License for libselinux_1_0 {
+    fn name(&self) -> &'static str {
+        "libselinux public domain notice"
+    }
+
+    fn id(&self) -> &'static str {
+        "libselinux-1.0"
+    }
+
+    fn text(&self) -> &'static str {
+        "This library (libselinux) is public domain software, i.e. not copyrighted.\n\nWarranty Exclusion ------------------\n\nYou agree that this software is a non-commercially developed program that may contain \"bugs\" (as that term is used in the industry) and that it may not function as intended. The software is licensed \"as is\". NSA makes no, and hereby expressly disclaims all, warranties, express, implied, statutory, or otherwise with respect to the software, including noninfringement and the implied warranties of merchantability and fitness for a particular purpose.\n\nLimitation of Liability -----------------------\n\nIn no event will NSA be liable for any damages, including loss of data, lost profits, cost of cover, or other special, incidental, consequential, direct or indirect damages arising from the software or the use thereof, however caused and on any theory of liability. This limitation will apply even if NSA has been advised of the possibility of such damage. You acknowledge that this is a reasonable allocation of risk."
+    }
+
+    fn header(&self) -> Option<&'static str> {
+        None
+    }
+
+    fn is_osi_approved(&self) -> bool {
+        false
+    }
+
+    fn is_fsf_libre(&self) -> bool {
+        false
+    }
+
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    fn see_also(&self) -> &'static [&'static str] {
+        &["https://github.com/SELinuxProject/selinux/blob/master/libselinux/LICENSE"]
     }
 }
