@@ -48,6 +48,8 @@ pub fn from_id_exception(id: &str) -> Option<&'static dyn crate::LicenseExceptio
         "GPL-3.0-linking-exception" => Some(&GPL_3_0_linking_exception),
         "GPL-3.0-linking-source-exception" => Some(&GPL_3_0_linking_source_exception),
         "LGPL-3.0-linking-exception" => Some(&LGPL_3_0_linking_exception),
+        "SHL-2.0" => Some(&SHL_2_0),
+        "SHL-2.1" => Some(&SHL_2_1),
         _ => None,
     }
 }
@@ -1239,5 +1241,65 @@ impl crate::LicenseException for LGPL_3_0_linking_exception {
             "https://github.com/goamz/goamz/blob/master/LICENSE",
             "https://github.com/juju/errors/blob/master/LICENSE",
         ]
+    }
+}
+
+/// The Solderpad Hardware License v2.0.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct SHL_2_0;
+
+impl crate::LicenseException for SHL_2_0 {
+    fn name(&self) -> &'static str {
+        "Solderpad Hardware License v2.0"
+    }
+
+    fn id(&self) -> &'static str {
+        "SHL-2.0"
+    }
+
+    fn text(&self) -> &'static str {
+        "# Solderpad Hardware Licence Version 2.0\n\nThis licence (the \"Licence\") operates as a wraparound licence to the Apache License Version 2.0 (the \"Apache License\") and grants to You the rights, and imposes the obligations, set out in the Apache License (which can be found here: http://apache.org/licenses/LICENSE-2.0), with the following extensions. It must be read in conjunction with the Apache License. Section 1 below modifies definitions in the Apache License, and section 2 below replaces sections 2 of the Apache License. You may, at your option, choose to treat any Work released under this License as released under the Apache License (thus ignoring all sections written below entirely). Words in italics indicate changes rom the Apache License, but are indicative and not to be taken into account in interpretation.\n\n   1. The definitions set out in the Apache License are modified as follows:\n\n   Copyright any reference to \'copyright\' (whether capitalised or not) includes \'Rights\' (as defined below).\n\n   Contribution also includes any design, as well as any work of authorship.\n\n   Derivative Works shall not include works that remain reversibly separable from, or merely link (or bind by name) or physically connect to or interoperate with the interfaces of the Work and Derivative Works thereof.\n\n   Object form shall mean any form resulting from mechanical transformation or translation of a Source form or the application of a Source form to physical material, including but not limited to compiled object code, generated documentation, the instantiation of a hardware design or physical object and conversions to other media types, including intermediate forms such as bytecodes, FPGA bitstreams, moulds, artwork and semiconductor topographies (mask works).\n\n   Rights means copyright and any similar right including design right (whether registered or unregistered), semiconductor topography (mask) rights and database rights (but excluding Patents and Trademarks).\n\n   Source form shall mean the preferred form for making modifications, including but not limited to source code, net lists, board layouts, CAD files, documentation source, and configuration files.\n\n   Work also includes a design or work of authorship, whether in Source form or other Object form.\n\n   2. Grant of Licence\n\n      2.1 Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable license under the Rights to reproduce, prepare Derivative Works of, make, adapt, repair, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form and do anything in relation to the Work as if the Rights did not exist."
+    }
+
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    fn comments(&self) -> Option<&'static str> {
+        Some("Used with Apache-2.0. Italicized text from original license is not reflected in this copy but can be seen in license steward\'s version at https://solderpad.org/licenses/SHL-2.0/")
+    }
+
+    fn see_also(&self) -> &'static [&'static str] {
+        &["https://solderpad.org/licenses/SHL-2.0/"]
+    }
+}
+
+/// The Solderpad Hardware License v2.1.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct SHL_2_1;
+
+impl crate::LicenseException for SHL_2_1 {
+    fn name(&self) -> &'static str {
+        "Solderpad Hardware License v2.1"
+    }
+
+    fn id(&self) -> &'static str {
+        "SHL-2.1"
+    }
+
+    fn text(&self) -> &'static str {
+        "SOLDERPAD HARDWARE LICENSE VERSION 2.1\n\nThis license operates as a wraparound license to the Apache License Version 2.0 (the \"Apache License\") and incorporates the terms and conditions of the Apache License (which can be found here: http://apache.org/licenses/LICENSE-2.0), with the following additions and modifications. It must be read in conjunction with the Apache License. Section 1 below modifies definitions and terminology in the Apache License and Section 2 below replaces Section 2 of the Apache License. The Appendix replaces the Appendix in the Apache License. You may, at your option, choose to treat any Work released under this license as released under the Apache License (thus ignoring all sections written below entirely).\n\n   1. Terminology in the Apache License is supplemented or modified as follows:\n\n   \"Authorship\": any reference to \'authorship\' shall be taken to read \"authorship or design\".\n\n   \"Copyright owner\": any reference to \'copyright owner\' shall be taken to read \"Rights owner\".\n\n   \"Copyright statement\": the reference to \'copyright statement\' shall be taken to read \'copyright or other statement pertaining to Rights\'\n\n   The following new definition shall be added to the Definitions section of the Apache License:\n\n   \"Rights\" means copyright and any similar right including design right (whether registered or unregistered), rights in semiconductor topographies (mask works) and database rights (but excluding Patents and Trademarks).\n\n   The following definitions shall replace the corresponding definitions in the Apache License:\n\n   \"License\" shall mean this Solderpad Hardware License version 2.1, being the terms and conditions for use, manufacture, instantiation, adaptation, reproduction, and distribution as defined by Sections 1 through 9 of this document.\n\n   \"Licensor\" shall mean the Rights owner or entity authorized by the Rights owner that is granting the License.\n\n   \"Derivative Works\" shall mean any work, whether in Source or Object form, that is based on (or derived from) the Work and for which the editorial revisions, annotations, elaborations, or other modifications represent, as a whole, an original work of authorship or design. For the purposes of this License, Derivative Works shall not include works that remain reversibly separable from, or merely link (or bind by name) or physically connect to or interoperate with the Work and Derivative Works thereof.\n\n   \"Object\" form shall mean any form resulting from mechanical transformation or translation of a Source form or the application of a Source form to physical material, including but not limited to compiled object code, generated documentation, the instantiation of a hardware design or physical object or material and conversions to other media types, including intermediate forms such as bytecodes, FPGA bitstreams, moulds, artwork and semiconductor topographies (mask works).\n\n   \"Source\" form shall mean the preferred form for making modifications, including but not limited to source code, net lists, board layouts, CAD files, documentation source, and configuration files.\n\n   \"Work\" shall mean the work of authorship or design, whether in Source or Object form, made available under the License, as indicated by a notice relating to Rights that is included in or attached to the work (an example is provided in the Appendix below).\n\n   2. Grant of License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable license under the Rights to reproduce, prepare Derivative Works of, make, adapt, repair, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form and do anything in relation to the Work as if the Rights did not exist. APPENDIX\n\nCopyright [yyyy] [name of copyright owner]\n\nSPDX-License-Identifier: Apache-2.0 WITH SHL-2.1\n\nLicensed under the Solderpad Hardware License v 2.1 (the \"License\"); you may not use this file except in compliance with the License, or, at your option, the Apache License version 2.0.\n\nYou may obtain a copy of the License at\n\nhttps://solderpad.org/licenses/SHL-2.1/\n\nUnless required by applicable law or agreed to in writing, any work distributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\nSee the License for the specific language governing permissions and limitations under the License."
+    }
+
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    fn comments(&self) -> Option<&'static str> {
+        Some("Used with Apache-2.0")
+    }
+
+    fn see_also(&self) -> &'static [&'static str] {
+        &["https://solderpad.org/licenses/SHL-2.1/"]
     }
 }
