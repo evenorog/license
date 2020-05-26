@@ -1,12 +1,12 @@
 [package]
 name = "license"
-version = "1.1.2"
+version = "1.1.3"
 authors = ["evenorog <evenorog@gmail.com>"]
 description = "Provides embedded license information from SPDX."
 documentation = "https://docs.rs/license"
 repository = "https://github.com/evenorog/license"
 readme = "README.md"
-license = "MIT/Apache-2.0"
+license = "MIT OR Apache-2.0"
 keywords = ["license", "spdx"]
 categories = ["no-std"]
 exclude = ["/.travis.yml", "/run", "/license-list-data"]

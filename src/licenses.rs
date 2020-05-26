@@ -11994,7 +11994,7 @@ impl crate::License for PHP_3_01 {
     }
 
     fn is_osi_approved(&self) -> bool {
-        false
+        true
     }
 
     fn is_fsf_libre(&self) -> bool {
