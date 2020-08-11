@@ -64,6 +64,9 @@ impl Exception {
 fn main() -> Result<(), Box<dyn Error>> {
     Command::new("git")
         .arg("pull")
+        .arg("--ff-only")
+        .arg("origin")
+        .arg("master")
         .current_dir("../license-list-data")
         .status()?;
     build_licenses_from_json()?;
