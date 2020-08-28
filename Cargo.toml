@@ -1,6 +1,6 @@
 [package]
 name = "license"
-version = "1.1.5"
+version = "1.1.6"
 authors = ["evenorog <evenorog@gmail.com>"]
 description = "Provides embedded license information from SPDX."
 documentation = "https://docs.rs/license"
