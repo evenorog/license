@@ -9,6 +9,22 @@
 /// ```
 pub fn from_id_exception(id: &str) -> Option<&'static dyn crate::LicenseException> {
     match id {
+        "PS-or-PDF-font-exception-20170817" => Some(&PS_or_PDF_font_exception_20170817),
+        "Qt-GPL-exception-1.0" => Some(&Qt_GPL_exception_1_0),
+        "Qt-LGPL-exception-1.1" => Some(&Qt_LGPL_exception_1_1),
+        "Qwt-exception-1.0" => Some(&Qwt_exception_1_0),
+        "SHL-2.0" => Some(&SHL_2_0),
+        "SHL-2.1" => Some(&SHL_2_1),
+        "Swift-exception" => Some(&Swift_exception),
+        "Universal-FOSS-exception-1.0" => Some(&Universal_FOSS_exception_1_0),
+        "WxWindows-exception-3.1" => Some(&WxWindows_exception_3_1),
+        "eCos-exception-2.0" => Some(&eCos_exception_2_0),
+        "freertos-exception-2.0" => Some(&freertos_exception_2_0),
+        "gnu-javamail-exception" => Some(&gnu_javamail_exception),
+        "i2p-gpl-java-exception" => Some(&i2p_gpl_java_exception),
+        "mif-exception" => Some(&mif_exception),
+        "openvpn-openssl-exception" => Some(&openvpn_openssl_exception),
+        "u-boot-exception-2.0" => Some(&u_boot_exception_2_0),
         "389-exception" => Some(&exception_389),
         "Autoconf-exception-2.0" => Some(&Autoconf_exception_2_0),
         "Autoconf-exception-3.0" => Some(&Autoconf_exception_3_0),
@@ -22,7 +38,10 @@ pub fn from_id_exception(id: &str) -> Option<&'static dyn crate::LicenseExceptio
         "Font-exception-2.0" => Some(&Font_exception_2_0),
         "GCC-exception-2.0" => Some(&GCC_exception_2_0),
         "GCC-exception-3.1" => Some(&GCC_exception_3_1),
+        "GPL-3.0-linking-exception" => Some(&GPL_3_0_linking_exception),
+        "GPL-3.0-linking-source-exception" => Some(&GPL_3_0_linking_source_exception),
         "GPL-CC-1.0" => Some(&GPL_CC_1_0),
+        "LGPL-3.0-linking-exception" => Some(&LGPL_3_0_linking_exception),
         "LLVM-exception" => Some(&LLVM_exception),
         "LZMA-exception" => Some(&LZMA_exception),
         "Libtool-exception" => Some(&Libtool_exception),
@@ -31,695 +50,7 @@ pub fn from_id_exception(id: &str) -> Option<&'static dyn crate::LicenseExceptio
         "OCCT-exception-1.0" => Some(&OCCT_exception_1_0),
         "OCaml-LGPL-linking-exception" => Some(&OCaml_LGPL_linking_exception),
         "OpenJDK-assembly-exception-1.0" => Some(&OpenJDK_assembly_exception_1_0),
-        "PS-or-PDF-font-exception-20170817" => Some(&PS_or_PDF_font_exception_20170817),
-        "Qt-GPL-exception-1.0" => Some(&Qt_GPL_exception_1_0),
-        "Qt-LGPL-exception-1.1" => Some(&Qt_LGPL_exception_1_1),
-        "Qwt-exception-1.0" => Some(&Qwt_exception_1_0),
-        "Swift-exception" => Some(&Swift_exception),
-        "Universal-FOSS-exception-1.0" => Some(&Universal_FOSS_exception_1_0),
-        "WxWindows-exception-3.1" => Some(&WxWindows_exception_3_1),
-        "eCos-exception-2.0" => Some(&eCos_exception_2_0),
-        "freertos-exception-2.0" => Some(&freertos_exception_2_0),
-        "gnu-javamail-exception" => Some(&gnu_javamail_exception),
-        "i2p-gpl-java-exception" => Some(&i2p_gpl_java_exception),
-        "mif-exception" => Some(&mif_exception),
-        "openvpn-openssl-exception" => Some(&openvpn_openssl_exception),
-        "u-boot-exception-2.0" => Some(&u_boot_exception_2_0),
-        "GPL-3.0-linking-exception" => Some(&GPL_3_0_linking_exception),
-        "GPL-3.0-linking-source-exception" => Some(&GPL_3_0_linking_source_exception),
-        "LGPL-3.0-linking-exception" => Some(&LGPL_3_0_linking_exception),
-        "SHL-2.0" => Some(&SHL_2_0),
-        "SHL-2.1" => Some(&SHL_2_1),
         _ => None,
-    }
-}
-
-/// The 389 Directory Server Exception.
-#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
-pub struct exception_389;
-
-impl crate::LicenseException for exception_389 {
-    fn name(&self) -> &'static str {
-        "389 Directory Server Exception"
-    }
-
-    fn id(&self) -> &'static str {
-        "389-exception"
-    }
-
-    fn text(&self) -> &'static str {
-        "This Program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; version 2 of the License.\n\nThis Program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License along with this Program; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.\n\nIn addition, as a special exception, Red Hat, Inc. gives You the additional right to link the code of this Program with code not covered under the GNU General Public License (\"Non-GPL Code\") and to distribute linked combinations including the two, subject to the limitations in this paragraph. Non-GPL Code permitted under this exception must only link to the code of this Program through those well defined interfaces identified in the file named EXCEPTION found in the source code files (the \"Approved Interfaces\"). The files of Non-GPL Code may instantiate templates or use macros or inline functions from the Approved Interfaces without causing the resulting work to be covered by the GNU General Public License. Only Red Hat, Inc. may make changes or additions to the list of Approved Interfaces. You must obey the GNU General Public License in all respects for all of the Program code and other code used in conjunction with the Program except the Non-GPL Code covered by this exception. If you modify this file, you may extend this exception to your version of the file, but you are not obligated to do so. If you do not wish to provide this exception without modification, you must delete this exception statement from your version and license this file solely under the GPL without exception."
-    }
-
-    fn is_deprecated(&self) -> bool {
-        false
-    }
-
-    fn comments(&self) -> Option<&'static str> {
-        Some("Specified to be associated with GPL-2.0")
-    }
-
-    fn see_also(&self) -> &'static [&'static str] {
-        &["http://directory.fedoraproject.org/wiki/GPL_Exception_License_Text"]
-    }
-}
-
-/// The Autoconf exception 2.0.
-#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
-pub struct Autoconf_exception_2_0;
-
-impl crate::LicenseException for Autoconf_exception_2_0 {
-    fn name(&self) -> &'static str {
-        "Autoconf exception 2.0"
-    }
-
-    fn id(&self) -> &'static str {
-        "Autoconf-exception-2.0"
-    }
-
-    fn text(&self) -> &'static str {
-        "As a special exception, the Free Software Foundation gives unlimited permission to copy, distribute and modify the configure scripts that are the output of Autoconf. You need not follow the terms of the GNU General Public License when using or distributing such scripts, even though portions of the text of Autoconf appear in them. The GNU General Public License (GPL) does govern all other use of the material that constitutes the Autoconf program.\n\nCertain portions of the Autoconf source text are designed to be copied (in certain cases, depending on the input) into the output of Autoconf. We call these the \"data\" portions. The rest of the Autoconf source text consists of comments plus executable code that decides which of the data portions to output in any given case. We call these comments and executable code the \"non-data\" portions. Autoconf never copies any of the non-data portions into its output.\n\nThis special exception to the GPL applies to versions of Autoconf released by the Free Software Foundation. When you make and distribute a modified version of Autoconf, you may extend this special exception to the GPL to apply to your modified version as well, *unless* your modified version has the potential to copy into its output some of the text that was the non-data portion of the version that you started with. (In other words, unless your change moves or copies text from the non-data portions to the data portions.) If your modification has such potential, you must delete any notice of this special exception to the GPL from your modified version."
-    }
-
-    fn is_deprecated(&self) -> bool {
-        false
-    }
-
-    fn comments(&self) -> Option<&'static str> {
-        Some("Typically used with GPL-2.0")
-    }
-
-    fn see_also(&self) -> &'static [&'static str] {
-        &[
-            "http://ac-archive.sourceforge.net/doc/copyright.html",
-            "http://ftp.gnu.org/gnu/autoconf/autoconf-2.59.tar.gz",
-        ]
-    }
-}
-
-/// The Autoconf exception 3.0.
-#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
-pub struct Autoconf_exception_3_0;
-
-impl crate::LicenseException for Autoconf_exception_3_0 {
-    fn name(&self) -> &'static str {
-        "Autoconf exception 3.0"
-    }
-
-    fn id(&self) -> &'static str {
-        "Autoconf-exception-3.0"
-    }
-
-    fn text(&self) -> &'static str {
-        "AUTOCONF CONFIGURE SCRIPT EXCEPTION\n\nVersion 3.0, 18 August 2009 Copyright © 2009 Free Software Foundation, Inc. <http://fsf.org/>\n\nEveryone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.\n\nThis Exception is an additional permission under section 7 of the GNU General Public License, version 3 (\"GPLv3\"). It applies to a given file that bears a notice placed by the copyright holder of the file stating that the file is governed by GPLv3 along with this Exception.\n\nThe purpose of this Exception is to allow distribution of Autoconf\'s typical output under terms of the recipient\'s choice (including proprietary).\n\n   0. Definitions.\n\n   \"Covered Code\" is the source or object code of a version of Autoconf that is a covered work under this License.\n\n   \"Normally Copied Code\" for a version of Autoconf means all parts of its Covered Code which that version can copy from its code (i.e., not from its input file) into its minimally verbose, non-debugging and non-tracing output.\n\n   \"Ineligible Code\" is Covered Code that is not Normally Copied Code.\n\n   1. Grant of Additional Permission.\n\n   You have permission to propagate output of Autoconf, even if such propagation would otherwise violate the terms of GPLv3. However, if by modifying Autoconf you cause any Ineligible Code of the version you received to become Normally Copied Code of your modified version, then you void this Exception for the resulting covered work. If you convey that resulting covered work, you must remove this Exception in accordance with the second paragraph of Section 7 of GPLv3.\n\n   2. No Weakening of Autoconf Copyleft.\n\n   The availability of this Exception does not imply any general presumption that third-party software is unaffected by the copyleft requirements of the license of Autoconf."
-    }
-
-    fn is_deprecated(&self) -> bool {
-        false
-    }
-
-    fn comments(&self) -> Option<&'static str> {
-        Some("Typically used with GPL-3.0")
-    }
-
-    fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.gnu.org/licenses/autoconf-exception-3.0.html"]
-    }
-}
-
-/// The Bison exception 2.2.
-#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
-pub struct Bison_exception_2_2;
-
-impl crate::LicenseException for Bison_exception_2_2 {
-    fn name(&self) -> &'static str {
-        "Bison exception 2.2"
-    }
-
-    fn id(&self) -> &'static str {
-        "Bison-exception-2.2"
-    }
-
-    fn text(&self) -> &'static str {
-        "Bison Exception\n\nAs a special exception, you may create a larger work that contains part or all of the Bison parser skeleton and distribute that work under terms of your choice, so long as that work isn\'t itself a parser generator using the skeleton or a modified version thereof as a parser skeleton. Alternatively, if you modify or redistribute the parser skeleton itself, you may (at your option) remove this special exception, which will cause the skeleton and the resulting Bison output files to be licensed under the GNU General Public License without this special exception.\n\nThis special exception was added by the Free Software Foundation in version 2.2 of Bison."
-    }
-
-    fn is_deprecated(&self) -> bool {
-        false
-    }
-
-    fn comments(&self) -> Option<&'static str> {
-        Some("Typically used with GPL-2.0 or GPL-3.0")
-    }
-
-    fn see_also(&self) -> &'static [&'static str] {
-        &["http://git.savannah.gnu.org/cgit/bison.git/tree/data/yacc.c?id=193d7c7054ba7197b0789e14965b739162319b5e#n141"]
-    }
-}
-
-/// The Bootloader Distribution Exception.
-#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
-pub struct Bootloader_exception;
-
-impl crate::LicenseException for Bootloader_exception {
-    fn name(&self) -> &'static str {
-        "Bootloader Distribution Exception"
-    }
-
-    fn id(&self) -> &'static str {
-        "Bootloader-exception"
-    }
-
-    fn text(&self) -> &'static str {
-        "Bootloader Exception \n\nIn addition to the permissions in the GNU General Public License, the authors give you unlimited permission to link or embed compiled bootloader and related files into combinations with other programs, and to distribute those combinations without any restriction coming from the use of those files. (The General Public License restrictions do apply in other respects; for example, they cover modification of the files, and distribution when not linked into a combined executable.)"
-    }
-
-    fn is_deprecated(&self) -> bool {
-        false
-    }
-
-    fn comments(&self) -> Option<&'static str> {
-        None
-    }
-
-    fn see_also(&self) -> &'static [&'static str] {
-        &["https://github.com/pyinstaller/pyinstaller/blob/develop/COPYING.txt"]
-    }
-}
-
-/// The CLISP exception 2.0.
-#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
-pub struct CLISP_exception_2_0;
-
-impl crate::LicenseException for CLISP_exception_2_0 {
-    fn name(&self) -> &'static str {
-        "CLISP exception 2.0"
-    }
-
-    fn id(&self) -> &'static str {
-        "CLISP-exception-2.0"
-    }
-
-    fn text(&self) -> &'static str {
-        "Summary:\n\nThis program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License version 2 as published by the Free Software Foundation; see file GNU-GPL.\n\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nNote:\n\nThis copyright does NOT cover user programs that run in CLISP and third-party packages not part of CLISP, if a) They only reference external symbols in CLISP\'s public packages that define API also provided by many other Common Lisp implementations (namely the packages COMMON-LISP, COMMON-LISP-USER, KEYWORD, CLOS, GRAY, EXT), i.e. if they don\'t rely on CLISP internals and would as well run in any other Common Lisp implementation. Or b) They only reference external symbols in CLISP\'s public packages that define API also provided by many other Common Lisp implementations (namely the packages COMMON-LISP, COMMON-LISP-USER, KEYWORD, CLOS, GRAY, EXT) and some external, not CLISP specific, symbols in third-party packages that are released with source code under a GPL compatible license and that run in a great number of Common Lisp implementations, i.e. if they rely on CLISP internals only to the extent needed for gaining some functionality also available in a great number of Common Lisp implementations. Such user programs are not covered by the term \"\"\"\"derived work\"\"\"\" used in the GNU GPL. Neither is their compiled code, i.e. the result of compiling them by use of the function COMPILE-FILE. We refer to such user programs as \"\"\"\"independent work\"\"\"\".\n\nYou may copy and distribute memory image files generated by the function SAVEINITMEM, if it was generated only from CLISP and independent work, and provided that you accompany them, in the sense of section 3 of the GNU GPL, with the source code of CLISP - precisely the same CLISP version that was used to build the memory image -, the source or compiled code of the user programs needed to rebuild the memory image (source code for all the parts that are not independent work, see above), and a precise description how to rebuild the memory image from these.\n\nForeign non-Lisp code that is linked with CLISP or loaded into CLISP through dynamic linking is not exempted from this copyright. I.e. such code, when distributed for use with CLISP, must be distributed under the GPL."
-    }
-
-    fn is_deprecated(&self) -> bool {
-        false
-    }
-
-    fn comments(&self) -> Option<&'static str> {
-        Some("Typically used with GPL-2.0")
-    }
-
-    fn see_also(&self) -> &'static [&'static str] {
-        &["http://sourceforge.net/p/clisp/clisp/ci/default/tree/COPYRIGHT"]
-    }
-}
-
-/// The Classpath exception 2.0.
-#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
-pub struct Classpath_exception_2_0;
-
-impl crate::LicenseException for Classpath_exception_2_0 {
-    fn name(&self) -> &'static str {
-        "Classpath exception 2.0"
-    }
-
-    fn id(&self) -> &'static str {
-        "Classpath-exception-2.0"
-    }
-
-    fn text(&self) -> &'static str {
-        "Linking this library statically or dynamically with other modules is making a combined work based on this library. Thus, the terms and conditions of the GNU General Public License cover the whole combination.\n\nAs a special exception, the copyright holders of this library give you permission to link this library with independent modules to produce an executable, regardless of the license terms of these independent modules, and to copy and distribute the resulting executable under terms of your choice, provided that you also meet, for each linked independent module, the terms and conditions of the license of that module. An independent module is a module which is not derived from or based on this library. If you modify this library, you may extend this exception to your version of the library, but you are not obligated to do so. If you do not wish to do so, delete this exception statement from your version."
-    }
-
-    fn is_deprecated(&self) -> bool {
-        false
-    }
-
-    fn comments(&self) -> Option<&'static str> {
-        None
-    }
-
-    fn see_also(&self) -> &'static [&'static str] {
-        &[
-            "http://www.gnu.org/software/classpath/license.html",
-            "https://fedoraproject.org/wiki/Licensing/GPL_Classpath_Exception",
-        ]
-    }
-}
-
-/// The DigiRule FOSS License Exception.
-#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
-pub struct DigiRule_FOSS_exception;
-
-impl crate::LicenseException for DigiRule_FOSS_exception {
-    fn name(&self) -> &'static str {
-        "DigiRule FOSS License Exception"
-    }
-
-    fn id(&self) -> &'static str {
-        "DigiRule-FOSS-exception"
-    }
-
-    fn text(&self) -> &'static str {
-        "DigiRule Solutions\'s FOSS License Exception Terms and Conditions\n\n   1. Definitions.\n\n   \"Derivative Work\" means a derivative work, as defined under applicable copyright law, formed entirely from the Program and one or more FOSS Applications.\n\n   \"FOSS Application\" means a free and open source software application distributed subject to a license listed in the section below titled \"FOSS License List.\"\n\n   \"FOSS Notice\" means a notice placed by DigiRule Solutions in a copy of the Client Libraries stating that such copy of the Client Libraries may be distributed under DigiRule Solutions\'s or FOSS License Exception.\n\n   \"Independent Work\" means portions of the Derivative Work that are not derived from the Program and can reasonably be considered independent and separate works.\n\n   \"Program\" means a copy of DigiRule Solutions\'s Client Libraries that contain a FOSS Notice.\n\n   2. A FOSS application developer (\"you\" or \"your\") may distribute a Derivative Work provided that you and the Derivative Work meet all of the following conditions:\n\n      1. You obey the GPL in all respects for the Program and all portions (including modifications) of the Program included in the Derivative Work (provided that this condition does not apply to Independent Works);\n\n      2. The Derivative Work does not include any work licensed under the GPL other than the Program;\n\n      3. You distribute Independent Works subject to a license listed in the section below titled \"FOSS License List\";\n\n      4. You distribute Independent Works in object code or executable form with the complete corresponding machine-readable source code on the same medium and under the same FOSS license applying to the object code or executable forms;\n\n      5. All works that are aggregated with the Program or the Derivative Work on a medium or volume of storage are not derivative works of the Program, Derivative Work or FOSS Application, and must reasonably be considered independent and separate works.\n\n   3. DigiRule Solutions reserves all rights not expressly granted in these terms and conditions. If all of the above conditions are not met, then this FOSS License Exception does not apply to you or your Derivative Work.\n\nFOSS License List\n\nLicense Name Version(s)/Copyright Date\n\nRelease Early Certified Software\n\nAcademic Free License 2.0\n\nApache Software License 1.0/1.1/2.0\n\nApple Public Source License 2.0\n\nArtistic license From Perl 5.8.0\n\nBSD license \"July 22 1999\"\n\nCommon Development and Distribution License (CDDL) 1.0\n\nCommon Public License 1.0\n\nEclipse Public License 1.0\n\nGNU Library or \"Lesser\" General Public License (LGPL) 2.0/2.1/3.0\n\nJabber Open Source License 1.0\n\nMIT License (As listed in file MIT-License.txt) -\n\nMozilla Public License (MPL) 1.0/1.1\n\nOpen Software License 2.0\n\nOpenSSL license (with original SSLeay license) \"2003\" (\"1998\")\n\nPHP License 3.0/3.01\n\nPython license (CNRI Python License) -\n\nPython Software Foundation License 2.1.1\n\nSleepycat License \"1999\"\n\nUniversity of Illinois/NCSA Open Source License -\n\nW3C License \"2001\"\n\nX11 License \"2001\"\n\nZlib/libpng License -\n\nZope Public License 2.0"
-    }
-
-    fn is_deprecated(&self) -> bool {
-        false
-    }
-
-    fn comments(&self) -> Option<&'static str> {
-        Some("Typically used with GPL-2.0")
-    }
-
-    fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.digirulesolutions.com/drupal/foss"]
-    }
-}
-
-/// The FLTK exception.
-#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
-pub struct FLTK_exception;
-
-impl crate::LicenseException for FLTK_exception {
-    fn name(&self) -> &'static str {
-        "FLTK exception"
-    }
-
-    fn id(&self) -> &'static str {
-        "FLTK-exception"
-    }
-
-    fn text(&self) -> &'static str {
-        "The FLTK library and included programs are provided under the terms of the GNU Library General Public License (LGPL) with the following exceptions:\n\nModifications to the FLTK configure script, config header file, and makefiles by themselves to support a specific platform do not constitute a modified or derivative work.\n\nThe authors do request that such modifications be contributed to the FLTK project - send all contributions to \"fltk-bugs@fltk.org\".\n\nWidgets that are subclassed from FLTK widgets do not constitute a derivative work.\n\nStatic linking of applications and widgets to the FLTK library does not constitute a derivative work and does not require the author to provide source code for the application or widget, use the shared FLTK libraries, or link their applications or widgets against a user-supplied version of FLTK.\n\nIf you link the application or widget to a modified version of FLTK, then the changes to FLTK must be provided under the terms of the LGPL in sections 1, 2, and 4.\n\nYou do not have to provide a copy of the FLTK license with programs that are linked to the FLTK library, nor do you have to identify the FLTK license in your program or documentation as required by section 6 of the LGPL.\n\nHowever, programs must still identify their use of FLTK. The following example statement can be included in user documentation to satisfy this requirement:\n\n[program/widget] is based in part on the work of the FLTK project (http://www.fltk.org)."
-    }
-
-    fn is_deprecated(&self) -> bool {
-        false
-    }
-
-    fn comments(&self) -> Option<&'static str> {
-        Some("Specified to be associated with LGPL-2.0. On Fedora List as \"FLTK License\".")
-    }
-
-    fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.fltk.org/COPYING.php"]
-    }
-}
-
-/// The Fawkes Runtime Exception.
-#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
-pub struct Fawkes_Runtime_exception;
-
-impl crate::LicenseException for Fawkes_Runtime_exception {
-    fn name(&self) -> &'static str {
-        "Fawkes Runtime Exception"
-    }
-
-    fn id(&self) -> &'static str {
-        "Fawkes-Runtime-exception"
-    }
-
-    fn text(&self) -> &'static str {
-        "Linking this library statically or dynamically with other modules is making a combined work based on this library. Thus, the terms and conditions of the GNU General Public License cover the whole combination. As a special exception, the copyright holders of this library give you permission to link this library with independent modules to produce an executable, regardless of the license terms of these independent modules, and to copy and distribute the resulting executable under terms of your choice, provided that you also meet, for each linked independent module, the terms and conditions of the license of that module. An independent module is a module which is not derived from or based on this library. If you modify this library, you may extend this exception to your version of the library, but you are not obligated to do so. If you do not wish to do so, delete this exception statement from your version. Additionally if other files instantiate templates or use macros or inline functions from this file, or you compile this file and link it with other files to produce an executable, this file does not by itself cause the resulting executable to be covered by the GNU General Public License. This exception does not however invalidate any other reasons why the executable file might be covered by the GNU General Public License."
-    }
-
-    fn is_deprecated(&self) -> bool {
-        false
-    }
-
-    fn comments(&self) -> Option<&'static str> {
-        Some("Combines the Classpath exception with the Macros and Inline Functions exception.")
-    }
-
-    fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.fawkesrobotics.org/about/license/"]
-    }
-}
-
-/// The Font exception 2.0.
-#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
-pub struct Font_exception_2_0;
-
-impl crate::LicenseException for Font_exception_2_0 {
-    fn name(&self) -> &'static str {
-        "Font exception 2.0"
-    }
-
-    fn id(&self) -> &'static str {
-        "Font-exception-2.0"
-    }
-
-    fn text(&self) -> &'static str {
-        "As a special exception, if you create a document which uses this font, and embed this font or unaltered portions of this font into the document, this font does not by itself cause the resulting document to be covered by the GNU General Public License. This exception does not however invalidate any other reasons why the document might be covered by the GNU General Public License. If you modify this font, you may extend this exception to your version of the font, but you are not obligated to do so. If you do not wish to do so, delete this exception statement from your version."
-    }
-
-    fn is_deprecated(&self) -> bool {
-        false
-    }
-
-    fn comments(&self) -> Option<&'static str> {
-        Some("Typically used with GPL-2.0")
-    }
-
-    fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.gnu.org/licenses/gpl-faq.html#FontException"]
-    }
-}
-
-/// The GCC Runtime Library exception 2.0.
-#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
-pub struct GCC_exception_2_0;
-
-impl crate::LicenseException for GCC_exception_2_0 {
-    fn name(&self) -> &'static str {
-        "GCC Runtime Library exception 2.0"
-    }
-
-    fn id(&self) -> &'static str {
-        "GCC-exception-2.0"
-    }
-
-    fn text(&self) -> &'static str {
-        "In addition to the permissions in the GNU Library General Public License, the Free Software Foundation gives you unlimited permission to link the compiled version of this file into combinations with other programs, and to distribute those programs without any restriction coming from the use of this file. (The General Public License restrictions do apply in other respects; for example, they cover modification of the file, and distribution when not linked into another program .)"
-    }
-
-    fn is_deprecated(&self) -> bool {
-        false
-    }
-
-    fn comments(&self) -> Option<&'static str> {
-        Some("Typically used with GPL-2.0+. Sometimes also referred to a \"linking exception.\"")
-    }
-
-    fn see_also(&self) -> &'static [&'static str] {
-        &["https://gcc.gnu.org/git/?p=gcc.git;a=blob;f=gcc/libgcc1.c;h=762f5143fc6eed57b6797c82710f3538aa52b40b;hb=cb143a3ce4fb417c68f5fa2691a1b1b1053dfba9#l10"]
-    }
-}
-
-/// The GCC Runtime Library exception 3.1.
-#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
-pub struct GCC_exception_3_1;
-
-impl crate::LicenseException for GCC_exception_3_1 {
-    fn name(&self) -> &'static str {
-        "GCC Runtime Library exception 3.1"
-    }
-
-    fn id(&self) -> &'static str {
-        "GCC-exception-3.1"
-    }
-
-    fn text(&self) -> &'static str {
-        "GCC RUNTIME LIBRARY EXCEPTION\n\nVersion 3.1, 31 March 2009\n\nGeneral information: http://www.gnu.org/licenses/gcc-exception.html\n\nCopyright (C) 2009 Free Software Foundation, Inc. <http://fsf.org/>\n\nEveryone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.\n\nThis GCC Runtime Library Exception (\"Exception\") is an additional permission under section 7 of the GNU General Public License, version 3 (\"GPLv3\"). It applies to a given file (the \"Runtime Library\") that bears a notice placed by the copyright holder of the file stating that the file is governed by GPLv3 along with this Exception.\n\nWhen you use GCC to compile a program, GCC may combine portions of certain GCC header files and runtime libraries with the compiled program. The purpose of this Exception is to allow compilation of non-GPL (including proprietary) programs to use, in this way, the header files and runtime libraries covered by this Exception.\n\n   0. Definitions.\n\n   A file is an \"Independent Module\" if it either requires the Runtime Library for execution after a Compilation Process, or makes use of an interface provided by the Runtime Library, but is not otherwise based on the Runtime Library.\n\n   \"GCC\" means a version of the GNU Compiler Collection, with or without modifications, governed by version 3 (or a specified later version) of the GNU General Public License (GPL) with the option of using any subsequent versions published by the FSF.\n\n   \"GPL-compatible Software\" is software whose conditions of propagation, modification and use would permit combination with GCC in accord with the license of GCC.\n\n   \"Target Code\" refers to output from any compiler for a real or virtual target processor architecture, in executable form or suitable for input to an assembler, loader, linker and/or execution phase. Notwithstanding that, Target Code does not include data in any format that is used as a compiler intermediate representation, or used for producing a compiler intermediate representation.\n\n   The \"Compilation Process\" transforms code entirely represented in non-intermediate languages designed for human-written code, and/or in Java Virtual Machine byte code, into Target Code. Thus, for example, use of source code generators and preprocessors need not be considered part of the Compilation Process, since the Compilation Process can be understood as starting with the output of the generators or preprocessors.\n\n   A Compilation Process is \"Eligible\" if it is done using GCC, alone or with other GPL-compatible software, or if it is done without using any work based on GCC. For example, using non-GPL-compatible Software to optimize any GCC intermediate representations would not qualify as an Eligible Compilation Process.\n\n   1. Grant of Additional Permission.\n\n   You have permission to propagate a work of Target Code formed by combining the Runtime Library with Independent Modules, even if such propagation would otherwise violate the terms of GPLv3, provided that all Target Code was generated by Eligible Compilation Processes. You may then convey such a combination under terms of your choice, consistent with the licensing of the Independent Modules.\n\n   2. No Weakening of GCC Copyleft.\n\nThe availability of this Exception does not imply any general presumption that third-party software is unaffected by the copyleft requirements of the license of GCC."
-    }
-
-    fn is_deprecated(&self) -> bool {
-        false
-    }
-
-    fn comments(&self) -> Option<&'static str> {
-        Some("Typically used with GPL-3.0")
-    }
-
-    fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.gnu.org/licenses/gcc-exception-3.1.html"]
-    }
-}
-
-/// The GPL Cooperation Commitment 1.0.
-#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
-pub struct GPL_CC_1_0;
-
-impl crate::LicenseException for GPL_CC_1_0 {
-    fn name(&self) -> &'static str {
-        "GPL Cooperation Commitment 1.0"
-    }
-
-    fn id(&self) -> &'static str {
-        "GPL-CC-1.0"
-    }
-
-    fn text(&self) -> &'static str {
-        "GPL Cooperation Commitment Version 1.0\n\nBefore filing or continuing to prosecute any legal proceeding or claim (other than a Defensive Action) arising from termination of a Covered License, we commit to extend to the person or entity (\'you\') accused of violating the Covered License the following provisions regarding cure and reinstatement, taken from GPL version 3. As used here, the term \'this License\' refers to the specific Covered License being enforced.\n\nHowever, if you cease all violation of this License, then your license from a particular copyright holder is reinstated (a) provisionally, unless and until the copyright holder explicitly and finally terminates your license, and (b) permanently, if the copyright holder fails to notify you of the violation by some reasonable means prior to 60 days after the cessation.\n\nMoreover, your license from a particular copyright holder is reinstated permanently if the copyright holder notifies you of the violation by some reasonable means, this is the first time you have received notice of violation of this License (for any work) from that copyright holder, and you cure the violation prior to 30 days after your receipt of the notice.\n\nWe intend this Commitment to be irrevocable, and binding and enforceable against us and assignees of or successors to our copyrights.\n\nDefinitions:\n\n\"Covered License\" means the GNU General Public License, version 2 (GPLv2), the GNU Lesser General Public License, version 2.1 (LGPLv2.1), or the GNU Library General Public License, version 2 (LGPLv2), all as published by the Free Software Foundation.\n\n\"Defensive Action\" means a legal proceeding or claim that We bring against you in response to a prior proceeding or claim initiated by you or your affiliate.\n\n\"We\" means each contributor to this repository as of the date of inclusion of this file, including subsidiaries of a corporate contributor. This work is available under a Creative Commons Attribution-ShareAlike 4.0 International license (https://creativecommons.org/licenses/by-sa/4.0/)."
-    }
-
-    fn is_deprecated(&self) -> bool {
-        false
-    }
-
-    fn comments(&self) -> Option<&'static str> {
-        Some("This is the GPL Cooperation Commitment for projects. It is distinct from the GPL Cooperation Commitment for companies or individuals in that it applies at the project level for all contributions going forward as of the date it is adopted.")
-    }
-
-    fn see_also(&self) -> &'static [&'static str] {
-        &[
-            "https://github.com/gplcc/gplcc/blob/master/Project/COMMITMENT",
-            "https://gplcc.github.io/gplcc/Project/README-PROJECT.html",
-        ]
-    }
-}
-
-/// The LLVM Exception.
-#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
-pub struct LLVM_exception;
-
-impl crate::LicenseException for LLVM_exception {
-    fn name(&self) -> &'static str {
-        "LLVM Exception"
-    }
-
-    fn id(&self) -> &'static str {
-        "LLVM-exception"
-    }
-
-    fn text(&self) -> &'static str {
-        "LLVM Exceptions to the Apache 2.0 License \n\nAs an exception, if, as a result of your compiling your source code, portions of this Software are embedded into an Object form of such source code, you may redistribute such embedded portions in such Object form without complying with the conditions of Sections 4(a), 4(b) and 4(d) of the License.\n\nIn addition, if you combine or link compiled forms of this Software with software that is licensed under the GPLv2 (\"Combined Software\") and if a court of competent jurisdiction determines that the patent provision (Section 3), the indemnity provision (Section 9) or other Section of the License conflicts with the conditions of the GPLv2, you may retroactively and prospectively choose to deem waived or otherwise exclude such Section(s) of the License, but only in their entirety and only with respect to the Combined Software."
-    }
-
-    fn is_deprecated(&self) -> bool {
-        false
-    }
-
-    fn comments(&self) -> Option<&'static str> {
-        Some("This exception was created specifically to be used with Apache-2.0")
-    }
-
-    fn see_also(&self) -> &'static [&'static str] {
-        &["http://llvm.org/foundation/relicensing/LICENSE.txt"]
-    }
-}
-
-/// The LZMA exception.
-#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
-pub struct LZMA_exception;
-
-impl crate::LicenseException for LZMA_exception {
-    fn name(&self) -> &'static str {
-        "LZMA exception"
-    }
-
-    fn id(&self) -> &'static str {
-        "LZMA-exception"
-    }
-
-    fn text(&self) -> &'static str {
-        "I.6 Special exception for LZMA compression module LZMA exception\n\nIgor Pavlov and Amir Szekely, the authors of the LZMA compression module for NSIS, expressly permit you to statically or dynamically link your code (or bind by name) to the files from the LZMA compression module for NSIS without subjecting your linked code to the terms of the Common Public license version 1.0. Any modifications or additions to files from the LZMA compression module for NSIS, however, are subject to the terms of the Common Public License version 1.0."
-    }
-
-    fn is_deprecated(&self) -> bool {
-        false
-    }
-
-    fn comments(&self) -> Option<&'static str> {
-        Some("Used by the LZMA compression module for NSIS to apply an exception to CPL-1.0")
-    }
-
-    fn see_also(&self) -> &'static [&'static str] {
-        &["http://nsis.sourceforge.net/Docs/AppendixI.html#I.6"]
-    }
-}
-
-/// The Libtool Exception.
-#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
-pub struct Libtool_exception;
-
-impl crate::LicenseException for Libtool_exception {
-    fn name(&self) -> &'static str {
-        "Libtool Exception"
-    }
-
-    fn id(&self) -> &'static str {
-        "Libtool-exception"
-    }
-
-    fn text(&self) -> &'static str {
-        "As a special exception to the GNU General Public License, if you distribute this file as part of a program or library that is built using GNU Libtool, you may include this file under the same distribution terms that you use for the rest of that program."
-    }
-
-    fn is_deprecated(&self) -> bool {
-        false
-    }
-
-    fn comments(&self) -> Option<&'static str> {
-        None
-    }
-
-    fn see_also(&self) -> &'static [&'static str] {
-        &["http://git.savannah.gnu.org/cgit/libtool.git/tree/m4/libtool.m4"]
-    }
-}
-
-/// The Linux Syscall Note.
-#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
-pub struct Linux_syscall_note;
-
-impl crate::LicenseException for Linux_syscall_note {
-    fn name(&self) -> &'static str {
-        "Linux Syscall Note"
-    }
-
-    fn id(&self) -> &'static str {
-        "Linux-syscall-note"
-    }
-
-    fn text(&self) -> &'static str {
-        "NOTE! This copyright does *not* cover user programs that use kernel services by normal system calls - this is merely considered normal use of the kernel, and does *not* fall under the heading of \"derived work\". Also note that the GPL below is copyrighted by the Free Software Foundation, but the instance of code that it refers to (the Linux kernel) is copyrighted by me and others who actually wrote it.\n\nAlso note that the only valid version of the GPL as far as the kernel is concerned is _this_ particular version of the license (ie v2, not v2.2 or v3.x or whatever), unless explicitly otherwise stated.\n\nLinus Torvalds"
-    }
-
-    fn is_deprecated(&self) -> bool {
-        false
-    }
-
-    fn comments(&self) -> Option<&'static str> {
-        Some("This note is used with the Linux kernel to clarify how user space API files should be treated.")
-    }
-
-    fn see_also(&self) -> &'static [&'static str] {
-        &["https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/COPYING"]
-    }
-}
-
-/// The Nokia Qt LGPL exception 1.1.
-#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
-pub struct Nokia_Qt_exception_1_1;
-
-impl crate::LicenseException for Nokia_Qt_exception_1_1 {
-    fn name(&self) -> &'static str {
-        "Nokia Qt LGPL exception 1.1"
-    }
-
-    fn id(&self) -> &'static str {
-        "Nokia-Qt-exception-1.1"
-    }
-
-    fn text(&self) -> &'static str {
-        "Nokia Qt LGPL Exception version 1.1\n\nAs an additional permission to the GNU Lesser General Public License version 2.1, the object code form of a \"work that uses the Library\" may incorporate material from a header file that is part of the Library. You may distribute such object code under terms of your choice, provided that:\n\n   (i) the header files of the Library have not been modified; and\n\n   (ii) the incorporated material is limited to numerical parameters, data structure layouts, accessors, macros, inline functions and templates; and\n\n   (iii) you comply with the terms of Section 6 of the GNU Lesser General Public License version 2.1.\n\nMoreover, you may apply this exception to a modified version of the Library, provided that such modification does not involve copying material from the Library into the modified Library\'s header files unless such material is limited to\n\n   (i) numerical parameters;\n\n   (ii) data structure layouts;\n\n   (iii) accessors; and\n\n   (iv) small macros, templates and inline functions of five lines or less in length.\n\nFurthermore, you are not required to apply this additional permission to a modified version of the Library."
-    }
-
-    fn is_deprecated(&self) -> bool {
-        true
-    }
-
-    fn comments(&self) -> Option<&'static str> {
-        Some("DEPRECATED: Use Qt-LGPL-exception-1.1")
-    }
-
-    fn see_also(&self) -> &'static [&'static str] {
-        &["https://www.keepassx.org/dev/projects/keepassx/repository/revisions/b8dfb9cc4d5133e0f09cd7533d15a4f1c19a40f2/entry/LICENSE.NOKIA-LGPL-EXCEPTION"]
-    }
-}
-
-/// The Open CASCADE Exception 1.0.
-#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
-pub struct OCCT_exception_1_0;
-
-impl crate::LicenseException for OCCT_exception_1_0 {
-    fn name(&self) -> &'static str {
-        "Open CASCADE Exception 1.0"
-    }
-
-    fn id(&self) -> &'static str {
-        "OCCT-exception-1.0"
-    }
-
-    fn text(&self) -> &'static str {
-        "Open CASCADE Exception (version 1.0) to GNU LGPL version 2.1.\n\nThe object code (i.e. not a source) form of a \"work that uses the Library\" can incorporate material from a header file that is part of the Library. As a special exception to the GNU Lesser General Public License version 2.1, you may distribute such object code incorporating material from header files provided with the Open CASCADE Technology libraries (including code of CDL generic classes) under terms of your choice, provided that you give prominent notice in supporting documentation to this code that it makes use of or is based on facilities provided by the Open CASCADE Technology software."
-    }
-
-    fn is_deprecated(&self) -> bool {
-        false
-    }
-
-    fn comments(&self) -> Option<&'static str> {
-        Some("Open CASCADE Technology version 6.7.0 and later are governed by (LGPL-2.1 with this exception.) A specific license (OCCT-PL) is applied to Open CASCADE Technology version 6.6.0 and earlier.")
-    }
-
-    fn see_also(&self) -> &'static [&'static str] {
-        &["http://www.opencascade.com/content/licensing"]
-    }
-}
-
-/// The OCaml LGPL Linking Exception.
-#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
-pub struct OCaml_LGPL_linking_exception;
-
-impl crate::LicenseException for OCaml_LGPL_linking_exception {
-    fn name(&self) -> &'static str {
-        "OCaml LGPL Linking Exception"
-    }
-
-    fn id(&self) -> &'static str {
-        "OCaml-LGPL-linking-exception"
-    }
-
-    fn text(&self) -> &'static str {
-        "OCaml LGPL Linking Exception\n\nAs a special exception to the GNU Lesser General Public License, you may link, statically or dynamically, a \"work that uses the OCaml Core System \" with a publicly distributed version of the OCaml Core System to produce an executable file containing portions of the OCaml Core System , and distribute that executable file under terms of your choice, without any of the additional requirements listed in clause 6 of the GNU Lesser General Public License. By \"a publicly distributed version of the OCaml Core System \", we mean either the unmodified OCaml Core System as distributed by INRIA , or a modified version of the OCaml Core System that is distributed under the conditions defined in clause 2 of the GNU Lesser General Public License. This exception does not however invalidate any other reasons why the executable file might be covered by the GNU Lesser General Public License."
-    }
-
-    fn is_deprecated(&self) -> bool {
-        false
-    }
-
-    fn comments(&self) -> Option<&'static str> {
-        Some("Adopted by OCaml core in 2001 here: https://github.com/ocaml/ocaml/commit/02ef950033b81fe371759f024faa55f361ba83a6#diff-9879d6db96fd29134fc802214163b95a (git-svn-id: http://caml.inria.fr/svn/ocaml/trunk@4146 f963ae5c-01c2-4b8c-9fe0-0dff7051ff02) LGPL clause typo (was: 3; intended:2; fixed-to:2) fixed in 2007 here: https://github.com/ocaml/ocaml/commit/2d26308ad4d34ea0c00e44db62c4c24c7031c78c#diff-9879d6db96fd29134fc802214163b95a")
-    }
-
-    fn see_also(&self) -> &'static [&'static str] {
-        &["https://caml.inria.fr/ocaml/license.en.html"]
-    }
-}
-
-/// The OpenJDK Assembly exception 1.0.
-#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
-pub struct OpenJDK_assembly_exception_1_0;
-
-impl crate::LicenseException for OpenJDK_assembly_exception_1_0 {
-    fn name(&self) -> &'static str {
-        "OpenJDK Assembly exception 1.0"
-    }
-
-    fn id(&self) -> &'static str {
-        "OpenJDK-assembly-exception-1.0"
-    }
-
-    fn text(&self) -> &'static str {
-        "OpenJDK Assembly Exception The OpenJDK source code made available by Oracle America, Inc. (Oracle) at openjdk.java.net (\"OpenJDK Code\") is distributed under the terms of the GNU General Public License <http://www.gnu.org/copyleft/gpl.html> version 2 only (\"GPL2\"), with the following clarification and special exception.\n\n   \n\n   Linking this OpenJDK Code statically or dynamically with other code is making a combined work based on this library. Thus, the terms and conditions of GPL2 cover the whole combination.\n\n   As a special exception, Oracle gives you permission to link this OpenJDK Code with certain code licensed by Oracle as indicated at http://openjdk.java.net/legal/exception-modules-2007-05-08.html (\"Designated Exception Modules\") to produce an executable, regardless of the license terms of the Designated Exception Modules, and to copy and distribute the resulting executable under GPL2, provided that the Designated Exception Modules continue to be governed by the licenses under which they were offered by Oracle. As such, it allows licensees and sublicensees of Oracle\'s GPL2 OpenJDK Code to build an executable that includes those portions of necessary code that Oracle could not provide under GPL2 (or that Oracle has provided under GPL2 with the Classpath exception). If you modify or add to the OpenJDK code, that new GPL2 code may still be combined with Designated Exception Modules if the new code is made subject to this exception by its copyright holder."
-    }
-
-    fn is_deprecated(&self) -> bool {
-        false
-    }
-
-    fn comments(&self) -> Option<&'static str> {
-        None
-    }
-
-    fn see_also(&self) -> &'static [&'static str] {
-        &["http://openjdk.java.net/legal/assembly-exception.html"]
     }
 }
 
@@ -737,7 +68,7 @@ impl crate::LicenseException for PS_or_PDF_font_exception_20170817 {
     }
 
     fn text(&self) -> &'static str {
-        "The font and related files in this directory are distributed under the GNU AFFERO GENERAL PUBLIC LICENSE Version 3 (see the file COPYING), with the following exemption:\n\nAs a special exception, permission is granted to include these font programs in a Postscript or PDF file that consists of a document that contains text to be displayed or printed using this font, regardless of the conditions or license applying to the document itself."
+        "The font and related files in this directory are distributed under the\nGNU AFFERO GENERAL PUBLIC LICENSE Version 3 (see the file COPYING), with\nthe following exemption:\n\nAs a special exception, permission is granted to include these font\nprograms in a Postscript or PDF file that consists of a document that\ncontains text to be displayed or printed using this font, regardless\nof the conditions or license applying to the document itself.\n"
     }
 
     fn is_deprecated(&self) -> bool {
@@ -767,7 +98,7 @@ impl crate::LicenseException for Qt_GPL_exception_1_0 {
     }
 
     fn text(&self) -> &'static str {
-        "The Qt Company GPL Exception 1.0\n\nException 1:\n\nAs a special exception, you may create a larger work which contains the output of this application and distribute that work under terms of your choice, so long as the work is not otherwise derived from or based on this application and so long as the work does not in itself generate output that contains the output from this application in its original or modified form.\n\nException 2:\n\nAs a special exception, you have permission to combine this application with Plugins licensed under the terms of your choice, to produce an executable, and to copy and distribute the resulting executable under the terms of your choice. However, the executable must be accompanied by a prominent notice offering all users of the executable the entire source code to this application, excluding the source code of the independent modules, but including any changes you have made to this application, under the terms of this license."
+        "The Qt Company GPL Exception 1.0\n\nException 1:\n\nAs a special exception you may create a larger work which contains the\noutput of this application and distribute that work under terms of your\nchoice, so long as the work is not otherwise derived from or based on\nthis application and so long as the work does not in itself generate\noutput that contains the output from this application in its original\nor modified form.\n\nException 2:\n\nAs a special exception, you have permission to combine this application\nwith Plugins licensed under the terms of your choice, to produce an\nexecutable, and to copy and distribute the resulting executable under\nthe terms of your choice. However, the executable must be accompanied\nby a prominent notice offering all users of the executable the entire\nsource code to this application, excluding the source code of the\nindependent modules, but including any changes you have made to this\napplication, under the terms of this license.\n"
     }
 
     fn is_deprecated(&self) -> bool {
@@ -797,7 +128,7 @@ impl crate::LicenseException for Qt_LGPL_exception_1_1 {
     }
 
     fn text(&self) -> &'static str {
-        "The Qt Company Qt LGPL Exception version 1.1\n\nAs an additional permission to the GNU Lesser General Public License version 2.1, the object code form of a \"work that uses the Library\" may incorporate material from a header file that is part of the Library. You may distribute such object code under terms of your choice, provided that:\n\n   (i) the header files of the Library have not been modified; and\n\n   (ii) the incorporated material is limited to numerical parameters, data structure layouts, accessors, macros, inline functions and templates; and\n\n   (iii) you comply with the terms of Section 6 of the GNU Lesser General Public License version 2.1.\n\nMoreover, you may apply this exception to a modified version of the Library, provided that such modification does not involve copying material from the Library into the modified Library\'s header files unless such material is limited to\n\n   (i) numerical parameters;\n\n   (ii) data structure layouts;\n\n   (iii) accessors; and\n\n   (iv) small macros, templates and inline functions of five lines or less in length.\n\nFurthermore, you are not required to apply this additional permission to a modified version of the Library."
+        "The Qt Company Qt LGPL Exception version 1.1\n\nAs an additional permission to the GNU Lesser General Public License version\n2.1, the object code form of a \"work that uses the Library\" may incorporate\nmaterial from a header file that is part of the Library.  You may distribute\nsuch object code under terms of your choice, provided that:\n    (i)   the header files of the Library have not been modified; and\n    (ii)  the incorporated material is limited to numerical parameters, data\n          structure layouts, accessors, macros, inline functions and\n          templates; and\n    (iii) you comply with the terms of Section 6 of the GNU Lesser General\n          Public License version 2.1.\n\nMoreover, you may apply this exception to a modified version of the Library,\nprovided that such modification does not involve copying material from the\nLibrary into the modified Library\'s header files unless such material is\nlimited to (i) numerical parameters; (ii) data structure layouts;\n(iii) accessors; and (iv) small macros, templates and inline functions of\nfive lines or less in length.\n\nFurthermore, you are not required to apply this additional permission to a\nmodified version of the Library.\n"
     }
 
     fn is_deprecated(&self) -> bool {
@@ -827,7 +158,7 @@ impl crate::LicenseException for Qwt_exception_1_0 {
     }
 
     fn text(&self) -> &'static str {
-        "Qwt License Version 1.0,\n\nJanuary 1, 2003\n\nThe Qwt library and included programs are provided under the terms of the GNU LESSER GENERAL PUBLIC LICENSE (LGPL) with the following exceptions:\n\n   1. Widgets that are subclassed from Qwt widgets do not constitute a derivative work.\n\n   2. Static linking of applications and widgets to the Qwt library does not constitute a derivative work and does not require the author to provide source code for the application or widget, use the shared Qwt libraries, or link their applications or widgets against a user-supplied version of Qwt. If you link the application or widget to a modified version of Qwt, then the changes to Qwt must be provided under the terms of the LGPL in sections 1, 2, and 4.\n\n   3. You do not have to provide a copy of the Qwt license with programs that are linked to the Qwt library, nor do you have to identify the Qwt license in your program or documentation as required by section 6 of the LGPL.\n\nHowever, programs must still identify their use of Qwt. The following example statement can be included in user documentation to satisfy this requirement: [program/widget] is based in part on the work of the Qwt project (http://qwt.sf.net).\""
+        "Qwt License Version 1.0,\nJanuary 1, 2003\n\nThe Qwt library and included programs are provided under the terms of the GNU LESSER GENERAL PUBLIC LICENSE (LGPL) with the following exceptions:\n\n1. Widgets that are subclassed from Qwt widgets do not constitute a derivative work.\n\n2. Static linking of applications and widgets to the Qwt library does not constitute a derivative work and does not require the author to provide source code for the application or widget, use the shared Qwt libraries, or link their applications or widgets against a user-supplied version of Qwt. If you link the application or widget to a modified version of Qwt, then the changes to Qwt must be provided under the terms of the LGPL in sections 1, 2, and 4.\n\n3. You do not have to provide a copy of the Qwt license with programs that are linked to the Qwt library, nor do you have to identify the Qwt license in your program or documentation as required by section 6 of the LGPL.\n\nHowever, programs must still identify their use of Qwt. The following example statement can be included in user documentation to satisfy this requirement: [program/widget] is based in part on the work of the Qwt project (http://qwt.sf.net).\"\n"
     }
 
     fn is_deprecated(&self) -> bool {
@@ -840,6 +171,66 @@ impl crate::LicenseException for Qwt_exception_1_0 {
 
     fn see_also(&self) -> &'static [&'static str] {
         &["http://qwt.sourceforge.net/qwtlicense.html"]
+    }
+}
+
+/// The Solderpad Hardware License v2.0.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct SHL_2_0;
+
+impl crate::LicenseException for SHL_2_0 {
+    fn name(&self) -> &'static str {
+        "Solderpad Hardware License v2.0"
+    }
+
+    fn id(&self) -> &'static str {
+        "SHL-2.0"
+    }
+
+    fn text(&self) -> &'static str {
+        "# Solderpad Hardware Licence Version 2.0\n\nThis licence (the “Licence”) operates as a wraparound licence to the Apache License Version 2.0 (the “Apache License”) and grants to You the rights, and imposes the obligations, set out in the Apache License (which can be found here: http://apache.org/licenses/LICENSE-2.0), with the following extensions. It must be read in conjunction with the Apache License. Section 1 below modifies definitions in the Apache License, and section 2 below replaces sections 2 of the Apache License. You may, at your option, choose to treat any Work released under this License as released under the Apache License (thus ignoring all sections written below entirely). Words in\u{a0}italics\u{a0}indicate changes rom the Apache License, but are indicative and not to be taken into account in interpretation.\n\n1. The definitions set out in the Apache License are modified as follows:\n\nCopyright\u{a0}any reference to ‘copyright’ (whether capitalised or not) includes ‘Rights’ (as defined below).\n\nContribution\u{a0}also includes any\u{a0}design, as well as any work of authorship.\n\nDerivative Works\u{a0}shall not include works that remain\u{a0}reversibly\u{a0}separable from, or merely link (or bind by name) or\u{a0}physically connect to or interoperate with\u{a0}the interfaces of the Work and Derivative Works thereof.\n\nObject form\u{a0}shall mean any form resulting from mechanical transformation or translation of a Source form or the application of a Source form to physical material, including but not limited to compiled object code, generated documentation,\u{a0}the instantiation of a hardware design or physical object\u{a0}and conversions to other media types,\u{a0}including intermediate forms such as bytecodes, FPGA bitstreams, moulds, artwork and semiconductor topographies (mask works).\n\nRights\u{a0}means copyright and any similar right including design right (whether registered or unregistered), semiconductor topography (mask) rights and database rights (but excluding Patents and Trademarks).\n\nSource form\u{a0}shall mean the preferred form for making modifications, including but not limited to source code,\u{a0}net lists, board layouts, CAD files, documentation source, and configuration files.\nWork\u{a0}also includes a\u{a0}design\u{a0}or work of authorship, whether in Source form or\u{a0}other\u{a0}Object form.\n\n2. Grant of Licence\n\n2.1 Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable license\u{a0}under the Rights\u{a0}to reproduce, prepare Derivative Works of,\u{a0}make, adapt, repair, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form\u{a0}and do anything in relation to the Work as if the Rights did not exist.\n"
+    }
+
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    fn comments(&self) -> Option<&'static str> {
+        Some("Used with Apache-2.0. Italicized text from original license is not reflected in this copy but can be seen in license steward\'s version at https://solderpad.org/licenses/SHL-2.0/")
+    }
+
+    fn see_also(&self) -> &'static [&'static str] {
+        &["https://solderpad.org/licenses/SHL-2.0/"]
+    }
+}
+
+/// The Solderpad Hardware License v2.1.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct SHL_2_1;
+
+impl crate::LicenseException for SHL_2_1 {
+    fn name(&self) -> &'static str {
+        "Solderpad Hardware License v2.1"
+    }
+
+    fn id(&self) -> &'static str {
+        "SHL-2.1"
+    }
+
+    fn text(&self) -> &'static str {
+        "SOLDERPAD HARDWARE LICENSE VERSION 2.1\n\nThis license operates as a wraparound license to the Apache License Version 2.0 (the \"Apache License\") and incorporates the terms and conditions of the Apache License (which can be found here: http://apache.org/licenses/LICENSE-2.0), with the following additions and modifications. It must be read in conjunction with the Apache License. Section 1 below modifies definitions and terminology in the Apache License and Section 2 below replaces Section 2 of the Apache License. The Appendix replaces the Appendix in the Apache License. You may, at your option, choose to treat any Work released under this license as released under the Apache License (thus ignoring all sections written below entirely).\n\n1.\tTerminology in the Apache License is supplemented or modified as follows:\n\n\"Authorship\": any reference to \'authorship\' shall be taken to read \"authorship or design\".\n\n\"Copyright owner\": any reference to \'copyright owner\' shall be taken to read \"Rights owner\".\n\n\"Copyright statement\": the reference to \'copyright statement\' shall be taken to read \'copyright or other statement pertaining to Rights\'\n\nThe following new definition shall be added to the Definitions section of the Apache License:\n\n\"Rights\" means copyright and any similar right including design right (whether registered or unregistered), rights in semiconductor topographies (mask works) and database rights (but excluding Patents and Trademarks).\n\nThe following definitions shall replace the corresponding definitions in the Apache License:\n\n\"License\" shall mean this Solderpad Hardware License version 2.1, being the terms and conditions for use, manufacture, instantiation, adaptation, reproduction, and distribution as defined by Sections 1 through 9 of this document.\n\n\"Licensor\" shall mean the Rights owner or entity authorized by the Rights owner that is granting the License.\n\u{a0}\n\"Derivative Works\" shall mean any work, whether in Source or Object form, that is based on (or derived from) the Work and for which the editorial revisions, annotations, elaborations, or other modifications represent, as a whole, an original work of authorship or design. For the purposes of this License, Derivative Works shall not include works that remain reversibly separable from, or merely link (or bind by name) or physically connect to or interoperate with the Work and Derivative Works thereof.\n\n\"Object\" form shall mean any form resulting from mechanical transformation or translation of a Source form or the application of a Source form to physical material, including but not limited to compiled object code, generated documentation, the instantiation of a hardware design or physical object or material and conversions to other media types, including intermediate forms such as bytecodes, FPGA bitstreams, moulds, artwork and semiconductor topographies (mask works).\n\n\"Source\" form shall mean the preferred form for making modifications, including but not limited to source code, net lists, board layouts, CAD files, documentation source, and configuration files.\n\n\"Work\" shall mean the work of authorship or design, whether in Source or Object form, made available under the License, as indicated by a notice relating to Rights that is included in or attached to the work (an example is provided in the Appendix below).\n\n2.\tGrant of License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable license under the Rights to reproduce, prepare Derivative Works of, make, adapt, repair, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form and do anything in relation to the Work as if the Rights did not exist.\n\n\nAPPENDIX\n\nCopyright [yyyy] [name of copyright owner]\nSPDX-License-Identifier: Apache-2.0 WITH SHL-2.1\n\nLicensed under the Solderpad Hardware License v 2.1 (the \"License\"); you may not use this file except in compliance with the License, or, at your option, the Apache License version 2.0.\nYou may obtain a copy of the License at\n\nhttps://solderpad.org/licenses/SHL-2.1/\n   \nUnless required by applicable law or agreed to in writing, any work distributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and limitations under the License.\n\n\n\n\n"
+    }
+
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    fn comments(&self) -> Option<&'static str> {
+        Some("Used with Apache-2.0")
+    }
+
+    fn see_also(&self) -> &'static [&'static str] {
+        &["https://solderpad.org/licenses/SHL-2.1/"]
     }
 }
 
@@ -857,7 +248,7 @@ impl crate::LicenseException for Swift_exception {
     }
 
     fn text(&self) -> &'static str {
-        "Runtime Library Exception to the Apache 2.0 License: \n\nAs an exception, if you use this Software to compile your source code and portions of this Software are embedded into the binary product as a result, you may redistribute such product without providing attribution as would otherwise be required by Sections 4(a), 4(b) and 4(d) of the License."
+        "### Runtime Library Exception to the Apache 2.0 License: ###\n\nAs an exception, if you use this Software to compile your source code and\nportions of this Software are embedded into the binary product as a result,\nyou may redistribute such product without providing attribution as would\notherwise be required by Sections 4(a), 4(b) and 4(d) of the License.\n"
     }
 
     fn is_deprecated(&self) -> bool {
@@ -887,7 +278,7 @@ impl crate::LicenseException for Universal_FOSS_exception_1_0 {
     }
 
     fn text(&self) -> &'static str {
-        "The Universal FOSS Exception, Version 1.0\n\nIn addition to the rights set forth in the other license(s) included in the distribution for this software, data, and/or documentation (collectively the \"Software,\" and such licenses collectively with this additional permission the \"Software License\"), the copyright holders wish to facilitate interoperability with other software, data, and/or documentation distributed with complete corresponding source under a license that is OSI-approved and/or categorized by the FSF as free (collectively \"Other FOSS\"). We therefore hereby grant the following additional permission with respect to the use and distribution of the Software with Other FOSS, and the constants, function signatures, data structures and other invocation methods used to run or interact with each of them (as to each, such software\'s \"Interfaces\"):\n\n   (i) The Software\'s Interfaces may, to the extent permitted by the license of the Other FOSS, be copied into, used and distributed in the Other FOSS in order to enable interoperability, without requiring a change to the license of the Other FOSS other than as to any Interfaces of the Software embedded therein. The Software\'s Interfaces remain at all times under the Software License, including without limitation as used in the Other FOSS (which upon any such use also then contains a portion of the Software under the Software License).\n\n   (ii) The Other FOSS\'s Interfaces may, to the extent permitted by the license of the Other FOSS, be copied into, used and distributed in the Software in order to enable interoperability, without requiring that such Interfaces be licensed under the terms of the Software License or otherwise altering their original terms, if this does not require any portion of the Software other than such Interfaces to be licensed under the terms other than the Software License.\n\n   (iii) If only Interfaces and no other code is copied between the Software and the Other FOSS in either direction, the use and/or distribution of the Software with the Other FOSS shall not be deemed to require that the Other FOSS be licensed under the license of the Software, other than as to any Interfaces of the Software copied into the Other FOSS. This includes, by way of example and without limitation, statically or dynamically linking the Software together with Other FOSS after enabling interoperability using the Interfaces of one or both, and distributing the resulting combination under different licenses for the respective portions thereof.\n\nFor avoidance of doubt, a license which is OSI-approved or categorized by the FSF as free, includes, for the purpose of this permission, such licenses with additional permissions, and any license that has previously been so-approved or categorized as free, even if now deprecated or otherwise no longer recognized as approved or free. Nothing in this additional permission grants any right to distribute any portion of the Software on terms other than those of the Software License or grants any additional permission of any kind for use or distribution of the Software in conjunction with software other than Other FOSS."
+        "The Universal FOSS Exception, Version 1.0\n \nIn addition to the rights set forth in the other license(s) included in the distribution for this software, data, and/or documentation (collectively the \"Software,\" and such licenses collectively with this additional permission the \"Software License\"), the copyright holders wish to facilitate interoperability with other software, data, and/or documentation distributed with complete corresponding source under a license that is OSI-approved and/or categorized by the FSF as free (collectively \"Other FOSS\").  We therefore hereby grant the following additional permission with respect to the use and distribution of the Software with Other FOSS, and the constants, function signatures, data structures and other invocation methods used to run or interact with each of them (as to each, such software\'s \"Interfaces\"):\n \n(i) The Software\'s Interfaces may, to the extent permitted by the license of the Other FOSS, be copied into, used and distributed in the Other FOSS in order to enable interoperability, without requiring a change to the license of the Other FOSS other than as to any Interfaces of the Software embedded therein.  The Software\'s Interfaces remain at all times under the Software License, including without limitation as used in the Other FOSS (which upon any such use also then contains a portion of the Software under the Software License).\n \n(ii) The Other FOSS\'s Interfaces may, to the extent permitted by the license of the Other FOSS, be copied into, used and distributed in the Software in order to enable interoperability, without requiring that such Interfaces be licensed under the terms of the Software License or otherwise altering their original terms, if this does not require any portion of the Software other than such Interfaces to be licensed under the terms other than the Software License.\n \n(iii) If only Interfaces and no other code is copied between the Software and the Other FOSS in either direction, the use and/or distribution of the Software with the Other FOSS shall not be deemed to require that the Other FOSS be licensed under the license of the Software, other than as to any Interfaces of the Software copied into the Other FOSS.  This includes, by way of example and without limitation, statically or dynamically linking the Software together with Other FOSS after enabling interoperability using the Interfaces of one or both, and distributing the resulting combination under different licenses for the respective portions thereof.\n \nFor avoidance of doubt, a license which is OSI-approved or categorized by the FSF as free, includes, for the purpose of this permission, such licenses with additional permissions, and any license that has previously been so-approved or categorized as free, even if now deprecated or otherwise no longer recognized as approved or free.  Nothing in this additional permission grants any right to distribute any portion of the Software on terms other than those of the Software License or grants any additional permission of any kind for use or distribution of the Software in conjunction with software other than Other FOSS.\n"
     }
 
     fn is_deprecated(&self) -> bool {
@@ -917,7 +308,7 @@ impl crate::LicenseException for WxWindows_exception_3_1 {
     }
 
     fn text(&self) -> &'static str {
-        "EXCEPTION NOTICE\n\n   1. As a special exception, the copyright holders of this library give permission for additional uses of the text contained in this release of the library as licenced under the wxWindows Library Licence, applying either version 3.1 of the Licence, or (at your option) any later version of the Licence as published by the copyright holders of version 3.1 of the Licence document.\n\n   2. The exception is that you may use, copy, link, modify and distribute under your own terms, binary object code versions of works based on the Library.\n\n   3. If you copy code from files distributed under the terms of the GNU General Public Licence or the GNU Library General Public Licence into a copy of this library, as this licence permits, the exception does not apply to the code that you add in this way. To avoid misleading anyone as to the status of such modified files, you must delete this exception notice from such code and/or adjust the licensing conditions notice accordingly.\n\n   4. If you write modifications of your own for this library, it is your choice whether to permit this exception to apply to your modifications. If you do not wish that, you must delete the exception notice from such code and/or adjust the licensing conditions notice accordingly."
+        "EXCEPTION NOTICE\n\n1. As a special exception, the copyright holders of this library give permission for additional uses of the text contained in this release of the library as licenced under the wxWindows Library Licence, applying either version 3.1 of the Licence, or (at your option) any later version of the Licence as published by the copyright holders of version 3.1 of the Licence document.\n\n2. The exception is that you may use, copy, link, modify and distribute under your own terms, binary object code versions of works based on the Library.\n\n3. If you copy code from files distributed under the terms of the GNU General Public Licence or the GNU Library General Public Licence into a copy of this library, as this licence permits, the exception does not apply to the code that you add in this way. To avoid misleading anyone as to the status of such modified files, you must delete this exception notice from such code and/or adjust the licensing conditions notice accordingly.\n\n4. If you write modifications of your own for this library, it is your choice whether to permit this exception to apply to your modifications. If you do not wish that, you must delete the exception notice from such code and/or adjust the licensing conditions notice accordingly.\n"
     }
 
     fn is_deprecated(&self) -> bool {
@@ -947,7 +338,7 @@ impl crate::LicenseException for eCos_exception_2_0 {
     }
 
     fn text(&self) -> &'static str {
-        "As a special exception, if other files instantiate templates or use macros or inline functions from this file, or you compile this file and link it with other works to produce a work based on this file, this file does not by itself cause the resulting work to be covered by the GNU General Public License. However the source code for this file must still be made available in accordance with section (3) of the GNU General Public License.\n\nThis exception does not invalidate any other reasons why a work based on this file might be covered by the GNU General Public License."
+        "As a special exception, if other files instantiate templates or use macros or inline functions from this file, or you compile this file and link it with other works to produce a work based on this file, this file does not by itself cause the resulting work to be covered by the GNU General Public License. However the source code for this file must still be made available in accordance with section (3) of the GNU General Public License.\n\nThis exception does not invalidate any other reasons why a work based on this file might be covered by the GNU General Public License.\n"
     }
 
     fn is_deprecated(&self) -> bool {
@@ -977,7 +368,7 @@ impl crate::LicenseException for freertos_exception_2_0 {
     }
 
     fn text(&self) -> &'static str {
-        "Any FreeRTOS source code, whether modified or in its original release form, or whether in whole or in part, can only be distributed by you under the terms of the GNU General Public License plus this exception. An independent module is a module which is not derived from or based on FreeRTOS.\n\nEXCEPTION TEXT:\n\n   \n\n   Clause 1\n\n   Linking FreeRTOS statically or dynamically with other modules is making a combined work based on FreeRTOS. Thus, the terms and conditions of the GNU General Public License cover the whole combination.\n\n   As a special exception, the copyright holder of FreeRTOS gives you permission to link FreeRTOS with independent modules that communicate with FreeRTOS solely through the FreeRTOS API interface, regardless of the license terms of these independent modules, and to copy and distribute the resulting combined work under terms of your choice, provided that\n\n      + Every copy of the combined work is accompanied by a written statement that details to the recipient the version of FreeRTOS used and an offer by yourself to provide the FreeRTOS source code (including any modifications you may have made) should the recipient request it.\n\n      + The combined work is not itself an RTOS, scheduler, kernel or related product.\n\n      + The independent modules add significant and primary functionality to FreeRTOS and do not merely extend the existing functionality already present in FreeRTOS.\n\n   \n\n   Clause 2\n\n   FreeRTOS may not be used for any competitive or comparative purpose, including the publication of any form of run time or compile time metric, without the express permission of Real Time Engineers Ltd. (this is the norm within the industry and is intended to ensure information accuracy)."
+        "Any FreeRTOS source code, whether modified or in its original release form, or whether in whole or in part, can only be distributed by you under the terms of the GNU General Public License plus this exception. An independent module is a module which is not derived from or based on FreeRTOS.\n\nEXCEPTION TEXT:\n\nClause 1\n\nLinking FreeRTOS statically or dynamically with other modules is making a combined work based on FreeRTOS. Thus, the terms and conditions of the GNU General Public License cover the whole combination.\n\nAs a special exception, the copyright holder of FreeRTOS gives you permission to link FreeRTOS with independent modules that communicate with FreeRTOS solely through the FreeRTOS API interface, regardless of the license terms of these independent modules, and to copy and distribute the resulting combined work under terms of your choice, provided that\n\nEvery copy of the combined work is accompanied by a written statement that details to the recipient the version of FreeRTOS used and an offer by yourself to provide the FreeRTOS source code (including any modifications you may have made) should the recipient request it.\n\nThe combined work is not itself an RTOS, scheduler, kernel or related product.\n\nThe independent modules add significant and primary functionality to FreeRTOS and do not merely extend the existing functionality already present in FreeRTOS.\n\nClause 2\n\nFreeRTOS may not be used for any competitive or comparative purpose, including the publication of any form of run time or compile time metric, without the express permission of Real Time Engineers Ltd. (this is the norm within the industry and is intended to ensure information accuracy).\n"
     }
 
     fn is_deprecated(&self) -> bool {
@@ -1007,7 +398,7 @@ impl crate::LicenseException for gnu_javamail_exception {
     }
 
     fn text(&self) -> &'static str {
-        "As a special exception, if you link this library with other files to produce an executable, this library does not by itself cause the resulting executable to be covered by the GNU General Public License. This exception does not however invalidate any other reasons why the executable file might be covered by the GNU General Public License."
+        "As a special exception, if you link this library with other files to produce an executable, this library does not by itself cause the resulting executable to be covered by the GNU General Public License. This exception does not however invalidate any other reasons why the executable file might be covered by the GNU General Public License.\"\n"
     }
 
     fn is_deprecated(&self) -> bool {
@@ -1037,7 +428,7 @@ impl crate::LicenseException for i2p_gpl_java_exception {
     }
 
     fn text(&self) -> &'static str {
-        "In addition, as a special exception, XXXX gives permission to link the code of this program with the proprietary Java implementation provided by Sun (or other vendors as well), and distribute linked combinations including the two. You must obey the GNU General Public License in all respects for all of the code used other than the proprietary Java implementation. If you modify this file, you may extend this exception to your version of the file, but you are not obligated to do so. If you do not wish to do so, delete this exception statement from your version."
+        "In addition, as a special exception, <<var;name=licensor;original=XXXX;match=.+>> gives permission to link the code of this program with the proprietary Java implementation provided by Sun (or other vendors as well), and distribute linked combinations including the two. You must obey the GNU General Public License in all respects for all of the code used other than the proprietary Java implementation. If you modify this file, you may extend this exception to your version of the file, but you are not obligated to do so. If you do not wish to do so, delete this exception statement from your version.\n"
     }
 
     fn is_deprecated(&self) -> bool {
@@ -1067,7 +458,7 @@ impl crate::LicenseException for mif_exception {
     }
 
     fn text(&self) -> &'static str {
-        "As a special exception, you may use this file as part of a free software library without restriction. Specifically, if other files instantiate templates or use macros or inline functions from this file, or you compile this file and link it with other files to produce an executable, this file does not by itself cause the resulting executable to be covered by the GNU General Public License. This exception does not however invalidate any other reasons why the executable file might be covered by the GNU General Public License."
+        "As a special exception, you may use this file as part of a free software library without restriction. Specifically, if other files instantiate templates or use macros or inline functions from this file, or you compile this file and link it with other files to produce an executable, this file does not by itself cause the resulting executable to be covered by the GNU General Public License. This exception does not however invalidate any other reasons why the executable file might be covered by the GNU General Public License.\n"
     }
 
     fn is_deprecated(&self) -> bool {
@@ -1101,7 +492,7 @@ impl crate::LicenseException for openvpn_openssl_exception {
     }
 
     fn text(&self) -> &'static str {
-        "Special exception for linking OpenVPN with OpenSSL:\n\nIn addition, as a special exception, OpenVPN Technologies, Inc. gives permission to link the code of this program with the OpenSSL Library (or with modified versions of OpenSSL that use the same license as OpenSSL), and distribute linked combinations including the two. You must obey the GNU General Public License in all respects for all of the code used other than OpenSSL. If you modify this file, you may extend this exception to your version of the file, but you are not obligated to do so. If you do not wish to do so, delete this exception statement from your version."
+        "Special exception for linking OpenVPN with OpenSSL:\n\nIn addition, as a special exception, OpenVPN Technologies, Inc. gives permission to link the code of this program with the OpenSSL Library (or with modified versions of OpenSSL that use the same license as OpenSSL), and distribute linked combinations including the two. You must obey the GNU General Public License in all respects for all of the code used other than OpenSSL. If you modify this file, you may extend this exception to your version of the file, but you are not obligated to do so. If you do not wish to do so, delete this exception statement from your version.\n"
     }
 
     fn is_deprecated(&self) -> bool {
@@ -1131,7 +522,7 @@ impl crate::LicenseException for u_boot_exception_2_0 {
     }
 
     fn text(&self) -> &'static str {
-        "GPL License Exception:\n\nEven though U-Boot in general is covered by the GPL-2.0/GPL-2.0+, this does *not* cover the so-called \"standalone\" applications that use U-Boot services by means of the jump table provided by U-Boot exactly for this purpose - this is merely considered normal use of U-Boot, and does *not* fall under the heading of \"derived work\".\n\nThe header files \"include/image.h\" and \"arch/*/include/asm/u-boot.h\" define interfaces to U-Boot. Including these (unmodified) header files in another file is considered normal use of U-Boot, and does *not* fall under the heading of \"derived work\".\n\n-- Wolfgang Denk"
+        "The U-Boot License Exception:\n\nEven though U-Boot in general is covered by the GPL-2.0/GPL-2.0+, this does *not* cover the so-called \"standalone\" applications that use U-Boot services by means of the jump table provided by U-Boot exactly for this purpose - this is merely considered normal use of U-Boot, and does *not* fall under the heading of \"derived work\".\n\nThe header files \"include/image.h\" and \"arch/*/include/asm/u-boot.h\" define interfaces to U-Boot. Including these (unmodified) header files in another file is considered normal use of U-Boot, and does *not* fall under the heading of \"derived work\".\n-- Wolfgang Denk\n"
     }
 
     fn is_deprecated(&self) -> bool {
@@ -1144,6 +535,402 @@ impl crate::LicenseException for u_boot_exception_2_0 {
 
     fn see_also(&self) -> &'static [&'static str] {
         &["http://git.denx.de/?p=u-boot.git;a=blob;f=Licenses/Exceptions"]
+    }
+}
+
+/// The 389 Directory Server Exception.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct exception_389;
+
+impl crate::LicenseException for exception_389 {
+    fn name(&self) -> &'static str {
+        "389 Directory Server Exception"
+    }
+
+    fn id(&self) -> &'static str {
+        "389-exception"
+    }
+
+    fn text(&self) -> &'static str {
+        "This Program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; version 2 of the License.\n\nThis Program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License along with this Program; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.\n\nIn addition, as a special exception, Red Hat, Inc. gives You the additional right to link the code of this Program with code not covered under the GNU General Public License (\"Non-GPL Code\") and to distribute linked combinations including the two, subject to the limitations in this paragraph. Non-GPL Code permitted under this exception must only link to the code of this Program through those well defined interfaces identified in the file named EXCEPTION found in the source code files (the \"Approved Interfaces\"). The files of Non-GPL Code may instantiate templates or use macros or inline functions from the Approved Interfaces without causing the resulting work to be covered by the GNU General Public License. Only Red Hat, Inc. may make changes or additions to the list of Approved Interfaces. You must obey the GNU General Public License in all respects for all of the Program code and other code used in conjunction with the Program except the Non-GPL Code covered by this exception. If you modify this file, you may extend this exception to your version of the file, but you are not obligated to do so. If you do not wish to provide this exception without modification, you must delete this exception statement from your version and license this file solely under the GPL without exception.\n"
+    }
+
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    fn comments(&self) -> Option<&'static str> {
+        Some("Specified to be associated with GPL-2.0")
+    }
+
+    fn see_also(&self) -> &'static [&'static str] {
+        &["http://directory.fedoraproject.org/wiki/GPL_Exception_License_Text"]
+    }
+}
+
+/// The Autoconf exception 2.0.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct Autoconf_exception_2_0;
+
+impl crate::LicenseException for Autoconf_exception_2_0 {
+    fn name(&self) -> &'static str {
+        "Autoconf exception 2.0"
+    }
+
+    fn id(&self) -> &'static str {
+        "Autoconf-exception-2.0"
+    }
+
+    fn text(&self) -> &'static str {
+        "As a special exception, the Free Software Foundation gives unlimited permission to copy, distribute and modify the configure scripts that are the output of Autoconf. You need not follow the terms of the GNU General Public License when using or distributing such scripts, even though portions of the text of Autoconf appear in them. The GNU General Public License (GPL) does govern all other use of the material that constitutes the Autoconf program.\n\nCertain portions of the Autoconf source text are designed to be copied (in certain cases, depending on the input) into the output of Autoconf. We call these the \"data\" portions. The rest of the Autoconf source text consists of comments plus executable code that decides which of the data portions to output in any given case. We call these comments and executable code the \"non-data\" portions. Autoconf never copies any of the non-data portions into its output.\n\nThis special exception to the GPL applies to versions of Autoconf released by the Free Software Foundation. When you make and distribute a modified version of Autoconf, you may extend this special exception to the GPL to apply to your modified version as well, *unless* your modified version has the potential to copy into its output some of the text that was the non-data portion of the version that you started with. (In other words, unless your change moves or copies text from the non-data portions to the data portions.) If your modification has such potential, you must delete any notice of this special exception to the GPL from your modified version.\n"
+    }
+
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    fn comments(&self) -> Option<&'static str> {
+        Some("Typically used with GPL-2.0")
+    }
+
+    fn see_also(&self) -> &'static [&'static str] {
+        &[
+            "http://ac-archive.sourceforge.net/doc/copyright.html",
+            "http://ftp.gnu.org/gnu/autoconf/autoconf-2.59.tar.gz",
+        ]
+    }
+}
+
+/// The Autoconf exception 3.0.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct Autoconf_exception_3_0;
+
+impl crate::LicenseException for Autoconf_exception_3_0 {
+    fn name(&self) -> &'static str {
+        "Autoconf exception 3.0"
+    }
+
+    fn id(&self) -> &'static str {
+        "Autoconf-exception-3.0"
+    }
+
+    fn text(&self) -> &'static str {
+        "AUTOCONF CONFIGURE SCRIPT EXCEPTION\n\nVersion 3.0, 18 August 2009\nCopyright © 2009 Free Software Foundation, Inc. <http://fsf.org/>\n\nEveryone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.\n\nThis Exception is an additional permission under section 7 of the GNU General Public License, version 3 (\"GPLv3\"). It applies to a given file that bears a notice placed by the copyright holder of the file stating that the file is governed by GPLv3 along with this Exception.\n\nThe purpose of this Exception is to allow distribution of Autoconf\'s typical output under terms of the recipient\'s choice (including proprietary).\n\n0. Definitions.\n\n\"Covered Code\" is the source or object code of a version of Autoconf that is a covered work under this License.\n\n\"Normally Copied Code\" for a version of Autoconf means all parts of its Covered Code which that version can copy from its code (i.e., not from its input file) into its minimally verbose, non-debugging and non-tracing output.\n\n\"Ineligible Code\" is Covered Code that is not Normally Copied Code.\n\n1. Grant of Additional Permission.\n\nYou have permission to propagate output of Autoconf, even if such propagation would otherwise violate the terms of GPLv3. However, if by modifying Autoconf you cause any Ineligible Code of the version you received to become Normally Copied Code of your modified version, then you void this Exception for the resulting covered work. If you convey that resulting covered work, you must remove this Exception in accordance with the second paragraph of Section 7 of GPLv3.\n\n2. No Weakening of Autoconf Copyleft.\n\nThe availability of this Exception does not imply any general presumption that third-party software is unaffected by the copyleft requirements of the license of Autoconf.\n"
+    }
+
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    fn comments(&self) -> Option<&'static str> {
+        Some("Typically used with GPL-3.0")
+    }
+
+    fn see_also(&self) -> &'static [&'static str] {
+        &["http://www.gnu.org/licenses/autoconf-exception-3.0.html"]
+    }
+}
+
+/// The Bison exception 2.2.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct Bison_exception_2_2;
+
+impl crate::LicenseException for Bison_exception_2_2 {
+    fn name(&self) -> &'static str {
+        "Bison exception 2.2"
+    }
+
+    fn id(&self) -> &'static str {
+        "Bison-exception-2.2"
+    }
+
+    fn text(&self) -> &'static str {
+        "Bison Exception\n\nAs a special exception, you may create a larger work that contains part or all of the Bison parser skeleton and distribute that work under terms of your choice, so long as that work isn\'t itself a parser generator using the skeleton or a modified version thereof as a parser skeleton. Alternatively, if you modify or redistribute the parser skeleton itself, you may (at your option) remove this special exception, which will cause the skeleton and the resulting Bison output files to be licensed under the GNU General Public License without this special exception.\n\nThis special exception was added by the Free Software Foundation in version 2.2 of Bison.\n"
+    }
+
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    fn comments(&self) -> Option<&'static str> {
+        Some("Typically used with GPL-2.0 or GPL-3.0")
+    }
+
+    fn see_also(&self) -> &'static [&'static str] {
+        &["http://git.savannah.gnu.org/cgit/bison.git/tree/data/yacc.c?id=193d7c7054ba7197b0789e14965b739162319b5e#n141"]
+    }
+}
+
+/// The Bootloader Distribution Exception.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct Bootloader_exception;
+
+impl crate::LicenseException for Bootloader_exception {
+    fn name(&self) -> &'static str {
+        "Bootloader Distribution Exception"
+    }
+
+    fn id(&self) -> &'static str {
+        "Bootloader-exception"
+    }
+
+    fn text(&self) -> &'static str {
+        "Bootloader Exception\n--------------------\n\nIn addition to the permissions in the GNU General Public License, the\nauthors give you unlimited permission to link or embed compiled bootloader\nand related files into combinations with other programs, and to distribute\nthose combinations without any restriction coming from the use of those\nfiles. (The General Public License restrictions do apply in other respects;\nfor example, they cover modification of the files, and distribution when\nnot linked into a combine executable.)\n"
+    }
+
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    fn comments(&self) -> Option<&'static str> {
+        None
+    }
+
+    fn see_also(&self) -> &'static [&'static str] {
+        &["https://github.com/pyinstaller/pyinstaller/blob/develop/COPYING.txt"]
+    }
+}
+
+/// The CLISP exception 2.0.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct CLISP_exception_2_0;
+
+impl crate::LicenseException for CLISP_exception_2_0 {
+    fn name(&self) -> &'static str {
+        "CLISP exception 2.0"
+    }
+
+    fn id(&self) -> &'static str {
+        "CLISP-exception-2.0"
+    }
+
+    fn text(&self) -> &'static str {
+        "Summary:\n\nThis program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License version 2 as published by the Free Software Foundation; see file GNU-GPL.\n\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.\n\nNote:\n\nThis copyright does NOT cover user programs that run in CLISP and third-party packages not part of CLISP, if a) They only reference external symbols in CLISP\'s public packages that define API also provided by many other Common Lisp implementations (namely the packages COMMON-LISP, COMMON-LISP-USER, KEYWORD, CLOS, GRAY, EXT), i.e. if they don\'t rely on CLISP internals and would as well run in any other Common Lisp implementation. Or b) They only reference external symbols in CLISP\'s public packages that define API also provided by many other Common Lisp implementations (namely the packages COMMON-LISP, COMMON-LISP-USER, KEYWORD, CLOS, GRAY, EXT) and some external, not CLISP specific, symbols in third-party packages that are released with source code under a GPL compatible license and that run in a great number of Common Lisp implementations, i.e. if they rely on CLISP internals only to the extent needed for gaining some functionality also available in a great number of Common Lisp implementations. Such user programs are not covered by the term \"\"\"\"derived work\"\"\"\" used in the GNU GPL. Neither is their compiled code, i.e. the result of compiling them by use of the function COMPILE-FILE. We refer to such user programs as \"\"\"\"independent work\"\"\"\".\n\nYou may copy and distribute memory image files generated by the function SAVEINITMEM, if it was generated only from CLISP and independent work, and provided that you accompany them, in the sense of section 3 of the GNU GPL, with the source code of CLISP - precisely the same CLISP version that was used to build the memory image -, the source or compiled code of the user programs needed to rebuild the memory image (source code for all the parts that are not independent work, see above), and a precise description how to rebuild the memory image from these.\n\nForeign non-Lisp code that is linked with CLISP or loaded into CLISP through dynamic linking is not exempted from this copyright. I.e. such code, when distributed for use with CLISP, must be distributed under the GPL.\n"
+    }
+
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    fn comments(&self) -> Option<&'static str> {
+        Some("Typically used with GPL-2.0")
+    }
+
+    fn see_also(&self) -> &'static [&'static str] {
+        &["http://sourceforge.net/p/clisp/clisp/ci/default/tree/COPYRIGHT"]
+    }
+}
+
+/// The Classpath exception 2.0.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct Classpath_exception_2_0;
+
+impl crate::LicenseException for Classpath_exception_2_0 {
+    fn name(&self) -> &'static str {
+        "Classpath exception 2.0"
+    }
+
+    fn id(&self) -> &'static str {
+        "Classpath-exception-2.0"
+    }
+
+    fn text(&self) -> &'static str {
+        "Linking this library statically or dynamically with other modules is making a combined work based on this library. Thus, the terms and conditions of the GNU General Public License cover the whole combination.\n\nAs a special exception, the copyright holders of this library give you permission to link this library with independent modules to produce an executable, regardless of the license terms of these independent modules, and to copy and distribute the resulting executable under terms of your choice, provided that you also meet, for each linked independent module, the terms and conditions of the license of that module. An independent module is a module which is not derived from or based on this library. If you modify this library, you may extend this exception to your version of the library, but you are not obligated to do so. If you do not wish to do so, delete this exception statement from your version.\n"
+    }
+
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    fn comments(&self) -> Option<&'static str> {
+        None
+    }
+
+    fn see_also(&self) -> &'static [&'static str] {
+        &[
+            "http://www.gnu.org/software/classpath/license.html",
+            "https://fedoraproject.org/wiki/Licensing/GPL_Classpath_Exception",
+        ]
+    }
+}
+
+/// The DigiRule FOSS License Exception.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct DigiRule_FOSS_exception;
+
+impl crate::LicenseException for DigiRule_FOSS_exception {
+    fn name(&self) -> &'static str {
+        "DigiRule FOSS License Exception"
+    }
+
+    fn id(&self) -> &'static str {
+        "DigiRule-FOSS-exception"
+    }
+
+    fn text(&self) -> &'static str {
+        "DigiRule Solutions’s FOSS License Exception Terms and Conditions\n\n1. Definitions.\n\n“Derivative Work” means a derivative work, as defined under applicable copyright law, formed entirely from the Program and one or more FOSS Applications.\n\n“FOSS Application” means a free and open source software application distributed subject to a license listed in the section below titled “FOSS License List.”\n\n“FOSS Notice” means a notice placed by DigiRule Solutions in a copy of the Client Libraries stating that such copy of the Client Libraries may be distributed under DigiRule Solutions\'s or FOSS License Exception.\n\n“Independent Work” means portions of the Derivative Work that are not derived from the Program and can reasonably be considered independent and separate works.\n\n“Program” means a copy of DigiRule Solutions’s Client Libraries that contain a FOSS Notice.\n\n2. A FOSS application developer (“you” or “your”) may distribute a Derivative Work provided that you and the Derivative Work meet all of the following conditions:\n\n     1. You obey the GPL in all respects for the Program and all portions (including modifications) of the Program included in the Derivative Work (provided that this condition does not apply to Independent Works);\n\n     2. The Derivative Work does not include any work licensed under the GPL other than the Program;\n\n     3. You distribute Independent Works subject to a license listed in the section below titled “FOSS License List”;\n\n     4. You distribute Independent Works in object code or executable form with the complete corresponding machine-readable source code on the same medium and under the same FOSS license applying to the object code or executable forms;\n\n     5. All works that are aggregated with the Program or the Derivative Work on a medium or volume of storage are not derivative works of the Program, Derivative Work or FOSS Application, and must reasonably be considered independent and separate works.\n\n3. DigiRule Solutions reserves all rights not expressly granted in these terms and conditions. If all of the above conditions are not met, then this FOSS License Exception does not apply to you or your Derivative Work.\n\nFOSS License List\nLicense Name Version(s)/Copyright Date\nRelease Early Certified Software\nAcademic Free License 2.0\nApache Software License 1.0/1.1/2.0\nApple Public Source License 2.0\nArtistic license From Perl 5.8.0\nBSD license “July 22 1999”\nCommon Development and Distribution License (CDDL) 1.0\nCommon Public License 1.0\nEclipse Public License 1.0\nGNU Library or “Lesser” General Public License (LGPL) 2.0/2.1/3.0\nJabber Open Source License 1.0\nMIT License (As listed in file MIT-License.txt) -\nMozilla Public License (MPL) 1.0/1.1\nOpen Software License 2.0\nOpenSSL license (with original SSLeay license) “2003” (“1998”)\nPHP License 3.0/3.01\nPython license (CNRI Python License) -\nPython Software Foundation License 2.1.1\nSleepycat License “1999”\nUniversity of Illinois/NCSA Open Source License -\nW3C License “2001”\nX11 License “2001”\nZlib/libpng License -\nZope Public License 2.0\n"
+    }
+
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    fn comments(&self) -> Option<&'static str> {
+        Some("Typically used with GPL-2.0")
+    }
+
+    fn see_also(&self) -> &'static [&'static str] {
+        &["http://www.digirulesolutions.com/drupal/foss"]
+    }
+}
+
+/// The FLTK exception.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct FLTK_exception;
+
+impl crate::LicenseException for FLTK_exception {
+    fn name(&self) -> &'static str {
+        "FLTK exception"
+    }
+
+    fn id(&self) -> &'static str {
+        "FLTK-exception"
+    }
+
+    fn text(&self) -> &'static str {
+        "The FLTK library and included programs are provided under the terms of the GNU Library General Public License (LGPL) with the following exceptions:\n\nModifications to the FLTK configure script, config header file, and makefiles by themselves to support a specific platform do not constitute a modified or derivative work.\n\nThe authors do request that such modifications be contributed to the FLTK project - send all contributions to \"fltk-bugs@fltk.org\".\n\nWidgets that are subclassed from FLTK widgets do not constitute a derivative work.\n\nStatic linking of applications and widgets to the FLTK library does not constitute a derivative work and does not require the author to provide source code for the application or widget, use the shared FLTK libraries, or link their applications or widgets against a user-supplied version of FLTK.\n\nIf you link the application or widget to a modified version of FLTK, then the changes to FLTK must be provided under the terms of the LGPL in sections 1, 2, and 4.\n\nYou do not have to provide a copy of the FLTK license with programs that are linked to the FLTK library, nor do you have to identify the FLTK license in your program or documentation as required by section 6 of the LGPL.\n\nHowever, programs must still identify their use of FLTK. The following example statement can be included in user documentation to satisfy this requirement:\n\n[program/widget] is based in part on the work of the FLTK project (http://www.fltk.org).\n"
+    }
+
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    fn comments(&self) -> Option<&'static str> {
+        Some("Specified to be associated with LGPL-2.0. On Fedora List as \"FLTK License\".")
+    }
+
+    fn see_also(&self) -> &'static [&'static str] {
+        &["http://www.fltk.org/COPYING.php"]
+    }
+}
+
+/// The Fawkes Runtime Exception.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct Fawkes_Runtime_exception;
+
+impl crate::LicenseException for Fawkes_Runtime_exception {
+    fn name(&self) -> &'static str {
+        "Fawkes Runtime Exception"
+    }
+
+    fn id(&self) -> &'static str {
+        "Fawkes-Runtime-exception"
+    }
+
+    fn text(&self) -> &'static str {
+        "Linking this library statically or dynamically with other modules is making a combined work based on this library. Thus, the terms and conditions of the GNU General Public License cover the whole combination. As a special exception, the copyright holders of this library give you permission to link this library with independent modules to produce an executable, regardless of the license terms of these independent modules, and to copy and distribute the resulting executable under terms of your choice, provided that you also meet, for each linked independent module, the terms and conditions of the license of that module. An independent module is a module which is not derived from or based on this library. If you modify this library, you may extend this exception to your version of the library, but you are not obligated to do so. If you do not wish to do so, delete this exception statement from your version. Additionally if other files instantiate templates or use macros or inline functions from this file, or you compile this file and link it with other files to produce an executable, this file does not by itself cause the resulting executable to be covered by the GNU General Public License. This exception does not however invalidate any other reasons why the executable file might be covered by the GNU General Public License.\n"
+    }
+
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    fn comments(&self) -> Option<&'static str> {
+        Some("Combines the Classpath exception with the Macros and Inline Functions exception.")
+    }
+
+    fn see_also(&self) -> &'static [&'static str] {
+        &["http://www.fawkesrobotics.org/about/license/"]
+    }
+}
+
+/// The Font exception 2.0.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct Font_exception_2_0;
+
+impl crate::LicenseException for Font_exception_2_0 {
+    fn name(&self) -> &'static str {
+        "Font exception 2.0"
+    }
+
+    fn id(&self) -> &'static str {
+        "Font-exception-2.0"
+    }
+
+    fn text(&self) -> &'static str {
+        "As a special exception, if you create a document which uses this font, and embed this font or unaltered portions of this font into the document, this font does not by itself cause the resulting document to be covered by the GNU General Public License. This exception does not however invalidate any other reasons why the document might be covered by the GNU General Public License. If you modify this font, you may extend this exception to your version of the font, but you are not obligated to do so. If you do not wish to do so, delete this exception statement from your version.\n"
+    }
+
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    fn comments(&self) -> Option<&'static str> {
+        Some("Typically used with GPL-2.0")
+    }
+
+    fn see_also(&self) -> &'static [&'static str] {
+        &["http://www.gnu.org/licenses/gpl-faq.html#FontException"]
+    }
+}
+
+/// The GCC Runtime Library exception 2.0.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct GCC_exception_2_0;
+
+impl crate::LicenseException for GCC_exception_2_0 {
+    fn name(&self) -> &'static str {
+        "GCC Runtime Library exception 2.0"
+    }
+
+    fn id(&self) -> &'static str {
+        "GCC-exception-2.0"
+    }
+
+    fn text(&self) -> &'static str {
+        "In addition to the permissions in the GNU General Public License, the Free Software Foundation gives you unlimited permission to link the compiled version of this file into combinations with other programs, and to distribute those combinations without any restriction coming from the use of this file. (The General Public License restrictions do apply in other respects; for example, they cover modification of the file, and distribution when not linked into a combine executable.)\n"
+    }
+
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    fn comments(&self) -> Option<&'static str> {
+        Some("Typically used with GPL-2.0+. Sometimes also referred to a \"linking exception.\"")
+    }
+
+    fn see_also(&self) -> &'static [&'static str] {
+        &["https://gcc.gnu.org/git/?p=gcc.git;a=blob;f=gcc/libgcc1.c;h=762f5143fc6eed57b6797c82710f3538aa52b40b;hb=cb143a3ce4fb417c68f5fa2691a1b1b1053dfba9#l10"]
+    }
+}
+
+/// The GCC Runtime Library exception 3.1.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct GCC_exception_3_1;
+
+impl crate::LicenseException for GCC_exception_3_1 {
+    fn name(&self) -> &'static str {
+        "GCC Runtime Library exception 3.1"
+    }
+
+    fn id(&self) -> &'static str {
+        "GCC-exception-3.1"
+    }
+
+    fn text(&self) -> &'static str {
+        "GCC RUNTIME LIBRARY EXCEPTION\n\nVersion 3.1, 31 March 2009\n\nGeneral information: http://www.gnu.org/licenses/gcc-exception.html\nCopyright (C) 2009 Free Software Foundation, Inc. <http://fsf.org/>\n\nEveryone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.\nThis GCC Runtime Library Exception (\"Exception\") is an additional permission under section 7 of the GNU General Public License, version 3 (\"GPLv3\"). It applies to a given file (the \"Runtime Library\") that bears a notice placed by the copyright holder of the file stating that the file is governed by GPLv3 along with this Exception.\n\nWhen you use GCC to compile a program, GCC may combine portions of certain GCC header files and runtime libraries with the compiled program. The purpose of this Exception is to allow compilation of non-GPL (including proprietary) programs to use, in this way, the header files and runtime libraries covered by this Exception.\n\n0. Definitions.\n\nA file is an \"Independent Module\" if it either requires the Runtime Library for execution after a Compilation Process, or makes use of an interface provided by the Runtime Library, but is not otherwise based on the Runtime Library.\n\n\"GCC\" means a version of the GNU Compiler Collection, with or without modifications, governed by version 3 (or a specified later version) of the GNU General Public License (GPL) with the option of using any subsequent versions published by the FSF.\n\n\"GPL-compatible Software\" is software whose conditions of propagation, modification and use would permit combination with GCC in accord with the license of GCC.\n\n\"Target Code\" refers to output from any compiler for a real or virtual target processor architecture, in executable form or suitable for input to an assembler, loader, linker and/or execution phase. Notwithstanding that, Target Code does not include data in any format that is used as a compiler intermediate representation, or used for producing a compiler intermediate representation.\n\nThe \"Compilation Process\" transforms code entirely represented in non-intermediate languages designed for human-written code, and/or in Java Virtual Machine byte code, into Target Code. Thus, for example, use of source code generators and preprocessors need not be considered part of the Compilation Process, since the Compilation Process can be understood as starting with the output of the generators or preprocessors.\n\nA Compilation Process is \"Eligible\" if it is done using GCC, alone or with other GPL-compatible software, or if it is done without using any work based on GCC. For example, using non-GPL-compatible Software to optimize any GCC intermediate representations would not qualify as an Eligible Compilation Process.\n\n1. Grant of Additional Permission.\n\nYou have permission to propagate a work of Target Code formed by combining the Runtime Library with Independent Modules, even if such propagation would otherwise violate the terms of GPLv3, provided that all Target Code was generated by Eligible Compilation Processes. You may then convey such a combination under terms of your choice, consistent with the licensing of the Independent Modules.\n\n2. No Weakening of GCC Copyleft.\n\nThe availability of this Exception does not imply any general presumption that third-party software is unaffected by the copyleft requirements of the license of GCC.\n"
+    }
+
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    fn comments(&self) -> Option<&'static str> {
+        Some("Typically used with GPL-3.0")
+    }
+
+    fn see_also(&self) -> &'static [&'static str] {
+        &["http://www.gnu.org/licenses/gcc-exception-3.1.html"]
     }
 }
 
@@ -1161,7 +948,7 @@ impl crate::LicenseException for GPL_3_0_linking_exception {
     }
 
     fn text(&self) -> &'static str {
-        "Additional permission under GNU GPL version 3 section 7\n\nIf you modify this Program, or any covered work, by linking or combining it with [name of library] (or a modified version of that library), containing parts covered by the terms of [name of library\'s license] , the licensors of this Program grant you additional permission to convey the resulting work."
+        "Additional permission under GNU GPL version 3 section 7\n\nIf you modify this Program, or any covered work, by linking or combining it with [name of library] (or a modified version of that library), containing parts covered by the terms of [name of library\'s license], the licensors of this Program grant you additional permission to convey the resulting work.\n"
     }
 
     fn is_deprecated(&self) -> bool {
@@ -1191,7 +978,7 @@ impl crate::LicenseException for GPL_3_0_linking_source_exception {
     }
 
     fn text(&self) -> &'static str {
-        "Additional permission under GNU GPL version 3 section 7\n\nIf you modify this Program, or any covered work, by linking or combining it with [name of library] (or a modified version of that library), containing parts covered by the terms of [name of library\'s license] , the licensors of this Program grant you additional permission to convey the resulting work. Corresponding Source for a non-source form of such a combination shall include the source code for the parts of [name of library] used as well as that of the covered work."
+        "Additional permission under GNU GPL version 3 section 7\n\nIf you modify this Program, or any covered work, by linking or combining it with [name of library] (or a modified version of that library), containing parts covered by the terms of [name of library\'s license], the licensors of this Program grant you additional permission to convey the resulting work. Corresponding Source for a non-source form of such a combination shall include the source code for the parts of [name of library] used as well as that of the covered work.\n"
     }
 
     fn is_deprecated(&self) -> bool {
@@ -1210,6 +997,39 @@ impl crate::LicenseException for GPL_3_0_linking_source_exception {
     }
 }
 
+/// The GPL Cooperation Commitment 1.0.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct GPL_CC_1_0;
+
+impl crate::LicenseException for GPL_CC_1_0 {
+    fn name(&self) -> &'static str {
+        "GPL Cooperation Commitment 1.0"
+    }
+
+    fn id(&self) -> &'static str {
+        "GPL-CC-1.0"
+    }
+
+    fn text(&self) -> &'static str {
+        "GPL Cooperation Commitment\nVersion 1.0\n\nBefore filing or continuing to prosecute any legal proceeding or claim\n(other than a Defensive Action) arising from termination of a Covered\nLicense, we commit to extend to the person or entity (\'you\') accused\nof violating the Covered License the following provisions regarding\ncure and reinstatement, taken from GPL version 3. As used here, the\nterm \'this License\' refers to the specific Covered License being\nenforced.\n\n    However, if you cease all violation of this License, then your\n    license from a particular copyright holder is reinstated (a)\n    provisionally, unless and until the copyright holder explicitly\n    and finally terminates your license, and (b) permanently, if the\n    copyright holder fails to notify you of the violation by some\n    reasonable means prior to 60 days after the cessation.\n\n    Moreover, your license from a particular copyright holder is\n    reinstated permanently if the copyright holder notifies you of the\n    violation by some reasonable means, this is the first time you\n    have received notice of violation of this License (for any work)\n    from that copyright holder, and you cure the violation prior to 30\n    days after your receipt of the notice.\n\nWe intend this Commitment to be irrevocable, and binding and\nenforceable against us and assignees of or successors to our\ncopyrights.\n\nDefinitions\n\n\'Covered License\' means the GNU General Public License, version 2\n(GPLv2), the GNU Lesser General Public License, version 2.1\n(LGPLv2.1), or the GNU Library General Public License, version 2\n(LGPLv2), all as published by the Free Software Foundation.\n\n\'Defensive Action\' means a legal proceeding or claim that We bring\nagainst you in response to a prior proceeding or claim initiated by\nyou or your affiliate.\n\n\'We\' means each contributor to this repository as of the date of\ninclusion of this file, including subsidiaries of a corporate\ncontributor.\n\nThis work is available under a Creative Commons Attribution-ShareAlike\n4.0 International license (https://creativecommons.org/licenses/by-sa/4.0/).\n"
+    }
+
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    fn comments(&self) -> Option<&'static str> {
+        Some("This is the GPL Cooperation Commitment for projects. It is distinct from the GPL Cooperation Commitment for companies or individuals in that it applies at the project level for all contributions going forward as of the date it is adopted.")
+    }
+
+    fn see_also(&self) -> &'static [&'static str] {
+        &[
+            "https://github.com/gplcc/gplcc/blob/master/Project/COMMITMENT",
+            "https://gplcc.github.io/gplcc/Project/README-PROJECT.html",
+        ]
+    }
+}
+
 /// The LGPL-3.0 Linking Exception.
 #[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
 pub struct LGPL_3_0_linking_exception;
@@ -1224,7 +1044,7 @@ impl crate::LicenseException for LGPL_3_0_linking_exception {
     }
 
     fn text(&self) -> &'static str {
-        "As a special exception to the GNU Lesser General Public License version 3 (\"LGPL3\"), the copyright holders of this Library give you permission to convey to a third party a Combined Work that links statically or dynamically to this Library without providing any Minimal Corresponding Source or Minimal Application Code as set out in 4d or providing the installation information set out in section 4e, provided that you comply with the other provisions of LGPL3 and provided that you meet, for the Application the terms and conditions of the license(s) which apply to the Application.\n\nExcept as stated in this special exception, the provisions of LGPL3 will continue to comply in full to this Library. If you modify this Library, you may apply this exception to your version of this Library, but you are not obliged to do so. If you do not wish to do so, delete this exception statement from your version. This exception does not (and cannot) modify any license terms which apply to the Application, with which you must still comply."
+        "As a special exception to the GNU Lesser General Public License version 3\n(\"LGPL3\"), the copyright holders of this Library give you permission to\nconvey to a third party a Combined Work that links statically or dynamically\nto this Library without providing any Minimal Corresponding Source or\nMinimal Application Code as set out in 4d or providing the installation\ninformation set out in section 4e, provided that you comply with the other\nprovisions of LGPL3 and provided that you meet, for the Application the\nterms and conditions of the license(s) which apply to the Application.\n\nExcept as stated in this special exception, the provisions of LGPL3 will\ncontinue to comply in full to this Library. If you modify this Library, you\nmay apply this exception to your version of this Library, but you are not\nobliged to do so. If you do not wish to do so, delete this exception\nstatement from your version. This exception does not (and cannot) modify any\nlicense terms which apply to the Application, with which you must still\ncomply.\n"
     }
 
     fn is_deprecated(&self) -> bool {
@@ -1244,21 +1064,21 @@ impl crate::LicenseException for LGPL_3_0_linking_exception {
     }
 }
 
-/// The Solderpad Hardware License v2.0.
+/// The LLVM Exception.
 #[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
-pub struct SHL_2_0;
+pub struct LLVM_exception;
 
-impl crate::LicenseException for SHL_2_0 {
+impl crate::LicenseException for LLVM_exception {
     fn name(&self) -> &'static str {
-        "Solderpad Hardware License v2.0"
+        "LLVM Exception"
     }
 
     fn id(&self) -> &'static str {
-        "SHL-2.0"
+        "LLVM-exception"
     }
 
     fn text(&self) -> &'static str {
-        "# Solderpad Hardware Licence Version 2.0\n\nThis licence (the \"Licence\") operates as a wraparound licence to the Apache License Version 2.0 (the \"Apache License\") and grants to You the rights, and imposes the obligations, set out in the Apache License (which can be found here: http://apache.org/licenses/LICENSE-2.0), with the following extensions. It must be read in conjunction with the Apache License. Section 1 below modifies definitions in the Apache License, and section 2 below replaces sections 2 of the Apache License. You may, at your option, choose to treat any Work released under this License as released under the Apache License (thus ignoring all sections written below entirely). Words in italics indicate changes rom the Apache License, but are indicative and not to be taken into account in interpretation.\n\n   1. The definitions set out in the Apache License are modified as follows:\n\n   Copyright any reference to \'copyright\' (whether capitalised or not) includes \'Rights\' (as defined below).\n\n   Contribution also includes any design, as well as any work of authorship.\n\n   Derivative Works shall not include works that remain reversibly separable from, or merely link (or bind by name) or physically connect to or interoperate with the interfaces of the Work and Derivative Works thereof.\n\n   Object form shall mean any form resulting from mechanical transformation or translation of a Source form or the application of a Source form to physical material, including but not limited to compiled object code, generated documentation, the instantiation of a hardware design or physical object and conversions to other media types, including intermediate forms such as bytecodes, FPGA bitstreams, moulds, artwork and semiconductor topographies (mask works).\n\n   Rights means copyright and any similar right including design right (whether registered or unregistered), semiconductor topography (mask) rights and database rights (but excluding Patents and Trademarks).\n\n   Source form shall mean the preferred form for making modifications, including but not limited to source code, net lists, board layouts, CAD files, documentation source, and configuration files.\n\n   Work also includes a design or work of authorship, whether in Source form or other Object form.\n\n   2. Grant of Licence\n\n      2.1 Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable license under the Rights to reproduce, prepare Derivative Works of, make, adapt, repair, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form and do anything in relation to the Work as if the Rights did not exist."
+        "---- LLVM Exceptions to the Apache 2.0 License ----\n\n   As an exception, if, as a result of your compiling your source code, portions\n   of this Software are embedded into an Object form of such source code, you\n   may redistribute such embedded portions in such Object form without complying\n   with the conditions of Sections 4(a), 4(b) and 4(d) of the License.\n\n   In addition, if you combine or link compiled forms of this Software with\n   software that is licensed under the GPLv2 (\"Combined Software\") and if a\n   court of competent jurisdiction determines that the patent provision (Section\n   3), the indemnity provision (Section 9) or other Section of the License\n   conflicts with the conditions of the GPLv2, you may retroactively and\n   prospectively choose to deem waived or otherwise exclude such Section(s) of\n   the License, but only in their entirety and only with respect to the Combined\n   Software.\n"
     }
 
     fn is_deprecated(&self) -> bool {
@@ -1266,29 +1086,29 @@ impl crate::LicenseException for SHL_2_0 {
     }
 
     fn comments(&self) -> Option<&'static str> {
-        Some("Used with Apache-2.0. Italicized text from original license is not reflected in this copy but can be seen in license steward\'s version at https://solderpad.org/licenses/SHL-2.0/")
+        Some("This exception was created specifically to be used with Apache-2.0")
     }
 
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://solderpad.org/licenses/SHL-2.0/"]
+        &["http://llvm.org/foundation/relicensing/LICENSE.txt"]
     }
 }
 
-/// The Solderpad Hardware License v2.1.
+/// The LZMA exception.
 #[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
-pub struct SHL_2_1;
+pub struct LZMA_exception;
 
-impl crate::LicenseException for SHL_2_1 {
+impl crate::LicenseException for LZMA_exception {
     fn name(&self) -> &'static str {
-        "Solderpad Hardware License v2.1"
+        "LZMA exception"
     }
 
     fn id(&self) -> &'static str {
-        "SHL-2.1"
+        "LZMA-exception"
     }
 
     fn text(&self) -> &'static str {
-        "SOLDERPAD HARDWARE LICENSE VERSION 2.1\n\nThis license operates as a wraparound license to the Apache License Version 2.0 (the \"Apache License\") and incorporates the terms and conditions of the Apache License (which can be found here: http://apache.org/licenses/LICENSE-2.0), with the following additions and modifications. It must be read in conjunction with the Apache License. Section 1 below modifies definitions and terminology in the Apache License and Section 2 below replaces Section 2 of the Apache License. The Appendix replaces the Appendix in the Apache License. You may, at your option, choose to treat any Work released under this license as released under the Apache License (thus ignoring all sections written below entirely).\n\n   1. Terminology in the Apache License is supplemented or modified as follows:\n\n   \"Authorship\": any reference to \'authorship\' shall be taken to read \"authorship or design\".\n\n   \"Copyright owner\": any reference to \'copyright owner\' shall be taken to read \"Rights owner\".\n\n   \"Copyright statement\": the reference to \'copyright statement\' shall be taken to read \'copyright or other statement pertaining to Rights\'\n\n   The following new definition shall be added to the Definitions section of the Apache License:\n\n   \"Rights\" means copyright and any similar right including design right (whether registered or unregistered), rights in semiconductor topographies (mask works) and database rights (but excluding Patents and Trademarks).\n\n   The following definitions shall replace the corresponding definitions in the Apache License:\n\n   \"License\" shall mean this Solderpad Hardware License version 2.1, being the terms and conditions for use, manufacture, instantiation, adaptation, reproduction, and distribution as defined by Sections 1 through 9 of this document.\n\n   \"Licensor\" shall mean the Rights owner or entity authorized by the Rights owner that is granting the License.\n\n   \"Derivative Works\" shall mean any work, whether in Source or Object form, that is based on (or derived from) the Work and for which the editorial revisions, annotations, elaborations, or other modifications represent, as a whole, an original work of authorship or design. For the purposes of this License, Derivative Works shall not include works that remain reversibly separable from, or merely link (or bind by name) or physically connect to or interoperate with the Work and Derivative Works thereof.\n\n   \"Object\" form shall mean any form resulting from mechanical transformation or translation of a Source form or the application of a Source form to physical material, including but not limited to compiled object code, generated documentation, the instantiation of a hardware design or physical object or material and conversions to other media types, including intermediate forms such as bytecodes, FPGA bitstreams, moulds, artwork and semiconductor topographies (mask works).\n\n   \"Source\" form shall mean the preferred form for making modifications, including but not limited to source code, net lists, board layouts, CAD files, documentation source, and configuration files.\n\n   \"Work\" shall mean the work of authorship or design, whether in Source or Object form, made available under the License, as indicated by a notice relating to Rights that is included in or attached to the work (an example is provided in the Appendix below).\n\n   2. Grant of License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable license under the Rights to reproduce, prepare Derivative Works of, make, adapt, repair, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form and do anything in relation to the Work as if the Rights did not exist. APPENDIX\n\nCopyright [yyyy] [name of copyright owner]\n\nSPDX-License-Identifier: Apache-2.0 WITH SHL-2.1\n\nLicensed under the Solderpad Hardware License v 2.1 (the \"License\"); you may not use this file except in compliance with the License, or, at your option, the Apache License version 2.0.\n\nYou may obtain a copy of the License at\n\nhttps://solderpad.org/licenses/SHL-2.1/\n\nUnless required by applicable law or agreed to in writing, any work distributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n\nSee the License for the specific language governing permissions and limitations under the License."
+        "I.6 Special exception for LZMA compression module\n\nIgor Pavlov and Amir Szekely, the authors of the LZMA compression module for NSIS, expressly permit you to statically or dynamically link your code (or bind by name) to the files from the LZMA compression module for NSIS without subjecting your linked code to the terms of the Common Public license version 1.0. Any modifications or additions to files from the LZMA compression module for NSIS, however, are subject to the terms of the Common Public License version 1.0.\n"
     }
 
     fn is_deprecated(&self) -> bool {
@@ -1296,10 +1116,190 @@ impl crate::LicenseException for SHL_2_1 {
     }
 
     fn comments(&self) -> Option<&'static str> {
-        Some("Used with Apache-2.0")
+        Some("Used by the LZMA compression module for NSIS to apply an exception to CPL-1.0")
     }
 
     fn see_also(&self) -> &'static [&'static str] {
-        &["https://solderpad.org/licenses/SHL-2.1/"]
+        &["http://nsis.sourceforge.net/Docs/AppendixI.html#I.6"]
+    }
+}
+
+/// The Libtool Exception.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct Libtool_exception;
+
+impl crate::LicenseException for Libtool_exception {
+    fn name(&self) -> &'static str {
+        "Libtool Exception"
+    }
+
+    fn id(&self) -> &'static str {
+        "Libtool-exception"
+    }
+
+    fn text(&self) -> &'static str {
+        "As a special exception to the GNU General Public License, if you distribute this file as part of a program or library that is built using GNU Libtool, you may include this file under the same distribution terms that you use for the rest of that program.\n"
+    }
+
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    fn comments(&self) -> Option<&'static str> {
+        None
+    }
+
+    fn see_also(&self) -> &'static [&'static str] {
+        &["http://git.savannah.gnu.org/cgit/libtool.git/tree/m4/libtool.m4"]
+    }
+}
+
+/// The Linux Syscall Note.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct Linux_syscall_note;
+
+impl crate::LicenseException for Linux_syscall_note {
+    fn name(&self) -> &'static str {
+        "Linux Syscall Note"
+    }
+
+    fn id(&self) -> &'static str {
+        "Linux-syscall-note"
+    }
+
+    fn text(&self) -> &'static str {
+        "   NOTE! This copyright does *not* cover user programs that use kernel\n services by normal system calls - this is merely considered normal use\n of the kernel, and does *not* fall under the heading of \"derived work\".\n Also note that the GPL below is copyrighted by the Free Software\n Foundation, but the instance of code that it refers to (the Linux\n kernel) is copyrighted by me and others who actually wrote it.\n\n Also note that the only valid version of the GPL as far as the kernel\n is concerned is _this_ particular version of the license (ie v2, not\n v2.2 or v3.x or whatever), unless explicitly otherwise stated.\n\n\t\t\tLinus Torvalds\n"
+    }
+
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    fn comments(&self) -> Option<&'static str> {
+        Some("This note is used with the Linux kernel to clarify how user space API files should be treated.")
+    }
+
+    fn see_also(&self) -> &'static [&'static str] {
+        &["https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/COPYING"]
+    }
+}
+
+/// The Nokia Qt LGPL exception 1.1.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct Nokia_Qt_exception_1_1;
+
+impl crate::LicenseException for Nokia_Qt_exception_1_1 {
+    fn name(&self) -> &'static str {
+        "Nokia Qt LGPL exception 1.1"
+    }
+
+    fn id(&self) -> &'static str {
+        "Nokia-Qt-exception-1.1"
+    }
+
+    fn text(&self) -> &'static str {
+        "Nokia Qt LGPL Exception version 1.1\n\nAs an additional permission to the GNU Lesser General Public License version 2.1, the object code form of a \"work that uses the Library\" may incorporate material from a header file that is part of the Library. You may distribute such object code under terms of your choice, provided that:\n\n     (i) the header files of the Library have not been modified; and\n     (ii) the incorporated material is limited to numerical parameters, data structure layouts, accessors, macros, inline functions and templates; and\n     (iii) you comply with the terms of Section 6 of the GNU Lesser General Public License version 2.1.\n\nMoreover, you may apply this exception to a modified version of the Library, provided that such modification does not involve copying material from the Library into the modified Library\'s header files unless such material is limited to\n\n     (i) numerical parameters;\n     (ii) data structure layouts;\n     (iii) accessors; and\n     (iv) small macros, templates and inline functions of five lines or less in length.\n\nFurthermore, you are not required to apply this additional permission to a modified version of the Library.\n"
+    }
+
+    fn is_deprecated(&self) -> bool {
+        true
+    }
+
+    fn comments(&self) -> Option<&'static str> {
+        Some("DEPRECATED: Use Qt-LGPL-exception-1.1")
+    }
+
+    fn see_also(&self) -> &'static [&'static str] {
+        &["https://www.keepassx.org/dev/projects/keepassx/repository/revisions/b8dfb9cc4d5133e0f09cd7533d15a4f1c19a40f2/entry/LICENSE.NOKIA-LGPL-EXCEPTION"]
+    }
+}
+
+/// The Open CASCADE Exception 1.0.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct OCCT_exception_1_0;
+
+impl crate::LicenseException for OCCT_exception_1_0 {
+    fn name(&self) -> &'static str {
+        "Open CASCADE Exception 1.0"
+    }
+
+    fn id(&self) -> &'static str {
+        "OCCT-exception-1.0"
+    }
+
+    fn text(&self) -> &'static str {
+        "Open CASCADE Exception (version 1.0) to GNU LGPL version 2.1.\n\nThe object code (i.e. not a source) form of a \"work that uses the Library\" can incorporate material from a header file that is part of the Library. As a special exception to the GNU Lesser General Public License version 2.1, you may distribute such object code incorporating material from header files provided with the Open CASCADE Technology libraries (including code of CDL generic classes) under terms of your choice, provided that you give prominent notice in supporting documentation to this code that it makes use of or is based on facilities provided by the Open CASCADE Technology software.\n"
+    }
+
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    fn comments(&self) -> Option<&'static str> {
+        Some("Open CASCADE Technology version 6.7.0 and later are governed by (LGPL-2.1 with this exception.) A specific license (OCCT-PL) is applied to Open CASCADE Technology version 6.6.0 and earlier.")
+    }
+
+    fn see_also(&self) -> &'static [&'static str] {
+        &["http://www.opencascade.com/content/licensing"]
+    }
+}
+
+/// The OCaml LGPL Linking Exception.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct OCaml_LGPL_linking_exception;
+
+impl crate::LicenseException for OCaml_LGPL_linking_exception {
+    fn name(&self) -> &'static str {
+        "OCaml LGPL Linking Exception"
+    }
+
+    fn id(&self) -> &'static str {
+        "OCaml-LGPL-linking-exception"
+    }
+
+    fn text(&self) -> &'static str {
+        "As a special exception to the GNU Lesser General Public License, you may link, statically or dynamically, a \"work that uses the OCaml Core System\" with a publicly distributed version of the OCaml Core System to produce an executable file containing portions of the OCaml Core System, and distribute that executable file under terms of your choice, without any of the additional requirements listed in clause 6 of the GNU Lesser General Public License. By \"a publicly distributed version of the OCaml Core System\", we mean either the unmodified OCaml Core System as distributed by INRIA, or a modified version of the OCaml Core System that is distributed under the conditions defined in clause 2 of the GNU Lesser General Public License. This exception does not however invalidate any other reasons why the executable file might be covered by the GNU Lesser General Public License.\n"
+    }
+
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    fn comments(&self) -> Option<&'static str> {
+        Some("Adopted by OCaml core in 2001 here: https://github.com/ocaml/ocaml/commit/02ef950033b81fe371759f024faa55f361ba83a6#diff-9879d6db96fd29134fc802214163b95a (git-svn-id: http://caml.inria.fr/svn/ocaml/trunk@4146 f963ae5c-01c2-4b8c-9fe0-0dff7051ff02) LGPL clause typo (was: 3; intended:2; fixed-to:2) fixed in 2007 here: https://github.com/ocaml/ocaml/commit/2d26308ad4d34ea0c00e44db62c4c24c7031c78c#diff-9879d6db96fd29134fc802214163b95a")
+    }
+
+    fn see_also(&self) -> &'static [&'static str] {
+        &["https://caml.inria.fr/ocaml/license.en.html"]
+    }
+}
+
+/// The OpenJDK Assembly exception 1.0.
+#[derive(Copy, Clone, Debug, Default, Hash, Eq, PartialEq, Ord, PartialOrd)]
+pub struct OpenJDK_assembly_exception_1_0;
+
+impl crate::LicenseException for OpenJDK_assembly_exception_1_0 {
+    fn name(&self) -> &'static str {
+        "OpenJDK Assembly exception 1.0"
+    }
+
+    fn id(&self) -> &'static str {
+        "OpenJDK-assembly-exception-1.0"
+    }
+
+    fn text(&self) -> &'static str {
+        "The OpenJDK source code made available by Oracle America, Inc.\n(Oracle) at openjdk.java.net (\"OpenJDK Code\") is distributed\nunder the terms of the GNU General Public License\n<http://www.gnu.org/copyleft/gpl.html> version 2 only\n(\"GPL2\"), with the following clarification and special\nexception.\n\nLinking this OpenJDK Code statically or dynamically with\nother code is making a combined work based on this\nlibrary. Thus, the terms and conditions of GPL2 cover the\nwhole combination.\n\nAs a special exception, Oracle gives you permission to\nlink this OpenJDK Code with certain code licensed by\nOracle as indicated at\nhttp://openjdk.java.net/legal/exception-modules-2007-05-08.html\n(\"Designated Exception Modules\") to produce an\nexecutable, regardless of the license terms of the\nDesignated Exception Modules, and to copy and distribute\nthe resulting executable under GPL2, provided that the\nDesignated Exception Modules continue to be governed by\nthe licenses under which they were offered by Oracle.\n\nAs such, it allows licensees and sublicensees of Oracle\'s GPL2\nOpenJDK Code to build an executable that includes those\nportions of necessary code that Oracle could not provide under\nGPL2 (or that Oracle has provided under GPL2 with the Classpath\nexception). If you modify or add to the OpenJDK code, that new\nGPL2 code may still be combined with Designated Exception\nModules if the new code is made subject to this exception by\nits copyright holder.\n"
+    }
+
+    fn is_deprecated(&self) -> bool {
+        false
+    }
+
+    fn comments(&self) -> Option<&'static str> {
+        None
+    }
+
+    fn see_also(&self) -> &'static [&'static str] {
+        &["http://openjdk.java.net/legal/assembly-exception.html"]
     }
 }
