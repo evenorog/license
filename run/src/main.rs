@@ -62,21 +62,30 @@ impl Exception {
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
-    Command::new("git")
+    let output = Command::new("git")
         .arg("pull")
         .arg("--ff-only")
         .arg("origin")
         .arg("master")
         .current_dir("../license-list-data")
-        .status()?;
-    build_licenses_from_json()?;
-    build_exceptions_from_json()?;
-    Command::new("cargo")
-        .arg("fmt")
-        .arg("--")
-        .arg("../src/licenses.rs")
-        .arg("../src/exceptions.rs")
-        .status()?;
+        .output()?;
+
+    if output.status.success() {
+        let stdout = String::from_utf8(output.stdout)?;
+        if stdout.contains("Already up to date.") {
+            return Ok(());
+        }
+
+        build_licenses_from_json()?;
+        build_exceptions_from_json()?;
+
+        Command::new("cargo")
+            .arg("fmt")
+            .arg("--")
+            .arg("../src/licenses.rs")
+            .arg("../src/exceptions.rs")
+            .status()?;
+    }
     Ok(())
 }
 
