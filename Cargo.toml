@@ -1,6 +1,6 @@
 [package]
 name = "license"
-version = "1.1.10"
+version = "1.2.0"
 authors = ["evenorog <evenorog@gmail.com>"]
 description = "Provides embedded license information from SPDX."
 documentation = "https://docs.rs/license"
@@ -10,7 +10,7 @@ license = "MIT OR Apache-2.0"
 keywords = ["license", "spdx"]
 categories = ["no-std"]
 exclude = ["/.travis.yml", "/run", "/license-list-data"]
-edition = "2018"
+edition = "2021"
 
 [badges]
 travis-ci = { repository = "evenorog/license" }

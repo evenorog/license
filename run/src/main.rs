@@ -4,8 +4,8 @@ use std::fs::{self, File};
 use std::io::{BufReader, BufWriter, Write};
 use std::process::Command;
 
-#[serde(rename_all = "camelCase")]
 #[derive(Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 struct License {
     name: String,
     license_id: String,
@@ -35,8 +35,8 @@ impl License {
     }
 }
 
-#[serde(rename_all = "camelCase")]
 #[derive(Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 struct Exception {
     name: String,
     license_exception_id: String,
