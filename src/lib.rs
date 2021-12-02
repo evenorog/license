@@ -16,11 +16,10 @@
 
 #![no_std]
 #![doc(html_root_url = "https://docs.rs/license")]
-#![allow(bad_style)]
+#![allow(bad_style)] // TODO: Convert license names to upper camel case.
 #![deny(missing_docs)]
 
-use core::fmt;
-use core::fmt::Formatter;
+use core::fmt::{self, Formatter, Display};
 use core::str::FromStr;
 
 include!(concat!(env!("OUT_DIR"), "/licenses.rs"));
@@ -102,8 +101,8 @@ impl FromStr for &'static dyn Exception {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ParseError(());
 
-impl fmt::Display for ParseError {
-    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+impl Display for ParseError {
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         "provided id does not match".fmt(f)
     }
 }
