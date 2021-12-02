@@ -19,6 +19,8 @@
 #![allow(bad_style)]
 #![deny(missing_docs)]
 
+use core::fmt;
+use core::fmt::Formatter;
 use core::str::FromStr;
 
 include!(concat!(env!("OUT_DIR"), "/licenses.rs"));
@@ -81,17 +83,27 @@ pub trait Exception {
 }
 
 impl FromStr for &'static dyn License {
-    type Err = ();
+    type Err = ParseError;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        parse_license_id(s).ok_or(())
+        parse_license_id(s).ok_or(ParseError(()))
     }
 }
 
 impl FromStr for &'static dyn Exception {
-    type Err = ();
+    type Err = ParseError;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        parse_exception_id(s).ok_or(())
+        parse_exception_id(s).ok_or(ParseError(()))
+    }
+}
+
+/// Error returned when parsing license and exception ids.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ParseError(());
+
+impl fmt::Display for ParseError {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        "provided id does not match".fmt(f)
     }
 }
