@@ -63,7 +63,7 @@ impl Exception {
     }
 }
 
-fn main() -> Result<(), Box<dyn Error>> {
+fn main() {
     let out_dir = env::var_os("OUT_DIR").unwrap();
     let out_dir = PathBuf::from(out_dir);
 
@@ -71,17 +71,17 @@ fn main() -> Result<(), Box<dyn Error>> {
         .arg("clone")
         .arg("https://github.com/spdx/license-list-data.git")
         .current_dir(&out_dir)
-        .status()?;
+        .status()
+        .unwrap();
 
     if status.success() {
         let json_dir = Path::new(&out_dir).join("license-list-data/json");
         let licenses_output = out_dir.join("licenses.rs");
         let exceptions_output = out_dir.join("exceptions.rs");
 
-        build_licenses_from_json(&json_dir.join("details"), &licenses_output)?;
-        build_exceptions_from_json(&json_dir.join("exceptions"), &exceptions_output)?;
+        build_licenses_from_json(&json_dir.join("details"), &licenses_output).unwrap();
+        build_exceptions_from_json(&json_dir.join("exceptions"), &exceptions_output).unwrap();
     }
-    Ok(())
 }
 
 fn build_licenses_from_json(input: &Path, output: &Path) -> Result<(), Box<dyn Error>> {
