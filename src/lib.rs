@@ -1,38 +1,28 @@
 //! Provides embedded license information from [SPDX](https://spdx.org).
 //!
 //! ```
-//! let apache2 = license::from_id("Apache-2.0").unwrap();
+//! # use license::License;
+//! let apache2 = "Apache-2.0".parse::<&dyn License>().unwrap();
 //! assert_eq!(apache2.name(), "Apache License 2.0");
-//! ```
-//!
-//! The library also extends certain licenses with information about their limitations, conditions, and permission.
-//!
-//! ```
-//! let mit = license::from_id_ext("MIT").unwrap();
-//! let perm = mit.permissions();
-//! assert!(perm.private_use() && perm.commercial_use());
 //! ```
 //!
 //! License exceptions are also supported.
 //!
 //! ```
-//! let gcc = license::from_id_exception("GCC-exception-3.1").unwrap();
+//! # use license::Exception;
+//! let gcc = "GCC-exception-3.1".parse::<&dyn Exception>().unwrap();
 //! assert_eq!(gcc.name(), "GCC Runtime Library exception 3.1");
 //! ```
 
 #![no_std]
 #![doc(html_root_url = "https://docs.rs/license")]
+#![allow(bad_style)]
 #![deny(missing_docs)]
 
-#[allow(bad_style)]
-mod exceptions;
-mod ext;
-#[allow(bad_style)]
-mod licenses;
+use core::str::FromStr;
 
-pub use exceptions::*;
-pub use ext::*;
-pub use licenses::*;
+include!(concat!(env!("OUT_DIR"), "/licenses.rs"));
+include!(concat!(env!("OUT_DIR"), "/exceptions.rs"));
 
 /// Base functionality for all licenses.
 pub trait License {
@@ -69,20 +59,8 @@ pub trait License {
     fn see_also(&self) -> &'static [&'static str];
 }
 
-/// Extension trait for supported licenses.
-pub trait LicenseExt: License {
-    /// The permissions of the license.
-    fn permissions(&self) -> Permissions;
-
-    /// The conditions of the license.
-    fn conditions(&self) -> Conditions;
-
-    /// The limitations of the license.
-    fn limitations(&self) -> Limitations;
-}
-
 /// Base functionality for all license exceptions.
-pub trait LicenseException {
+pub trait Exception {
     /// The name of the exception.
     fn name(&self) -> &'static str;
 
@@ -100,4 +78,20 @@ pub trait LicenseException {
 
     /// Relevant sources.
     fn see_also(&self) -> &'static [&'static str];
+}
+
+impl FromStr for &'static dyn License {
+    type Err = ();
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        parse_license_id(s).ok_or(())
+    }
+}
+
+impl FromStr for &'static dyn Exception {
+    type Err = ();
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        parse_exception_id(s).ok_or(())
+    }
 }

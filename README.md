@@ -7,22 +7,14 @@
 Provides embedded license information from [SPDX](https://spdx.org).
 
 ```rust
-let apache2 = license::from_id("Apache-2.0").unwrap();
+let apache2 = "Apache-2.0".parse::<&dyn License>().unwrap();
 assert_eq!(apache2.name(), "Apache License 2.0");
-```
-
-The library also extends certain licenses with information about their limitations, conditions, and permission.
-
-```rust
-let mit = license::from_id_ext("MIT").unwrap();
-let perm = mit.permissions();
-assert!(perm.private_use() && perm.commercial_use());
 ```
 
 License exceptions are also supported.
 
 ```rust
-let gcc = license::from_id_exception("GCC-exception-3.1").unwrap();
+let gcc = "GCC-exception-3.1".parse::<&dyn Exception>().unwrap();
 assert_eq!(gcc.name(), "GCC Runtime Library exception 3.1");
 ```
 
