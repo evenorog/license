@@ -16,7 +16,6 @@
 
 #![no_std]
 #![doc(html_root_url = "https://docs.rs/license")]
-#![allow(bad_style)] // TODO: Convert license names to upper camel case.
 #![deny(missing_docs)]
 
 use core::fmt::{self, Formatter, Display};

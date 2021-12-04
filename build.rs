@@ -30,9 +30,9 @@ impl License {
             .replace('.', "_")
             .replace('+', "_plus");
         if ident == "0BSD" {
-            "BSD_0".to_string()
+            "Bsd0".to_string()
         } else {
-            ident
+            reword::upper_camel_case(ident)
         }
     }
 }
@@ -56,9 +56,9 @@ impl Exception {
             .replace('-', "_")
             .replace('.', "_");
         if ident == "389_exception" {
-            "exception_389".to_string()
+            "Exception389".to_string()
         } else {
-            ident
+            reword::upper_camel_case(ident)
         }
     }
 }
