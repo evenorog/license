@@ -74,7 +74,7 @@ fn main() {
         .arg("https://github.com/spdx/license-list-data.git")
         .current_dir(&out_dir)
         .status()
-        .unwrap();
+        .expect("`git` not found");
 
     if status.success() {
         let json_dir = Path::new(&out_dir).join("license-list-data/json");
