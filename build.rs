@@ -66,6 +66,8 @@ impl Exception {
 fn main() {
     let out_dir = env::var_os("OUT_DIR").unwrap();
     let out_dir = PathBuf::from(out_dir);
+    let licenses_output = out_dir.join("licenses.rs");
+    let exceptions_output = out_dir.join("exceptions.rs");
 
     let status = Command::new("git")
         .arg("clone")
@@ -76,11 +78,13 @@ fn main() {
 
     if status.success() {
         let json_dir = Path::new(&out_dir).join("license-list-data/json");
-        let licenses_output = out_dir.join("licenses.rs");
-        let exceptions_output = out_dir.join("exceptions.rs");
 
         build_licenses_from_json(&json_dir.join("details"), &licenses_output).unwrap();
         build_exceptions_from_json(&json_dir.join("exceptions"), &exceptions_output).unwrap();
+    } else {
+        // If unable to clone the latest version from git we use the offline files.
+        build_licenses_from_json(Path::new("json/details"), &licenses_output).unwrap();
+        build_exceptions_from_json(Path::new("json/exceptions"), &exceptions_output).unwrap();
     }
 }
 
