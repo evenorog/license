@@ -71,6 +71,8 @@ fn main() {
 
     let status = Command::new("git")
         .arg("clone")
+        .arg("--depth")
+        .arg("1")
         .arg("https://github.com/spdx/license-list-data.git")
         .current_dir(&out_dir)
         .status()
