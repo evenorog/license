@@ -12,6 +12,10 @@ categories = ["no-std"]
 exclude = ["/.travis.yml"]
 edition = "2021"
 
+[features]
+master_license_files = []
+default = ["master_license_files"]
+
 [build-dependencies]
 reword = "6.4"
 serde = { version = "1", features = ["derive"] }

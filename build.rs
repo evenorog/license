@@ -69,14 +69,17 @@ fn main() {
     let licenses_output = out_dir.join("licenses.rs");
     let exceptions_output = out_dir.join("exceptions.rs");
 
-    let status = Command::new("git")
-        .arg("clone")
-        .arg("https://github.com/spdx/license-list-data.git")
-        .current_dir(&out_dir)
-        .status()
-        .expect("`git` not found");
-
-    if status.success() {
+    if cfg!(feature = "master_license_files")
+        && Command::new("git")
+            .arg("clone")
+            .arg("--depth")
+            .arg("1")
+            .arg("https://github.com/spdx/license-list-data.git")
+            .current_dir(&out_dir)
+            .status()
+            .expect("`git` not found")
+            .success()
+    {
         let json_dir = Path::new(&out_dir).join("license-list-data/json");
 
         build_licenses_from_json(&json_dir.join("details"), &licenses_output).unwrap();
