@@ -1,6 +1,6 @@
 # license
 
-[![Travis](https://travis-ci.com/evenorog/license.svg?branch=master)](https://travis-ci.com/evenorog/license)
+[![Rust](https://github.com/evenorog/license/actions/workflows/rust.yml/badge.svg)](https://github.com/evenorog/license/actions/workflows/rust.yml)
 [![Crates.io](https://img.shields.io/crates/v/license.svg)](https://crates.io/crates/license)
 [![Docs](https://docs.rs/license/badge.svg)](https://docs.rs/license)
 
