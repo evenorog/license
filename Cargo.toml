@@ -35,3 +35,6 @@ opt-level = 3
 
 [badges]
 maintenance = { status = "actively-developed" }
+
+[package.metadata.docs.rs]
+features = ["offline"]
