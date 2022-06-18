@@ -69,25 +69,30 @@ fn main() {
     let licenses_output = out_dir.join("licenses.rs");
     let exceptions_output = out_dir.join("exceptions.rs");
 
-    if cfg!(feature = "master_license_files")
-        && Command::new("git")
+    if cfg!(feature = "offline") {
+        // If unable to clone the latest version from git we use the offline files.
+        build_licenses_from_json(Path::new("json/details"), &licenses_output).unwrap();
+        build_exceptions_from_json(Path::new("json/exceptions"), &exceptions_output).unwrap();
+    } else {
+        let status = Command::new("git")
             .arg("clone")
             .arg("--depth")
             .arg("1")
             .arg("https://github.com/spdx/license-list-data.git")
             .current_dir(&out_dir)
             .status()
-            .expect("`git` not found")
-            .success()
-    {
-        let json_dir = Path::new(&out_dir).join("license-list-data/json");
+            .expect("`git` not found");
 
-        build_licenses_from_json(&json_dir.join("details"), &licenses_output).unwrap();
-        build_exceptions_from_json(&json_dir.join("exceptions"), &exceptions_output).unwrap();
-    } else {
-        // If unable to clone the latest version from git we use the offline files.
-        build_licenses_from_json(Path::new("json/details"), &licenses_output).unwrap();
-        build_exceptions_from_json(Path::new("json/exceptions"), &exceptions_output).unwrap();
+        if status.success() {
+            let json_dir = Path::new(&out_dir).join("license-list-data/json");
+            build_licenses_from_json(&json_dir.join("details"), &licenses_output).unwrap();
+            build_exceptions_from_json(&json_dir.join("exceptions"), &exceptions_output).unwrap();
+        } else {
+            match status.code() {
+                Some(code) => panic!("`git clone --depth 1` failed with exit code `{}`", code),
+                None => panic!("`git clone --depth 1` was terminated by signal"),
+            }
+        }
     }
 }
 

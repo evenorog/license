@@ -13,8 +13,8 @@ exclude = ["/.travis.yml"]
 edition = "2021"
 
 [features]
-master_license_files = []
-default = ["master_license_files"]
+offline = []
+default = []
 
 [build-dependencies]
 reword = "6"
