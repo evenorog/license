@@ -11,16 +11,16 @@
       "url": "http://eu-datagrid.web.cern.ch/eu-datagrid/license.html",
       "isValid": true,
       "isLive": false,
-      "timestamp": "2021-11-19T14:54:02Z",
+      "timestamp": "2022-08-12T00:27:17Z",
       "isWayBackLink": false,
       "order": 0
     },
     {
-      "match": "false",
+      "match": "N/A",
       "url": "https://opensource.org/licenses/EUDatagrid",
       "isValid": true,
-      "isLive": true,
-      "timestamp": "2021-11-19T14:54:02Z",
+      "isLive": false,
+      "timestamp": "2022-08-12T00:27:18Z",
       "isWayBackLink": false,
       "order": 1
     }

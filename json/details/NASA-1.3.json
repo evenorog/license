@@ -11,16 +11,16 @@
       "url": "http://ti.arc.nasa.gov/opensource/nosa/",
       "isValid": true,
       "isLive": true,
-      "timestamp": "2021-11-19T14:55:08Z",
+      "timestamp": "2022-08-12T00:23:32Z",
       "isWayBackLink": false,
       "order": 0
     },
     {
-      "match": "false",
+      "match": "N/A",
       "url": "https://opensource.org/licenses/NASA-1.3",
       "isValid": true,
-      "isLive": true,
-      "timestamp": "2021-11-19T14:55:11Z",
+      "isLive": false,
+      "timestamp": "2022-08-12T00:23:33Z",
       "isWayBackLink": false,
       "order": 1
     }

@@ -7,11 +7,11 @@
   "licenseId": "Xnet",
   "crossRef": [
     {
-      "match": "true",
+      "match": "N/A",
       "url": "https://opensource.org/licenses/Xnet",
       "isValid": true,
-      "isLive": true,
-      "timestamp": "2021-11-19T14:56:15Z",
+      "isLive": false,
+      "timestamp": "2022-08-12T00:16:38Z",
       "isWayBackLink": false,
       "order": 0
     }

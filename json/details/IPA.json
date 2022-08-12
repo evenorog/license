@@ -7,11 +7,11 @@
   "licenseId": "IPA",
   "crossRef": [
     {
-      "match": "true",
+      "match": "N/A",
       "url": "https://opensource.org/licenses/IPA",
       "isValid": true,
-      "isLive": true,
-      "timestamp": "2021-11-19T14:54:08Z",
+      "isLive": false,
+      "timestamp": "2022-08-12T00:15:54Z",
       "isWayBackLink": false,
       "order": 0
     }

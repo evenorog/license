@@ -10,11 +10,11 @@
   "standardLicenseHeader": "\"Licensed under the Open Software License version 1.0\"\n\n",
   "crossRef": [
     {
-      "match": "true",
+      "match": "N/A",
       "url": "https://opensource.org/licenses/OSL-1.0",
       "isValid": true,
-      "isLive": true,
-      "timestamp": "2021-11-19T14:57:46Z",
+      "isLive": false,
+      "timestamp": "2022-08-12T00:21:23Z",
       "isWayBackLink": false,
       "order": 0
     }

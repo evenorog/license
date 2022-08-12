@@ -6,11 +6,11 @@
   "licenseId": "Motosoto",
   "crossRef": [
     {
-      "match": "true",
+      "match": "N/A",
       "url": "https://opensource.org/licenses/Motosoto",
       "isValid": true,
-      "isLive": true,
-      "timestamp": "2021-11-19T14:59:46Z",
+      "isLive": false,
+      "timestamp": "2022-08-12T00:19:13Z",
       "isWayBackLink": false,
       "order": 0
     }

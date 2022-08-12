@@ -12,7 +12,7 @@
       "url": "https://www.isc.org/licenses/",
       "isValid": true,
       "isLive": true,
-      "timestamp": "2021-11-19T14:54:06Z",
+      "timestamp": "2022-08-12T00:17:26Z",
       "isWayBackLink": false,
       "order": 0
     },
@@ -21,16 +21,16 @@
       "url": "https://www.isc.org/downloads/software-support-policy/isc-license/",
       "isValid": true,
       "isLive": true,
-      "timestamp": "2021-11-19T14:54:06Z",
+      "timestamp": "2022-08-12T00:17:26Z",
       "isWayBackLink": false,
       "order": 1
     },
     {
-      "match": "false",
+      "match": "N/A",
       "url": "https://opensource.org/licenses/ISC",
       "isValid": true,
-      "isLive": true,
-      "timestamp": "2021-11-19T14:54:06Z",
+      "isLive": false,
+      "timestamp": "2022-08-12T00:17:26Z",
       "isWayBackLink": false,
       "order": 2
     }

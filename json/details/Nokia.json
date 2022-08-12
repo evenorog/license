@@ -7,11 +7,11 @@
   "licenseId": "Nokia",
   "crossRef": [
     {
-      "match": "true",
+      "match": "N/A",
       "url": "https://opensource.org/licenses/nokia",
       "isValid": true,
-      "isLive": true,
-      "timestamp": "2021-11-19T14:56:15Z",
+      "isLive": false,
+      "timestamp": "2022-08-12T00:20:14Z",
       "isWayBackLink": false,
       "order": 0
     }

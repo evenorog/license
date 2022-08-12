@@ -6,11 +6,11 @@
   "licenseId": "SimPL-2.0",
   "crossRef": [
     {
-      "match": "false",
+      "match": "N/A",
       "url": "https://opensource.org/licenses/SimPL-2.0",
       "isValid": true,
-      "isLive": true,
-      "timestamp": "2021-11-19T14:54:02Z",
+      "isLive": false,
+      "timestamp": "2022-08-12T00:15:47Z",
       "isWayBackLink": false,
       "order": 0
     }

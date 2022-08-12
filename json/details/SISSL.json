@@ -13,16 +13,16 @@
       "url": "http://www.openoffice.org/licenses/sissl_license.html",
       "isValid": true,
       "isLive": true,
-      "timestamp": "2021-11-19T14:59:28Z",
+      "timestamp": "2022-08-12T00:25:04Z",
       "isWayBackLink": false,
       "order": 0
     },
     {
-      "match": "true",
+      "match": "N/A",
       "url": "https://opensource.org/licenses/SISSL",
       "isValid": true,
-      "isLive": true,
-      "timestamp": "2021-11-19T14:59:29Z",
+      "isLive": false,
+      "timestamp": "2022-08-12T00:25:04Z",
       "isWayBackLink": false,
       "order": 1
     }

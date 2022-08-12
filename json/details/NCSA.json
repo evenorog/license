@@ -11,16 +11,16 @@
       "url": "http://otm.illinois.edu/uiuc_openSource",
       "isValid": true,
       "isLive": true,
-      "timestamp": "2021-11-19T14:55:37Z",
+      "timestamp": "2022-08-12T00:25:38Z",
       "isWayBackLink": false,
       "order": 0
     },
     {
-      "match": "false",
+      "match": "N/A",
       "url": "https://opensource.org/licenses/NCSA",
       "isValid": true,
-      "isLive": true,
-      "timestamp": "2021-11-19T14:55:38Z",
+      "isLive": false,
+      "timestamp": "2022-08-12T00:25:39Z",
       "isWayBackLink": false,
       "order": 1
     }

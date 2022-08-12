@@ -11,16 +11,16 @@
       "url": "http://scripts.sil.org/cms/scripts/page.php?item_id\u003dOFL_web",
       "isValid": true,
       "isLive": true,
-      "timestamp": "2021-11-19T14:55:54Z",
+      "timestamp": "2022-08-12T00:15:19Z",
       "isWayBackLink": false,
       "order": 0
     },
     {
-      "match": "false",
+      "match": "N/A",
       "url": "https://opensource.org/licenses/OFL-1.1",
       "isValid": true,
-      "isLive": true,
-      "timestamp": "2021-11-19T14:55:56Z",
+      "isLive": false,
+      "timestamp": "2022-08-12T00:15:21Z",
       "isWayBackLink": false,
       "order": 1
     }

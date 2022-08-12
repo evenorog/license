@@ -11,16 +11,16 @@
       "url": "http://www.eiffel-nice.org/license/forum.txt",
       "isValid": true,
       "isLive": true,
-      "timestamp": "2021-11-19T14:54:06Z",
+      "timestamp": "2022-08-12T00:18:02Z",
       "isWayBackLink": false,
       "order": 0
     },
     {
-      "match": "false",
+      "match": "N/A",
       "url": "https://opensource.org/licenses/EFL-1.0",
       "isValid": true,
-      "isLive": true,
-      "timestamp": "2021-11-19T14:54:07Z",
+      "isLive": false,
+      "timestamp": "2022-08-12T00:18:02Z",
       "isWayBackLink": false,
       "order": 1
     }

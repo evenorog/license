@@ -6,20 +6,20 @@
   "licenseId": "Fair",
   "crossRef": [
     {
-      "match": "false",
+      "match": "N/A",
       "url": "http://fairlicense.org/",
       "isValid": true,
-      "isLive": true,
-      "timestamp": "2021-11-19T14:55:11Z",
+      "isLive": false,
+      "timestamp": "2022-08-12T00:17:19Z",
       "isWayBackLink": false,
       "order": 0
     },
     {
-      "match": "true",
+      "match": "N/A",
       "url": "https://opensource.org/licenses/Fair",
       "isValid": true,
-      "isLive": true,
-      "timestamp": "2021-11-19T14:55:13Z",
+      "isLive": false,
+      "timestamp": "2022-08-12T00:17:19Z",
       "isWayBackLink": false,
       "order": 1
     }

@@ -12,16 +12,16 @@
       "url": "http://www.eclipse.org/legal/epl-v10.html",
       "isValid": true,
       "isLive": true,
-      "timestamp": "2021-11-19T14:56:33Z",
+      "timestamp": "2022-08-12T00:23:38Z",
       "isWayBackLink": false,
       "order": 0
     },
     {
-      "match": "true",
+      "match": "N/A",
       "url": "https://opensource.org/licenses/EPL-1.0",
       "isValid": true,
-      "isLive": true,
-      "timestamp": "2021-11-19T14:56:34Z",
+      "isLive": false,
+      "timestamp": "2022-08-12T00:23:38Z",
       "isWayBackLink": false,
       "order": 1
     }

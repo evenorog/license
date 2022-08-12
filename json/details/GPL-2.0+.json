@@ -13,16 +13,16 @@
       "url": "https://www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html",
       "isValid": true,
       "isLive": true,
-      "timestamp": "2021-11-19T14:59:12Z",
+      "timestamp": "2022-08-12T00:15:59Z",
       "isWayBackLink": false,
       "order": 0
     },
     {
-      "match": "false",
+      "match": "N/A",
       "url": "https://opensource.org/licenses/GPL-2.0",
       "isValid": true,
-      "isLive": true,
-      "timestamp": "2021-11-19T14:59:12Z",
+      "isLive": false,
+      "timestamp": "2022-08-12T00:15:59Z",
       "isWayBackLink": false,
       "order": 1
     }

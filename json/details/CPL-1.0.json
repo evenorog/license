@@ -8,11 +8,11 @@
   "licenseId": "CPL-1.0",
   "crossRef": [
     {
-      "match": "true",
+      "match": "N/A",
       "url": "https://opensource.org/licenses/CPL-1.0",
       "isValid": true,
-      "isLive": true,
-      "timestamp": "2021-11-19T14:55:02Z",
+      "isLive": false,
+      "timestamp": "2022-08-12T00:27:15Z",
       "isWayBackLink": false,
       "order": 0
     }

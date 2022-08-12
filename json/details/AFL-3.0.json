@@ -13,16 +13,16 @@
       "url": "http://www.rosenlaw.com/AFL3.0.htm",
       "isValid": true,
       "isLive": false,
-      "timestamp": "2021-11-19T15:02:35Z",
+      "timestamp": "2022-08-12T00:17:28Z",
       "isWayBackLink": false,
       "order": 0
     },
     {
-      "match": "true",
+      "match": "N/A",
       "url": "https://opensource.org/licenses/afl-3.0",
       "isValid": true,
-      "isLive": true,
-      "timestamp": "2021-11-19T15:02:36Z",
+      "isLive": false,
+      "timestamp": "2022-08-12T00:17:28Z",
       "isWayBackLink": false,
       "order": 1
     }

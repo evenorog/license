@@ -7,20 +7,20 @@
   "licenseId": "LiLiQ-R-1.1",
   "crossRef": [
     {
-      "match": "false",
+      "match": "N/A",
       "url": "https://www.forge.gouv.qc.ca/participez/licence-logicielle/licence-libre-du-quebec-liliq-en-francais/licence-libre-du-quebec-reciprocite-liliq-r-v1-1/",
       "isValid": true,
-      "isLive": true,
-      "timestamp": "2021-11-19T15:00:35Z",
+      "isLive": false,
+      "timestamp": "2022-08-12T00:17:18Z",
       "isWayBackLink": false,
       "order": 0
     },
     {
-      "match": "true",
+      "match": "N/A",
       "url": "http://opensource.org/licenses/LiLiQ-R-1.1",
       "isValid": true,
-      "isLive": true,
-      "timestamp": "2021-11-19T15:00:36Z",
+      "isLive": false,
+      "timestamp": "2022-08-12T00:17:18Z",
       "isWayBackLink": false,
       "order": 1
     }
