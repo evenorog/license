@@ -13,6 +13,10 @@
 //! let gcc = "GCC-exception-3.1".parse::<&dyn Exception>().unwrap();
 //! assert_eq!(gcc.name(), "GCC Runtime Library exception 3.1");
 //! ```
+//!
+//! By default, this library downloads the latest licenses from
+//! [github.com/spdx](https://github.com/spdx/license-list-data.git).
+//! If you want to build it offline instead, you can enable the `offline` feature.
 
 #![no_std]
 #![doc(html_root_url = "https://docs.rs/license")]
