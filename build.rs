@@ -50,9 +50,7 @@ struct Exception {
 
 impl Exception {
     fn ident(&self) -> String {
-        let ident = self
-            .license_exception_id
-            .replace(['-', '.'], "_");
+        let ident = self.license_exception_id.replace(['-', '.'], "_");
         if ident == "389_exception" {
             "Exception389".to_string()
         } else {
@@ -89,7 +87,8 @@ fn main() {
 
             if status.success() {
                 build_licenses_from_json(&json_dir.join("details"), &licenses_output).unwrap();
-                build_exceptions_from_json(&json_dir.join("exceptions"), &exceptions_output).unwrap();
+                build_exceptions_from_json(&json_dir.join("exceptions"), &exceptions_output)
+                    .unwrap();
             } else {
                 match status.code() {
                     Some(code) => panic!("`git clone --depth 1` failed with exit code `{}`", code),

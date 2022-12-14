@@ -1,7 +1,21 @@
-//! Provides embedded license information from [SPDX](https://spdx.org).
+//! **Provides embedded license information from [SPDX](https://spdx.org).**
+//!
+//! Use the licenses directly.
 //!
 //! ```
-//! # use license::License;
+//! use license::License;
+//! use license::licenses::Bsd3Clause;
+//!
+//! let bsd3 = Bsd3Clause;
+//! assert!(bsd3.is_osi_approved());
+//! assert_eq!(bsd3.name(), r#"BSD 3-Clause "New" or "Revised" License"#);
+//! ```
+//!
+//! Get the license by parsing the license id.
+//!
+//! ```
+//! use license::License;
+//!
 //! let apache2 = "Apache-2.0".parse::<&dyn License>().unwrap();
 //! assert_eq!(apache2.name(), "Apache License 2.0");
 //! ```
@@ -9,7 +23,8 @@
 //! License exceptions are also supported.
 //!
 //! ```
-//! # use license::Exception;
+//! use license::Exception;
+//!
 //! let gcc = "GCC-exception-3.1".parse::<&dyn Exception>().unwrap();
 //! assert_eq!(gcc.name(), "GCC Runtime Library exception 3.1");
 //! ```
@@ -22,7 +37,7 @@
 #![doc(html_root_url = "https://docs.rs/license")]
 #![deny(missing_docs, unsafe_code)]
 
-use core::fmt::{self, Formatter, Display};
+use core::fmt::{self, Display, Formatter};
 use core::str::FromStr;
 
 /// All supported licenses.

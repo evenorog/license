@@ -9,7 +9,6 @@ readme = "README.md"
 license = "MIT OR Apache-2.0"
 keywords = ["license", "spdx"]
 categories = ["no-std"]
-exclude = ["/.travis.yml"]
 edition = "2021"
 
 [features]
