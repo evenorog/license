@@ -20,13 +20,20 @@
 
 #![no_std]
 #![doc(html_root_url = "https://docs.rs/license")]
-#![deny(missing_docs)]
+#![deny(missing_docs, unsafe_code)]
 
 use core::fmt::{self, Formatter, Display};
 use core::str::FromStr;
 
-include!(concat!(env!("OUT_DIR"), "/licenses.rs"));
-include!(concat!(env!("OUT_DIR"), "/exceptions.rs"));
+/// All supported licenses.
+pub mod licenses {
+    include!(concat!(env!("OUT_DIR"), "/licenses.rs"));
+}
+
+/// All supported exceptions.
+pub mod exceptions {
+    include!(concat!(env!("OUT_DIR"), "/exceptions.rs"));
+}
 
 /// Base functionality for all licenses.
 pub trait License {
@@ -88,7 +95,7 @@ impl FromStr for &'static dyn License {
     type Err = ParseError;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        parse_license_id(s).ok_or(ParseError(()))
+        licenses::parse_id(s).ok_or(ParseError(()))
     }
 }
 
@@ -96,7 +103,7 @@ impl FromStr for &'static dyn Exception {
     type Err = ParseError;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        parse_exception_id(s).ok_or(ParseError(()))
+        exceptions::parse_id(s).ok_or(ParseError(()))
     }
 }
 

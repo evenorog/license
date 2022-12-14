@@ -26,8 +26,7 @@ impl License {
     fn ident(&self) -> String {
         let ident = self
             .license_id
-            .replace('-', "_")
-            .replace('.', "_")
+            .replace(['-', '.'], "_")
             .replace('+', "_plus");
         if ident == "0BSD" {
             "Bsd0".to_string()
@@ -53,8 +52,7 @@ impl Exception {
     fn ident(&self) -> String {
         let ident = self
             .license_exception_id
-            .replace('-', "_")
-            .replace('.', "_");
+            .replace(['-', '.'], "_");
         if ident == "389_exception" {
             "Exception389".to_string()
         } else {
@@ -74,23 +72,29 @@ fn main() {
         build_licenses_from_json(Path::new("json/details"), &licenses_output).unwrap();
         build_exceptions_from_json(Path::new("json/exceptions"), &exceptions_output).unwrap();
     } else {
-        let status = Command::new("git")
-            .arg("clone")
-            .arg("--depth")
-            .arg("1")
-            .arg("https://github.com/spdx/license-list-data.git")
-            .current_dir(&out_dir)
-            .status()
-            .expect("`git` not found");
+        let json_dir = Path::new(&out_dir).join("license-list-data/json");
 
-        if status.success() {
-            let json_dir = Path::new(&out_dir).join("license-list-data/json");
+        if json_dir.exists() {
             build_licenses_from_json(&json_dir.join("details"), &licenses_output).unwrap();
             build_exceptions_from_json(&json_dir.join("exceptions"), &exceptions_output).unwrap();
         } else {
-            match status.code() {
-                Some(code) => panic!("`git clone --depth 1` failed with exit code `{}`", code),
-                None => panic!("`git clone --depth 1` was terminated by signal"),
+            let status = Command::new("git")
+                .arg("clone")
+                .arg("--depth")
+                .arg("1")
+                .arg("https://github.com/spdx/license-list-data.git")
+                .current_dir(&out_dir)
+                .status()
+                .expect("`git` not found");
+
+            if status.success() {
+                build_licenses_from_json(&json_dir.join("details"), &licenses_output).unwrap();
+                build_exceptions_from_json(&json_dir.join("exceptions"), &exceptions_output).unwrap();
+            } else {
+                match status.code() {
+                    Some(code) => panic!("`git clone --depth 1` failed with exit code `{}`", code),
+                    None => panic!("`git clone --depth 1` was terminated by signal"),
+                }
             }
         }
     }
@@ -100,7 +104,9 @@ fn build_licenses_from_json(input: &Path, output: &Path) -> Result<(), Box<dyn E
     let inner = File::create(output)?;
     let mut f = BufWriter::with_capacity(4_194_304, inner);
     let mut licenses = Vec::with_capacity(512);
-    f.write_all(b"fn parse_license_id(id: &str) -> Option<&'static dyn crate::License> {\n")?;
+
+    // Generate the parsing code.
+    f.write_all(b"pub(crate) fn parse_id(id: &str) -> Option<&'static dyn crate::License> {\n")?;
     f.write_all(b"    match id {\n")?;
     for entry in fs::read_dir(input)? {
         let entry = entry?;
@@ -117,6 +123,8 @@ fn build_licenses_from_json(input: &Path, output: &Path) -> Result<(), Box<dyn E
     f.write_all(b"        _ => None,\n")?;
     f.write_all(b"    }\n")?;
     f.write_all(b"}\n\n")?;
+
+    // Generate the license code.
     for license in licenses {
         writeln!(
             f,
@@ -139,7 +147,9 @@ fn build_exceptions_from_json(input: &Path, output: &Path) -> Result<(), Box<dyn
     let inner = File::create(output)?;
     let mut f = BufWriter::with_capacity(524_288, inner);
     let mut exceptions = Vec::with_capacity(64);
-    f.write_all(b"fn parse_exception_id(id: &str) -> Option<&'static dyn crate::Exception> {\n")?;
+
+    // Generate the parsing code.
+    f.write_all(b"pub(crate) fn parse_id(id: &str) -> Option<&'static dyn crate::Exception> {\n")?;
     f.write_all(b"    match id {\n")?;
     for entry in fs::read_dir(input)? {
         let entry = entry?;
@@ -156,6 +166,8 @@ fn build_exceptions_from_json(input: &Path, output: &Path) -> Result<(), Box<dyn
     f.write_all(b"        _ => None,\n")?;
     f.write_all(b"    }\n")?;
     f.write_all(b"}\n\n")?;
+
+    // Generate the exception code.
     for exception in exceptions {
         writeln!(
             f,

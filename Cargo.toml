@@ -13,8 +13,8 @@ exclude = ["/.travis.yml"]
 edition = "2021"
 
 [features]
-offline = []
 default = []
+offline = []
 
 [build-dependencies]
 reword = "6"
