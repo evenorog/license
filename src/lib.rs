@@ -16,7 +16,7 @@
 //! ```
 //! use license::License;
 //!
-//! let apache2 = "Apache-2.0".parse::<&dyn License>().unwrap();
+//! let apache2: &dyn License = "Apache-2.0".parse().unwrap();
 //! assert_eq!(apache2.name(), "Apache License 2.0");
 //! ```
 //!
@@ -25,7 +25,7 @@
 //! ```
 //! use license::Exception;
 //!
-//! let gcc = "GCC-exception-3.1".parse::<&dyn Exception>().unwrap();
+//! let gcc: &dyn Exception = "GCC-exception-3.1".parse().unwrap();
 //! assert_eq!(gcc.name(), "GCC Runtime Library exception 3.1");
 //! ```
 //!
