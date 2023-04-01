@@ -6,11 +6,11 @@
   "licenseId": "CC-PDDC",
   "crossRef": [
     {
-      "match": "true",
+      "match": "false",
       "url": "https://creativecommons.org/licenses/publicdomain/",
       "isValid": true,
       "isLive": true,
-      "timestamp": "2022-11-30T14:53:03Z",
+      "timestamp": "2023-03-23T16:29:43Z",
       "isWayBackLink": false,
       "order": 0
     }

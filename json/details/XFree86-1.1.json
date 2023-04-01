@@ -7,11 +7,11 @@
   "licenseId": "XFree86-1.1",
   "crossRef": [
     {
-      "match": "true",
+      "match": "false",
       "url": "http://www.xfree86.org/current/LICENSE4.html",
       "isValid": true,
       "isLive": true,
-      "timestamp": "2022-11-30T14:52:35Z",
+      "timestamp": "2023-03-23T16:28:38Z",
       "isWayBackLink": false,
       "order": 0
     }

@@ -6,11 +6,11 @@
   "licenseId": "AML",
   "crossRef": [
     {
-      "match": "true",
+      "match": "false",
       "url": "https://fedoraproject.org/wiki/Licensing/Apple_MIT_License",
       "isValid": true,
       "isLive": true,
-      "timestamp": "2022-11-30T14:54:29Z",
+      "timestamp": "2023-03-23T16:18:17Z",
       "isWayBackLink": false,
       "order": 0
     }

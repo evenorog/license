@@ -11,16 +11,16 @@
       "url": "https://www.forge.gouv.qc.ca/participez/licence-logicielle/licence-libre-du-quebec-liliq-en-francais/licence-libre-du-quebec-reciprocite-forte-liliq-r-v1-1/",
       "isValid": true,
       "isLive": false,
-      "timestamp": "2022-11-30T14:55:03Z",
+      "timestamp": "2023-03-23T16:18:01Z",
       "isWayBackLink": false,
       "order": 0
     },
     {
-      "match": "N/A",
+      "match": "false",
       "url": "http://opensource.org/licenses/LiLiQ-Rplus-1.1",
       "isValid": true,
-      "isLive": false,
-      "timestamp": "2022-11-30T14:55:03Z",
+      "isLive": true,
+      "timestamp": "2023-03-23T16:18:01Z",
       "isWayBackLink": false,
       "order": 1
     }

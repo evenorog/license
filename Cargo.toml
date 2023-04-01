@@ -16,7 +16,7 @@ default = []
 offline = []
 
 [build-dependencies]
-reword = "6"
+reword = "7"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 

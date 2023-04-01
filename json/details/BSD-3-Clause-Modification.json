@@ -6,11 +6,11 @@
   "licenseId": "BSD-3-Clause-Modification",
   "crossRef": [
     {
-      "match": "true",
+      "match": "false",
       "url": "https://fedoraproject.org/wiki/Licensing:BSD#Modification_Variant",
       "isValid": true,
       "isLive": true,
-      "timestamp": "2022-11-30T14:53:02Z",
+      "timestamp": "2023-03-23T16:30:32Z",
       "isWayBackLink": false,
       "order": 0
     }

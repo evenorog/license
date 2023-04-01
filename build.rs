@@ -31,7 +31,7 @@ impl License {
         if ident == "0BSD" {
             "Bsd0".to_string()
         } else {
-            reword::upper_camel_case(ident)
+            reword::pascal_case(ident)
         }
     }
 }
@@ -54,7 +54,7 @@ impl Exception {
         if ident == "389_exception" {
             "Exception389".to_string()
         } else {
-            reword::upper_camel_case(ident)
+            reword::pascal_case(ident)
         }
     }
 }

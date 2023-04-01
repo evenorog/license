@@ -6,11 +6,11 @@
   "licenseId": "NCGL-UK-2.0",
   "crossRef": [
     {
-      "match": "true",
+      "match": "false",
       "url": "http://www.nationalarchives.gov.uk/doc/non-commercial-government-licence/version/2/",
       "isValid": true,
       "isLive": true,
-      "timestamp": "2022-11-30T14:53:29Z",
+      "timestamp": "2023-03-23T16:17:47Z",
       "isWayBackLink": false,
       "order": 0
     }

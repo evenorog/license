@@ -6,11 +6,11 @@
   "licenseId": "Xerox",
   "crossRef": [
     {
-      "match": "true",
+      "match": "false",
       "url": "https://fedoraproject.org/wiki/Licensing/Xerox",
       "isValid": true,
       "isLive": true,
-      "timestamp": "2022-11-30T15:00:27Z",
+      "timestamp": "2023-03-23T16:16:13Z",
       "isWayBackLink": false,
       "order": 0
     }

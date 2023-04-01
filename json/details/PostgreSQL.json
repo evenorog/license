@@ -10,7 +10,7 @@
       "url": "http://www.postgresql.org/about/licence",
       "isValid": true,
       "isLive": true,
-      "timestamp": "2022-11-30T14:53:10Z",
+      "timestamp": "2023-03-23T16:17:51Z",
       "isWayBackLink": false,
       "order": 0
     },
@@ -18,8 +18,8 @@
       "match": "N/A",
       "url": "https://opensource.org/licenses/PostgreSQL",
       "isValid": true,
-      "isLive": true,
-      "timestamp": "2022-11-30T14:53:11Z",
+      "isLive": false,
+      "timestamp": "2023-03-23T16:17:52Z",
       "isWayBackLink": false,
       "order": 1
     }

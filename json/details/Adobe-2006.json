@@ -6,11 +6,11 @@
   "licenseId": "Adobe-2006",
   "crossRef": [
     {
-      "match": "true",
+      "match": "false",
       "url": "https://fedoraproject.org/wiki/Licensing/AdobeLicense",
       "isValid": true,
       "isLive": true,
-      "timestamp": "2022-11-30T14:55:18Z",
+      "timestamp": "2023-03-23T16:24:55Z",
       "isWayBackLink": false,
       "order": 0
     }

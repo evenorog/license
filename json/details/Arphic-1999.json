@@ -8,11 +8,11 @@
   "standardLicenseHeader": "none",
   "crossRef": [
     {
-      "match": "true",
+      "match": "false",
       "url": "http://ftp.gnu.org/gnu/non-gnu/chinese-fonts-truetype/LICENSE",
       "isValid": true,
       "isLive": true,
-      "timestamp": "2022-11-30T14:53:43Z",
+      "timestamp": "2023-03-23T16:15:55Z",
       "isWayBackLink": false,
       "order": 0
     }

@@ -7,11 +7,11 @@
   "licenseId": "Net-SNMP",
   "crossRef": [
     {
-      "match": "true",
+      "match": "false",
       "url": "http://net-snmp.sourceforge.net/about/license.html",
       "isValid": true,
       "isLive": true,
-      "timestamp": "2022-11-30T14:53:09Z",
+      "timestamp": "2023-03-23T16:29:12Z",
       "isWayBackLink": false,
       "order": 0
     }

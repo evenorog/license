@@ -6,11 +6,11 @@
   "licenseId": "CC-BY-NC-ND-2.5",
   "crossRef": [
     {
-      "match": "true",
+      "match": "false",
       "url": "https://creativecommons.org/licenses/by-nc-nd/2.5/legalcode",
       "isValid": true,
       "isLive": true,
-      "timestamp": "2022-11-30T14:54:57Z",
+      "timestamp": "2023-03-23T16:18:13Z",
       "isWayBackLink": false,
       "order": 0
     }
