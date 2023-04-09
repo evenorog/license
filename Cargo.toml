@@ -9,6 +9,7 @@ readme = "README.md"
 license = "MIT OR Apache-2.0"
 keywords = ["license", "spdx"]
 categories = ["no-std"]
+exclude = ["/license-list-data", "!/license-list-data/json"]
 edition = "2021"
 
 [features]
