@@ -67,8 +67,16 @@ fn main() {
 
     if cfg!(feature = "offline") {
         // If unable to clone the latest version from git we use the offline files.
-        build_licenses_from_json(Path::new("json/details"), &licenses_output).unwrap();
-        build_exceptions_from_json(Path::new("json/exceptions"), &exceptions_output).unwrap();
+        build_licenses_from_json(
+            Path::new("license-list-data/json/details"),
+            &licenses_output,
+        )
+        .unwrap();
+        build_exceptions_from_json(
+            Path::new("license-list-data/json/exceptions"),
+            &exceptions_output,
+        )
+        .unwrap();
     } else {
         let json_dir = Path::new(&out_dir).join("license-list-data/json");
 
