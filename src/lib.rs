@@ -42,7 +42,7 @@
 #[cfg(feature = "serde")]
 mod serde;
 
-use core::fmt::{self, Display, Formatter};
+use core::fmt::{self, Debug, Display, Formatter};
 use core::str::FromStr;
 
 /// All supported licenses.
@@ -56,7 +56,7 @@ pub mod exceptions {
 }
 
 /// Base functionality for all licenses.
-pub trait License {
+pub trait License: Debug {
     /// The name of the license.
     ///
     /// Corresponds to the *Full name* column from [spdx.org/licenses](https://spdx.org/licenses/).
@@ -91,7 +91,7 @@ pub trait License {
 }
 
 /// Base functionality for all license exceptions.
-pub trait Exception {
+pub trait Exception: Debug {
     /// The name of the exception.
     fn name(&self) -> &'static str;
 
@@ -111,7 +111,7 @@ pub trait Exception {
     fn see_also(&self) -> &'static [&'static str];
 }
 
-impl FromStr for &'static dyn License {
+impl FromStr for &dyn License {
     type Err = ParseError;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
@@ -119,7 +119,7 @@ impl FromStr for &'static dyn License {
     }
 }
 
-impl FromStr for &'static dyn Exception {
+impl FromStr for &dyn Exception {
     type Err = ParseError;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
@@ -133,6 +133,6 @@ pub struct ParseError(());
 
 impl Display for ParseError {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
-        "SPDX id not found".fmt(f)
+        Display::fmt("SPDX id not found", f)
     }
 }
