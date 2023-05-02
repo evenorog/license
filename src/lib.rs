@@ -32,10 +32,15 @@
 //! By default, this library downloads the latest licenses from
 //! [github.com/spdx](https://github.com/spdx/license-list-data.git).
 //! If you want to build it offline instead, you can enable the `offline` feature.
+//!
+//! [Serde](https://crates.io/crates/serde) is supported with the `serde` feature.
 
 #![no_std]
 #![doc(html_root_url = "https://docs.rs/license")]
 #![deny(missing_docs, unsafe_code)]
+
+#[cfg(feature = "serde")]
+mod serde;
 
 use core::fmt::{self, Display, Formatter};
 use core::str::FromStr;
@@ -128,6 +133,6 @@ pub struct ParseError(());
 
 impl Display for ParseError {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
-        "provided id does not match".fmt(f)
+        "SPDX id not found".fmt(f)
     }
 }

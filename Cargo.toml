@@ -16,6 +16,9 @@ edition = "2021"
 default = []
 offline = []
 
+[dependencies]
+serde = { version = "1", default-features = false, optional = true }
+
 [build-dependencies]
 reword = "7"
 serde = { version = "1", features = ["derive"] }
