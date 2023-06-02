@@ -86,6 +86,9 @@ pub trait License: Debug {
     /// Says if the license is deprecated.
     fn is_deprecated(&self) -> bool;
 
+    /// The license comments.
+    fn comments(&self) -> Option<&'static str>;
+
     /// Relevant sources.
     fn see_also(&self) -> &'static [&'static str];
 }
