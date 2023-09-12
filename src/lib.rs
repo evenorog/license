@@ -56,16 +56,16 @@ pub mod exceptions {
 }
 
 /// Base functionality for all licenses.
-pub trait License: Debug {
-    /// The name of the license.
-    ///
-    /// Corresponds to the *Full name* column from [spdx.org/licenses](https://spdx.org/licenses/).
-    fn name(&self) -> &'static str;
-
+pub trait License {
     /// The identifier of the license.
     ///
     /// Corresponds to the *Identifier* column from [spdx.org/licenses](https://spdx.org/licenses/).
     fn id(&self) -> &'static str;
+
+    /// The name of the license.
+    ///
+    /// Corresponds to the *Full name* column from [spdx.org/licenses](https://spdx.org/licenses/).
+    fn name(&self) -> &'static str;
 
     /// The license text.
     fn text(&self) -> &'static str;
@@ -94,12 +94,12 @@ pub trait License: Debug {
 }
 
 /// Base functionality for all license exceptions.
-pub trait Exception: Debug {
-    /// The name of the exception.
-    fn name(&self) -> &'static str;
-
+pub trait Exception {
     /// The identifier of the exceptions.
     fn id(&self) -> &'static str;
+
+    /// The name of the exception.
+    fn name(&self) -> &'static str;
 
     /// The exception text.
     fn text(&self) -> &'static str;
@@ -112,6 +112,30 @@ pub trait Exception: Debug {
 
     /// Relevant sources.
     fn see_also(&self) -> &'static [&'static str];
+}
+
+impl Display for &dyn License {
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+        Display::fmt(self.name(), f)
+    }
+}
+
+impl Display for &dyn Exception {
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+        Display::fmt(self.name(), f)
+    }
+}
+
+impl Debug for &dyn License {
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+        Debug::fmt(self.id(), f)
+    }
+}
+
+impl Debug for &dyn Exception {
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+        Debug::fmt(self.id(), f)
+    }
 }
 
 impl FromStr for &dyn License {

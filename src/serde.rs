@@ -72,3 +72,16 @@ impl<'de> Deserialize<'de> for &dyn Exception {
         deserializer.deserialize_str(ExceptionVisitor)
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use crate::License;
+
+    #[test]
+    fn serde() {
+        let mit: &dyn License = "MIT".parse().unwrap();
+        let s = serde_json::to_string(&mit).unwrap();
+        assert_eq!(s, "\"MIT\"");
+        let _: &dyn License = serde_json::from_str(&s).unwrap();
+    }
+}

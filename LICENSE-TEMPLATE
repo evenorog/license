@@ -3,12 +3,12 @@
 pub struct {ident};
 
 impl crate::License for {ident} {{
-    fn name(&self) -> &'static str {{
-        {name:?}
-    }}
-
     fn id(&self) -> &'static str {{
         {id:?}
+    }}
+
+    fn name(&self) -> &'static str {{
+        {name:?}
     }}
 
     fn text(&self) -> &'static str {{
