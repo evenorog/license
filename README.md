@@ -41,8 +41,6 @@ If you want to build it offline instead, you can enable the `offline` feature.
 
 [Serde](https://crates.io/crates/serde) is supported with the `serde` feature.
 
-```rust
-
 ### License
 
 Licensed under either of
