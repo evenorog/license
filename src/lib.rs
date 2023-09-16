@@ -114,25 +114,25 @@ pub trait Exception {
     fn see_also(&self) -> &'static [&'static str];
 }
 
-impl Display for &dyn License {
+impl Display for dyn License {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         Display::fmt(self.name(), f)
     }
 }
 
-impl Display for &dyn Exception {
+impl Display for dyn Exception {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         Display::fmt(self.name(), f)
     }
 }
 
-impl Debug for &dyn License {
+impl Debug for dyn License {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         Debug::fmt(self.id(), f)
     }
 }
 
-impl Debug for &dyn Exception {
+impl Debug for dyn Exception {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
         Debug::fmt(self.id(), f)
     }
