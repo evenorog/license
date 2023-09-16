@@ -16,22 +16,16 @@ edition = "2021"
 default = []
 offline = []
 
+[dependencies]
+serde = { version = "1", default-features = false, optional = true }
+
+[dev-dependencies]
+serde_json = "1"
+
 [build-dependencies]
 reword = "7"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
-
-[profile.dev.build-override]
-opt-level = 3
-
-[profile.release.build-override]
-opt-level = 3
-
-[profile.test.build-override]
-opt-level = 3
-
-[profile.bench.build-override]
-opt-level = 3
 
 [badges]
 maintenance = { status = "actively-developed" }

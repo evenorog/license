@@ -13,6 +13,7 @@ struct License {
     license_id: String,
     license_text: String,
     standard_license_header: Option<String>,
+    license_comments: Option<String>,
     #[serde(default)]
     see_also: Vec<String>,
     #[serde(default)]
@@ -137,13 +138,14 @@ fn build_licenses_from_json(input: &Path, output: &Path) -> Result<(), Box<dyn E
             f,
             include_str!("LICENSE-TEMPLATE"),
             ident = license.ident(),
-            name = license.name,
             id = license.license_id,
+            name = license.name,
             text = license.license_text,
             header = license.standard_license_header,
             osi = license.is_osi_approved,
             fsf = license.is_fsf_libre,
             deprecated = license.is_deprecated_license_id,
+            comments = license.license_comments,
             see_also = license.see_also,
         )?;
     }
@@ -180,8 +182,8 @@ fn build_exceptions_from_json(input: &Path, output: &Path) -> Result<(), Box<dyn
             f,
             include_str!("EXCEPTION-TEMPLATE"),
             ident = exception.ident(),
-            name = exception.name,
             id = exception.license_exception_id,
+            name = exception.name,
             text = exception.license_exception_text,
             deprecated = exception.is_deprecated_license_id,
             comments = exception.license_comments,

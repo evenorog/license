@@ -32,12 +32,17 @@
 //! By default, this library downloads the latest licenses from
 //! [github.com/spdx](https://github.com/spdx/license-list-data.git).
 //! If you want to build it offline instead, you can enable the `offline` feature.
+//!
+//! [Serde](https://crates.io/crates/serde) is supported with the `serde` feature.
 
 #![no_std]
 #![doc(html_root_url = "https://docs.rs/license")]
 #![deny(missing_docs, unsafe_code)]
 
-use core::fmt::{self, Display, Formatter};
+#[cfg(feature = "serde")]
+mod serde;
+
+use core::fmt::{self, Debug, Display, Formatter};
 use core::str::FromStr;
 
 /// All supported licenses.
@@ -52,15 +57,15 @@ pub mod exceptions {
 
 /// Base functionality for all licenses.
 pub trait License {
-    /// The name of the license.
-    ///
-    /// Corresponds to the *Full name* column from [spdx.org/licenses](https://spdx.org/licenses/).
-    fn name(&self) -> &'static str;
-
     /// The identifier of the license.
     ///
     /// Corresponds to the *Identifier* column from [spdx.org/licenses](https://spdx.org/licenses/).
     fn id(&self) -> &'static str;
+
+    /// The name of the license.
+    ///
+    /// Corresponds to the *Full name* column from [spdx.org/licenses](https://spdx.org/licenses/).
+    fn name(&self) -> &'static str;
 
     /// The license text.
     fn text(&self) -> &'static str;
@@ -81,17 +86,20 @@ pub trait License {
     /// Says if the license is deprecated.
     fn is_deprecated(&self) -> bool;
 
+    /// The license comments.
+    fn comments(&self) -> Option<&'static str>;
+
     /// Relevant sources.
     fn see_also(&self) -> &'static [&'static str];
 }
 
 /// Base functionality for all license exceptions.
 pub trait Exception {
-    /// The name of the exception.
-    fn name(&self) -> &'static str;
-
     /// The identifier of the exceptions.
     fn id(&self) -> &'static str;
+
+    /// The name of the exception.
+    fn name(&self) -> &'static str;
 
     /// The exception text.
     fn text(&self) -> &'static str;
@@ -106,7 +114,31 @@ pub trait Exception {
     fn see_also(&self) -> &'static [&'static str];
 }
 
-impl FromStr for &'static dyn License {
+impl Display for dyn License {
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+        Display::fmt(self.name(), f)
+    }
+}
+
+impl Display for dyn Exception {
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+        Display::fmt(self.name(), f)
+    }
+}
+
+impl Debug for dyn License {
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+        Debug::fmt(self.id(), f)
+    }
+}
+
+impl Debug for dyn Exception {
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+        Debug::fmt(self.id(), f)
+    }
+}
+
+impl FromStr for &dyn License {
     type Err = ParseError;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
@@ -114,7 +146,7 @@ impl FromStr for &'static dyn License {
     }
 }
 
-impl FromStr for &'static dyn Exception {
+impl FromStr for &dyn Exception {
     type Err = ParseError;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
@@ -128,6 +160,6 @@ pub struct ParseError(());
 
 impl Display for ParseError {
     fn fmt(&self, f: &mut Formatter) -> fmt::Result {
-        "provided id does not match".fmt(f)
+        Display::fmt("SPDX id not found", f)
     }
 }
