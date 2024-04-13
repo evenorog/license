@@ -1,4 +1,4 @@
-//! **Provides embedded license information from [SPDX](https://spdx.org).**
+//! **Embedded license information from [SPDX](https://spdx.org).**
 //!
 //! Use the licenses directly.
 //!

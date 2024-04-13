@@ -1,6 +1,6 @@
 # license
 
-**Provides embedded license information from [SPDX](https://spdx.org).**
+**Embedded license information from [SPDX](https://spdx.org).**
 
 [![Rust](https://github.com/evenorog/license/actions/workflows/rust.yml/badge.svg)](https://github.com/evenorog/license/actions/workflows/rust.yml)
 [![Crates.io](https://img.shields.io/crates/v/license.svg)](https://crates.io/crates/license)
@@ -22,7 +22,7 @@ Get the license by parsing the license id.
 ```rust
 use license::License;
 
-let apache2: &dyn License = "Apache-2.0".parse().unwrap();
+let apache2: & dyn License = "Apache-2.0".parse().unwrap();
 assert_eq!(apache2.name(), "Apache License 2.0");
 ```
 
@@ -31,7 +31,7 @@ License exceptions are also supported.
 ```rust
 use license::Exception;
 
-let gcc: &dyn Exception = "GCC-exception-3.1".parse().unwrap();
+let gcc: & dyn Exception = "GCC-exception-3.1".parse().unwrap();
 assert_eq!(gcc.name(), "GCC Runtime Library exception 3.1");
 ```
 
@@ -45,8 +45,8 @@ If you want to build it offline instead, you can enable the `offline` feature.
 
 Licensed under either of
 
- * Apache License, Version 2.0, ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
- * MIT license ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
+* Apache License, Version 2.0, ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
+* MIT license ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
 
 at your option.
 

@@ -2,7 +2,7 @@
 name = "license"
 version = "3.2.0"
 authors = ["evenorog <evenorog@gmail.com>"]
-description = "Provides embedded license information from SPDX."
+description = "Embedded license information from SPDX."
 documentation = "https://docs.rs/license"
 repository = "https://github.com/evenorog/license"
 readme = "README.md"
