@@ -1,6 +1,6 @@
 [package]
 name = "license"
-version = "3.2.0"
+version = "3.3.0"
 authors = ["evenorog <evenorog@gmail.com>"]
 description = "Embedded license information from SPDX."
 documentation = "https://docs.rs/license"
@@ -11,6 +11,10 @@ keywords = ["license", "spdx"]
 categories = ["no-std"]
 exclude = ["/license-list-data", "!/license-list-data/json"]
 edition = "2021"
+
+[features]
+default = []
+offline = []
 
 [dependencies]
 serde = { version = "1", default-features = false, optional = true }
