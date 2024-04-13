@@ -12,10 +12,6 @@ categories = ["no-std"]
 exclude = ["/license-list-data", "!/license-list-data/json"]
 edition = "2021"
 
-[features]
-default = []
-offline = []
-
 [dependencies]
 serde = { version = "1", default-features = false, optional = true }
 
@@ -29,6 +25,3 @@ serde_json = "1"
 
 [badges]
 maintenance = { status = "actively-developed" }
-
-[package.metadata.docs.rs]
-features = ["offline"]

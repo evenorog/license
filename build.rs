@@ -4,7 +4,6 @@ use std::error::Error;
 use std::fs::{self, File};
 use std::io::{BufReader, BufWriter, Write};
 use std::path::{Path, PathBuf};
-use std::process::Command;
 
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -56,54 +55,6 @@ impl Exception {
             "Exception389".to_string()
         } else {
             reword::pascal_case(ident)
-        }
-    }
-}
-
-fn main() {
-    let out_dir = env::var_os("OUT_DIR").unwrap();
-    let out_dir = PathBuf::from(out_dir);
-    let licenses_output = out_dir.join("licenses.rs");
-    let exceptions_output = out_dir.join("exceptions.rs");
-
-    if cfg!(feature = "offline") {
-        // If unable to clone the latest version from git we use the offline files.
-        build_licenses_from_json(
-            Path::new("license-list-data/json/details"),
-            &licenses_output,
-        )
-        .unwrap();
-        build_exceptions_from_json(
-            Path::new("license-list-data/json/exceptions"),
-            &exceptions_output,
-        )
-        .unwrap();
-    } else {
-        let json_dir = Path::new(&out_dir).join("license-list-data/json");
-
-        if json_dir.exists() {
-            build_licenses_from_json(&json_dir.join("details"), &licenses_output).unwrap();
-            build_exceptions_from_json(&json_dir.join("exceptions"), &exceptions_output).unwrap();
-        } else {
-            let status = Command::new("git")
-                .arg("clone")
-                .arg("--depth")
-                .arg("1")
-                .arg("https://github.com/spdx/license-list-data.git")
-                .current_dir(&out_dir)
-                .status()
-                .expect("`git` not found");
-
-            if status.success() {
-                build_licenses_from_json(&json_dir.join("details"), &licenses_output).unwrap();
-                build_exceptions_from_json(&json_dir.join("exceptions"), &exceptions_output)
-                    .unwrap();
-            } else {
-                match status.code() {
-                    Some(code) => panic!("`git clone --depth 1` failed with exit code `{}`", code),
-                    None => panic!("`git clone --depth 1` was terminated by signal"),
-                }
-            }
         }
     }
 }
@@ -190,5 +141,23 @@ fn build_exceptions_from_json(input: &Path, output: &Path) -> Result<(), Box<dyn
             see_also = exception.see_also,
         )?;
     }
+
     Ok(())
+}
+
+fn main() {
+    let out_dir = env::var_os("OUT_DIR").unwrap();
+    let out_dir = PathBuf::from(out_dir);
+
+    build_licenses_from_json(
+        Path::new("license-list-data/json/details"),
+        &out_dir.join("licenses.rs"),
+    )
+    .expect("failed to build licenses.rs");
+
+    build_exceptions_from_json(
+        Path::new("license-list-data/json/exceptions"),
+        &out_dir.join("exceptions.rs"),
+    )
+    .expect("failed to build exceptions.rs");
 }
