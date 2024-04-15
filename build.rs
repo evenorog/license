@@ -87,7 +87,7 @@ fn build_licenses_from_json(input: &Path, output: &Path) -> Result<(), Box<dyn E
     for license in licenses {
         writeln!(
             f,
-            include_str!("LICENSE-TEMPLATE"),
+            include_str!("TEMPLATE-FOR-LICENSE.txt"),
             ident = license.ident(),
             id = license.license_id,
             name = license.name,
@@ -131,7 +131,7 @@ fn build_exceptions_from_json(input: &Path, output: &Path) -> Result<(), Box<dyn
     for exception in exceptions {
         writeln!(
             f,
-            include_str!("EXCEPTION-TEMPLATE"),
+            include_str!("TEMPLATE-FOR-EXCEPTION.txt"),
             ident = exception.ident(),
             id = exception.license_exception_id,
             name = exception.name,
