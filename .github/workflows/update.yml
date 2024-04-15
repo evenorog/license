@@ -1,0 +1,29 @@
+name: Update Submodules
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+permissions:
+  contents: write
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  update:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - run: git config user.name "github-actions[bot]"
+      - run: git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - run: git submodule update --recursive --remote
+      - run: git diff --exit-code
+        id: git-diff
+        continue-on-error: true
+      - run: cargo build --verbose
+        if: steps.git-diff.outcome == 'failure'
