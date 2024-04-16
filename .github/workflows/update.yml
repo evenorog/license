@@ -22,8 +22,18 @@ jobs:
       - run: git config user.name "github-actions[bot]"
       - run: git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - run: git submodule update --recursive --remote
-      - run: git diff --exit-code
-        id: git-diff
-        continue-on-error: true
-      - run: cargo build --verbose
-        if: steps.git-diff.outcome == 'failure'
+      - name: Check for new tag in submodule
+        id: check_tags
+        run: |
+          git fetch --tags
+          old_tag=$(git describe --abbrev=0)
+          new_tag=$(git -C license-list-data describe --abbrev=0)
+          echo "::set-output name=old_tag::$old_tag"
+          echo "::set-output name=new_tag::$new_tag"
+        shell: bash
+      - run: |
+          echo "Old tag: ${{ steps.check_tags.outputs.old_tag }}"
+          echo "New tag: ${{ steps.check_tags.outputs.new_tag }}"
+        shell: bash
+      - run: cargo test --verbose
+        if: steps.check_tags.outputs.old_tag != steps.check_tags.outputs.new_tag
