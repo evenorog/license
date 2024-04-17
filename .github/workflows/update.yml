@@ -34,4 +34,4 @@ jobs:
           echo "New tag: $NEW_TAG"
         shell: bash
       - run: cargo test --verbose
-        if: $OLD_TAG != $NEW_TAG
+        if: "$OLD_TAG" != "$NEW_TAG"
