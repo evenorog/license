@@ -45,8 +45,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git commit -am "Update license-list-data to $NEW_VERSION"
           cargo package
-        # git push
-        # cargo publish
+          git push
+          cargo_version=$(cargo pkgid | cut -d# -f2)
+          git tag -a "v$cargo_version" -m "Update spdx to $NEW_VERSION"
+          git push origin "v$cargo_version"
+          cargo publish
         if: ${{ env.CURRENT_VERSION != env.NEW_VERSION }}
         env:
           CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
