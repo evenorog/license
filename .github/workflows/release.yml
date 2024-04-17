@@ -1,4 +1,4 @@
-name: Update Submodules
+name: Update SPDX and Release
 
 on:
   schedule:
@@ -23,7 +23,7 @@ jobs:
           fetch-depth: 0
           submodules: recursive
       - run: git submodule update --recursive --remote
-      - name: Check for new version in submodule
+      - name: Check for new release in submodule
         run: |
           CURRENT_VERSION=$(cat VERSION)
           NEW_VERSION=$(git -C license-list-data describe --abbrev=0)
@@ -31,7 +31,7 @@ jobs:
           echo "CURRENT_VERSION=$CURRENT_VERSION" >> "$GITHUB_ENV"
           echo "NEW_VERSION=$NEW_VERSION" >> "$GITHUB_ENV"
           echo "$NEW_VERSION" > VERSION
-      - name: Update version
+      - name: Update cargo version
         run: |
           cargo install cargo-edit
           cargo set-version --bump minor
