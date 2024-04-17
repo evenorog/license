@@ -19,18 +19,30 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          fetch-tags: true
           fetch-depth: 0
           submodules: recursive
-      - run: git config user.name "github-actions[bot]"
-      - run: git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - run: git submodule update --recursive --remote
       - name: Check for new tag in submodule
         id: check_tags
         run: |
           echo "OLD_TAG=$(git describe --abbrev=0)" >> "$GITHUB_ENV"
           echo "NEW_TAG=$(git -C license-list-data describe --abbrev=0)" >> "$GITHUB_ENV"
-        shell: bash
       - run: |
-          echo "Old tag: $OLD_TAG"
-          echo "New tag: $NEW_TAG"
-      - run: cargo test --verbose
+          VERSION="${NEW_TAG#v}"
+          if [[ $VERSION != *.*.* ]]; then
+            VERSION="${VERSION}.0"
+          fi
+          echo "$VERSION" > VERSION
+        if: ${{ env.OLD_TAG != env.NEW_TAG }}
+      - run: cargo test
+        if: ${{ env.OLD_TAG != env.NEW_TAG }}
+      - run: cargo package
+        if: ${{ env.OLD_TAG != env.NEW_TAG }}
+      - name: Commit changes
+        run: |
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git commit -am "Update license-list-data to $NEW_TAG"
+          git push
         if: ${{ env.OLD_TAG != env.NEW_TAG }}
