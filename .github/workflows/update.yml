@@ -28,7 +28,8 @@ jobs:
         run: |
           echo "OLD_TAG=$(git describe --abbrev=0)" >> "$GITHUB_ENV"
           echo "NEW_TAG=$(git -C license-list-data describe --abbrev=0)" >> "$GITHUB_ENV"
-      - run: |
+      - name: Create VERSION file
+        run: |
           VERSION="${NEW_TAG#v}"
           if [[ $VERSION != *.*.* ]]; then
             VERSION="${VERSION}.0"
@@ -37,12 +38,11 @@ jobs:
         if: ${{ env.OLD_TAG != env.NEW_TAG }}
       - run: cargo test
         if: ${{ env.OLD_TAG != env.NEW_TAG }}
-      - run: cargo package
-        if: ${{ env.OLD_TAG != env.NEW_TAG }}
       - name: Commit changes
         run: |
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
           git commit -am "Update license-list-data to $NEW_TAG"
+          cargo package
           git push
         if: ${{ env.OLD_TAG != env.NEW_TAG }}
