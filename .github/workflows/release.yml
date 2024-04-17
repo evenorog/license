@@ -39,7 +39,7 @@ jobs:
         if: ${{ env.CURRENT_VERSION != env.NEW_VERSION }}
       - run: cargo test
         if: ${{ env.CURRENT_VERSION != env.NEW_VERSION }}
-      - name: Commit changes
+      - name: Release
         run: |
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
@@ -47,7 +47,7 @@ jobs:
           cargo package
           git push
           cargo_version=$(cargo pkgid | cut -d# -f2)
-          git tag -a "v$cargo_version" -m "Update spdx to $NEW_VERSION"
+          git tag -a "v$cargo_version" -m "Update SPDX to $NEW_VERSION"
           git push origin "v$cargo_version"
           cargo publish
         if: ${{ env.CURRENT_VERSION != env.NEW_VERSION }}
