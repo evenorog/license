@@ -26,14 +26,12 @@ jobs:
       - name: Check for new tag in submodule
         id: check_tags
         run: |
-          old_tag=$(git describe --abbrev=0)
-          new_tag=$(git -C license-list-data describe --abbrev=0)
-          echo "::set-output name=old_tag::$old_tag"
-          echo "::set-output name=new_tag::$new_tag"
+          echo "OLD_TAG=$(git describe --abbrev=0)" >> "$GITHUB_ENV"
+          echo "NEW_TAG=$(git -C license-list-data describe --abbrev=0)" >> "$GITHUB_ENV"
         shell: bash
       - run: |
-          echo "Old tag: ${{ steps.check_tags.outputs.old_tag }}"
-          echo "New tag: ${{ steps.check_tags.outputs.new_tag }}"
+          echo "Old tag: $OLD_TAG"
+          echo "New tag: $NEW_TAG"
         shell: bash
       - run: cargo test --verbose
-        if: steps.check_tags.outputs.old_tag != steps.check_tags.outputs.new_tag
+        if: $OLD_TAG != $NEW_TAG
