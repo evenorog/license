@@ -33,4 +33,4 @@ jobs:
           echo "Old tag: $OLD_TAG"
           echo "New tag: $NEW_TAG"
       - run: cargo test --verbose
-        if: "$OLD_TAG" != "$NEW_TAG"
+        if: ${{ env.OLD_TAG != env.NEW_TAG }}
