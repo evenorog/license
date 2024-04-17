@@ -23,27 +23,30 @@ jobs:
           fetch-depth: 0
           submodules: recursive
       - run: git submodule update --recursive --remote
-      - name: Check for new tag in submodule
-        id: check_tags
+      - name: Check for new version in submodule
         run: |
-          echo "OLD_TAG=$(git describe --abbrev=0)" >> "$GITHUB_ENV"
-          echo "NEW_TAG=$(git -C license-list-data describe --abbrev=0)" >> "$GITHUB_ENV"
-      - name: Create VERSION file
+          CURRENT_VERSION=$(cat VERSION)
+          NEW_VERSION=$(git -C license-list-data describe --abbrev=0)
+          NEW_VERSION="${NEW_VERSION#v}"
+          echo "CURRENT_VERSION=$CURRENT_VERSION" >> "$GITHUB_ENV"
+          echo "NEW_VERSION=$NEW_VERSION" >> "$GITHUB_ENV"
+          echo "$NEW_VERSION" > VERSION
+      - name: Update version
         run: |
-          VERSION="${NEW_TAG#v}"
-          if [[ $VERSION != *.*.* ]]; then
-            VERSION="${VERSION}.0"
-          fi
-          echo "$VERSION" > VERSION
-        if: ${{ env.OLD_TAG != env.NEW_TAG }}
+          cargo install cargo-edit
+          cargo set-version --bump minor
+          cargo set-version -m "$NEW_VERSION"
+        if: ${{ env.CURRENT_VERSION != env.NEW_VERSION }}
       - run: cargo test
-        if: ${{ env.OLD_TAG != env.NEW_TAG }}
+        if: ${{ env.CURRENT_VERSION != env.NEW_VERSION }}
       - name: Commit changes
         run: |
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-          git add .
-          git commit -m "Update license-list-data to $NEW_TAG"
+          git commit -am "Update license-list-data to $NEW_VERSION"
           cargo package
-          git push
-        if: ${{ env.OLD_TAG != env.NEW_TAG }}
+        # git push
+        # cargo publish
+        if: ${{ env.CURRENT_VERSION != env.NEW_VERSION }}
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
