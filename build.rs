@@ -28,10 +28,10 @@ impl License {
             .license_id
             .replace(['-', '.'], "_")
             .replace('+', "_plus");
-        if ident == "0BSD" {
-            "Bsd0".to_string()
-        } else {
-            reword::pascal_case(ident)
+        match ident.as_str() {
+            "0BSD" => "Bsd0".to_string(),
+            "3D-Slicer-1.0" => "ThreeDSlicer1_0".to_string(),
+            ident => reword::pascal_case(ident),
         }
     }
 }
