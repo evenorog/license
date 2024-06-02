@@ -24,14 +24,13 @@ struct License {
 
 impl License {
     fn ident(&self) -> String {
-        let ident = self
-            .license_id
-            .replace(['-', '.'], "_")
-            .replace('+', "_plus");
-        match ident.as_str() {
+        match self.license_id.as_str() {
             "0BSD" => "Bsd0".to_string(),
             "3D-Slicer-1.0" => "ThreeDSlicer1_0".to_string(),
-            ident => reword::pascal_case(ident),
+            id => {
+                let ident = id.replace(['-', '.'], "_").replace('+', "_plus");
+                reword::pascal_case(ident)
+            }
         }
     }
 }
@@ -50,11 +49,12 @@ struct Exception {
 
 impl Exception {
     fn ident(&self) -> String {
-        let ident = self.license_exception_id.replace(['-', '.'], "_");
-        if ident == "389_exception" {
-            "Exception389".to_string()
-        } else {
-            reword::pascal_case(ident)
+        match self.license_exception_id.as_str() {
+            "389-exception" => "Exception389".to_string(),
+            id => {
+                let ident = id.replace(['-', '.'], "_");
+                reword::pascal_case(ident)
+            }
         }
     }
 }
