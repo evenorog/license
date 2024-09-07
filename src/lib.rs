@@ -38,6 +38,7 @@
 #[cfg(feature = "serde")]
 mod serde;
 
+use core::error::Error;
 use core::fmt::{self, Debug, Display, Formatter};
 use core::str::FromStr;
 
@@ -159,3 +160,5 @@ impl Display for ParseError {
         Display::fmt("SPDX id not found", f)
     }
 }
+
+impl Error for ParseError {}
