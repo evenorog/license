@@ -22,7 +22,9 @@ jobs:
           fetch-tags: true
           fetch-depth: 0
           submodules: recursive
-      - run: git submodule update --recursive --remote --no-recommend-shallow
+      - run: |
+          git submodule update --recursive --remote --no-recommend-shallow
+          git -C license-list-data fetch --unshallow --tags
       - name: Check for new release in submodule
         run: |
           CURRENT_VERSION=$(cat VERSION)
